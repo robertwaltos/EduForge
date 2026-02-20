@@ -9,6 +9,7 @@ import { buildSeedanceAnimationPrompt, buildSeedanceVideoPrompt } from "@/lib/me
 import LessonMediaOps from "./lesson-media-ops";
 import VideoLessonPlayer from "./video-lesson-player";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import LessonAnimationPreview from "./lesson-animation-preview";
 
 export default function LessonPage({
   params,
@@ -135,6 +136,9 @@ async function LessonPageContent({
       {lesson.learningAids && lesson.learningAids.length > 0 ? (
         <section className="rounded-3xl border border-indigo-200 bg-indigo-50 p-4 shadow-sm sm:p-6">
           <h2 className="text-xl font-bold text-indigo-900">Learning Aids</h2>
+          <div className="mt-3">
+            <LessonAnimationPreview moduleId={learningModule.id} lessonId={lesson.id} />
+          </div>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             {lesson.learningAids.map((aid) => (
               <article key={aid.id} className="rounded-xl border border-indigo-200 bg-white p-4">
