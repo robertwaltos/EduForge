@@ -117,6 +117,7 @@ Required GitHub secrets/vars for media queue apply mode:
 - `POST /api/admin/compliance/dsar/bulk`
 - `GET/POST/PATCH /api/admin/alerts`
 - `POST /api/admin/alerts/run`
+- `POST /api/admin/alerts/notifications/run`
 - `GET /api/admin/report-exports`
 - `GET/POST /api/admin/report-jobs`
 - `POST /api/admin/report-jobs/run`
@@ -158,6 +159,7 @@ Required GitHub secrets/vars for media queue apply mode:
 - `/admin/alerts` (operational anomaly and rate-limit alerts)
   - Includes editable media queue SLA thresholds (stale hours, backlog limit, 24h failure limit)
   - Includes editable dedupe and auto-resolve windows for media queue alerts
+  - Includes an admin-triggered notification queue processor for queued/failed alert emails
 - Critical actions (`delete user`, `refund`, `set price`) require approved request IDs.
 - `/account/settings` (user self-service account deletion)
 - `/account/privacy` (DSAR + policy acknowledgment history)

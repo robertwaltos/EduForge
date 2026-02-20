@@ -39,6 +39,7 @@ export default function AlertsClient({
   const [settings, setSettings] = useState(initialSettings);
   const [status, setStatus] = useState("");
   const [isSavingSettings, setIsSavingSettings] = useState(false);
+  const [isProcessingNotifications, setIsProcessingNotifications] = useState(false);
   const [lastRunSummary, setLastRunSummary] = useState<RunSummary | null>(null);
 
   const refreshAlerts = async () => {
@@ -146,6 +147,46 @@ export default function AlertsClient({
       setStatus("Unable to save alert settings.");
     } finally {
       setIsSavingSettings(false);
+    }
+  };
+
+  const processNotifications = async () => {
+    setStatus("");
+    setIsProcessingNotifications(true);
+    try {
+      const response = await fetch("/api/admin/alerts/notifications/run", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          limit: 200,
+          retryFailed: true,
+        }),
+      });
+
+      const data = (await response.json().catch(() => ({}))) as {
+        error?: string;
+        reason?: string;
+        scanned?: number;
+        sent?: number;
+        failed?: number;
+        skipped?: number;
+        missingAlerts?: number;
+      };
+
+      if (!response.ok) {
+        setStatus(data.error ?? "Unable to process alert notifications.");
+        return;
+      }
+
+      const reasonSuffix = data.reason ? ` (${data.reason})` : "";
+      setStatus(
+        `Notification queue processed. scanned=${data.scanned ?? 0}, sent=${data.sent ?? 0}, failed=${data.failed ?? 0}, skipped=${data.skipped ?? 0}, missing-alerts=${data.missingAlerts ?? 0}${reasonSuffix}`,
+      );
+      await refreshAlerts();
+    } catch {
+      setStatus("Unable to process alert notifications.");
+    } finally {
+      setIsProcessingNotifications(false);
     }
   };
 
@@ -262,6 +303,14 @@ export default function AlertsClient({
           className="rounded border border-black/15 px-2 py-1 text-xs"
         >
           Refresh
+        </button>
+        <button
+          type="button"
+          onClick={() => void processNotifications()}
+          disabled={isProcessingNotifications}
+          className="rounded border border-black/15 px-2 py-1 text-xs disabled:opacity-70"
+        >
+          {isProcessingNotifications ? "Processing Notifications..." : "Process Notifications"}
         </button>
       </div>
       {status ? <p className="text-sm text-zinc-600 dark:text-zinc-300">{status}</p> : null}
