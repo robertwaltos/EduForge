@@ -37,14 +37,17 @@ type NotificationSummary = {
 export default function AlertsClient({
   initialAlerts,
   initialSettings,
+  initialReportSettings,
   initialNotificationSummary,
 }: {
   initialAlerts: AlertRow[];
   initialSettings: AlertSettings;
+  initialReportSettings: AlertSettings;
   initialNotificationSummary: NotificationSummary;
 }) {
   const [alerts, setAlerts] = useState(initialAlerts);
-  const [settings, setSettings] = useState(initialSettings);
+  const [mediaSettings, setMediaSettings] = useState(initialSettings);
+  const [reportSettings, setReportSettings] = useState(initialReportSettings);
   const [status, setStatus] = useState("");
   const [isSavingSettings, setIsSavingSettings] = useState(false);
   const [isProcessingNotifications, setIsProcessingNotifications] = useState(false);
@@ -58,6 +61,7 @@ export default function AlertsClient({
     const data = (await response.json().catch(() => ({}))) as {
       alerts?: AlertRow[];
       settings?: AlertSettings;
+      reportSettings?: AlertSettings;
       notificationSummary?: NotificationSummary;
       error?: string;
     };
@@ -66,7 +70,10 @@ export default function AlertsClient({
     }
     setAlerts(data.alerts ?? []);
     if (data.settings) {
-      setSettings(data.settings);
+      setMediaSettings(data.settings);
+    }
+    if (data.reportSettings) {
+      setReportSettings(data.reportSettings);
     }
     if (data.notificationSummary) {
       setNotificationSummary(data.notificationSummary);
@@ -139,23 +146,36 @@ export default function AlertsClient({
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          staleHours: settings.staleHours,
-          backlogLimit: settings.backlogLimit,
-          failure24hLimit: settings.failure24hLimit,
-          dedupeWindowHours: settings.dedupeWindowHours,
-          autoResolveHours: settings.autoResolveHours,
+          media: {
+            staleHours: mediaSettings.staleHours,
+            backlogLimit: mediaSettings.backlogLimit,
+            failure24hLimit: mediaSettings.failure24hLimit,
+            dedupeWindowHours: mediaSettings.dedupeWindowHours,
+            autoResolveHours: mediaSettings.autoResolveHours,
+          },
+          report: {
+            staleHours: reportSettings.staleHours,
+            backlogLimit: reportSettings.backlogLimit,
+            failure24hLimit: reportSettings.failure24hLimit,
+            dedupeWindowHours: reportSettings.dedupeWindowHours,
+            autoResolveHours: reportSettings.autoResolveHours,
+          },
         }),
       });
       const data = (await response.json().catch(() => ({}))) as {
         error?: string;
         settings?: AlertSettings;
+        reportSettings?: AlertSettings | null;
       };
       if (!response.ok) {
         setStatus(data.error ?? "Unable to save alert settings.");
         return;
       }
       if (data.settings) {
-        setSettings(data.settings);
+        setMediaSettings(data.settings);
+      }
+      if (data.reportSettings) {
+        setReportSettings(data.reportSettings);
       }
       setStatus("Alert settings saved.");
     } catch {
@@ -219,9 +239,9 @@ export default function AlertsClient({
               type="number"
               min={1}
               max={168}
-              value={settings.staleHours}
+              value={mediaSettings.staleHours}
               onChange={(event) =>
-                setSettings((previous) => ({
+                setMediaSettings((previous) => ({
                   ...previous,
                   staleHours: Math.max(1, Math.min(168, Number(event.target.value) || 1)),
                 }))
@@ -235,9 +255,9 @@ export default function AlertsClient({
               type="number"
               min={1}
               max={10000}
-              value={settings.backlogLimit}
+              value={mediaSettings.backlogLimit}
               onChange={(event) =>
-                setSettings((previous) => ({
+                setMediaSettings((previous) => ({
                   ...previous,
                   backlogLimit: Math.max(1, Math.min(10000, Number(event.target.value) || 1)),
                 }))
@@ -251,9 +271,9 @@ export default function AlertsClient({
               type="number"
               min={1}
               max={10000}
-              value={settings.failure24hLimit}
+              value={mediaSettings.failure24hLimit}
               onChange={(event) =>
-                setSettings((previous) => ({
+                setMediaSettings((previous) => ({
                   ...previous,
                   failure24hLimit: Math.max(1, Math.min(10000, Number(event.target.value) || 1)),
                 }))
@@ -267,9 +287,9 @@ export default function AlertsClient({
               type="number"
               min={1}
               max={168}
-              value={settings.dedupeWindowHours}
+              value={mediaSettings.dedupeWindowHours}
               onChange={(event) =>
-                setSettings((previous) => ({
+                setMediaSettings((previous) => ({
                   ...previous,
                   dedupeWindowHours: Math.max(1, Math.min(168, Number(event.target.value) || 1)),
                 }))
@@ -283,9 +303,98 @@ export default function AlertsClient({
               type="number"
               min={1}
               max={720}
-              value={settings.autoResolveHours}
+              value={mediaSettings.autoResolveHours}
               onChange={(event) =>
-                setSettings((previous) => ({
+                setMediaSettings((previous) => ({
+                  ...previous,
+                  autoResolveHours: Math.max(1, Math.min(720, Number(event.target.value) || 1)),
+                }))
+              }
+              className="mt-1 w-full rounded border border-black/15 px-2 py-1 text-xs"
+            />
+          </label>
+        </div>
+      </section>
+
+      <section className="rounded-md border border-black/10 p-3 dark:border-white/10">
+        <h2 className="text-sm font-semibold">Report Queue SLA Settings</h2>
+        <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-300">
+          These thresholds control stale/backlog/failure alerts for admin report job processing.
+        </p>
+        <div className="mt-3 grid gap-2 md:grid-cols-5">
+          <label className="text-xs text-zinc-600 dark:text-zinc-300">
+            Stale Hours
+            <input
+              type="number"
+              min={1}
+              max={168}
+              value={reportSettings.staleHours}
+              onChange={(event) =>
+                setReportSettings((previous) => ({
+                  ...previous,
+                  staleHours: Math.max(1, Math.min(168, Number(event.target.value) || 1)),
+                }))
+              }
+              className="mt-1 w-full rounded border border-black/15 px-2 py-1 text-xs"
+            />
+          </label>
+          <label className="text-xs text-zinc-600 dark:text-zinc-300">
+            Backlog Limit
+            <input
+              type="number"
+              min={1}
+              max={10000}
+              value={reportSettings.backlogLimit}
+              onChange={(event) =>
+                setReportSettings((previous) => ({
+                  ...previous,
+                  backlogLimit: Math.max(1, Math.min(10000, Number(event.target.value) || 1)),
+                }))
+              }
+              className="mt-1 w-full rounded border border-black/15 px-2 py-1 text-xs"
+            />
+          </label>
+          <label className="text-xs text-zinc-600 dark:text-zinc-300">
+            Failure 24h Limit
+            <input
+              type="number"
+              min={1}
+              max={10000}
+              value={reportSettings.failure24hLimit}
+              onChange={(event) =>
+                setReportSettings((previous) => ({
+                  ...previous,
+                  failure24hLimit: Math.max(1, Math.min(10000, Number(event.target.value) || 1)),
+                }))
+              }
+              className="mt-1 w-full rounded border border-black/15 px-2 py-1 text-xs"
+            />
+          </label>
+          <label className="text-xs text-zinc-600 dark:text-zinc-300">
+            Dedupe Window (h)
+            <input
+              type="number"
+              min={1}
+              max={168}
+              value={reportSettings.dedupeWindowHours}
+              onChange={(event) =>
+                setReportSettings((previous) => ({
+                  ...previous,
+                  dedupeWindowHours: Math.max(1, Math.min(168, Number(event.target.value) || 1)),
+                }))
+              }
+              className="mt-1 w-full rounded border border-black/15 px-2 py-1 text-xs"
+            />
+          </label>
+          <label className="text-xs text-zinc-600 dark:text-zinc-300">
+            Auto-Resolve Age (h)
+            <input
+              type="number"
+              min={1}
+              max={720}
+              value={reportSettings.autoResolveHours}
+              onChange={(event) =>
+                setReportSettings((previous) => ({
                   ...previous,
                   autoResolveHours: Math.max(1, Math.min(720, Number(event.target.value) || 1)),
                 }))

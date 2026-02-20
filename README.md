@@ -84,7 +84,7 @@ Media automation workflow behavior:
 - Regenerates lesson media prompt pack artifacts.
 - Queues missing media jobs into `media_generation_jobs` using `scripts/queue-media-from-prompts.mjs`.
 - Re-queues failed/canceled media jobs using `scripts/retry-media-jobs.mjs`.
-- Runs media queue SLA alert checks using `scripts/check-media-sla-alerts.mjs`.
+- Runs media/report queue SLA alert checks using `scripts/check-media-sla-alerts.mjs`.
 - Processes queued/failed alert notifications using `scripts/process-alert-notifications.mjs`.
 - Processes queued media jobs using `scripts/process-media-jobs.mjs`.
 - Skips queue writes gracefully if Supabase secrets are not configured.
@@ -160,7 +160,8 @@ Required GitHub secrets/vars for media queue apply mode:
 - `/admin/reports` (CSV exports for DSAR/support/audit)
 - `/admin/alerts` (operational anomaly and rate-limit alerts)
   - Includes editable media queue SLA thresholds (stale hours, backlog limit, 24h failure limit)
-  - Includes editable dedupe and auto-resolve windows for media queue alerts
+  - Includes editable report queue SLA thresholds (stale hours, backlog limit, 24h failure limit)
+  - Includes editable dedupe and auto-resolve windows for media and report queue alerts
   - Includes an admin-triggered notification queue processor for queued/failed alert emails
 - Critical actions (`delete user`, `refund`, `set price`) require approved request IDs.
 - `/account/settings` (user self-service account deletion)
@@ -268,7 +269,7 @@ npm run media:retry -- --status failed,canceled --limit 100 --apply
 
 The retry flow skips jobs when a queued/running/completed asset already exists for the same module + lesson + asset type.
 
-Run media queue SLA checks and auto-create admin alerts:
+Run media/report queue SLA checks and auto-create admin alerts:
 
 ```bash
 npm run alerts:media:sla -- --apply
@@ -287,6 +288,14 @@ Optional `app_settings` keys for media queue SLA thresholds:
 - `media_queue_sla_failure_24h_limit` (default: `20`)
 - `media_queue_alert_dedupe_hours` (default: `24`)
 - `media_queue_alert_auto_resolve_hours` (default: `12`)
+
+Optional `app_settings` keys for report queue SLA thresholds:
+
+- `report_queue_sla_stale_hours` (default: `6`)
+- `report_queue_sla_backlog_limit` (default: `15`)
+- `report_queue_sla_failure_24h_limit` (default: `10`)
+- `report_queue_alert_dedupe_hours` (default: `24`)
+- `report_queue_alert_auto_resolve_hours` (default: `12`)
 
 Optional filters:
 

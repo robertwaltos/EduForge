@@ -8,7 +8,7 @@ const acknowledgeSchema = z.object({
   alertId: z.string().uuid(),
 });
 
-const settingsSchema = z.object({
+const queueSlaSettingsSchema = z.object({
   staleHours: z.number().min(1).max(168),
   backlogLimit: z.number().min(1).max(10000),
   failure24hLimit: z.number().min(1).max(10000),
@@ -16,13 +16,39 @@ const settingsSchema = z.object({
   autoResolveHours: z.number().min(1).max(720),
 });
 
-const ALERT_SETTING_KEYS = {
+const MEDIA_ALERT_SETTING_KEYS = {
   staleHours: "media_queue_sla_stale_hours",
   backlogLimit: "media_queue_sla_backlog_limit",
   failure24hLimit: "media_queue_sla_failure_24h_limit",
   dedupeWindowHours: "media_queue_alert_dedupe_hours",
   autoResolveHours: "media_queue_alert_auto_resolve_hours",
 } as const;
+
+const REPORT_ALERT_SETTING_KEYS = {
+  staleHours: "report_queue_sla_stale_hours",
+  backlogLimit: "report_queue_sla_backlog_limit",
+  failure24hLimit: "report_queue_sla_failure_24h_limit",
+  dedupeWindowHours: "report_queue_alert_dedupe_hours",
+  autoResolveHours: "report_queue_alert_auto_resolve_hours",
+} as const;
+
+const MEDIA_DEFAULT_SETTINGS = {
+  staleHours: 6,
+  backlogLimit: 30,
+  failure24hLimit: 20,
+  dedupeWindowHours: 24,
+  autoResolveHours: 12,
+} as const;
+
+const REPORT_DEFAULT_SETTINGS = {
+  staleHours: 6,
+  backlogLimit: 15,
+  failure24hLimit: 10,
+  dedupeWindowHours: 24,
+  autoResolveHours: 12,
+} as const;
+
+type QueueSlaSettings = z.infer<typeof queueSlaSettingsSchema>;
 
 function coerceNumber(value: unknown) {
   if (typeof value === "number" && Number.isFinite(value)) return value;
@@ -43,6 +69,71 @@ function readNumericSetting(value: unknown, fallback: number) {
   return fallback;
 }
 
+function normalizeQueueSlaInput(input: unknown) {
+  const record = input && typeof input === "object" ? (input as Record<string, unknown>) : {};
+  return {
+    staleHours: Number(record.staleHours),
+    backlogLimit: Number(record.backlogLimit),
+    failure24hLimit: Number(record.failure24hLimit),
+    dedupeWindowHours: Number(record.dedupeWindowHours),
+    autoResolveHours: Number(record.autoResolveHours),
+  };
+}
+
+function readQueueSlaSettingsFromMap(
+  settingsMap: Map<string, unknown>,
+  keys: Record<keyof QueueSlaSettings, string>,
+  defaults: QueueSlaSettings,
+): QueueSlaSettings {
+  return {
+    staleHours: readNumericSetting(settingsMap.get(keys.staleHours), defaults.staleHours),
+    backlogLimit: readNumericSetting(settingsMap.get(keys.backlogLimit), defaults.backlogLimit),
+    failure24hLimit: readNumericSetting(settingsMap.get(keys.failure24hLimit), defaults.failure24hLimit),
+    dedupeWindowHours: readNumericSetting(settingsMap.get(keys.dedupeWindowHours), defaults.dedupeWindowHours),
+    autoResolveHours: readNumericSetting(settingsMap.get(keys.autoResolveHours), defaults.autoResolveHours),
+  };
+}
+
+function buildQueueSlaRows(
+  settings: QueueSlaSettings,
+  keys: Record<keyof QueueSlaSettings, string>,
+  userId: string,
+  updatedAtIso: string,
+) {
+  return [
+    {
+      key: keys.staleHours,
+      value: settings.staleHours,
+      updated_by: userId,
+      updated_at: updatedAtIso,
+    },
+    {
+      key: keys.backlogLimit,
+      value: settings.backlogLimit,
+      updated_by: userId,
+      updated_at: updatedAtIso,
+    },
+    {
+      key: keys.failure24hLimit,
+      value: settings.failure24hLimit,
+      updated_by: userId,
+      updated_at: updatedAtIso,
+    },
+    {
+      key: keys.dedupeWindowHours,
+      value: settings.dedupeWindowHours,
+      updated_by: userId,
+      updated_at: updatedAtIso,
+    },
+    {
+      key: keys.autoResolveHours,
+      value: settings.autoResolveHours,
+      updated_by: userId,
+      updated_at: updatedAtIso,
+    },
+  ];
+}
+
 export async function GET() {
   const auth = await requireAdminForApi();
   if (!auth.isAuthorized) {
@@ -59,7 +150,7 @@ export async function GET() {
   const { data: settingsData, error: settingsError } = await admin
     .from("app_settings")
     .select("key, value")
-    .in("key", Object.values(ALERT_SETTING_KEYS));
+    .in("key", [...Object.values(MEDIA_ALERT_SETTING_KEYS), ...Object.values(REPORT_ALERT_SETTING_KEYS)]);
 
   const [queuedSummary, failedSummary, sentSummary] = await Promise.all([
     admin
@@ -96,17 +187,13 @@ export async function GET() {
   }
 
   const settingsMap = new Map((settingsData ?? []).map((entry) => [entry.key, entry.value]));
-  const settings = {
-    staleHours: readNumericSetting(settingsMap.get(ALERT_SETTING_KEYS.staleHours), 6),
-    backlogLimit: readNumericSetting(settingsMap.get(ALERT_SETTING_KEYS.backlogLimit), 30),
-    failure24hLimit: readNumericSetting(settingsMap.get(ALERT_SETTING_KEYS.failure24hLimit), 20),
-    dedupeWindowHours: readNumericSetting(settingsMap.get(ALERT_SETTING_KEYS.dedupeWindowHours), 24),
-    autoResolveHours: readNumericSetting(settingsMap.get(ALERT_SETTING_KEYS.autoResolveHours), 12),
-  };
+  const settings = readQueueSlaSettingsFromMap(settingsMap, MEDIA_ALERT_SETTING_KEYS, MEDIA_DEFAULT_SETTINGS);
+  const reportSettings = readQueueSlaSettingsFromMap(settingsMap, REPORT_ALERT_SETTING_KEYS, REPORT_DEFAULT_SETTINGS);
 
   return NextResponse.json({
     alerts: data,
     settings,
+    reportSettings,
     notificationSummary: {
       queuedCount: queuedSummary.count ?? 0,
       failedCount: failedSummary.count ?? 0,
@@ -161,51 +248,34 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: "Invalid payload." }, { status: 400 });
   }
 
-  const parsed = settingsSchema.safeParse({
-    staleHours: Number(body.staleHours),
-    backlogLimit: Number(body.backlogLimit),
-    failure24hLimit: Number(body.failure24hLimit),
-    dedupeWindowHours: Number(body.dedupeWindowHours),
-    autoResolveHours: Number(body.autoResolveHours),
-  });
+  const mediaInput = body.media ?? body;
+  const parsedMediaSettings = queueSlaSettingsSchema.safeParse(normalizeQueueSlaInput(mediaInput));
+  if (!parsedMediaSettings.success) {
+    return NextResponse.json(
+      { error: "Invalid media settings payload", details: parsedMediaSettings.error.flatten() },
+      { status: 400 },
+    );
+  }
 
-  if (!parsed.success) {
-    return NextResponse.json({ error: "Invalid payload", details: parsed.error.flatten() }, { status: 400 });
+  let parsedReportSettings: QueueSlaSettings | null = null;
+  if (body.report !== undefined) {
+    const reportParse = queueSlaSettingsSchema.safeParse(normalizeQueueSlaInput(body.report));
+    if (!reportParse.success) {
+      return NextResponse.json(
+        { error: "Invalid report settings payload", details: reportParse.error.flatten() },
+        { status: 400 },
+      );
+    }
+    parsedReportSettings = reportParse.data;
   }
 
   const admin = createSupabaseAdminClient();
   const nowIso = new Date().toISOString();
   const rows = [
-    {
-      key: ALERT_SETTING_KEYS.staleHours,
-      value: parsed.data.staleHours,
-      updated_by: auth.userId,
-      updated_at: nowIso,
-    },
-    {
-      key: ALERT_SETTING_KEYS.backlogLimit,
-      value: parsed.data.backlogLimit,
-      updated_by: auth.userId,
-      updated_at: nowIso,
-    },
-    {
-      key: ALERT_SETTING_KEYS.failure24hLimit,
-      value: parsed.data.failure24hLimit,
-      updated_by: auth.userId,
-      updated_at: nowIso,
-    },
-    {
-      key: ALERT_SETTING_KEYS.dedupeWindowHours,
-      value: parsed.data.dedupeWindowHours,
-      updated_by: auth.userId,
-      updated_at: nowIso,
-    },
-    {
-      key: ALERT_SETTING_KEYS.autoResolveHours,
-      value: parsed.data.autoResolveHours,
-      updated_by: auth.userId,
-      updated_at: nowIso,
-    },
+    ...buildQueueSlaRows(parsedMediaSettings.data, MEDIA_ALERT_SETTING_KEYS, auth.userId, nowIso),
+    ...(parsedReportSettings
+      ? buildQueueSlaRows(parsedReportSettings, REPORT_ALERT_SETTING_KEYS, auth.userId, nowIso)
+      : []),
   ];
 
   const { error } = await admin.from("app_settings").upsert(rows, { onConflict: "key" });
@@ -218,13 +288,14 @@ export async function PATCH(request: Request) {
     adminUserId: auth.userId,
     actionType: "admin_alert_settings_update",
     metadata: {
-      staleHours: parsed.data.staleHours,
-      backlogLimit: parsed.data.backlogLimit,
-      failure24hLimit: parsed.data.failure24hLimit,
-      dedupeWindowHours: parsed.data.dedupeWindowHours,
-      autoResolveHours: parsed.data.autoResolveHours,
+      media: parsedMediaSettings.data,
+      report: parsedReportSettings,
     },
   });
 
-  return NextResponse.json({ success: true, settings: parsed.data });
+  return NextResponse.json({
+    success: true,
+    settings: parsedMediaSettings.data,
+    reportSettings: parsedReportSettings,
+  });
 }

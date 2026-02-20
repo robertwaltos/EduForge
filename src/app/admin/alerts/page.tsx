@@ -66,6 +66,11 @@ export default async function AdminAlertsPage() {
         "media_queue_sla_failure_24h_limit",
         "media_queue_alert_dedupe_hours",
         "media_queue_alert_auto_resolve_hours",
+        "report_queue_sla_stale_hours",
+        "report_queue_sla_backlog_limit",
+        "report_queue_sla_failure_24h_limit",
+        "report_queue_alert_dedupe_hours",
+        "report_queue_alert_auto_resolve_hours",
       ]),
     admin
       .from("admin_alert_notifications")
@@ -89,6 +94,13 @@ export default async function AdminAlertsPage() {
     dedupeWindowHours: readNumericSetting(settingsMap.get("media_queue_alert_dedupe_hours"), 24),
     autoResolveHours: readNumericSetting(settingsMap.get("media_queue_alert_auto_resolve_hours"), 12),
   };
+  const initialReportSettings = {
+    staleHours: readNumericSetting(settingsMap.get("report_queue_sla_stale_hours"), 6),
+    backlogLimit: readNumericSetting(settingsMap.get("report_queue_sla_backlog_limit"), 15),
+    failure24hLimit: readNumericSetting(settingsMap.get("report_queue_sla_failure_24h_limit"), 10),
+    dedupeWindowHours: readNumericSetting(settingsMap.get("report_queue_alert_dedupe_hours"), 24),
+    autoResolveHours: readNumericSetting(settingsMap.get("report_queue_alert_auto_resolve_hours"), 12),
+  };
   const initialNotificationSummary = {
     queuedCount: queuedSummaryResult.count ?? 0,
     failedCount: failedSummaryResult.count ?? 0,
@@ -107,6 +119,7 @@ export default async function AdminAlertsPage() {
       <AlertsClient
         initialAlerts={alertsResult.data ?? []}
         initialSettings={initialSettings}
+        initialReportSettings={initialReportSettings}
         initialNotificationSummary={initialNotificationSummary}
       />
     </main>

@@ -56,12 +56,20 @@ function readNumericSetting(value, fallback) {
   return fallback;
 }
 
-function isMissingMediaJobsTableError(error) {
+function isMissingTableError(error, tableName) {
   return (
     error &&
     typeof error.message === "string" &&
-    error.message.includes("Could not find the table 'public.media_generation_jobs'")
+    error.message.includes(`Could not find the table 'public.${tableName}'`)
   );
+}
+
+function isMissingMediaJobsTableError(error) {
+  return isMissingTableError(error, "media_generation_jobs");
+}
+
+function isMissingReportJobsTableError(error) {
+  return isMissingTableError(error, "admin_report_jobs");
 }
 
 async function shouldCreateAlert(supabase, category, dedupeWindowHours = 24) {
@@ -161,6 +169,11 @@ async function main() {
       "media_queue_sla_failure_24h_limit",
       "media_queue_alert_dedupe_hours",
       "media_queue_alert_auto_resolve_hours",
+      "report_queue_sla_stale_hours",
+      "report_queue_sla_backlog_limit",
+      "report_queue_sla_failure_24h_limit",
+      "report_queue_alert_dedupe_hours",
+      "report_queue_alert_auto_resolve_hours",
     ]);
 
   if (settingsError) {
@@ -187,6 +200,26 @@ async function main() {
   const autoResolveHours = Math.max(
     1,
     readNumericSetting(mediaSlaSettingMap.get("media_queue_alert_auto_resolve_hours"), 12),
+  );
+  const reportStaleHoursThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_sla_stale_hours"), 6),
+  );
+  const reportBacklogThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_sla_backlog_limit"), 15),
+  );
+  const reportFailure24hThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_sla_failure_24h_limit"), 10),
+  );
+  const reportDedupeWindowHours = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_alert_dedupe_hours"), 24),
+  );
+  const reportAutoResolveHours = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_alert_auto_resolve_hours"), 12),
   );
 
   const staleMediaCutoff = new Date(Date.now() - staleHoursThreshold * 60 * 60 * 1000).toISOString();
@@ -265,6 +298,7 @@ async function main() {
         oldestAgeHours >= staleHoursThreshold * 2 || staleMediaCount >= backlogThreshold ? "critical" : "warning",
       category: "media_queue_stale",
       message: `Detected ${staleMediaCount} media jobs pending/running beyond ${staleHoursThreshold}h SLA.`,
+      dedupeWindowHours,
       metadata: {
         staleMediaCount,
         staleMediaCutoff,
@@ -277,6 +311,7 @@ async function main() {
     clearCategories.push({
       category: "media_queue_stale",
       reason: "stale queue condition cleared",
+      autoResolveHours,
     });
   }
 
@@ -285,6 +320,7 @@ async function main() {
       severity: queuedOrRunningCount >= backlogThreshold * 2 ? "critical" : "warning",
       category: "media_queue_backlog",
       message: `Media queue backlog is ${queuedOrRunningCount}, above threshold ${backlogThreshold}.`,
+      dedupeWindowHours,
       metadata: {
         queuedOrRunningCount,
         backlogThreshold,
@@ -295,6 +331,7 @@ async function main() {
     clearCategories.push({
       category: "media_queue_backlog",
       reason: "media backlog condition cleared",
+      autoResolveHours,
     });
   }
 
@@ -303,6 +340,7 @@ async function main() {
       severity: failedMediaCount24h >= failure24hThreshold * 2 ? "critical" : "warning",
       category: "media_queue_failure_spike",
       message: `Media queue had ${failedMediaCount24h} failures in the last 24h (threshold: ${failure24hThreshold}).`,
+      dedupeWindowHours,
       metadata: {
         failedMediaCount24h,
         failure24hCutoff,
@@ -314,13 +352,186 @@ async function main() {
     clearCategories.push({
       category: "media_queue_failure_spike",
       reason: "media failure spike condition cleared",
+      autoResolveHours,
     });
+  }
+
+  const reportNowIso = new Date().toISOString();
+  const reportStaleCutoff = new Date(Date.now() - reportStaleHoursThreshold * 60 * 60 * 1000).toISOString();
+  const reportFailure24hCutoff = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+
+  const [
+    reportQueuedReadyResult,
+    reportRunningResult,
+    reportOldestQueuedReadyResult,
+    reportOldestRunningResult,
+    reportQueuedStaleResult,
+    reportRunningStaleResult,
+    reportFailed24hResult,
+  ] = await Promise.all([
+    supabase
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "queued")
+      .lte("run_after", reportNowIso),
+    supabase
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "running"),
+    supabase
+      .from("admin_report_jobs")
+      .select("run_after")
+      .eq("status", "queued")
+      .lte("run_after", reportNowIso)
+      .order("run_after", { ascending: true })
+      .limit(1)
+      .maybeSingle(),
+    supabase
+      .from("admin_report_jobs")
+      .select("started_at, created_at")
+      .eq("status", "running")
+      .order("created_at", { ascending: true })
+      .limit(1)
+      .maybeSingle(),
+    supabase
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "queued")
+      .lt("run_after", reportStaleCutoff),
+    supabase
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "running")
+      .lt("created_at", reportStaleCutoff),
+    supabase
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "failed")
+      .gte("completed_at", reportFailure24hCutoff),
+  ]);
+
+  let reportQueuedReadyCount = 0;
+  let reportRunningCount = 0;
+  let reportStaleCount = 0;
+  let reportFailedCount24h = 0;
+  let reportQueuedStaleCount = 0;
+  let reportRunningStaleCount = 0;
+  let oldestReportAgeHours = 0;
+
+  const reportQueryErrors = [
+    reportQueuedReadyResult.error,
+    reportRunningResult.error,
+    reportOldestQueuedReadyResult.error,
+    reportOldestRunningResult.error,
+    reportQueuedStaleResult.error,
+    reportRunningStaleResult.error,
+    reportFailed24hResult.error,
+  ].filter(Boolean);
+
+  const missingReportTable = reportQueryErrors.some((error) => isMissingReportJobsTableError(error));
+  if (missingReportTable) {
+    console.log("admin_report_jobs table is missing. Skipping report queue SLA checks.");
+  } else if (reportQueryErrors.length > 0) {
+    const firstError = reportQueryErrors[0];
+    throw new Error(`Failed running report queue SLA checks: ${firstError.message}`);
+  } else {
+    reportQueuedReadyCount = reportQueuedReadyResult.count ?? 0;
+    reportRunningCount = reportRunningResult.count ?? 0;
+    reportQueuedStaleCount = reportQueuedStaleResult.count ?? 0;
+    reportRunningStaleCount = reportRunningStaleResult.count ?? 0;
+    reportStaleCount = reportQueuedStaleCount + reportRunningStaleCount;
+    reportFailedCount24h = reportFailed24hResult.count ?? 0;
+
+    const oldestQueuedReportAgeHours = reportOldestQueuedReadyResult.data?.run_after
+      ? (Date.now() - new Date(reportOldestQueuedReadyResult.data.run_after).getTime()) / (60 * 60 * 1000)
+      : 0;
+    const oldestRunningReportCreatedAt =
+      reportOldestRunningResult.data?.started_at ?? reportOldestRunningResult.data?.created_at ?? null;
+    const oldestRunningReportAgeHours = oldestRunningReportCreatedAt
+      ? (Date.now() - new Date(oldestRunningReportCreatedAt).getTime()) / (60 * 60 * 1000)
+      : 0;
+    oldestReportAgeHours = Math.max(oldestQueuedReportAgeHours, oldestRunningReportAgeHours);
+
+    const reportBacklogCount = reportQueuedReadyCount + reportRunningCount;
+    if (reportStaleCount > 0) {
+      candidateAlerts.push({
+        severity:
+          oldestReportAgeHours >= reportStaleHoursThreshold * 2 || reportStaleCount >= reportBacklogThreshold
+            ? "critical"
+            : "warning",
+        category: "report_queue_stale",
+        message: `Detected ${reportStaleCount} report jobs pending/running beyond ${reportStaleHoursThreshold}h SLA.`,
+        dedupeWindowHours: reportDedupeWindowHours,
+        metadata: {
+          reportStaleCount,
+          reportQueuedStaleCount,
+          reportRunningStaleCount,
+          reportStaleCutoff,
+          reportStaleHoursThreshold,
+          oldestReportAgeHours: Number(oldestReportAgeHours.toFixed(2)),
+          dedupeWindowHours: reportDedupeWindowHours,
+        },
+      });
+    } else {
+      clearCategories.push({
+        category: "report_queue_stale",
+        reason: "report queue stale condition cleared",
+        autoResolveHours: reportAutoResolveHours,
+      });
+    }
+
+    if (reportBacklogCount >= reportBacklogThreshold) {
+      candidateAlerts.push({
+        severity: reportBacklogCount >= reportBacklogThreshold * 2 ? "critical" : "warning",
+        category: "report_queue_backlog",
+        message: `Report queue backlog is ${reportBacklogCount}, above threshold ${reportBacklogThreshold}.`,
+        dedupeWindowHours: reportDedupeWindowHours,
+        metadata: {
+          reportBacklogCount,
+          reportQueuedReadyCount,
+          reportRunningCount,
+          reportBacklogThreshold,
+          dedupeWindowHours: reportDedupeWindowHours,
+        },
+      });
+    } else {
+      clearCategories.push({
+        category: "report_queue_backlog",
+        reason: "report queue backlog condition cleared",
+        autoResolveHours: reportAutoResolveHours,
+      });
+    }
+
+    if (reportFailedCount24h >= reportFailure24hThreshold) {
+      candidateAlerts.push({
+        severity: reportFailedCount24h >= reportFailure24hThreshold * 2 ? "critical" : "warning",
+        category: "report_queue_failure_spike",
+        message: `Report queue had ${reportFailedCount24h} failures in the last 24h (threshold: ${reportFailure24hThreshold}).`,
+        dedupeWindowHours: reportDedupeWindowHours,
+        metadata: {
+          reportFailedCount24h,
+          reportFailure24hCutoff,
+          reportFailure24hThreshold,
+          dedupeWindowHours: reportDedupeWindowHours,
+        },
+      });
+    } else {
+      clearCategories.push({
+        category: "report_queue_failure_spike",
+        reason: "report queue failure spike condition cleared",
+        autoResolveHours: reportAutoResolveHours,
+      });
+    }
   }
 
   const createdCategories = [];
   const skippedCategories = [];
   for (const candidate of candidateAlerts) {
-    const shouldCreate = await shouldCreateAlert(supabase, candidate.category, dedupeWindowHours);
+    const shouldCreate = await shouldCreateAlert(
+      supabase,
+      candidate.category,
+      candidate.dedupeWindowHours ?? dedupeWindowHours,
+    );
     if (!shouldCreate) {
       skippedCategories.push(candidate.category);
       continue;
@@ -338,7 +549,7 @@ async function main() {
     const resolvedCount = await autoResolveAlerts(
       supabase,
       clearCategory.category,
-      autoResolveHours,
+      clearCategory.autoResolveHours ?? autoResolveHours,
       clearCategory.reason,
       options.apply,
     );
@@ -349,11 +560,18 @@ async function main() {
   }
 
   console.log(`Mode: ${options.apply ? "apply" : "dry-run"}`);
-  console.log(`Dedupe window (hours): ${dedupeWindowHours}`);
-  console.log(`Auto-resolve age (hours): ${autoResolveHours}`);
-  console.log(`Queued/running jobs: ${queuedOrRunningCount}`);
-  console.log(`Stale jobs: ${staleMediaCount} (threshold hours: ${staleHoursThreshold})`);
-  console.log(`Failures in 24h: ${failedMediaCount24h} (threshold: ${failure24hThreshold})`);
+  console.log(`Media dedupe window (hours): ${dedupeWindowHours}`);
+  console.log(`Media auto-resolve age (hours): ${autoResolveHours}`);
+  console.log(`Media queued/running jobs: ${queuedOrRunningCount}`);
+  console.log(`Media stale jobs: ${staleMediaCount} (threshold hours: ${staleHoursThreshold})`);
+  console.log(`Media failures in 24h: ${failedMediaCount24h} (threshold: ${failure24hThreshold})`);
+  console.log(`Report dedupe window (hours): ${reportDedupeWindowHours}`);
+  console.log(`Report auto-resolve age (hours): ${reportAutoResolveHours}`);
+  console.log(
+    `Report queued/running jobs: ${reportQueuedReadyCount + reportRunningCount} (queued-ready: ${reportQueuedReadyCount}, running: ${reportRunningCount})`,
+  );
+  console.log(`Report stale jobs: ${reportStaleCount} (threshold hours: ${reportStaleHoursThreshold})`);
+  console.log(`Report failures in 24h: ${reportFailedCount24h} (threshold: ${reportFailure24hThreshold})`);
   console.log(`Alert candidates: ${candidateAlerts.length}`);
   console.log(`Created alerts: ${createdCategories.length} (${createdCategories.join(", ") || "none"})`);
   console.log(`Skipped (deduped): ${skippedCategories.length} (${skippedCategories.join(", ") || "none"})`);

@@ -173,6 +173,11 @@ export async function POST() {
       "media_queue_sla_failure_24h_limit",
       "media_queue_alert_dedupe_hours",
       "media_queue_alert_auto_resolve_hours",
+      "report_queue_sla_stale_hours",
+      "report_queue_sla_backlog_limit",
+      "report_queue_sla_failure_24h_limit",
+      "report_queue_alert_dedupe_hours",
+      "report_queue_alert_auto_resolve_hours",
     ]);
 
   const mediaSlaSettingMap = new Map((mediaSlaSettings ?? []).map((row) => [row.key, row.value]));
@@ -195,6 +200,26 @@ export async function POST() {
   const autoResolveHours = Math.max(
     1,
     readNumericSetting(mediaSlaSettingMap.get("media_queue_alert_auto_resolve_hours"), 12),
+  );
+  const reportStaleHoursThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_sla_stale_hours"), 6),
+  );
+  const reportBacklogThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_sla_backlog_limit"), 15),
+  );
+  const reportFailure24hThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_sla_failure_24h_limit"), 10),
+  );
+  const reportDedupeWindowHours = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_alert_dedupe_hours"), 24),
+  );
+  const reportAutoResolveHours = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("report_queue_alert_auto_resolve_hours"), 12),
   );
 
   const staleMediaCutoff = new Date(Date.now() - staleHoursThreshold * 60 * 60 * 1000).toISOString();
@@ -312,6 +337,166 @@ export async function POST() {
     }
   }
 
+  const nowIso = new Date().toISOString();
+  const reportStaleCutoff = new Date(Date.now() - reportStaleHoursThreshold * 60 * 60 * 1000).toISOString();
+  const reportFailure24hCutoff = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+
+  const [
+    reportQueuedReadyResult,
+    reportRunningResult,
+    reportOldestQueuedReadyResult,
+    reportOldestRunningResult,
+    reportQueuedStaleResult,
+    reportRunningStaleResult,
+    reportFailed24hResult,
+  ] = await Promise.all([
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "queued")
+      .lte("run_after", nowIso),
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "running"),
+    admin
+      .from("admin_report_jobs")
+      .select("run_after")
+      .eq("status", "queued")
+      .lte("run_after", nowIso)
+      .order("run_after", { ascending: true })
+      .limit(1)
+      .maybeSingle(),
+    admin
+      .from("admin_report_jobs")
+      .select("started_at, created_at")
+      .eq("status", "running")
+      .order("created_at", { ascending: true })
+      .limit(1)
+      .maybeSingle(),
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "queued")
+      .lt("run_after", reportStaleCutoff),
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "running")
+      .lt("created_at", reportStaleCutoff),
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "failed")
+      .gte("completed_at", reportFailure24hCutoff),
+  ]);
+
+  const reportQueuedReadyCount = reportQueuedReadyResult.count ?? 0;
+  const reportRunningCount = reportRunningResult.count ?? 0;
+  const reportBacklogCount = reportQueuedReadyCount + reportRunningCount;
+  const reportQueuedStaleCount = reportQueuedStaleResult.count ?? 0;
+  const reportRunningStaleCount = reportRunningStaleResult.count ?? 0;
+  const reportStaleCount = reportQueuedStaleCount + reportRunningStaleCount;
+  const reportFailedCount24h = reportFailed24hResult.count ?? 0;
+
+  const oldestQueuedReportAgeHours = reportOldestQueuedReadyResult.data?.run_after
+    ? (Date.now() - new Date(reportOldestQueuedReadyResult.data.run_after).getTime()) / (60 * 60 * 1000)
+    : 0;
+  const oldestRunningReportCreatedAt =
+    reportOldestRunningResult.data?.started_at ?? reportOldestRunningResult.data?.created_at ?? null;
+  const oldestRunningReportAgeHours = oldestRunningReportCreatedAt
+    ? (Date.now() - new Date(oldestRunningReportCreatedAt).getTime()) / (60 * 60 * 1000)
+    : 0;
+  const oldestReportAgeHours = Math.max(oldestQueuedReportAgeHours, oldestRunningReportAgeHours);
+
+  if (reportStaleCount > 0) {
+    if (await shouldCreateAlertWithinWindow(admin, "report_queue_stale", reportDedupeWindowHours)) {
+      await createAdminAlert({
+        severity:
+          oldestReportAgeHours >= reportStaleHoursThreshold * 2 || reportStaleCount >= reportBacklogThreshold
+            ? "critical"
+            : "warning",
+        category: "report_queue_stale",
+        message: `Detected ${reportStaleCount} report jobs pending/running beyond ${reportStaleHoursThreshold}h SLA.`,
+        metadata: {
+          reportStaleCount,
+          reportQueuedStaleCount,
+          reportRunningStaleCount,
+          reportStaleCutoff,
+          reportStaleHoursThreshold,
+          oldestReportAgeHours: Number(oldestReportAgeHours.toFixed(2)),
+          dedupeWindowHours: reportDedupeWindowHours,
+        },
+      });
+      triggered.push("report_queue_stale");
+    }
+  } else {
+    const resolvedCount = await autoResolveAlerts(
+      admin,
+      "report_queue_stale",
+      reportAutoResolveHours,
+      "report queue stale condition cleared",
+    );
+    if (resolvedCount > 0) {
+      autoResolved.report_queue_stale = resolvedCount;
+    }
+  }
+
+  if (reportBacklogCount >= reportBacklogThreshold) {
+    if (await shouldCreateAlertWithinWindow(admin, "report_queue_backlog", reportDedupeWindowHours)) {
+      await createAdminAlert({
+        severity: reportBacklogCount >= reportBacklogThreshold * 2 ? "critical" : "warning",
+        category: "report_queue_backlog",
+        message: `Report queue backlog is ${reportBacklogCount}, above threshold ${reportBacklogThreshold}.`,
+        metadata: {
+          reportBacklogCount,
+          reportQueuedReadyCount,
+          reportRunningCount,
+          reportBacklogThreshold,
+          dedupeWindowHours: reportDedupeWindowHours,
+        },
+      });
+      triggered.push("report_queue_backlog");
+    }
+  } else {
+    const resolvedCount = await autoResolveAlerts(
+      admin,
+      "report_queue_backlog",
+      reportAutoResolveHours,
+      "report queue backlog condition cleared",
+    );
+    if (resolvedCount > 0) {
+      autoResolved.report_queue_backlog = resolvedCount;
+    }
+  }
+
+  if (reportFailedCount24h >= reportFailure24hThreshold) {
+    if (await shouldCreateAlertWithinWindow(admin, "report_queue_failure_spike", reportDedupeWindowHours)) {
+      await createAdminAlert({
+        severity: reportFailedCount24h >= reportFailure24hThreshold * 2 ? "critical" : "warning",
+        category: "report_queue_failure_spike",
+        message: `Report queue had ${reportFailedCount24h} failures in the last 24h (threshold: ${reportFailure24hThreshold}).`,
+        metadata: {
+          reportFailedCount24h,
+          reportFailure24hCutoff,
+          reportFailure24hThreshold,
+          dedupeWindowHours: reportDedupeWindowHours,
+        },
+      });
+      triggered.push("report_queue_failure_spike");
+    }
+  } else {
+    const resolvedCount = await autoResolveAlerts(
+      admin,
+      "report_queue_failure_spike",
+      reportAutoResolveHours,
+      "report queue failure spike condition cleared",
+    );
+    if (resolvedCount > 0) {
+      autoResolved.report_queue_failure_spike = resolvedCount;
+    }
+  }
+
   const dsarCutoff = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
   const { count: dsarBacklogCount } = await admin
     .from("dsar_requests")
@@ -355,8 +540,10 @@ export async function POST() {
       triggeredCategories: triggered,
       autoResolvedCount: Object.values(autoResolved).reduce((acc, value) => acc + value, 0),
       autoResolvedCategories: autoResolved,
-      dedupeWindowHours,
-      autoResolveHours,
+      mediaDedupeWindowHours: dedupeWindowHours,
+      mediaAutoResolveHours: autoResolveHours,
+      reportDedupeWindowHours,
+      reportAutoResolveHours,
     },
   });
 
