@@ -425,6 +425,15 @@ export default async function AdminOverviewPage() {
           <Link href="/admin/media" className="rounded-md border border-black/15 px-3 py-2 hover:bg-black/5">
             Process Media Queue
           </Link>
+          <Link href="/admin/curriculum" className="rounded-md border border-black/15 px-3 py-2 hover:bg-black/5">
+            Review Curriculum Backlog
+          </Link>
+          <Link href="/api/admin/curriculum/backlog" className="rounded-md border border-black/15 px-3 py-2 hover:bg-black/5">
+            Export Backlog CSV
+          </Link>
+          <Link href="/api/admin/curriculum/backlog?format=json&limit=1000" className="rounded-md border border-black/15 px-3 py-2 hover:bg-black/5">
+            Open Backlog JSON
+          </Link>
           <Link href="/admin/compliance" className="rounded-md border border-black/15 px-3 py-2 hover:bg-black/5">
             Review DSAR/Compliance
           </Link>

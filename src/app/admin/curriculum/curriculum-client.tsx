@@ -373,6 +373,14 @@ export default function CurriculumClient({
           >
             Open Backlog Report (MD)
           </a>
+          <a
+            className="rounded-md border border-black/15 px-3 py-2 hover:bg-black/5"
+            href="/api/admin/curriculum/backlog?format=json&limit=1000"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open Backlog JSON
+          </a>
         </div>
       </section>
 
