@@ -4,9 +4,7 @@ import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { toCsv } from "@/lib/admin/csv";
 import { logReportExport } from "@/lib/admin/report-export";
 
-type ReportType = "dsar" | "support" | "audit";
-
-async function buildReportCsv(reportType: ReportType) {
+async function buildReportCsv(reportType: string) {
   const admin = createSupabaseAdminClient();
 
   if (reportType === "dsar") {
@@ -53,21 +51,25 @@ async function buildReportCsv(reportType: ReportType) {
     return { csv, rowCount: rows.length };
   }
 
-  const { data } = await admin
-    .from("admin_action_logs")
-    .select("id, admin_user_id, action_type, target_user_id, metadata, created_at")
-    .order("created_at", { ascending: false })
-    .limit(5000);
-  const rows = data ?? [];
-  const csv = toCsv(rows, [
-    "id",
-    "admin_user_id",
-    "action_type",
-    "target_user_id",
-    "metadata",
-    "created_at",
-  ]);
-  return { csv, rowCount: rows.length };
+  if (reportType === "audit") {
+    const { data } = await admin
+      .from("admin_action_logs")
+      .select("id, admin_user_id, action_type, target_user_id, metadata, created_at")
+      .order("created_at", { ascending: false })
+      .limit(5000);
+    const rows = data ?? [];
+    const csv = toCsv(rows, [
+      "id",
+      "admin_user_id",
+      "action_type",
+      "target_user_id",
+      "metadata",
+      "created_at",
+    ]);
+    return { csv, rowCount: rows.length };
+  }
+
+  throw new Error(`Unsupported report type: ${reportType}`);
 }
 
 async function claimReportJob(
@@ -122,7 +124,6 @@ export async function POST() {
   let claimed = 0;
   let skipped = 0;
   for (const job of jobs) {
-    const reportType = job.report_type as ReportType;
     const startIso = new Date().toISOString();
     const wasClaimed = await claimReportJob(admin, job.id, startIso);
     if (!wasClaimed) {
@@ -132,10 +133,10 @@ export async function POST() {
     claimed += 1;
 
     try {
-      const { csv, rowCount } = await buildReportCsv(reportType);
+      const { csv, rowCount } = await buildReportCsv(job.report_type);
       await logReportExport({
         adminUserId: job.requested_by ?? auth.userId,
-        reportType,
+        reportType: job.report_type,
         csvContent: csv,
         rowCount,
       });

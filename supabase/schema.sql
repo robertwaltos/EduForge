@@ -453,6 +453,14 @@ create table if not exists public.admin_report_exports (
   constraint admin_report_exports_status_check check (status in ('running', 'completed', 'failed'))
 );
 
+alter table public.admin_report_exports drop constraint if exists admin_report_exports_report_type_check;
+alter table public.admin_report_exports add constraint admin_report_exports_report_type_check
+  check (report_type in ('dsar', 'support', 'audit'));
+
+alter table public.admin_report_exports drop constraint if exists admin_report_exports_format_check;
+alter table public.admin_report_exports add constraint admin_report_exports_format_check
+  check (format in ('csv'));
+
 alter table public.admin_alerts enable row level security;
 alter table public.admin_rate_limit_events enable row level security;
 alter table public.admin_report_exports enable row level security;
@@ -503,6 +511,10 @@ create table if not exists public.admin_report_jobs (
   constraint admin_report_jobs_status_check
     check (status in ('queued', 'running', 'completed', 'failed'))
 );
+
+alter table public.admin_report_jobs drop constraint if exists admin_report_jobs_report_type_check;
+alter table public.admin_report_jobs add constraint admin_report_jobs_report_type_check
+  check (report_type in ('dsar', 'support', 'audit'));
 
 alter table public.admin_approval_requests enable row level security;
 alter table public.admin_alert_notifications enable row level security;
