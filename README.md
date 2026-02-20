@@ -121,7 +121,7 @@ Required GitHub secrets/vars for media queue apply mode:
 - `GET /api/admin/reports/audit`
 - `GET /api/admin/curriculum/coverage`
 - `GET /api/admin/system/db-readiness`
-- `GET/POST /api/admin/media/jobs` (GET supports `moduleId`, `lessonId`, `assetType`, `limit` query params)
+- `GET/POST /api/admin/media/jobs` (GET supports `moduleId`, `lessonId`, `assetType`, `status`, `limit` query params)
 - `GET /api/admin/media/prompt-pack`
 - `POST /api/admin/media/jobs/run`
 - `POST /api/admin/media/jobs/queue-from-pack`

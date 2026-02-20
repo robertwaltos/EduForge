@@ -30,11 +30,15 @@ export async function GET(request: Request) {
   const moduleId = searchParams.get("moduleId")?.trim() ?? "";
   const lessonId = searchParams.get("lessonId")?.trim() ?? "";
   const assetType = searchParams.get("assetType")?.trim() ?? "";
+  const status = searchParams.get("status")?.trim() ?? "";
   const rawLimit = Number(searchParams.get("limit") ?? "100");
   const limit = Number.isFinite(rawLimit) ? Math.min(200, Math.max(1, rawLimit)) : 100;
 
   if (assetType && !["video", "animation", "image"].includes(assetType)) {
     return NextResponse.json({ error: "assetType must be video, animation, or image." }, { status: 400 });
+  }
+  if (status && !["queued", "running", "completed", "failed", "canceled"].includes(status)) {
+    return NextResponse.json({ error: "status must be queued, running, completed, failed, or canceled." }, { status: 400 });
   }
 
   const admin = createSupabaseAdminClient();
@@ -52,6 +56,9 @@ export async function GET(request: Request) {
   }
   if (assetType) {
     query = query.eq("asset_type", assetType);
+  }
+  if (status) {
+    query = query.eq("status", status);
   }
 
   const { data, error } = await query.order("created_at", { ascending: false }).limit(limit);

@@ -42,6 +42,7 @@ type RetryResponse = {
 };
 
 type AssetFilter = "all" | MediaJob["asset_type"];
+type StatusFilter = "all" | MediaJob["status"];
 
 async function postJson(url: string, payload: unknown) {
   const response = await fetch(url, {
@@ -54,6 +55,14 @@ async function postJson(url: string, payload: unknown) {
     throw new Error(typeof data.error === "string" ? data.error : "Request failed.");
   }
   return data;
+}
+
+function statusBadgeClass(status: MediaJob["status"]) {
+  if (status === "completed") return "bg-emerald-100 text-emerald-800";
+  if (status === "failed") return "bg-red-100 text-red-800";
+  if (status === "running") return "bg-indigo-100 text-indigo-800";
+  if (status === "canceled") return "bg-zinc-200 text-zinc-700";
+  return "bg-amber-100 text-amber-800";
 }
 
 export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[] }) {
@@ -69,6 +78,7 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
   const [jobFilterModuleId, setJobFilterModuleId] = useState("");
   const [jobFilterLessonId, setJobFilterLessonId] = useState("");
   const [jobFilterAssetType, setJobFilterAssetType] = useState<AssetFilter>("all");
+  const [jobFilterStatus, setJobFilterStatus] = useState<StatusFilter>("all");
   const [jobFilterLimit, setJobFilterLimit] = useState(100);
   const [jobRetryIncludeCanceled, setJobRetryIncludeCanceled] = useState(false);
   const [jobAutoRefresh, setJobAutoRefresh] = useState(true);
@@ -78,6 +88,9 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
 
   const queuedCount = useMemo(() => jobs.filter((job) => job.status === "queued").length, [jobs]);
   const runningCount = useMemo(() => jobs.filter((job) => job.status === "running").length, [jobs]);
+  const completedCount = useMemo(() => jobs.filter((job) => job.status === "completed").length, [jobs]);
+  const failedCount = useMemo(() => jobs.filter((job) => job.status === "failed").length, [jobs]);
+  const canceledCount = useMemo(() => jobs.filter((job) => job.status === "canceled").length, [jobs]);
   const selectedPromptModule = useMemo(
     () => promptModules.find((entry) => entry.moduleId === packModuleId) ?? null,
     [packModuleId, promptModules],
@@ -100,6 +113,7 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
       if (jobFilterModuleId) params.set("moduleId", jobFilterModuleId);
       if (jobFilterLessonId) params.set("lessonId", jobFilterLessonId);
       if (jobFilterAssetType !== "all") params.set("assetType", jobFilterAssetType);
+      if (jobFilterStatus !== "all") params.set("status", jobFilterStatus);
 
       const response = await fetch(`/api/admin/media/jobs?${params.toString()}`, {
         method: "GET",
@@ -116,7 +130,7 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     } finally {
       setJobsLoading(false);
     }
-  }, [jobFilterAssetType, jobFilterLessonId, jobFilterLimit, jobFilterModuleId]);
+  }, [jobFilterAssetType, jobFilterLessonId, jobFilterLimit, jobFilterModuleId, jobFilterStatus]);
 
   const loadPromptPack = useCallback(async () => {
     if (promptModules.length > 0 || packLoading) return;
@@ -447,7 +461,7 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
             </button>
           </div>
         </div>
-        <div className="mt-3 grid gap-2 md:grid-cols-6">
+        <div className="mt-3 grid gap-2 md:grid-cols-7">
           <select
             className="rounded-md border border-black/15 px-2 py-2 text-sm"
             value={jobFilterModuleId}
@@ -486,6 +500,18 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
             <option value="animation">Animation</option>
             <option value="image">Image</option>
           </select>
+          <select
+            className="rounded-md border border-black/15 px-2 py-2 text-sm"
+            value={jobFilterStatus}
+            onChange={(event) => setJobFilterStatus(event.target.value as StatusFilter)}
+          >
+            <option value="all">All statuses</option>
+            <option value="queued">Queued</option>
+            <option value="running">Running</option>
+            <option value="completed">Completed</option>
+            <option value="failed">Failed</option>
+            <option value="canceled">Canceled</option>
+          </select>
           <label className="flex items-center gap-2 rounded-md border border-black/15 px-2 py-2 text-sm">
             <span className="text-xs text-zinc-600">Limit</span>
             <input
@@ -517,7 +543,9 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
           </label>
         </div>
         <p className="mt-2 text-xs text-zinc-600">
-          {jobsLoading ? "Loading jobs..." : `Queued: ${queuedCount} | Running: ${runningCount} | Total: ${jobs.length}`}
+          {jobsLoading
+            ? "Loading jobs..."
+            : `Queued: ${queuedCount} | Running: ${runningCount} | Completed: ${completedCount} | Failed: ${failedCount} | Canceled: ${canceledCount} | Total: ${jobs.length}`}
           {jobsLastUpdatedAt ? ` | Updated: ${new Date(jobsLastUpdatedAt).toLocaleTimeString()}` : ""}
         </p>
         {status ? <p className="mt-2 text-sm text-indigo-700">{status}</p> : null}
@@ -528,7 +556,7 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
               <div className="flex flex-wrap items-center gap-2 text-xs">
                 <span className="rounded bg-zinc-100 px-2 py-1">{job.asset_type}</span>
                 <span className="rounded bg-zinc-100 px-2 py-1">{job.provider}</span>
-                <span className="rounded bg-indigo-100 px-2 py-1 text-indigo-800">{job.status}</span>
+                <span className={`rounded px-2 py-1 ${statusBadgeClass(job.status)}`}>{job.status}</span>
               </div>
               <p className="mt-2 text-xs text-zinc-500">Job ID: {job.id}</p>
               <p className="mt-1 text-xs text-zinc-500">
