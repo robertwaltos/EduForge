@@ -34,6 +34,13 @@ type PromptPack = {
   modules?: PromptModule[];
 };
 
+type RetryResponse = {
+  scanned?: number;
+  retried?: number;
+  failedUpdates?: number;
+  message?: string;
+};
+
 type AssetFilter = "all" | MediaJob["asset_type"];
 
 async function postJson(url: string, payload: unknown) {
@@ -63,8 +70,11 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
   const [jobFilterLessonId, setJobFilterLessonId] = useState("");
   const [jobFilterAssetType, setJobFilterAssetType] = useState<AssetFilter>("all");
   const [jobFilterLimit, setJobFilterLimit] = useState(100);
+  const [jobRetryIncludeCanceled, setJobRetryIncludeCanceled] = useState(false);
   const [jobAutoRefresh, setJobAutoRefresh] = useState(true);
   const [jobsLastUpdatedAt, setJobsLastUpdatedAt] = useState<string | null>(null);
+  const [isRetryingFiltered, setIsRetryingFiltered] = useState(false);
+  const [retryingJobId, setRetryingJobId] = useState<string | null>(null);
 
   const queuedCount = useMemo(() => jobs.filter((job) => job.status === "queued").length, [jobs]);
   const runningCount = useMemo(() => jobs.filter((job) => job.status === "running").length, [jobs]);
@@ -229,6 +239,53 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     }
   };
 
+  const handleRetryFiltered = async () => {
+    setIsRetryingFiltered(true);
+    try {
+      const result = (await postJson("/api/admin/media/jobs/retry", {
+        moduleId: jobFilterModuleId || undefined,
+        lessonId: jobFilterLessonId || undefined,
+        assetType: jobFilterAssetType === "all" ? undefined : jobFilterAssetType,
+        includeCanceled: jobRetryIncludeCanceled,
+        limit: jobFilterLimit,
+      })) as RetryResponse;
+
+      if (result.message) {
+        setStatus(result.message);
+      } else {
+        setStatus(
+          `Retry complete. Scanned ${result.scanned ?? 0}, retried ${result.retried ?? 0}, failed updates ${result.failedUpdates ?? 0}.`,
+        );
+      }
+      await refreshJobs();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "Failed to retry filtered jobs.");
+    } finally {
+      setIsRetryingFiltered(false);
+    }
+  };
+
+  const handleRetryJob = async (jobId: string) => {
+    setRetryingJobId(jobId);
+    try {
+      const result = (await postJson("/api/admin/media/jobs/retry", {
+        jobIds: [jobId],
+        includeCanceled: true,
+      })) as RetryResponse;
+
+      if ((result.retried ?? 0) === 0 && result.message) {
+        setStatus(result.message);
+      } else {
+        setStatus(`Retried job ${jobId}.`);
+      }
+      await refreshJobs();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "Failed to retry job.");
+    } finally {
+      setRetryingJobId(null);
+    }
+  };
+
   const handleStatusUpdate = async (jobId: string, nextStatus: MediaJob["status"]) => {
     try {
       await postJson(`/api/admin/media/jobs/${jobId}/status`, { status: nextStatus });
@@ -368,6 +425,14 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
+              className="rounded-md border border-indigo-300 bg-indigo-50 px-3 py-1 text-sm text-indigo-700 hover:bg-indigo-100 disabled:opacity-70"
+              onClick={() => void handleRetryFiltered()}
+              disabled={isRetryingFiltered}
+            >
+              {isRetryingFiltered ? "Retrying..." : "Retry Failed (Filtered)"}
+            </button>
+            <button
+              type="button"
               className="rounded-md bg-indigo-600 px-3 py-1 text-sm text-white hover:bg-indigo-500"
               onClick={() => void handleRunQueue()}
             >
@@ -382,7 +447,7 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
             </button>
           </div>
         </div>
-        <div className="mt-3 grid gap-2 md:grid-cols-5">
+        <div className="mt-3 grid gap-2 md:grid-cols-6">
           <select
             className="rounded-md border border-black/15 px-2 py-2 text-sm"
             value={jobFilterModuleId}
@@ -437,6 +502,14 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
           <label className="flex items-center gap-2 rounded-md border border-black/15 px-2 py-2 text-sm">
             <input
               type="checkbox"
+              checked={jobRetryIncludeCanceled}
+              onChange={(event) => setJobRetryIncludeCanceled(event.target.checked)}
+            />
+            Retry canceled too
+          </label>
+          <label className="flex items-center gap-2 rounded-md border border-black/15 px-2 py-2 text-sm">
+            <input
+              type="checkbox"
               checked={jobAutoRefresh}
               onChange={(event) => setJobAutoRefresh(event.target.checked)}
             />
@@ -469,6 +542,16 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
               ) : null}
               {job.error ? <p className="mt-2 text-xs text-red-700">{job.error}</p> : null}
               <div className="mt-3 flex flex-wrap gap-2">
+                {(job.status === "failed" || job.status === "canceled") ? (
+                  <button
+                    className="rounded-md border border-indigo-300 bg-indigo-50 px-2 py-1 text-xs text-indigo-700 hover:bg-indigo-100 disabled:opacity-70"
+                    onClick={() => void handleRetryJob(job.id)}
+                    type="button"
+                    disabled={retryingJobId === job.id}
+                  >
+                    {retryingJobId === job.id ? "Retrying..." : "Retry"}
+                  </button>
+                ) : null}
                 <button
                   className="rounded-md border border-black/15 px-2 py-1 text-xs hover:bg-black/5"
                   onClick={() => void handleStatusUpdate(job.id, "running")}

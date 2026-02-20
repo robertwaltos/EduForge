@@ -42,6 +42,14 @@ type RunResponse = {
   message?: string;
 };
 
+type RetryResponse = {
+  error?: string;
+  scanned?: number;
+  retried?: number;
+  failedUpdates?: number;
+  message?: string;
+};
+
 const ASSET_ORDER: MediaAssetType[] = ["video", "animation", "image"];
 
 async function copyText(value: string) {
@@ -87,6 +95,7 @@ export default function LessonMediaOps({
   const [lastJobsRefreshAt, setLastJobsRefreshAt] = useState<string | null>(null);
   const [workingAssetType, setWorkingAssetType] = useState<MediaAssetType | null>(null);
   const [isProcessingLessonQueue, setIsProcessingLessonQueue] = useState(false);
+  const [retryingAssetType, setRetryingAssetType] = useState<MediaAssetType | null>(null);
 
   const promptEntries: PromptEntry[] = useMemo(
     () => [
@@ -268,6 +277,44 @@ export default function LessonMediaOps({
     }
   };
 
+  const handleRetryLatestAssetJob = async (assetType: MediaAssetType) => {
+    setRetryingAssetType(assetType);
+    setActionStatus("");
+
+    try {
+      const response = await fetch("/api/admin/media/jobs/retry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          moduleId,
+          lessonId,
+          assetType,
+          includeCanceled: true,
+          limit: 1,
+        }),
+      });
+
+      const payload = (await response.json().catch(() => ({}))) as RetryResponse;
+      if (!response.ok) {
+        throw new Error(payload.error ?? "Failed to retry media job.");
+      }
+
+      if ((payload.retried ?? 0) === 0) {
+        setActionStatus(payload.message ?? `No retryable ${assetType} jobs found for this lesson.`);
+      } else {
+        setActionStatus(
+          `Retried ${payload.retried ?? 0} ${assetType} job${(payload.retried ?? 0) === 1 ? "" : "s"} for this lesson.`,
+        );
+      }
+
+      await refreshJobs(true);
+    } catch (error) {
+      setActionStatus(error instanceof Error ? error.message : "Failed to retry lesson media job.");
+    } finally {
+      setRetryingAssetType(null);
+    }
+  };
+
   return (
     <div className="space-y-3">
       {promptEntries.map((entry) => {
@@ -297,6 +344,17 @@ export default function LessonMediaOps({
               >
                 {workingAssetType === entry.assetType ? "Queueing..." : "Queue Media Job"}
               </button>
+              {latestJob && (latestJob.status === "failed" || latestJob.status === "canceled") ? (
+                <button
+                  type="button"
+                  disabled={retryingAssetType === entry.assetType || jobsAccessDenied}
+                  onClick={() => void handleRetryLatestAssetJob(entry.assetType)}
+                  className="rounded-md border border-indigo-300 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 hover:bg-indigo-100 disabled:opacity-70"
+                  title={jobsAccessDenied ? "Admin access required to retry media jobs." : undefined}
+                >
+                  {retryingAssetType === entry.assetType ? "Retrying..." : "Retry Failed Job"}
+                </button>
+              ) : null}
             </div>
             {latestJob ? (
               <div className="mt-3 rounded-md border border-black/10 bg-zinc-50 p-3 text-[11px]">

@@ -11,6 +11,7 @@
     "curriculum:validate": "node scripts/validate-curriculum.mjs",
     "media:report": "node scripts/media-readiness-report.mjs",
     "media:queue:from-prompts": "node scripts/queue-media-from-prompts.mjs",
+    "media:retry": "node scripts/retry-media-jobs.mjs",
     "media:process": "node scripts/process-media-jobs.mjs",
     "compliance:audit": "node scripts/appstore-compliance-audit.mjs",
     "curriculum:report": "node scripts/curriculum-coverage-report.mjs",

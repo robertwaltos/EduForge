@@ -83,6 +83,7 @@ Media automation workflow behavior:
 
 - Regenerates lesson media prompt pack artifacts.
 - Queues missing media jobs into `media_generation_jobs` using `scripts/queue-media-from-prompts.mjs`.
+- Re-queues failed media jobs using `scripts/retry-media-jobs.mjs`.
 - Processes queued media jobs using `scripts/process-media-jobs.mjs`.
 - Skips queue writes gracefully if Supabase secrets are not configured.
 
@@ -124,6 +125,7 @@ Required GitHub secrets/vars for media queue apply mode:
 - `GET /api/admin/media/prompt-pack`
 - `POST /api/admin/media/jobs/run`
 - `POST /api/admin/media/jobs/queue-from-pack`
+- `POST /api/admin/media/jobs/retry`
 - `POST /api/admin/media/jobs/[jobId]/status`
 - `POST /api/admin/users/update-roles`
 - `GET /api/parent/reports`
@@ -248,6 +250,12 @@ Process queued media jobs into completed outputs:
 npm run media:process -- --limit 100
 ```
 
+Retry failed/canceled jobs back to queued state:
+
+```bash
+npm run media:retry -- --status failed,canceled --limit 100 --apply
+```
+
 Optional filters:
 
 - `--module <module-id>`
@@ -259,6 +267,7 @@ Lesson-level media operations:
 
 - Every lesson page now renders video, animation, and image production prompts.
 - Admins can queue prompt jobs directly from the lesson page.
+- Admins can retry failed/canceled lesson jobs directly from the lesson page.
 - Lesson page panel auto-refreshes latest queue status and output links.
 - Admins can process queued jobs scoped to the current lesson from the same panel.
 
