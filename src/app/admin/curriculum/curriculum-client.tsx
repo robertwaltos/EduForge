@@ -259,6 +259,14 @@ export default function CurriculumClient({
           >
             Open Research Prompt Pack
           </a>
+          <a
+            className="rounded-md border border-black/15 px-3 py-2 hover:bg-black/5"
+            href="/api/admin/curriculum/backlog"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Export Backlog (CSV)
+          </a>
         </div>
       </section>
 
