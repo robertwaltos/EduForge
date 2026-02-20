@@ -154,6 +154,9 @@ export default async function AdminOverviewPage() {
         "media_queue_sla_stale_hours",
         "media_queue_sla_backlog_limit",
         "media_queue_sla_failure_24h_limit",
+        "report_queue_sla_stale_hours",
+        "report_queue_sla_backlog_limit",
+        "report_queue_sla_failure_24h_limit",
       ]),
     fs.readFile(qualityReportPath, "utf8").catch(() => '{"totals":{"averageScore":0,"modules":0}}'),
     fs.readFile(promptPackPath, "utf8").catch(() => '{"totals":{"lessons":0}}'),
@@ -190,6 +193,18 @@ export default async function AdminOverviewPage() {
     1,
     readNumericSetting(mediaSettingsMap.get("media_queue_sla_failure_24h_limit"), 20),
   );
+  const reportStaleHoursThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSettingsMap.get("report_queue_sla_stale_hours"), 6),
+  );
+  const reportBacklogThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSettingsMap.get("report_queue_sla_backlog_limit"), 15),
+  );
+  const reportFailure24hThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSettingsMap.get("report_queue_sla_failure_24h_limit"), 10),
+  );
   const staleCutoffDate = new Date();
   staleCutoffDate.setUTCHours(staleCutoffDate.getUTCHours() - staleHoursThreshold);
   const staleCutoffIso = staleCutoffDate.toISOString();
@@ -206,6 +221,68 @@ export default async function AdminOverviewPage() {
     mediaFailed24h >= failure24hThreshold,
   ].filter(Boolean).length;
   const mediaSlaSummary = `Stale ${mediaStaleCount}/${staleHoursThreshold}h | backlog ${mediaBacklogCount}/${backlogThreshold} | failed24h ${mediaFailed24h}/${failure24hThreshold}`;
+
+  const reportStaleCutoffDate = new Date();
+  reportStaleCutoffDate.setUTCHours(reportStaleCutoffDate.getUTCHours() - reportStaleHoursThreshold);
+  const reportStaleCutoffIso = reportStaleCutoffDate.toISOString();
+  const [reportQueuedReadyResult, reportRunningResult, reportQueuedStaleResult, reportRunningStaleResult, reportFailed24hResult, reportOldestQueuedReadyResult, reportOldestRunningResult] = await Promise.all([
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "queued")
+      .lte("run_after", new Date().toISOString()),
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "running"),
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "queued")
+      .lt("run_after", reportStaleCutoffIso),
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "running")
+      .lt("created_at", reportStaleCutoffIso),
+    admin
+      .from("admin_report_jobs")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "failed")
+      .gte("completed_at", mediaDayCutoff),
+    admin
+      .from("admin_report_jobs")
+      .select("run_after")
+      .eq("status", "queued")
+      .lte("run_after", new Date().toISOString())
+      .order("run_after", { ascending: true })
+      .limit(1)
+      .maybeSingle(),
+    admin
+      .from("admin_report_jobs")
+      .select("started_at, created_at")
+      .eq("status", "running")
+      .order("created_at", { ascending: true })
+      .limit(1)
+      .maybeSingle(),
+  ]);
+  const reportQueuedReadyCount = reportQueuedReadyResult.count ?? 0;
+  const reportRunningCount = reportRunningResult.count ?? 0;
+  const reportBacklogCount = reportQueuedReadyCount + reportRunningCount;
+  const reportQueuedStaleCount = reportQueuedStaleResult.count ?? 0;
+  const reportRunningStaleCount = reportRunningStaleResult.count ?? 0;
+  const reportStaleCount = reportQueuedStaleCount + reportRunningStaleCount;
+  const reportFailed24h = reportFailed24hResult.count ?? 0;
+  const oldestReportQueuedAge = formatAgeFromIso(reportOldestQueuedReadyResult.data?.run_after ?? null);
+  const oldestReportRunningSource =
+    reportOldestRunningResult.data?.started_at ?? reportOldestRunningResult.data?.created_at ?? null;
+  const oldestReportRunningAge = formatAgeFromIso(oldestReportRunningSource);
+  const reportSlaBreaches = [
+    reportStaleCount > 0,
+    reportBacklogCount >= reportBacklogThreshold,
+    reportFailed24h >= reportFailure24hThreshold,
+  ].filter(Boolean).length;
+  const reportSlaSummary = `Stale ${reportStaleCount}/${reportStaleHoursThreshold}h | backlog ${reportBacklogCount}/${reportBacklogThreshold} | failed24h ${reportFailed24h}/${reportFailure24hThreshold}`;
 
   const cards = [
     {
@@ -236,6 +313,18 @@ export default async function AdminOverviewPage() {
       title: "Media SLA Status",
       value: slaBreaches === 0 ? "OK" : `${slaBreaches} breach${slaBreaches === 1 ? "" : "es"}`,
       subtext: mediaSlaSummary,
+      href: "/admin/alerts",
+    },
+    {
+      title: "Report Queue Load",
+      value: String(reportBacklogCount),
+      subtext: `Queued-ready ${reportQueuedReadyCount} · running ${reportRunningCount} · oldest queued ${oldestReportQueuedAge} · oldest running ${oldestReportRunningAge}`,
+      href: "/admin/reports",
+    },
+    {
+      title: "Report SLA Status",
+      value: reportSlaBreaches === 0 ? "OK" : `${reportSlaBreaches} breach${reportSlaBreaches === 1 ? "" : "es"}`,
+      subtext: reportSlaSummary,
       href: "/admin/alerts",
     },
     {
