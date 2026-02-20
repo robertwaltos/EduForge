@@ -66,6 +66,27 @@ type RequeueStaleResponse = {
   message?: string;
 };
 
+type MediaQueueSummary = {
+  generatedAt: string;
+  queuedCount: number;
+  runningCount: number;
+  backlogCount: number;
+  staleCount: number;
+  staleQueuedCount: number;
+  staleRunningCount: number;
+  failed24hCount: number;
+  oldestQueuedAt: string | null;
+  staleCutoffAt: string;
+  staleHoursThreshold: number;
+  backlogThreshold: number;
+  failure24hThreshold: number;
+  slaBreaches: number;
+};
+
+type MediaQueueSummaryResponse = Partial<MediaQueueSummary> & {
+  error?: string;
+};
+
 type AssetFilter = "all" | MediaJob["asset_type"];
 type StatusFilter = "all" | MediaJob["status"];
 
@@ -99,7 +120,32 @@ function statusBadgeClass(status: MediaJob["status"]) {
   return "bg-amber-100 text-amber-800";
 }
 
-export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[] }) {
+function formatAgeFromIso(isoTimestamp: string | null) {
+  if (!isoTimestamp) return "n/a";
+  const timestamp = new Date(isoTimestamp);
+  if (Number.isNaN(timestamp.getTime())) return "n/a";
+
+  const diffMs = Date.now() - timestamp.getTime();
+  if (diffMs < 0) return "<1m";
+  const diffMinutes = Math.floor(diffMs / 60000);
+  if (diffMinutes < 60) return `${diffMinutes}m`;
+  const diffHours = Math.floor(diffMinutes / 60);
+  if (diffHours < 24) return `${diffHours}h`;
+  const diffDays = Math.floor(diffHours / 24);
+  return `${diffDays}d`;
+}
+
+function isFiniteNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+export default function MediaOpsClient({
+  initialJobs,
+  initialSummary = null,
+}: {
+  initialJobs: MediaJob[];
+  initialSummary?: MediaQueueSummary | null;
+}) {
   const [jobs, setJobs] = useState(initialJobs);
   const [status, setStatus] = useState("");
   const [promptModules, setPromptModules] = useState<PromptModule[]>([]);
@@ -119,6 +165,12 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
   const [staleRequeueMinutes, setStaleRequeueMinutes] = useState(90);
   const [jobAutoRefresh, setJobAutoRefresh] = useState(true);
   const [jobsLastUpdatedAt, setJobsLastUpdatedAt] = useState<string | null>(null);
+  const [queueSummary, setQueueSummary] = useState<MediaQueueSummary | null>(initialSummary);
+  const [summaryLoading, setSummaryLoading] = useState(initialSummary === null);
+  const [summaryError, setSummaryError] = useState("");
+  const [summaryLastUpdatedAt, setSummaryLastUpdatedAt] = useState<string | null>(
+    initialSummary?.generatedAt ?? null,
+  );
   const [isRetryingFiltered, setIsRetryingFiltered] = useState(false);
   const [isRequeueingStale, setIsRequeueingStale] = useState(false);
   const [retryingJobId, setRetryingJobId] = useState<string | null>(null);
@@ -150,6 +202,54 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     () => promptModules.find((entry) => entry.moduleId === jobFilterModuleId) ?? null,
     [jobFilterModuleId, promptModules],
   );
+  const backlogBreached = queueSummary ? queueSummary.backlogCount >= queueSummary.backlogThreshold : false;
+  const staleBreached = queueSummary ? queueSummary.staleCount > 0 : false;
+  const failed24hBreached = queueSummary
+    ? queueSummary.failed24hCount >= queueSummary.failure24hThreshold
+    : false;
+  const summaryStatusClass =
+    queueSummary && queueSummary.slaBreaches === 0
+      ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+      : "border-red-200 bg-red-50 text-red-800";
+
+  const refreshSummary = useCallback(async () => {
+    setSummaryLoading(true);
+    try {
+      const response = await fetch("/api/admin/media/jobs/summary", {
+        method: "GET",
+        cache: "no-store",
+      });
+      const payload = (await response.json().catch(() => ({}))) as MediaQueueSummaryResponse;
+      if (!response.ok) {
+        throw new Error(payload.error ?? "Failed to load queue health.");
+      }
+      const nextSummary: MediaQueueSummary = {
+        generatedAt:
+          typeof payload.generatedAt === "string" ? payload.generatedAt : new Date().toISOString(),
+        queuedCount: isFiniteNumber(payload.queuedCount) ? payload.queuedCount : 0,
+        runningCount: isFiniteNumber(payload.runningCount) ? payload.runningCount : 0,
+        backlogCount: isFiniteNumber(payload.backlogCount) ? payload.backlogCount : 0,
+        staleCount: isFiniteNumber(payload.staleCount) ? payload.staleCount : 0,
+        staleQueuedCount: isFiniteNumber(payload.staleQueuedCount) ? payload.staleQueuedCount : 0,
+        staleRunningCount: isFiniteNumber(payload.staleRunningCount) ? payload.staleRunningCount : 0,
+        failed24hCount: isFiniteNumber(payload.failed24hCount) ? payload.failed24hCount : 0,
+        oldestQueuedAt: typeof payload.oldestQueuedAt === "string" ? payload.oldestQueuedAt : null,
+        staleCutoffAt:
+          typeof payload.staleCutoffAt === "string" ? payload.staleCutoffAt : new Date().toISOString(),
+        staleHoursThreshold: isFiniteNumber(payload.staleHoursThreshold) ? payload.staleHoursThreshold : 6,
+        backlogThreshold: isFiniteNumber(payload.backlogThreshold) ? payload.backlogThreshold : 30,
+        failure24hThreshold: isFiniteNumber(payload.failure24hThreshold) ? payload.failure24hThreshold : 20,
+        slaBreaches: isFiniteNumber(payload.slaBreaches) ? payload.slaBreaches : 0,
+      };
+      setQueueSummary(nextSummary);
+      setSummaryLastUpdatedAt(nextSummary.generatedAt);
+      setSummaryError("");
+    } catch (error) {
+      setSummaryError(error instanceof Error ? error.message : "Failed to load queue health.");
+    } finally {
+      setSummaryLoading(false);
+    }
+  }, []);
 
   const refreshJobs = useCallback(async () => {
     setJobsLoading(true);
@@ -202,9 +302,18 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "Failed to load jobs.");
     } finally {
+      void refreshSummary();
       setJobsLoading(false);
     }
-  }, [jobFilterAssetType, jobFilterLessonId, jobFilterLimit, jobFilterModuleId, jobFilterOffset, jobFilterStatus]);
+  }, [
+    jobFilterAssetType,
+    jobFilterLessonId,
+    jobFilterLimit,
+    jobFilterModuleId,
+    jobFilterOffset,
+    jobFilterStatus,
+    refreshSummary,
+  ]);
 
   const loadPromptPack = useCallback(async () => {
     if (promptModules.length > 0 || packLoading) return;
@@ -541,6 +650,85 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
             Queue Job
           </button>
         </form>
+      </section>
+
+      <section className="rounded-lg border border-black/10 bg-white p-5">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold">Queue Health</h2>
+            <p className="mt-1 text-xs text-zinc-600">
+              {summaryLoading
+                ? "Refreshing queue health..."
+                : summaryError
+                  ? summaryError
+                  : queueSummary
+                    ? `Last updated ${new Date(summaryLastUpdatedAt ?? queueSummary.generatedAt).toLocaleTimeString()}`
+                    : "Queue health not available."}
+            </p>
+          </div>
+          <button
+            type="button"
+            className="rounded-md border border-black/15 px-3 py-1 text-sm hover:bg-black/5 disabled:opacity-70"
+            onClick={() => void refreshSummary()}
+            disabled={summaryLoading}
+          >
+            {summaryLoading ? "Refreshing..." : "Refresh Health"}
+          </button>
+        </div>
+
+        {queueSummary ? (
+          <>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+              <article
+                className={`rounded-md border p-3 ${
+                  backlogBreached ? "border-red-200 bg-red-50 text-red-800" : "border-black/10 bg-zinc-50"
+                }`}
+              >
+                <p className="text-xs uppercase tracking-wide text-zinc-500">Backlog</p>
+                <p className="mt-1 text-2xl font-semibold">{queueSummary.backlogCount}</p>
+                <p className="text-xs">Threshold {queueSummary.backlogThreshold}</p>
+              </article>
+              <article
+                className={`rounded-md border p-3 ${
+                  staleBreached ? "border-red-200 bg-red-50 text-red-800" : "border-black/10 bg-zinc-50"
+                }`}
+              >
+                <p className="text-xs uppercase tracking-wide text-zinc-500">Stale</p>
+                <p className="mt-1 text-2xl font-semibold">{queueSummary.staleCount}</p>
+                <p className="text-xs">
+                  queued {queueSummary.staleQueuedCount} | running {queueSummary.staleRunningCount}
+                </p>
+              </article>
+              <article
+                className={`rounded-md border p-3 ${
+                  failed24hBreached ? "border-red-200 bg-red-50 text-red-800" : "border-black/10 bg-zinc-50"
+                }`}
+              >
+                <p className="text-xs uppercase tracking-wide text-zinc-500">Failed (24h)</p>
+                <p className="mt-1 text-2xl font-semibold">{queueSummary.failed24hCount}</p>
+                <p className="text-xs">Threshold {queueSummary.failure24hThreshold}</p>
+              </article>
+              <article className="rounded-md border border-black/10 bg-zinc-50 p-3">
+                <p className="text-xs uppercase tracking-wide text-zinc-500">Queued</p>
+                <p className="mt-1 text-2xl font-semibold text-zinc-900">{queueSummary.queuedCount}</p>
+                <p className="text-xs text-zinc-600">Running {queueSummary.runningCount}</p>
+              </article>
+              <article className={`rounded-md border p-3 ${summaryStatusClass}`}>
+                <p className="text-xs uppercase tracking-wide">SLA Status</p>
+                <p className="mt-1 text-2xl font-semibold">
+                  {queueSummary.slaBreaches === 0
+                    ? "OK"
+                    : `${queueSummary.slaBreaches} breach${queueSummary.slaBreaches === 1 ? "" : "es"}`}
+                </p>
+                <p className="text-xs">Oldest queued {formatAgeFromIso(queueSummary.oldestQueuedAt)}</p>
+              </article>
+            </div>
+            <p className="mt-2 text-xs text-zinc-600">
+              Stale threshold: {queueSummary.staleHoursThreshold}h | stale cutoff{" "}
+              {new Date(queueSummary.staleCutoffAt).toLocaleString()}
+            </p>
+          </>
+        ) : null}
       </section>
 
       <section className="rounded-lg border border-black/10 bg-white p-5">
