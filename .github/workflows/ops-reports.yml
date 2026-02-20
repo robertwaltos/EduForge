@@ -1,0 +1,54 @@
+name: Ops Reports
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync modules
+        run: npm run modules:sync
+
+      - name: Validate curriculum
+        run: npm run curriculum:validate
+
+      - name: Refresh reports
+        run: npm run reports:refresh
+
+      - name: Generate lesson prompt pack
+        run: npm run prompts:lesson-media
+
+      - name: Upload report artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ops-report-bundle
+          path: |
+            public/CURRICULUM-COVERAGE-REPORT.json
+            public/CURRICULUM-COVERAGE-REPORT.md
+            public/CURRICULUM-QUALITY-REPORT.json
+            public/CURRICULUM-QUALITY-REPORT.md
+            public/CURRICULUM-EXPANSION-PLAN.json
+            public/CURRICULUM-EXPANSION-PLAN.md
+            public/MEDIA-READINESS-REPORT.json
+            public/MEDIA-READINESS-REPORT.md
+            public/APPSTORE-COMPLIANCE-AUDIT.json
+            public/APPSTORE-COMPLIANCE-AUDIT.md
+            public/LESSON-MEDIA-PROMPT-PACK.json
+            public/LESSON-MEDIA-PROMPT-PACK.md

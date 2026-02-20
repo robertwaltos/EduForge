@@ -59,6 +59,7 @@ node scripts/check-db-readiness.mjs --write-report --no-fail
 ## Continuous integration
 
 GitHub Actions workflow: `.github/workflows/ci.yml`
+Scheduled ops workflow: `.github/workflows/ops-reports.yml` (daily + manual dispatch)
 
 Checks on push/PR:
 
@@ -66,6 +67,10 @@ Checks on push/PR:
 - `npm run curriculum:validate`
 - `npm run lint`
 - `npm run build`
+
+Ops workflow output:
+
+- Uploads an `ops-report-bundle` artifact with curriculum/media/compliance/prompt-pack reports.
 
 ## API endpoints (starter)
 
