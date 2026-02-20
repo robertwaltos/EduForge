@@ -16,6 +16,14 @@ function letterGrade(score: number) {
   return "F";
 }
 
+function achievementLevel(score: number) {
+  if (score >= 90) return "Super Star";
+  if (score >= 80) return "Trailblazer";
+  if (score >= 70) return "Rising Star";
+  if (score >= 60) return "Explorer";
+  return "Starter";
+}
+
 export default async function DashboardPage() {
   const learningModules = getAllLearningModules();
   const supabase = await createSupabaseServerClient();
@@ -58,8 +66,11 @@ export default async function DashboardPage() {
       : 0;
   const averageMasteryPercent = Math.round(averageMasteryRaw * 100);
   const grade = letterGrade(averageMasteryPercent);
+  const level = achievementLevel(averageMasteryPercent);
   const totalAttempts = masteryData.reduce((acc, row) => acc + Number(row.attempts ?? 0), 0);
   const totalCorrect = masteryData.reduce((acc, row) => acc + Number(row.correct_attempts ?? 0), 0);
+  const accuracyPercent = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
+  const starsEarned = completedLessons * 3 + Math.floor(averageMasteryPercent / 10);
 
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-6 py-12">
@@ -76,8 +87,9 @@ export default async function DashboardPage() {
       <section className="flex flex-col gap-8">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-2xl border border-rose-200 bg-rose-50 p-4 shadow-sm">
-            <p className="text-xs uppercase tracking-wide text-zinc-500">Overall Grade</p>
-            <p className="mt-2 text-3xl font-bold">{grade}</p>
+            <p className="text-xs uppercase tracking-wide text-zinc-500">Achievement Level</p>
+            <p className="mt-2 text-3xl font-bold">{level}</p>
+            <p className="mt-1 text-xs text-zinc-500">Progress band: {grade}</p>
           </div>
           <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4 shadow-sm">
             <p className="text-xs uppercase tracking-wide text-zinc-500">Mastery Score</p>
@@ -88,10 +100,9 @@ export default async function DashboardPage() {
             <p className="mt-2 text-3xl font-bold">{completedLessons}</p>
           </div>
           <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 shadow-sm">
-            <p className="text-xs uppercase tracking-wide text-zinc-500">Accuracy</p>
-            <p className="mt-2 text-3xl font-bold">
-              {totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0}%
-            </p>
+            <p className="text-xs uppercase tracking-wide text-zinc-500">Stars Earned</p>
+            <p className="mt-2 text-3xl font-bold">{starsEarned}</p>
+            <p className="mt-1 text-xs text-zinc-500">Accuracy: {accuracyPercent}%</p>
           </div>
         </div>
 

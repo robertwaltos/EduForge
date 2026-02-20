@@ -153,12 +153,12 @@ Once registered, the module automatically appears in:
   - mode: `System` or `Light`
   - packs: `Simple`, `Sunrise`, `Ocean`, `Forest`, `Candy`, `Space`
 - User theme preferences sync to `user_profiles` through `GET/PATCH /api/user/preferences`.
-- Learner-visible grade cards on `/dashboard`:
-  - Overall grade (A-F)
+- Learner dashboard emphasizes student-friendly progress signals:
+  - Achievement level
   - Mastery score %
-  - Accuracy %
-  - Completed lesson count
-- Lesson quiz completion is student-friendly (stars/badges/progress); numeric grading remains available for analytics/reporting.
+  - Lessons completed
+  - Stars earned + accuracy
+- Raw grading still exists for analytics, reporting, and admin/parent workflows.
 
 Session cookie refresh proxy is configured in `src/proxy.ts`.
 
