@@ -57,6 +57,15 @@ type RetryResponse = {
   message?: string;
 };
 
+type RequeueStaleResponse = {
+  scanned?: number;
+  requeued?: number;
+  skippedDueToOtherActive?: number;
+  failedUpdates?: number;
+  maxAgeMinutes?: number;
+  message?: string;
+};
+
 type AssetFilter = "all" | MediaJob["asset_type"];
 type StatusFilter = "all" | MediaJob["status"];
 
@@ -107,9 +116,11 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
   const [jobFilterLimit, setJobFilterLimit] = useState(100);
   const [jobFilterOffset, setJobFilterOffset] = useState(0);
   const [jobRetryIncludeCanceled, setJobRetryIncludeCanceled] = useState(false);
+  const [staleRequeueMinutes, setStaleRequeueMinutes] = useState(90);
   const [jobAutoRefresh, setJobAutoRefresh] = useState(true);
   const [jobsLastUpdatedAt, setJobsLastUpdatedAt] = useState<string | null>(null);
   const [isRetryingFiltered, setIsRetryingFiltered] = useState(false);
+  const [isRequeueingStale, setIsRequeueingStale] = useState(false);
   const [retryingJobId, setRetryingJobId] = useState<string | null>(null);
   const [jobsPagination, setJobsPagination] = useState<JobsPaginationState>({
     total: initialJobs.length,
@@ -352,6 +363,32 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     }
   };
 
+  const handleRequeueStale = async () => {
+    setIsRequeueingStale(true);
+    try {
+      const result = (await postJson("/api/admin/media/jobs/requeue-stale", {
+        moduleId: jobFilterModuleId || undefined,
+        lessonId: jobFilterLessonId || undefined,
+        assetType: jobFilterAssetType === "all" ? undefined : jobFilterAssetType,
+        limit: jobFilterLimit,
+        maxAgeMinutes: staleRequeueMinutes,
+      })) as RequeueStaleResponse;
+
+      if (result.message) {
+        setStatus(result.message);
+      } else {
+        setStatus(
+          `Stale requeue complete. Scanned ${result.scanned ?? 0}, re-queued ${result.requeued ?? 0}, skipped active ${result.skippedDueToOtherActive ?? 0}, failed updates ${result.failedUpdates ?? 0}.`,
+        );
+      }
+      await refreshJobs();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "Failed to requeue stale running jobs.");
+    } finally {
+      setIsRequeueingStale(false);
+    }
+  };
+
   const handleRetryJob = async (jobId: string) => {
     setRetryingJobId(jobId);
     try {
@@ -520,6 +557,14 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
             </button>
             <button
               type="button"
+              className="rounded-md border border-amber-300 bg-amber-50 px-3 py-1 text-sm text-amber-800 hover:bg-amber-100 disabled:opacity-70"
+              onClick={() => void handleRequeueStale()}
+              disabled={isRequeueingStale}
+            >
+              {isRequeueingStale ? "Requeueing..." : "Requeue Stale Running"}
+            </button>
+            <button
+              type="button"
               className="rounded-md bg-indigo-600 px-3 py-1 text-sm text-white hover:bg-indigo-500"
               onClick={() => void handleRunQueue()}
             >
@@ -616,6 +661,19 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
               onChange={(event) => setJobRetryIncludeCanceled(event.target.checked)}
             />
             Retry canceled too
+          </label>
+          <label className="flex items-center gap-2 rounded-md border border-black/15 px-2 py-2 text-sm">
+            <span className="text-xs text-zinc-600">Stale min</span>
+            <input
+              type="number"
+              min={5}
+              max={10080}
+              value={staleRequeueMinutes}
+              onChange={(event) =>
+                setStaleRequeueMinutes(Math.max(5, Math.min(10080, Number(event.target.value) || 5)))
+              }
+              className="w-20 rounded border border-black/15 px-2 py-1 text-xs"
+            />
           </label>
           <label className="flex items-center gap-2 rounded-md border border-black/15 px-2 py-2 text-sm">
             <input

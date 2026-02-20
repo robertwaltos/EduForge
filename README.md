@@ -145,6 +145,7 @@ Required GitHub secrets/vars for media queue apply mode:
 - `POST /api/admin/media/jobs/run`
 - `POST /api/admin/media/jobs/queue-from-pack`
 - `POST /api/admin/media/jobs/retry`
+- `POST /api/admin/media/jobs/requeue-stale`
 - `POST /api/admin/media/jobs/[jobId]/status`
 - `POST /api/admin/users/update-roles`
 - `GET /api/parent/reports`
