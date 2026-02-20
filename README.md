@@ -141,7 +141,7 @@ Required GitHub secrets/vars for media queue apply mode:
 - `GET /api/admin/reports/dsar`
 - `GET /api/admin/reports/support`
 - `GET /api/admin/reports/audit`
-- `GET /api/admin/curriculum/backlog` (CSV export of coverage gaps + exam-track gaps + quality remediation priorities)
+- `GET /api/admin/curriculum/backlog` (supports `format=csv|json` and `limit`, for coverage gaps + exam-track gaps + quality remediation priorities)
 - `GET /api/admin/curriculum/coverage`
 - `GET /api/admin/curriculum/summary` (includes exam-prep track readiness: SAT/ACT/AP/GCSE/A-Level/JEE-NEET/Gaokao)
 - `GET /api/admin/system/db-readiness`

@@ -1,4 +1,8 @@
 import { redirect } from "next/navigation";
+import {
+  buildCurriculumBacklog,
+  summarizeCurriculumBacklog,
+} from "@/lib/admin/curriculum-backlog";
 import { loadCurriculumSummary } from "@/lib/admin/curriculum-summary";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import CurriculumClient from "./curriculum-client";
@@ -32,6 +36,8 @@ export default async function AdminCurriculumPage() {
   }
 
   const initialSummary = await loadCurriculumSummary();
+  const initialBacklogItems = buildCurriculumBacklog(initialSummary).slice(0, 300);
+  const initialBacklogSummary = summarizeCurriculumBacklog(initialBacklogItems);
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-12">
@@ -42,7 +48,11 @@ export default async function AdminCurriculumPage() {
         </p>
       </header>
 
-      <CurriculumClient initialSummary={initialSummary} />
+      <CurriculumClient
+        initialSummary={initialSummary}
+        initialBacklogItems={initialBacklogItems}
+        initialBacklogSummary={initialBacklogSummary}
+      />
     </main>
   );
 }

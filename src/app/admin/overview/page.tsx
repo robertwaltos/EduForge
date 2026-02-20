@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { buildCurriculumBacklog, summarizeCurriculumBacklog } from "@/lib/admin/curriculum-backlog";
 import { loadCurriculumSummary } from "@/lib/admin/curriculum-summary";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
@@ -280,6 +281,9 @@ export default async function AdminOverviewPage() {
     reportFailed24h >= reportFailure24hThreshold,
   ].filter(Boolean).length;
   const reportSlaSummary = `Stale ${reportStaleCount}/${reportStaleHoursThreshold}h | backlog ${reportBacklogCount}/${reportBacklogThreshold} | failed24h ${reportFailed24h}/${reportFailure24hThreshold}`;
+  const curriculumBacklogSummary = summarizeCurriculumBacklog(
+    buildCurriculumBacklog(curriculumSummary),
+  );
 
   const cards = [
     {
@@ -358,6 +362,12 @@ export default async function AdminOverviewPage() {
       title: "Curriculum Report Freshness",
       value: curriculumSummary.reports.stale ? "STALE" : "FRESH",
       subtext: `Newest artifact age ${formatAgeFromIso(curriculumSummary.reports.newestGeneratedAt)}`,
+      href: "/admin/curriculum",
+    },
+    {
+      title: "Curriculum Backlog",
+      value: String(curriculumBacklogSummary.total),
+      subtext: `High priority ${curriculumBacklogSummary.byPriority.high} · quality ${curriculumBacklogSummary.byWorkstream.quality}`,
       href: "/admin/curriculum",
     },
     {
