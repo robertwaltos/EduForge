@@ -573,3 +573,36 @@ with check (
     where up.user_id = auth.uid() and up.is_admin = true
   )
 );
+
+create index if not exists idx_user_tokens_user_month
+  on public.user_tokens(user_id, month_key);
+
+create index if not exists idx_user_tokens_month
+  on public.user_tokens(month_key);
+
+create index if not exists idx_parent_consents_parent_email_status
+  on public.parent_consents(parent_email, status);
+
+create index if not exists idx_dsar_requests_status_requested_at
+  on public.dsar_requests(status, requested_at desc);
+
+create index if not exists idx_support_tickets_status_priority_created
+  on public.support_tickets(status, priority, created_at desc);
+
+create index if not exists idx_support_tickets_user_created
+  on public.support_tickets(user_id, created_at desc);
+
+create index if not exists idx_admin_alerts_acknowledged_created
+  on public.admin_alerts(acknowledged, created_at desc);
+
+create index if not exists idx_admin_approval_requests_status_created
+  on public.admin_approval_requests(status, created_at desc);
+
+create index if not exists idx_media_jobs_status_created
+  on public.media_generation_jobs(status, created_at desc);
+
+create index if not exists idx_media_jobs_lesson_status
+  on public.media_generation_jobs(lesson_id, status, created_at desc);
+
+create index if not exists idx_media_jobs_module_status
+  on public.media_generation_jobs(module_id, status, created_at desc);
