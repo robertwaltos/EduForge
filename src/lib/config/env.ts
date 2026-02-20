@@ -16,6 +16,7 @@ const serverEnvSchema = z.object({
   PARENT_CONSENT_TOKEN_SECRET: z.string().min(16).optional(),
   RESEND_API_KEY: z.string().optional(),
   PARENT_CONSENT_FROM_EMAIL: z.string().email().optional(),
+  ADMIN_ALERT_FROM_EMAIL: z.string().email().optional(),
   NEXT_PUBLIC_MIXPANEL_TOKEN: z.string().optional(),
   BILLING_PROVIDER_MODE: z
     .enum(["stripe_external", "app_store_iap"])

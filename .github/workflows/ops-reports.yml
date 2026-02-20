@@ -13,6 +13,8 @@ jobs:
       NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL || secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co' }}
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY || secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key' }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || '' }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || '' }}
+      ADMIN_ALERT_FROM_EMAIL: ${{ vars.ADMIN_ALERT_FROM_EMAIL || secrets.ADMIN_ALERT_FROM_EMAIL || secrets.PARENT_CONSENT_FROM_EMAIL || '' }}
 
     steps:
       - name: Checkout
@@ -47,6 +49,15 @@ jobs:
           fi
 
           npm run alerts:media:sla -- --apply
+
+      - name: Process alert notification queue
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ] || [ "$NEXT_PUBLIC_SUPABASE_URL" = "https://placeholder.supabase.co" ]; then
+            echo "Supabase service role or real URL missing. Skipping notification step."
+            exit 0
+          fi
+
+          npm run alerts:notifications -- --apply --limit 200 --retry-failed
 
       - name: Upload report artifacts
         uses: actions/upload-artifact@v4

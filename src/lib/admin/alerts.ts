@@ -49,7 +49,9 @@ export async function createAdminAlert({
 
     await admin.from("admin_alert_notifications").insert(queuedRows);
 
-    if (!serverEnv.RESEND_API_KEY || !serverEnv.PARENT_CONSENT_FROM_EMAIL) {
+    const fromEmail = serverEnv.ADMIN_ALERT_FROM_EMAIL ?? serverEnv.PARENT_CONSENT_FROM_EMAIL;
+
+    if (!serverEnv.RESEND_API_KEY || !fromEmail) {
       return;
     }
 
@@ -62,7 +64,7 @@ export async function createAdminAlert({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: serverEnv.PARENT_CONSENT_FROM_EMAIL,
+            from: fromEmail,
             to: [recipient],
             subject: `[EduForge Alert] ${severity.toUpperCase()} - ${category}`,
             html: `<p>${message}</p><pre>${JSON.stringify(metadata, null, 2)}</pre>`,

@@ -85,6 +85,7 @@ Media automation workflow behavior:
 - Queues missing media jobs into `media_generation_jobs` using `scripts/queue-media-from-prompts.mjs`.
 - Re-queues failed/canceled media jobs using `scripts/retry-media-jobs.mjs`.
 - Runs media queue SLA alert checks using `scripts/check-media-sla-alerts.mjs`.
+- Processes queued/failed alert notifications using `scripts/process-alert-notifications.mjs`.
 - Processes queued media jobs using `scripts/process-media-jobs.mjs`.
 - Skips queue writes gracefully if Supabase secrets are not configured.
 
@@ -92,6 +93,8 @@ Required GitHub secrets/vars for media queue apply mode:
 
 - `NEXT_PUBLIC_SUPABASE_URL` (repo variable or secret)
 - `SUPABASE_SERVICE_ROLE_KEY` (secret)
+- `RESEND_API_KEY` (secret, optional for email delivery)
+- `ADMIN_ALERT_FROM_EMAIL` (repo variable or secret, optional; falls back to `PARENT_CONSENT_FROM_EMAIL`)
 
 ## API endpoints (starter)
 
@@ -265,6 +268,12 @@ Run media queue SLA checks and auto-create admin alerts:
 
 ```bash
 npm run alerts:media:sla -- --apply
+```
+
+Process queued/failed alert notifications:
+
+```bash
+npm run alerts:notifications -- --apply --limit 200 --retry-failed
 ```
 
 Optional `app_settings` keys for media queue SLA thresholds:
