@@ -68,7 +68,7 @@ async function LessonPageContent({
         }
 
         return (
-          <InteractiveActivity title={lesson.title} prompts={activityPrompts} />
+          <InteractiveActivity lessonId={lesson.id} title={lesson.title} prompts={activityPrompts} />
         );
       case "quiz":
         return lesson.questions && lesson.questions.length > 0 ? (
