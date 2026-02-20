@@ -13,17 +13,38 @@ type AlertRow = {
   created_at: string;
 };
 
-export default function AlertsClient({ initialAlerts }: { initialAlerts: AlertRow[] }) {
+type AlertSettings = {
+  staleHours: number;
+  backlogLimit: number;
+  failure24hLimit: number;
+};
+
+export default function AlertsClient({
+  initialAlerts,
+  initialSettings,
+}: {
+  initialAlerts: AlertRow[];
+  initialSettings: AlertSettings;
+}) {
   const [alerts, setAlerts] = useState(initialAlerts);
+  const [settings, setSettings] = useState(initialSettings);
   const [status, setStatus] = useState("");
+  const [isSavingSettings, setIsSavingSettings] = useState(false);
 
   const refreshAlerts = async () => {
     const response = await fetch("/api/admin/alerts");
-    const data = (await response.json().catch(() => ({}))) as { alerts?: AlertRow[]; error?: string };
+    const data = (await response.json().catch(() => ({}))) as {
+      alerts?: AlertRow[];
+      settings?: AlertSettings;
+      error?: string;
+    };
     if (!response.ok) {
       throw new Error(data.error ?? "Unable to refresh alerts.");
     }
     setAlerts(data.alerts ?? []);
+    if (data.settings) {
+      setSettings(data.settings);
+    }
   };
 
   const runChecks = async () => {
@@ -71,8 +92,105 @@ export default function AlertsClient({ initialAlerts }: { initialAlerts: AlertRo
     }
   };
 
+  const saveSettings = async () => {
+    setStatus("");
+    setIsSavingSettings(true);
+    try {
+      const response = await fetch("/api/admin/alerts", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          staleHours: settings.staleHours,
+          backlogLimit: settings.backlogLimit,
+          failure24hLimit: settings.failure24hLimit,
+        }),
+      });
+      const data = (await response.json().catch(() => ({}))) as {
+        error?: string;
+        settings?: AlertSettings;
+      };
+      if (!response.ok) {
+        setStatus(data.error ?? "Unable to save alert settings.");
+        return;
+      }
+      if (data.settings) {
+        setSettings(data.settings);
+      }
+      setStatus("Alert settings saved.");
+    } catch {
+      setStatus("Unable to save alert settings.");
+    } finally {
+      setIsSavingSettings(false);
+    }
+  };
+
   return (
     <div className="space-y-3">
+      <section className="rounded-md border border-black/10 p-3 dark:border-white/10">
+        <h2 className="text-sm font-semibold">Media Queue SLA Settings</h2>
+        <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-300">
+          These thresholds control stale/backlog/failure alerts for media job automation.
+        </p>
+        <div className="mt-3 grid gap-2 md:grid-cols-3">
+          <label className="text-xs text-zinc-600 dark:text-zinc-300">
+            Stale Hours
+            <input
+              type="number"
+              min={1}
+              max={168}
+              value={settings.staleHours}
+              onChange={(event) =>
+                setSettings((previous) => ({
+                  ...previous,
+                  staleHours: Math.max(1, Math.min(168, Number(event.target.value) || 1)),
+                }))
+              }
+              className="mt-1 w-full rounded border border-black/15 px-2 py-1 text-xs"
+            />
+          </label>
+          <label className="text-xs text-zinc-600 dark:text-zinc-300">
+            Backlog Limit
+            <input
+              type="number"
+              min={1}
+              max={10000}
+              value={settings.backlogLimit}
+              onChange={(event) =>
+                setSettings((previous) => ({
+                  ...previous,
+                  backlogLimit: Math.max(1, Math.min(10000, Number(event.target.value) || 1)),
+                }))
+              }
+              className="mt-1 w-full rounded border border-black/15 px-2 py-1 text-xs"
+            />
+          </label>
+          <label className="text-xs text-zinc-600 dark:text-zinc-300">
+            Failure 24h Limit
+            <input
+              type="number"
+              min={1}
+              max={10000}
+              value={settings.failure24hLimit}
+              onChange={(event) =>
+                setSettings((previous) => ({
+                  ...previous,
+                  failure24hLimit: Math.max(1, Math.min(10000, Number(event.target.value) || 1)),
+                }))
+              }
+              className="mt-1 w-full rounded border border-black/15 px-2 py-1 text-xs"
+            />
+          </label>
+        </div>
+        <button
+          type="button"
+          onClick={() => void saveSettings()}
+          disabled={isSavingSettings}
+          className="mt-3 rounded border border-black/15 px-2 py-1 text-xs disabled:opacity-70"
+        >
+          {isSavingSettings ? "Saving..." : "Save SLA Settings"}
+        </button>
+      </section>
+
       <div className="flex flex-wrap gap-2">
         <button
           type="button"

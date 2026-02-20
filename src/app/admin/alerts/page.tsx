@@ -5,6 +5,25 @@ import AlertsClient from "./alerts-client";
 
 export const dynamic = "force-dynamic";
 
+function coerceNumber(value: unknown) {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string") {
+    const parsed = Number(value);
+    if (Number.isFinite(parsed)) return parsed;
+  }
+  return null;
+}
+
+function readNumericSetting(value: unknown, fallback: number) {
+  const direct = coerceNumber(value);
+  if (direct !== null) return direct;
+  if (value && typeof value === "object" && "value" in value) {
+    const nested = coerceNumber((value as { value?: unknown }).value);
+    if (nested !== null) return nested;
+  }
+  return fallback;
+}
+
 export default async function AdminAlertsPage() {
   const supabase = await createSupabaseServerClient();
   const {
@@ -37,6 +56,21 @@ export default async function AdminAlertsPage() {
     .select("id, severity, category, message, metadata, acknowledged, acknowledged_at, created_at")
     .order("created_at", { ascending: false })
     .limit(200);
+  const { data: settingsRows } = await admin
+    .from("app_settings")
+    .select("key, value")
+    .in("key", [
+      "media_queue_sla_stale_hours",
+      "media_queue_sla_backlog_limit",
+      "media_queue_sla_failure_24h_limit",
+    ]);
+
+  const settingsMap = new Map((settingsRows ?? []).map((row) => [row.key, row.value]));
+  const initialSettings = {
+    staleHours: readNumericSetting(settingsMap.get("media_queue_sla_stale_hours"), 6),
+    backlogLimit: readNumericSetting(settingsMap.get("media_queue_sla_backlog_limit"), 30),
+    failure24hLimit: readNumericSetting(settingsMap.get("media_queue_sla_failure_24h_limit"), 20),
+  };
 
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-12">
@@ -47,7 +81,7 @@ export default async function AdminAlertsPage() {
         </p>
       </header>
 
-      <AlertsClient initialAlerts={alerts ?? []} />
+      <AlertsClient initialAlerts={alerts ?? []} initialSettings={initialSettings} />
     </main>
   );
 }
