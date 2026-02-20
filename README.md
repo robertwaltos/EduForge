@@ -94,6 +94,7 @@ Media automation workflow behavior:
 Report automation workflow behavior:
 
 - Processes due jobs from `admin_report_jobs` using `scripts/process-report-jobs.mjs`.
+- Requeues recent failed report jobs before processing (`--retry-failed`).
 - Runs media/report queue SLA alert checks using `scripts/check-media-sla-alerts.mjs`.
 - Processes queued/failed alert notifications using `scripts/process-alert-notifications.mjs`.
 - Skips processing gracefully if Supabase secrets are not configured.
@@ -301,6 +302,12 @@ Apply status updates and export inserts:
 
 ```bash
 node scripts/process-report-jobs.mjs --apply --limit 50
+```
+
+Apply with automatic retry of failed jobs:
+
+```bash
+node scripts/process-report-jobs.mjs --apply --limit 50 --retry-failed --retry-limit 50
 ```
 
 Optional `app_settings` keys for media queue SLA thresholds:

@@ -37,11 +37,15 @@ const REPORT_CONFIG = {
 };
 
 function parseArgs(argv) {
-  const args = { apply: false, limit: 25 };
+  const args = { apply: false, limit: 25, retryFailed: false, retryLimit: 25 };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
     if (arg === "--apply") {
       args.apply = true;
+      continue;
+    }
+    if (arg === "--retry-failed") {
+      args.retryFailed = true;
       continue;
     }
     if (arg === "--limit") {
@@ -50,6 +54,16 @@ function parseArgs(argv) {
         const parsed = Number(next);
         if (Number.isFinite(parsed) && parsed > 0) {
           args.limit = Math.min(250, Math.floor(parsed));
+        }
+        index += 1;
+      }
+    }
+    if (arg === "--retry-limit") {
+      const next = argv[index + 1];
+      if (next) {
+        const parsed = Number(next);
+        if (Number.isFinite(parsed) && parsed > 0) {
+          args.retryLimit = Math.min(500, Math.floor(parsed));
         }
         index += 1;
       }
@@ -161,6 +175,43 @@ async function claimReportJob(supabase, jobId, startedAtIso) {
   return Boolean(data?.id);
 }
 
+async function retryFailedJobs(supabase, retryLimit) {
+  const { data: failedJobs, error: failedJobsError } = await supabase
+    .from("admin_report_jobs")
+    .select("id")
+    .eq("status", "failed")
+    .order("completed_at", { ascending: false })
+    .limit(retryLimit);
+
+  if (failedJobsError) {
+    throw new Error(`Failed loading failed report jobs for retry: ${failedJobsError.message}`);
+  }
+
+  const failedIds = (failedJobs ?? []).map((job) => job.id);
+  if (failedIds.length === 0) {
+    return 0;
+  }
+
+  const nowIso = new Date().toISOString();
+  const { error: retryError } = await supabase
+    .from("admin_report_jobs")
+    .update({
+      status: "queued",
+      run_after: nowIso,
+      started_at: null,
+      completed_at: null,
+      error: null,
+    })
+    .in("id", failedIds)
+    .eq("status", "failed");
+
+  if (retryError) {
+    throw new Error(`Failed retrying failed report jobs: ${retryError.message}`);
+  }
+
+  return failedIds.length;
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const envValues = parseEnvFile(envPath);
@@ -174,6 +225,11 @@ async function main() {
   const supabase = createClient(supabaseUrl, serviceRoleKey, {
     auth: { autoRefreshToken: false, persistSession: false },
   });
+
+  let retried = 0;
+  if (options.apply && options.retryFailed) {
+    retried = await retryFailedJobs(supabase, options.retryLimit);
+  }
 
   const nowIso = new Date().toISOString();
   const { data: jobs, error: jobsError } = await supabase
@@ -256,6 +312,7 @@ async function main() {
     }
   }
 
+  console.log(`Retried failed report jobs: ${retried}`);
   console.log(`Claimed report jobs: ${claimed}`);
   console.log(`Skipped (already claimed): ${skipped}`);
   console.log(`Processed report jobs: ${processed}`);

@@ -45,7 +45,7 @@ jobs:
             exit 0
           fi
 
-          node scripts/process-report-jobs.mjs --apply --limit "$QUEUE_LIMIT"
+          node scripts/process-report-jobs.mjs --apply --limit "$QUEUE_LIMIT" --retry-failed --retry-limit "$QUEUE_LIMIT"
 
       - name: Run queue SLA alert checks
         run: |

@@ -45,7 +45,7 @@ jobs:
             exit 0
           fi
 
-          node scripts/process-report-jobs.mjs --apply --limit 50
+          node scripts/process-report-jobs.mjs --apply --limit 50 --retry-failed --retry-limit 50
 
       - name: Generate lesson prompt pack
         run: npm run prompts:lesson-media
