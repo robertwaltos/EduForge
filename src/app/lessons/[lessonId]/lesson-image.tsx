@@ -3,7 +3,15 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function LessonImage({ prompt }: { prompt: string }) {
+export default function LessonImage({
+  prompt,
+  moduleId,
+  lessonId,
+}: {
+  prompt: string;
+  moduleId: string;
+  lessonId: string;
+}) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +24,7 @@ export default function LessonImage({ prompt }: { prompt: string }) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ prompt }),
+          body: JSON.stringify({ prompt, moduleId, lessonId }),
         });
 
         if (!response.ok) {
@@ -33,7 +41,7 @@ export default function LessonImage({ prompt }: { prompt: string }) {
     };
 
     generateImage();
-  }, [prompt]);
+  }, [prompt, moduleId, lessonId]);
 
   if (isLoading) {
     return (

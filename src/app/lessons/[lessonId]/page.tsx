@@ -105,7 +105,7 @@ async function LessonPageContent({
       </header>
 
       <section className="rounded-3xl border border-border bg-surface p-4 shadow-sm sm:p-6">
-        <LessonImage prompt={lessonImagePrompt} />
+        <LessonImage prompt={lessonImagePrompt} moduleId={learningModule.id} lessonId={lesson.id} />
       </section>
 
       <section className="rounded-3xl border border-border bg-surface p-4 shadow-sm sm:p-6">{renderContent()}</section>
