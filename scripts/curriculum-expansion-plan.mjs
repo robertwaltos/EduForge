@@ -45,8 +45,11 @@ function loadCoverage() {
 }
 
 function buildPlan(report) {
+  const subjectSet = new Set(subjects);
+  const gradeBandSet = new Set(gradeBands);
   const existing = new Map();
-  for (const row of report.gradeSubjectSummary ?? []) {
+  const rows = Array.isArray(report.gradeSubjectSummary) ? report.gradeSubjectSummary : [];
+  for (const row of rows) {
     const grade = String(row.gradeBand ?? "").toLowerCase();
     const subject = String(row.subject ?? "").toLowerCase();
     existing.set(`${grade}::${subject}`, Number(row.count ?? 0));
@@ -73,6 +76,20 @@ function buildPlan(report) {
     }
   }
 
+  const untrackedCoverage = rows
+    .map((row) => {
+      const gradeBand = String(row.gradeBand ?? "").toLowerCase();
+      const subject = String(row.subject ?? "").toLowerCase();
+      const count = Number(row.count ?? 0);
+      const inTargetMatrix = gradeBandSet.has(gradeBand) && subjectSet.has(subject);
+      if (inTargetMatrix) return null;
+      return { gradeBand, subject, count };
+    })
+    .filter((row) => row !== null)
+    .sort((a, b) => b.count - a.count || a.gradeBand.localeCompare(b.gradeBand) || a.subject.localeCompare(b.subject));
+
+  const totalUntracked = untrackedCoverage.reduce((acc, row) => acc + row.count, 0);
+
   targets.sort((a, b) => b.missingCount - a.missingCount || a.gradeBand.localeCompare(b.gradeBand));
   return {
     generatedAt: new Date().toISOString(),
@@ -81,8 +98,10 @@ function buildPlan(report) {
       targetRows: gradeBands.length * subjects.length,
       totalExisting,
       totalNeeded,
+      totalUntracked,
     },
     targets,
+    untrackedCoverage,
   };
 }
 
@@ -95,6 +114,7 @@ function renderMarkdown(plan) {
   lines.push("");
   lines.push(`Current lessons counted across targets: ${plan.totals.totalExisting}`);
   lines.push(`Lessons still needed to hit target: ${plan.totals.totalNeeded}`);
+  lines.push(`Coverage outside current target matrix: ${plan.totals.totalUntracked ?? 0}`);
   lines.push("");
   lines.push("## Priority Gaps");
   lines.push("");
@@ -107,6 +127,16 @@ function renderMarkdown(plan) {
     );
   }
   lines.push("");
+  if ((plan.untrackedCoverage ?? []).length > 0) {
+    lines.push("## Untracked Coverage");
+    lines.push("");
+    lines.push("| Grade Band | Subject | Existing |");
+    lines.push("|---|---|---:|");
+    for (const row of plan.untrackedCoverage) {
+      lines.push(`| ${toTitle(row.gradeBand)} | ${toTitle(row.subject)} | ${row.count} |`);
+    }
+    lines.push("");
+  }
   lines.push("## Execution Notes");
   lines.push("");
   lines.push("- Generate lessons in batches by grade band to simplify QA.");

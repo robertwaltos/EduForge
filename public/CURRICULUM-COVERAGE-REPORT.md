@@ -1,6 +1,6 @@
 # Curriculum Coverage Report
 
-Generated: 2026-02-20T23:16:49.983Z
+Generated: 2026-02-20T23:19:07.830Z
 
 Source: module-catalog
 Total lessons: 280

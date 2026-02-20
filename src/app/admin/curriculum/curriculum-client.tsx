@@ -45,8 +45,10 @@ type CurriculumSummary = {
     targetRows: number;
     totalExisting: number;
     totalNeeded: number;
+    totalUntracked: number;
     completionPercent: number;
     targets: PlanRow[];
+    untrackedCoverage: Array<{ gradeBand: string; subject: string; count: number }>;
     missingByGradeBand: Array<{ gradeBand: string; missingCount: number }>;
     missingBySubject: Array<{ subject: string; missingCount: number }>;
   };
@@ -235,7 +237,7 @@ export default function CurriculumClient({
 
       <section className="rounded-lg border border-black/10 bg-white p-5">
         <h2 className="text-lg font-semibold">Program Health</h2>
-        <div className="mt-3 grid gap-3 md:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-3 grid gap-3 md:grid-cols-3 lg:grid-cols-7">
           <article className="rounded-md border border-black/10 bg-zinc-50 p-3">
             <p className="text-xs uppercase tracking-wide text-zinc-500">Lessons tracked</p>
             <p className="mt-1 text-2xl font-semibold text-zinc-900">{summary.coverage.totalLessons}</p>
@@ -264,6 +266,13 @@ export default function CurriculumClient({
               {summary.quality.genericReflectionCount}
             </p>
           </article>
+          <article className="rounded-md border border-black/10 bg-zinc-50 p-3">
+            <p className="text-xs uppercase tracking-wide text-zinc-500">Outside matrix</p>
+            <p className="mt-1 text-2xl font-semibold text-zinc-900">
+              {summary.expansion.totalUntracked}
+            </p>
+            <p className="text-xs text-zinc-600">Lessons not counted in target grid</p>
+          </article>
           <article className={`rounded-md border p-3 ${freshnessClass}`}>
             <p className="text-xs uppercase tracking-wide">Report freshness</p>
             <p className="mt-1 text-2xl font-semibold">{summary.reports.stale ? "STALE" : "FRESH"}</p>
@@ -277,6 +286,35 @@ export default function CurriculumClient({
           {formatAgeFromIso(summary.reports.oldestGeneratedAt)}.
         </p>
       </section>
+
+      {summary.expansion.untrackedCoverage.length > 0 ? (
+        <section className="rounded-lg border border-black/10 bg-white p-5">
+          <h2 className="text-lg font-semibold">Coverage Outside Target Matrix</h2>
+          <p className="mt-2 text-sm text-zinc-600">
+            These lessons exist but are not counted in the current grade+subject planning grid.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="min-w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-b border-black/10 text-left">
+                  <th className="p-2">Grade Band</th>
+                  <th className="p-2">Subject</th>
+                  <th className="p-2">Lessons</th>
+                </tr>
+              </thead>
+              <tbody>
+                {summary.expansion.untrackedCoverage.map((row) => (
+                  <tr key={`${row.gradeBand}-${row.subject}`} className="border-b border-black/5">
+                    <td className="p-2">{titleCase(row.gradeBand)}</td>
+                    <td className="p-2">{titleCase(row.subject)}</td>
+                    <td className="p-2 font-medium">{row.count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
 
       <section className="rounded-lg border border-black/10 bg-white p-5">
         <h2 className="text-lg font-semibold">Largest Missing Coverage Areas</h2>

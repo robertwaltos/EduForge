@@ -238,6 +238,8 @@ To generate a curriculum expansion plan against the target matrix:
 npm run curriculum:plan
 ```
 
+Expansion plan output now includes `untrackedCoverage` to show lessons outside the configured target matrix (for example exam-prep tracks), so `totalExisting` is easier to interpret.
+
 This generates:
 
 - `public/CURRICULUM-EXPANSION-PLAN.json`

@@ -1,10 +1,11 @@
 # Curriculum Expansion Plan
 
-Generated: 2026-02-20T23:16:50.080Z
+Generated: 2026-02-20T23:19:07.921Z
 Target lessons per grade+subject: 10
 
 Current lessons counted across targets: 210
 Lessons still needed to hit target: 524
+Coverage outside current target matrix: 70
 
 ## Priority Gaps
 
@@ -64,6 +65,12 @@ Lessons still needed to hit target: 524
 | Pre K | General Relativity | 0 | 10 | 10 |
 | Pre K | Language Arts | 8 | 10 | 2 |
 | Pre K | Basic Math | 8 | 10 | 2 |
+
+## Untracked Coverage
+
+| Grade Band | Subject | Existing |
+|---|---|---:|
+| High School | Exam Prep | 70 |
 
 ## Execution Notes
 

@@ -44,8 +44,10 @@ export type CurriculumSummary = {
     targetRows: number;
     totalExisting: number;
     totalNeeded: number;
+    totalUntracked: number;
     completionPercent: number;
     targets: PlanRow[];
+    untrackedCoverage: Array<{ gradeBand: string; subject: string; count: number }>;
     missingByGradeBand: Array<{ gradeBand: string; missingCount: number }>;
     missingBySubject: Array<{ subject: string; missingCount: number }>;
   };
@@ -75,8 +77,10 @@ const DEFAULT_PLAN = {
     targetRows: 0,
     totalExisting: 0,
     totalNeeded: 0,
+    totalUntracked: 0,
   },
   targets: [] as PlanRow[],
+  untrackedCoverage: [] as Array<{ gradeBand: string; subject: string; count: number }>,
 };
 
 const DEFAULT_QUALITY = {
@@ -151,6 +155,7 @@ function parsePlan(value: unknown) {
       ? (record.totals as Record<string, unknown>)
       : {};
   const rawTargets = Array.isArray(record.targets) ? record.targets : [];
+  const rawUntrackedCoverage = Array.isArray(record.untrackedCoverage) ? record.untrackedCoverage : [];
   const targets = rawTargets
     .map((row) => {
       if (!row || typeof row !== "object") return null;
@@ -164,6 +169,17 @@ function parsePlan(value: unknown) {
       };
     })
     .filter((row): row is PlanRow => row !== null);
+  const untrackedCoverage = rawUntrackedCoverage
+    .map((row) => {
+      if (!row || typeof row !== "object") return null;
+      const entry = row as Record<string, unknown>;
+      return {
+        gradeBand: typeof entry.gradeBand === "string" ? entry.gradeBand : "unknown",
+        subject: typeof entry.subject === "string" ? entry.subject : "unknown",
+        count: isFiniteNumber(entry.count) ? entry.count : 0,
+      };
+    })
+    .filter((row): row is { gradeBand: string; subject: string; count: number } => row !== null);
 
   return {
     generatedAt: toIsoOrNull(record.generatedAt),
@@ -174,8 +190,10 @@ function parsePlan(value: unknown) {
       targetRows: isFiniteNumber(totalsRecord.targetRows) ? totalsRecord.targetRows : 0,
       totalExisting: isFiniteNumber(totalsRecord.totalExisting) ? totalsRecord.totalExisting : 0,
       totalNeeded: isFiniteNumber(totalsRecord.totalNeeded) ? totalsRecord.totalNeeded : 0,
+      totalUntracked: isFiniteNumber(totalsRecord.totalUntracked) ? totalsRecord.totalUntracked : 0,
     },
     targets,
+    untrackedCoverage,
   };
 }
 
@@ -319,8 +337,10 @@ export async function loadCurriculumSummary(rootDir: string = process.cwd()): Pr
       targetRows: plan.totals.targetRows,
       totalExisting: plan.totals.totalExisting,
       totalNeeded: plan.totals.totalNeeded,
+      totalUntracked: plan.totals.totalUntracked,
       completionPercent,
       targets: plan.targets,
+      untrackedCoverage: plan.untrackedCoverage,
       missingByGradeBand,
       missingBySubject,
     },
