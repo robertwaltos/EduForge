@@ -31,23 +31,53 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Admin access required." }, { status: 403 });
   }
 
-  const body = (await request.json().catch(() => ({}))) as { batchSize?: number };
+  const body = (await request.json().catch(() => ({}))) as {
+    batchSize?: number;
+    moduleId?: string;
+    lessonId?: string;
+    assetType?: string;
+  };
   const batchSize = Math.min(50, Math.max(1, Number(body.batchSize ?? 10)));
+  const moduleId = typeof body.moduleId === "string" ? body.moduleId.trim() : "";
+  const lessonId = typeof body.lessonId === "string" ? body.lessonId.trim() : "";
+  const assetType = typeof body.assetType === "string" ? body.assetType.trim() : "";
+
+  if (assetType && !["video", "animation", "image"].includes(assetType)) {
+    return NextResponse.json({ error: "assetType must be video, animation, or image." }, { status: 400 });
+  }
 
   const admin = createSupabaseAdminClient();
-  const { data: queuedJobs, error: fetchError } = await admin
+  let query = admin
     .from("media_generation_jobs")
     .select("id, asset_type, module_id, lesson_id")
-    .eq("status", "queued")
-    .order("created_at", { ascending: true })
-    .limit(batchSize);
+    .eq("status", "queued");
+
+  if (moduleId) {
+    query = query.eq("module_id", moduleId);
+  }
+  if (lessonId) {
+    query = query.eq("lesson_id", lessonId);
+  }
+  if (assetType) {
+    query = query.eq("asset_type", assetType);
+  }
+
+  const { data: queuedJobs, error: fetchError } = await query.order("created_at", { ascending: true }).limit(batchSize);
 
   if (fetchError) {
     return NextResponse.json({ error: fetchError.message }, { status: 500 });
   }
 
   if (!queuedJobs || queuedJobs.length === 0) {
-    return NextResponse.json({ processed: 0, message: "No queued jobs." });
+    return NextResponse.json({
+      processed: 0,
+      message: "No queued jobs.",
+      filters: {
+        moduleId: moduleId || null,
+        lessonId: lessonId || null,
+        assetType: assetType || null,
+      },
+    });
   }
 
   const results = [];
@@ -96,6 +126,11 @@ export async function POST(request: Request) {
     processed: results.length,
     completed: results.filter((item) => item.status === "completed").length,
     failed: results.filter((item) => item.status === "failed").length,
+    filters: {
+      moduleId: moduleId || null,
+      lessonId: lessonId || null,
+      assetType: assetType || null,
+    },
     results,
   });
 }

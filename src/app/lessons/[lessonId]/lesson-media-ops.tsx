@@ -34,6 +34,14 @@ type JobsResponse = {
   error?: string;
 };
 
+type RunResponse = {
+  error?: string;
+  processed?: number;
+  completed?: number;
+  failed?: number;
+  message?: string;
+};
+
 const ASSET_ORDER: MediaAssetType[] = ["video", "animation", "image"];
 
 async function copyText(value: string) {
@@ -78,6 +86,7 @@ export default function LessonMediaOps({
   const [jobsAccessDenied, setJobsAccessDenied] = useState(false);
   const [lastJobsRefreshAt, setLastJobsRefreshAt] = useState<string | null>(null);
   const [workingAssetType, setWorkingAssetType] = useState<MediaAssetType | null>(null);
+  const [isProcessingLessonQueue, setIsProcessingLessonQueue] = useState(false);
 
   const promptEntries: PromptEntry[] = useMemo(
     () => [
@@ -225,6 +234,40 @@ export default function LessonMediaOps({
     }
   };
 
+  const handleProcessLessonQueue = async () => {
+    setIsProcessingLessonQueue(true);
+    setActionStatus("");
+
+    try {
+      const response = await fetch("/api/admin/media/jobs/run", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          moduleId,
+          lessonId,
+          batchSize: 10,
+        }),
+      });
+      const payload = (await response.json().catch(() => ({}))) as RunResponse;
+      if (!response.ok) {
+        throw new Error(payload.error ?? "Failed to process lesson media queue.");
+      }
+
+      if (payload.message) {
+        setActionStatus(payload.message);
+      } else {
+        setActionStatus(
+          `Lesson queue processed. Processed ${payload.processed ?? 0}, completed ${payload.completed ?? 0}, failed ${payload.failed ?? 0}.`,
+        );
+      }
+      await refreshJobs(true);
+    } catch (error) {
+      setActionStatus(error instanceof Error ? error.message : "Failed to process lesson media queue.");
+    } finally {
+      setIsProcessingLessonQueue(false);
+    }
+  };
+
   return (
     <div className="space-y-3">
       {promptEntries.map((entry) => {
@@ -296,6 +339,14 @@ export default function LessonMediaOps({
             onClick={() => void refreshJobs()}
           >
             Refresh Status
+          </button>
+          <button
+            type="button"
+            className="rounded border border-black/15 px-2 py-1 hover:bg-black/5 disabled:opacity-70"
+            disabled={isProcessingLessonQueue}
+            onClick={() => void handleProcessLessonQueue()}
+          >
+            {isProcessingLessonQueue ? "Processing..." : "Process This Lesson Queue"}
           </button>
           {lastJobsRefreshAt ? <span>Last refresh: {formatTimestamp(lastJobsRefreshAt)}</span> : null}
         </div>
