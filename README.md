@@ -97,6 +97,7 @@ Checks on push/PR:
 - `/exam-prep` (global exam-preparation pathways)
 - `/support` (user issue reporting and ticket tracking)
 - `/admin/operations` (owner/admin operations console)
+- `/admin/overview` (admin command center summary)
 - `/admin/curriculum` (curriculum coverage and gap planning console)
 - `/admin/media` (AI media generation queue operations)
 - `/admin/compliance` (app store policy readiness checklist)

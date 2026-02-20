@@ -28,6 +28,7 @@ const parentNavItems = [
 ] as const;
 
 const adminNavItems = [
+  { href: "/admin/overview", labelKey: "nav_admin_overview" },
   { href: "/admin/operations", labelKey: "nav_owner_ops" },
   { href: "/admin/curriculum", labelKey: "nav_curriculum" },
   { href: "/admin/media", labelKey: "nav_media_ops" },
