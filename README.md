@@ -100,6 +100,13 @@ To add a new learning module with minimal changes:
 3. Run `npm run modules:sync` to regenerate the validated registry.
 4. Optional: run `npm run modules:generate:exams` to add SAT/ACT/AP/GCSE/A-Level/JEE-NEET/Gaokao tracks.
 
+Fast scaffold option (recommended):
+
+```bash
+npm run module:new -- --id algebra-201 --title "Algebra Foundations" --subject "Math" --description "Build algebra fluency with guided practice."
+npm run modules:sync
+```
+
 To inspect curriculum breadth and identify coverage gaps:
 
 ```bash
