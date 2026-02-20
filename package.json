@@ -18,6 +18,7 @@
     "prompts:lesson-media": "node scripts/generate-lesson-media-prompts.mjs",
     "reports:refresh": "node scripts/generate-all-reports.mjs",
     "env:check": "node scripts/check-env.mjs",
+    "db:check": "node scripts/check-db-readiness.mjs",
     "prebuild": "npm run modules:sync",
     "build": "next build",
     "start": "next start",

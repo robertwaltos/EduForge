@@ -44,6 +44,18 @@ Optional environment diagnostics:
 npm run env:check
 ```
 
+Database readiness diagnostics (checks required Supabase tables):
+
+```bash
+npm run db:check
+```
+
+Optional report output:
+
+```bash
+node scripts/check-db-readiness.mjs --write-report --no-fail
+```
+
 ## Continuous integration
 
 GitHub Actions workflow: `.github/workflows/ci.yml`

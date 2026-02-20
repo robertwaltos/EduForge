@@ -59,6 +59,9 @@ export default async function AdminCompliancePage() {
           <a className="rounded-md border border-black/15 px-2 py-1 hover:bg-black/5" href="/APPSTORE-COMPLIANCE-AUDIT.md" target="_blank" rel="noreferrer">
             Open Compliance Audit Report
           </a>
+          <a className="rounded-md border border-black/15 px-2 py-1 hover:bg-black/5" href="/DB-READINESS-REPORT.md" target="_blank" rel="noreferrer">
+            Open DB Readiness Report
+          </a>
         </div>
         <ul className="space-y-4">
           {appStoreComplianceChecklist.map((item) => (

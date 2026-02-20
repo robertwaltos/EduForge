@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-02-20T15:56:35.087Z",
+  "supabaseHost": "osnxbuusohdzzcrakavn.supabase.co",
+  "totals": {
+    "present": 19,
+    "missing": 0,
+    "error": 0,
+    "total": 19
+  },
+  "tables": [
+    {
+      "table": "user_profiles",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "user_tokens",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "parent_consents",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "subscriptions",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "dsar_requests",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "user_learning_progress",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "user_skill_mastery",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "app_settings",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "admin_action_logs",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "support_tickets",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "sales_events",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "policy_acceptances",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "admin_alerts",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "admin_rate_limit_events",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "admin_report_exports",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "admin_approval_requests",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "admin_alert_notifications",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "admin_report_jobs",
+      "status": "present",
+      "detail": "Present"
+    },
+    {
+      "table": "media_generation_jobs",
+      "status": "present",
+      "detail": "Present"
+    }
+  ],
+  "missingSnippets": []
+}
