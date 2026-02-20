@@ -66,6 +66,7 @@ npm run ops:doctor
 
 GitHub Actions workflow: `.github/workflows/ci.yml`
 Scheduled ops workflow: `.github/workflows/ops-reports.yml` (daily + manual dispatch)
+Scheduled media automation workflow: `.github/workflows/media-automation.yml` (daily + manual dispatch)
 
 Checks on push/PR:
 
@@ -77,6 +78,17 @@ Checks on push/PR:
 Ops workflow output:
 
 - Uploads an `ops-report-bundle` artifact with curriculum/media/compliance/prompt-pack reports.
+
+Media automation workflow behavior:
+
+- Regenerates lesson media prompt pack artifacts.
+- Queues missing media jobs into `media_generation_jobs` using `scripts/queue-media-from-prompts.mjs`.
+- Skips queue writes gracefully if Supabase secrets are not configured.
+
+Required GitHub secrets/vars for media queue apply mode:
+
+- `NEXT_PUBLIC_SUPABASE_URL` (repo variable or secret)
+- `SUPABASE_SERVICE_ROLE_KEY` (secret)
 
 ## API endpoints (starter)
 
@@ -107,7 +119,7 @@ Ops workflow output:
 - `GET /api/admin/reports/audit`
 - `GET /api/admin/curriculum/coverage`
 - `GET /api/admin/system/db-readiness`
-- `GET/POST /api/admin/media/jobs`
+- `GET/POST /api/admin/media/jobs` (GET supports `moduleId`, `lessonId`, `assetType`, `limit` query params)
 - `GET /api/admin/media/prompt-pack`
 - `POST /api/admin/media/jobs/run`
 - `POST /api/admin/media/jobs/queue-from-pack`
@@ -133,6 +145,7 @@ Ops workflow output:
 - `/admin/overview` (admin command center summary)
 - `/admin/curriculum` (curriculum coverage and gap planning console)
 - `/admin/media` (AI media generation queue operations)
+- `/lessons/[lessonId]` includes admin-only prompt copy, queue, and lesson-specific queue processing controls.
 - `/admin/compliance` (app store policy readiness checklist)
 - `/admin/reports` (CSV exports for DSAR/support/audit)
 - `/admin/alerts` (operational anomaly and rate-limit alerts)
@@ -234,6 +247,13 @@ Optional filters:
 - `--lesson <lesson-id>`
 - `--asset video|animation|image|all`
 - `--created-by <admin-user-uuid>`
+
+Lesson-level media operations:
+
+- Every lesson page now renders video, animation, and image production prompts.
+- Admins can queue prompt jobs directly from the lesson page.
+- Lesson page panel auto-refreshes latest queue status and output links.
+- Admins can process queued jobs scoped to the current lesson from the same panel.
 
 App store compliance audit report:
 
