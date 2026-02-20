@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Lesson, Question } from "@/lib/data/curriculum";
 import { trackLessonCompleted } from "@/lib/analytics/mixpanel";
-import { saveOfflineProgress } from "@/lib/offline/progress-db";
+import { deleteSyncedProgress, saveOfflineProgress } from "@/lib/offline/progress-db";
 import Link from "next/link";
 
 export default function Quiz({ lesson }: { lesson: Lesson & { questions: Question[] } }) {
@@ -57,6 +57,7 @@ export default function Quiz({ lesson }: { lesson: Lesson & { questions: Questio
           throw new Error(`Progress sync failed: ${response.status}`);
         }
 
+        await deleteSyncedProgress(lesson.id);
         setProgressSyncState("synced");
       } catch (error) {
         console.error("Unable to sync lesson progress online. Saving offline.", error);

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { LearningAid } from "@/lib/modules/types";
-import { saveOfflineProgress } from "@/lib/offline/progress-db";
+import { deleteSyncedProgress, saveOfflineProgress } from "@/lib/offline/progress-db";
 
 type VideoLessonPlayerProps = {
   lessonId: string;
@@ -95,6 +95,7 @@ export default function VideoLessonPlayer({
           throw new Error(`Progress sync failed: ${response.status}`);
         }
 
+        await deleteSyncedProgress(lessonId);
         setSyncState("synced");
       } catch (error) {
         console.error("Unable to sync video lesson progress online. Saving offline.", error);

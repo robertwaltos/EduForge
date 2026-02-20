@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { saveOfflineProgress } from "@/lib/offline/progress-db";
+import { deleteSyncedProgress, saveOfflineProgress } from "@/lib/offline/progress-db";
 
 type InteractiveActivityProps = {
   lessonId: string;
@@ -43,6 +43,7 @@ export default function InteractiveActivity({ lessonId, title, prompts }: Intera
         throw new Error(`Progress sync failed: ${response.status}`);
       }
 
+      await deleteSyncedProgress(lessonId);
       setSyncState("synced");
     } catch (error) {
       console.error("Unable to sync interactive lesson progress online. Saving offline.", error);
