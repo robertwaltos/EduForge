@@ -12,6 +12,7 @@
     "compliance:audit": "node scripts/appstore-compliance-audit.mjs",
     "curriculum:report": "node scripts/curriculum-coverage-report.mjs",
     "curriculum:plan": "npm run curriculum:report && node scripts/curriculum-expansion-plan.mjs",
+    "reports:refresh": "node scripts/generate-all-reports.mjs",
     "prebuild": "npm run modules:sync",
     "build": "next build",
     "start": "next start",

@@ -168,6 +168,12 @@ This generates:
 - `public/APPSTORE-COMPLIANCE-AUDIT.json`
 - `public/APPSTORE-COMPLIANCE-AUDIT.md`
 
+Refresh all governance/ops reports in one run:
+
+```bash
+npm run reports:refresh
+```
+
 Once registered, the module automatically appears in:
 
 - `GET`/lookup logic via `src/lib/modules/index.ts` (validated with Zod)
