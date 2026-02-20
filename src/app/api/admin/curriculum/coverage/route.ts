@@ -1,6 +1,5 @@
-import fs from "node:fs/promises";
-import path from "node:path";
 import { NextResponse } from "next/server";
+import { loadCurriculumSummary } from "@/lib/admin/curriculum-summary";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 async function assertAdmin() {
@@ -26,17 +25,43 @@ export async function GET() {
   }
 
   try {
-    const root = process.cwd();
-    const coveragePath = path.join(root, "public", "CURRICULUM-COVERAGE-REPORT.json");
-    const planPath = path.join(root, "public", "CURRICULUM-EXPANSION-PLAN.json");
-    const [coverageRaw, planRaw] = await Promise.all([
-      fs.readFile(coveragePath, "utf8"),
-      fs.readFile(planPath, "utf8").catch(() => "{}"),
-    ]);
-
-    const coverage = JSON.parse(coverageRaw);
-    const plan = JSON.parse(planRaw);
-    return NextResponse.json({ coverage, plan });
+    const summary = await loadCurriculumSummary();
+    return NextResponse.json({
+      generatedAt: summary.generatedAt,
+      coverage: {
+        generatedAt: summary.reports.coverageGeneratedAt,
+        totalLessons: summary.coverage.totalLessons,
+        gradeSubjectSummary: summary.coverage.gradeSubjectSummary,
+      },
+      plan: {
+        generatedAt: summary.reports.expansionGeneratedAt,
+        targetPerSubjectPerGrade: summary.expansion.targetPerSubjectPerGrade,
+        totals: {
+          targetRows: summary.expansion.targetRows,
+          totalExisting: summary.expansion.totalExisting,
+          totalNeeded: summary.expansion.totalNeeded,
+          totalUntracked: summary.expansion.totalUntracked,
+          completionPercent: summary.expansion.completionPercent,
+        },
+        targets: summary.expansion.targets,
+        untrackedCoverage: summary.expansion.untrackedCoverage,
+      },
+      quality: {
+        generatedAt: summary.reports.qualityGeneratedAt,
+        totals: {
+          modules: summary.quality.modules,
+          lessons: summary.quality.lessons,
+          averageScore: summary.quality.averageScore,
+          highPriorityModules: summary.quality.highPriorityModules,
+          mediumPriorityModules: summary.quality.mediumPriorityModules,
+          lowPriorityModules: summary.quality.lowPriorityModules,
+          placeholderOptionCount: summary.quality.placeholderOptionCount,
+          genericReflectionCount: summary.quality.genericReflectionCount,
+        },
+        topPriorityModules: summary.quality.topPriorityModules,
+      },
+      reports: summary.reports,
+    });
   } catch (error) {
     return NextResponse.json(
       {
