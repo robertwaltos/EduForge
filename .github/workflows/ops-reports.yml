@@ -12,6 +12,7 @@ jobs:
     env:
       NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL || secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co' }}
       NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY || secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key' }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || '' }}
 
     steps:
       - name: Checkout
@@ -37,6 +38,15 @@ jobs:
 
       - name: Generate lesson prompt pack
         run: npm run prompts:lesson-media
+
+      - name: Run media queue SLA alert checks
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ] || [ "$NEXT_PUBLIC_SUPABASE_URL" = "https://placeholder.supabase.co" ]; then
+            echo "Supabase service role or real URL missing. Skipping SLA alert step."
+            exit 0
+          fi
+
+          npm run alerts:media:sla -- --apply
 
       - name: Upload report artifacts
         uses: actions/upload-artifact@v4

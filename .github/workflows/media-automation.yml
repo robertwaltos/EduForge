@@ -51,6 +51,15 @@ jobs:
 
           npm run media:queue:from-prompts -- --apply --asset all --limit "$QUEUE_LIMIT"
 
+      - name: Run media queue SLA alert checks
+        run: |
+          if [ -z "$NEXT_PUBLIC_SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "Supabase environment variables are missing. Skipping SLA alert step."
+            exit 0
+          fi
+
+          npm run alerts:media:sla -- --apply
+
       - name: Process queued media jobs
         run: |
           if [ -z "$NEXT_PUBLIC_SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then

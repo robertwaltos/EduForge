@@ -84,6 +84,7 @@ Media automation workflow behavior:
 - Regenerates lesson media prompt pack artifacts.
 - Queues missing media jobs into `media_generation_jobs` using `scripts/queue-media-from-prompts.mjs`.
 - Re-queues failed/canceled media jobs using `scripts/retry-media-jobs.mjs`.
+- Runs media queue SLA alert checks using `scripts/check-media-sla-alerts.mjs`.
 - Processes queued media jobs using `scripts/process-media-jobs.mjs`.
 - Skips queue writes gracefully if Supabase secrets are not configured.
 
@@ -257,6 +258,18 @@ npm run media:retry -- --status failed,canceled --limit 100 --apply
 ```
 
 The retry flow skips jobs when a queued/running/completed asset already exists for the same module + lesson + asset type.
+
+Run media queue SLA checks and auto-create admin alerts:
+
+```bash
+npm run alerts:media:sla -- --apply
+```
+
+Optional `app_settings` keys for media queue SLA thresholds:
+
+- `media_queue_sla_stale_hours` (default: `6`)
+- `media_queue_sla_backlog_limit` (default: `30`)
+- `media_queue_sla_failure_24h_limit` (default: `20`)
 
 Optional filters:
 

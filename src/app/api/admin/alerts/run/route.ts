@@ -10,6 +10,35 @@ function monthKeyFromDate(date: Date) {
   return `${year}-${month}`;
 }
 
+function coerceNumber(value: unknown) {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+  if (typeof value === "string") {
+    const parsed = Number(value);
+    if (Number.isFinite(parsed)) {
+      return parsed;
+    }
+  }
+  return null;
+}
+
+function readNumericSetting(value: unknown, fallback: number) {
+  const direct = coerceNumber(value);
+  if (direct !== null) {
+    return direct;
+  }
+
+  if (typeof value === "object" && value !== null && "value" in value) {
+    const nested = coerceNumber((value as { value?: unknown }).value);
+    if (nested !== null) {
+      return nested;
+    }
+  }
+
+  return fallback;
+}
+
 async function shouldCreateAlert(category: string) {
   const admin = createSupabaseAdminClient();
   const recentWindowIso = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
@@ -45,14 +74,7 @@ export async function POST() {
     .maybeSingle();
 
   const budgetCap =
-    typeof budgetSetting?.value === "number"
-      ? budgetSetting.value
-      : typeof budgetSetting?.value === "object" &&
-        budgetSetting?.value !== null &&
-        "value" in budgetSetting.value &&
-        typeof (budgetSetting.value as { value?: unknown }).value === "number"
-        ? Number((budgetSetting.value as { value?: unknown }).value)
-        : 1.05;
+    readNumericSetting(budgetSetting?.value, 1.05);
 
   const totalCost = (monthTokens ?? []).reduce((acc, row) => acc + Number(row.spent_usd ?? 0), 0);
   const activeUsers = new Set((monthTokens ?? []).map((row) => row.user_id)).size;
@@ -74,7 +96,47 @@ export async function POST() {
     triggered.push("cost_budget_overrun");
   }
 
-  const staleMediaCutoff = new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString();
+  const { data: mediaSlaSettings } = await admin
+    .from("app_settings")
+    .select("key, value")
+    .in("key", [
+      "media_queue_sla_stale_hours",
+      "media_queue_sla_backlog_limit",
+      "media_queue_sla_failure_24h_limit",
+    ]);
+
+  const mediaSlaSettingMap = new Map((mediaSlaSettings ?? []).map((row) => [row.key, row.value]));
+  const staleHoursThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("media_queue_sla_stale_hours"), 6),
+  );
+  const backlogThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("media_queue_sla_backlog_limit"), 30),
+  );
+  const failure24hThreshold = Math.max(
+    1,
+    readNumericSetting(mediaSlaSettingMap.get("media_queue_sla_failure_24h_limit"), 20),
+  );
+
+  const staleMediaCutoff = new Date(Date.now() - staleHoursThreshold * 60 * 60 * 1000).toISOString();
+  const { count: queuedOrRunningCount } = await admin
+    .from("media_generation_jobs")
+    .select("id", { count: "exact", head: true })
+    .in("status", ["queued", "running"]);
+
+  const { data: oldestQueueJob } = await admin
+    .from("media_generation_jobs")
+    .select("id, status, created_at")
+    .in("status", ["queued", "running"])
+    .order("created_at", { ascending: true })
+    .limit(1)
+    .maybeSingle();
+
+  const oldestAgeHours = oldestQueueJob?.created_at
+    ? (Date.now() - new Date(oldestQueueJob.created_at).getTime()) / (60 * 60 * 1000)
+    : 0;
+
   const { count: staleMediaCount } = await admin
     .from("media_generation_jobs")
     .select("id", { count: "exact", head: true })
@@ -83,12 +145,54 @@ export async function POST() {
 
   if ((staleMediaCount ?? 0) > 0 && (await shouldCreateAlert("media_queue_stale"))) {
     await createAdminAlert({
-      severity: "warning",
+      severity:
+        oldestAgeHours >= staleHoursThreshold * 2 || (staleMediaCount ?? 0) >= backlogThreshold
+          ? "critical"
+          : "warning",
       category: "media_queue_stale",
-      message: `Detected ${staleMediaCount} media jobs pending/running for more than 6 hours.`,
-      metadata: { staleMediaCount, staleMediaCutoff },
+      message: `Detected ${staleMediaCount} media jobs pending/running beyond ${staleHoursThreshold}h SLA.`,
+      metadata: {
+        staleMediaCount,
+        staleMediaCutoff,
+        staleHoursThreshold,
+        oldestAgeHours: Number(oldestAgeHours.toFixed(2)),
+      },
     });
     triggered.push("media_queue_stale");
+  }
+
+  if ((queuedOrRunningCount ?? 0) >= backlogThreshold && (await shouldCreateAlert("media_queue_backlog"))) {
+    await createAdminAlert({
+      severity: (queuedOrRunningCount ?? 0) >= backlogThreshold * 2 ? "critical" : "warning",
+      category: "media_queue_backlog",
+      message: `Media queue backlog is ${queuedOrRunningCount}, above threshold ${backlogThreshold}.`,
+      metadata: {
+        queuedOrRunningCount,
+        backlogThreshold,
+      },
+    });
+    triggered.push("media_queue_backlog");
+  }
+
+  const failure24hCutoff = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+  const { count: failedMediaCount24h } = await admin
+    .from("media_generation_jobs")
+    .select("id", { count: "exact", head: true })
+    .eq("status", "failed")
+    .gte("updated_at", failure24hCutoff);
+
+  if ((failedMediaCount24h ?? 0) >= failure24hThreshold && (await shouldCreateAlert("media_queue_failure_spike"))) {
+    await createAdminAlert({
+      severity: (failedMediaCount24h ?? 0) >= failure24hThreshold * 2 ? "critical" : "warning",
+      category: "media_queue_failure_spike",
+      message: `Media queue had ${failedMediaCount24h} failures in the last 24h (threshold: ${failure24hThreshold}).`,
+      metadata: {
+        failedMediaCount24h,
+        failure24hCutoff,
+        failure24hThreshold,
+      },
+    });
+    triggered.push("media_queue_failure_spike");
   }
 
   const dsarCutoff = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
