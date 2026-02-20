@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { publicEnv } from "@/lib/config/env";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import OAuthButtons from "./oauth-buttons";
 
@@ -23,10 +24,16 @@ function SignInPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const errorFromCallback = searchParams.get("error");
+  const hasSupabaseConfig =
+    Boolean(publicEnv.NEXT_PUBLIC_SUPABASE_URL) && Boolean(publicEnv.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
   const onPasswordSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus("");
+    if (!hasSupabaseConfig) {
+      setStatus("Sign-in is unavailable until Supabase public environment variables are configured.");
+      return;
+    }
     setIsSubmittingPassword(true);
 
     try {
@@ -56,6 +63,10 @@ function SignInPageContent() {
   const onEmailOtpSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setOtpStatus("");
+    if (!hasSupabaseConfig) {
+      setOtpStatus("Email OTP is unavailable until Supabase public environment variables are configured.");
+      return;
+    }
     setIsSubmittingEmailOtp(true);
 
     try {
@@ -83,6 +94,10 @@ function SignInPageContent() {
   const onSendPhoneOtp = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setPhoneStatus("");
+    if (!hasSupabaseConfig) {
+      setPhoneStatus("Phone OTP is unavailable until Supabase public environment variables are configured.");
+      return;
+    }
     setIsSendingPhoneOtp(true);
 
     try {
@@ -106,6 +121,10 @@ function SignInPageContent() {
   const onVerifyPhoneOtp = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setPhoneStatus("");
+    if (!hasSupabaseConfig) {
+      setPhoneStatus("Phone verification is unavailable until Supabase public environment variables are configured.");
+      return;
+    }
     setIsVerifyingPhoneOtp(true);
 
     try {
@@ -137,6 +156,11 @@ function SignInPageContent() {
       <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-300">
         Use your EduForge account to continue.
       </p>
+      {!hasSupabaseConfig ? (
+        <p className="mt-2 text-xs text-amber-700 dark:text-amber-400">
+          Missing `NEXT_PUBLIC_SUPABASE_URL` and/or `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+        </p>
+      ) : null}
 
       <form onSubmit={onPasswordSubmit} className="mt-6 space-y-4">
         <div>
@@ -172,7 +196,7 @@ function SignInPageContent() {
 
         <button
           type="submit"
-          disabled={isSubmittingPassword}
+          disabled={isSubmittingPassword || !hasSupabaseConfig}
           className="w-full rounded-md bg-indigo-600 px-4 py-2 text-sm text-white disabled:opacity-70"
         >
           {isSubmittingPassword ? "Signing in..." : "Sign In with Email + Password"}
@@ -200,7 +224,7 @@ function SignInPageContent() {
         </div>
         <button
           type="submit"
-          disabled={isSubmittingEmailOtp}
+          disabled={isSubmittingEmailOtp || !hasSupabaseConfig}
           className="w-full rounded-md border border-black/15 px-4 py-2 text-sm font-medium disabled:opacity-70"
         >
           {isSubmittingEmailOtp ? "Sending link..." : "Send Magic Link"}
@@ -227,7 +251,7 @@ function SignInPageContent() {
           </div>
           <button
             type="submit"
-            disabled={isSendingPhoneOtp}
+            disabled={isSendingPhoneOtp || !hasSupabaseConfig}
             className="w-full rounded-md border border-black/15 px-4 py-2 text-sm font-medium disabled:opacity-70"
           >
             {isSendingPhoneOtp ? "Sending code..." : "Send SMS Code"}
@@ -253,7 +277,7 @@ function SignInPageContent() {
             </div>
             <button
               type="submit"
-              disabled={isVerifyingPhoneOtp}
+              disabled={isVerifyingPhoneOtp || !hasSupabaseConfig}
               className="w-full rounded-md bg-indigo-600 px-4 py-2 text-sm text-white disabled:opacity-70"
             >
               {isVerifyingPhoneOtp ? "Verifying..." : "Verify SMS Code"}

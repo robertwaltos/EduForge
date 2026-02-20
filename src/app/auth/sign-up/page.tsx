@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { publicEnv } from "@/lib/config/env";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import OAuthButtons from "@/app/auth/sign-in/oauth-buttons";
 
@@ -12,10 +13,16 @@ export default function SignUpPage() {
   const [status, setStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const hasSupabaseConfig =
+    Boolean(publicEnv.NEXT_PUBLIC_SUPABASE_URL) && Boolean(publicEnv.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus("");
+    if (!hasSupabaseConfig) {
+      setStatus("Sign-up is unavailable until Supabase public environment variables are configured.");
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -69,13 +76,18 @@ export default function SignUpPage() {
 
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !hasSupabaseConfig}
           className="rounded-md bg-foreground px-4 py-2 text-sm text-background disabled:opacity-70"
         >
           {isSubmitting ? "Creating..." : "Create Account"}
         </button>
 
         {status ? <p className="text-sm text-zinc-600 dark:text-zinc-300">{status}</p> : null}
+        {!hasSupabaseConfig ? (
+          <p className="text-xs text-amber-700 dark:text-amber-400">
+            Missing `NEXT_PUBLIC_SUPABASE_URL` and/or `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+          </p>
+        ) : null}
       </form>
 
       <div className="relative mt-8">
