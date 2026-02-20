@@ -16,6 +16,8 @@ type VideoLessonPlayerProps = {
 type ProgressSyncState = "idle" | "syncing" | "synced" | "queued";
 
 const VIDEO_COMPLETION_SCORE_PERCENTAGE = 0.8;
+const VIDEO_RESOLVE_POLL_INTERVAL_MS = 15000;
+const VIDEO_RESOLVE_MAX_ATTEMPTS = 12;
 
 export default function VideoLessonPlayer({
   moduleId,
@@ -69,43 +71,75 @@ export default function VideoLessonPlayer({
   }, [durationMinutes, isPlaying, progress, videoUrl]);
 
   useEffect(() => {
+    let isActive = true;
+    let timeoutId: number | undefined;
+
     const resolveVideo = async () => {
-      try {
-        setVideoLoading(true);
-        setVideoResolveError(null);
+      const resolveAttempt = async (attempt: number) => {
+        let foundVideo = false;
 
-        const params = new URLSearchParams({
-          moduleId,
-          lessonId,
-          assetType: "video",
-        });
-
-        const response = await fetch(`/api/media/resolve?${params.toString()}`, {
-          method: "GET",
-          cache: "no-store",
-        });
-
-        const payload = (await response.json().catch(() => ({}))) as {
-          error?: string;
-          found?: boolean;
-          url?: string | null;
-        };
-
-        if (!response.ok) {
-          throw new Error(payload.error ?? "Unable to resolve video asset.");
+        if (attempt === 0) {
+          setVideoLoading(true);
+          setVideoResolveError(null);
         }
 
-        if (payload.found && payload.url) {
-          setVideoUrl(payload.url);
+        try {
+          const params = new URLSearchParams({
+            moduleId,
+            lessonId,
+            assetType: "video",
+          });
+
+          const response = await fetch(`/api/media/resolve?${params.toString()}`, {
+            method: "GET",
+            cache: "no-store",
+          });
+
+          const payload = (await response.json().catch(() => ({}))) as {
+            error?: string;
+            found?: boolean;
+            url?: string | null;
+          };
+
+          if (!response.ok) {
+            throw new Error(payload.error ?? "Unable to resolve video asset.");
+          }
+
+          if (payload.found && payload.url && isActive) {
+            foundVideo = true;
+            setVideoUrl(payload.url);
+            setVideoResolveError(null);
+            setVideoLoading(false);
+          }
+        } catch (error) {
+          if (isActive) {
+            setVideoResolveError(error instanceof Error ? error.message : "Unable to resolve lesson video.");
+          }
+        } finally {
+          if (isActive && attempt === 0) {
+            setVideoLoading(false);
+          }
         }
-      } catch (error) {
-        setVideoResolveError(error instanceof Error ? error.message : "Unable to resolve lesson video.");
-      } finally {
-        setVideoLoading(false);
-      }
+
+        if (!isActive || foundVideo || attempt >= VIDEO_RESOLVE_MAX_ATTEMPTS - 1) {
+          return;
+        }
+
+        timeoutId = window.setTimeout(() => {
+          void resolveAttempt(attempt + 1);
+        }, VIDEO_RESOLVE_POLL_INTERVAL_MS);
+      };
+      await resolveAttempt(0);
     };
 
     void resolveVideo();
+
+    return () => {
+      isActive = false;
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    };
   }, [lessonId, moduleId]);
 
   useEffect(() => {
@@ -272,7 +306,9 @@ export default function VideoLessonPlayer({
         <p className="text-xs text-zinc-500">Looking for completed lesson video...</p>
       ) : null}
       {!videoUrl && !videoLoading ? (
-        <p className="text-xs text-zinc-500">No completed generated video found yet. Simulation mode is active.</p>
+        <p className="text-xs text-zinc-500">
+          No completed generated video found yet. Simulation mode is active and this page will keep checking automatically.
+        </p>
       ) : null}
       {videoResolveError ? <p className="text-xs text-amber-700">{videoResolveError}</p> : null}
 
