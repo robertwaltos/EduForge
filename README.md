@@ -467,7 +467,7 @@ Tables included:
 - `media_generation_jobs`
 
 Includes baseline RLS policies and updated-at triggers.
-Also includes operational indexes for common admin/report queries (alerts, support, DSAR, media jobs, token spend).
+Also includes operational indexes for common admin/report queries (alerts, alert notifications, support, DSAR, report jobs, media jobs, token spend).
 
 ## Seed data (optional)
 

@@ -598,6 +598,21 @@ create index if not exists idx_admin_alerts_acknowledged_created
 create index if not exists idx_admin_approval_requests_status_created
   on public.admin_approval_requests(status, created_at desc);
 
+create index if not exists idx_admin_report_jobs_status_run_after
+  on public.admin_report_jobs(status, run_after);
+
+create index if not exists idx_admin_report_jobs_status_created
+  on public.admin_report_jobs(status, created_at desc);
+
+create index if not exists idx_admin_report_jobs_status_completed
+  on public.admin_report_jobs(status, completed_at desc);
+
+create index if not exists idx_admin_alert_notifications_status_created
+  on public.admin_alert_notifications(status, created_at desc);
+
+create index if not exists idx_admin_alert_notifications_alert_status
+  on public.admin_alert_notifications(alert_id, status, created_at desc);
+
 create index if not exists idx_media_jobs_status_created
   on public.media_generation_jobs(status, created_at desc);
 
