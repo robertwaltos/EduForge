@@ -33,9 +33,9 @@ export const Physics101Module: LearningModule = {
       duration: 12,
       metadata: {
         prompts: [
-          "Identify one core idea from this lesson.",
-          "Explain how that idea appears in real life.",
-          "Describe one question you still have."
+          "Identify one core idea about motion from this lesson.",
+          "Explain where forces appears in real life.",
+          "Describe one question you still have about motion and energy."
         ]
       },
       learningAids: [
@@ -53,10 +53,10 @@ export const Physics101Module: LearningModule = {
           text: "Which statement best explains motion in Physics?",
           skillId: "physics-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains motion using evidence from the lesson." },
+            { id: "b", text: "It ignores how motion works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Physics." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -65,10 +65,10 @@ export const Physics101Module: LearningModule = {
           text: "What is the best first step when analyzing forces?",
           skillId: "physics-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for forces." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to forces." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -77,10 +77,10 @@ export const Physics101Module: LearningModule = {
           text: "Which option shows strong reasoning about motion and energy?",
           skillId: "physics-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to motion and energy." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -137,10 +137,10 @@ export const Physics101Module: LearningModule = {
           text: "Which statement best explains energy transfer in Physics?",
           skillId: "physics-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains energy transfer using evidence from the lesson." },
+            { id: "b", text: "It ignores how energy transfer works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Physics." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -149,10 +149,10 @@ export const Physics101Module: LearningModule = {
           text: "What is the best first step when analyzing waves?",
           skillId: "physics-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for waves." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to waves." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -161,10 +161,10 @@ export const Physics101Module: LearningModule = {
           text: "Which option shows strong reasoning about motion and energy?",
           skillId: "physics-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to motion and energy." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -221,10 +221,10 @@ export const Physics101Module: LearningModule = {
           text: "Which statement best explains forces in Physics?",
           skillId: "physics-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains forces using evidence from the lesson." },
+            { id: "b", text: "It ignores how forces works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Physics." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -233,10 +233,10 @@ export const Physics101Module: LearningModule = {
           text: "What is the best first step when analyzing waves?",
           skillId: "physics-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for waves." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to waves." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -245,10 +245,10 @@ export const Physics101Module: LearningModule = {
           text: "Which option shows strong reasoning about motion and energy?",
           skillId: "physics-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to motion and energy." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -280,10 +280,10 @@ export const Physics101Module: LearningModule = {
           text: "Which statement best explains motion in Physics?",
           skillId: "physics-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains motion using evidence from the lesson." },
+            { id: "b", text: "It ignores how motion works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Physics." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -292,10 +292,10 @@ export const Physics101Module: LearningModule = {
           text: "What is the best first step when analyzing energy transfer?",
           skillId: "physics-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for energy transfer." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to energy transfer." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -304,10 +304,10 @@ export const Physics101Module: LearningModule = {
           text: "Which option shows strong reasoning about motion and energy?",
           skillId: "physics-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to motion and energy." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },

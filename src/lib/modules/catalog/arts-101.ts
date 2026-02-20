@@ -33,9 +33,9 @@ export const Arts101Module: LearningModule = {
       duration: 12,
       metadata: {
         prompts: [
-          "Identify one core idea from this lesson.",
-          "Explain how that idea appears in real life.",
-          "Describe one question you still have."
+          "Identify one core idea about color theory from this lesson.",
+          "Explain where composition appears in real life.",
+          "Describe one question you still have about creative expression."
         ]
       },
       learningAids: [
@@ -53,10 +53,10 @@ export const Arts101Module: LearningModule = {
           text: "Which statement best explains color theory in Arts?",
           skillId: "arts-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains color theory using evidence from the lesson." },
+            { id: "b", text: "It ignores how color theory works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Arts." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -65,10 +65,10 @@ export const Arts101Module: LearningModule = {
           text: "What is the best first step when analyzing composition?",
           skillId: "arts-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for composition." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to composition." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -77,10 +77,10 @@ export const Arts101Module: LearningModule = {
           text: "Which option shows strong reasoning about creative expression?",
           skillId: "arts-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to creative expression." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -137,10 +137,10 @@ export const Arts101Module: LearningModule = {
           text: "Which statement best explains rhythm in Arts?",
           skillId: "arts-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains rhythm using evidence from the lesson." },
+            { id: "b", text: "It ignores how rhythm works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Arts." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -149,10 +149,10 @@ export const Arts101Module: LearningModule = {
           text: "What is the best first step when analyzing critique?",
           skillId: "arts-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for critique." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to critique." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -161,10 +161,10 @@ export const Arts101Module: LearningModule = {
           text: "Which option shows strong reasoning about creative expression?",
           skillId: "arts-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to creative expression." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -221,10 +221,10 @@ export const Arts101Module: LearningModule = {
           text: "Which statement best explains composition in Arts?",
           skillId: "arts-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains composition using evidence from the lesson." },
+            { id: "b", text: "It ignores how composition works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Arts." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -233,10 +233,10 @@ export const Arts101Module: LearningModule = {
           text: "What is the best first step when analyzing critique?",
           skillId: "arts-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for critique." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to critique." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -245,10 +245,10 @@ export const Arts101Module: LearningModule = {
           text: "Which option shows strong reasoning about creative expression?",
           skillId: "arts-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to creative expression." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -280,10 +280,10 @@ export const Arts101Module: LearningModule = {
           text: "Which statement best explains color theory in Arts?",
           skillId: "arts-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains color theory using evidence from the lesson." },
+            { id: "b", text: "It ignores how color theory works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Arts." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -292,10 +292,10 @@ export const Arts101Module: LearningModule = {
           text: "What is the best first step when analyzing rhythm?",
           skillId: "arts-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for rhythm." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to rhythm." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -304,10 +304,10 @@ export const Arts101Module: LearningModule = {
           text: "Which option shows strong reasoning about creative expression?",
           skillId: "arts-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to creative expression." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },

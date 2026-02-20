@@ -33,9 +33,9 @@ export const HouseholdManagement101Module: LearningModule = {
       duration: 12,
       metadata: {
         prompts: [
-          "Identify one core idea from this lesson.",
-          "Explain how that idea appears in real life.",
-          "Describe one question you still have."
+          "Identify one core idea about schedules from this lesson.",
+          "Explain where cleaning systems appears in real life.",
+          "Describe one question you still have about home planning."
         ]
       },
       learningAids: [
@@ -53,10 +53,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "Which statement best explains schedules in Household Management?",
           skillId: "household-management-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains schedules using evidence from the lesson." },
+            { id: "b", text: "It ignores how schedules works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Household Management." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -65,10 +65,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "What is the best first step when analyzing cleaning systems?",
           skillId: "household-management-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for cleaning systems." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to cleaning systems." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -77,10 +77,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "Which option shows strong reasoning about home planning?",
           skillId: "household-management-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to home planning." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -137,10 +137,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "Which statement best explains meal planning in Household Management?",
           skillId: "household-management-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains meal planning using evidence from the lesson." },
+            { id: "b", text: "It ignores how meal planning works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Household Management." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -149,10 +149,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "What is the best first step when analyzing home safety?",
           skillId: "household-management-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for home safety." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to home safety." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -161,10 +161,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "Which option shows strong reasoning about home planning?",
           skillId: "household-management-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to home planning." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -221,10 +221,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "Which statement best explains cleaning systems in Household Management?",
           skillId: "household-management-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains cleaning systems using evidence from the lesson." },
+            { id: "b", text: "It ignores how cleaning systems works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Household Management." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -233,10 +233,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "What is the best first step when analyzing home safety?",
           skillId: "household-management-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for home safety." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to home safety." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -245,10 +245,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "Which option shows strong reasoning about home planning?",
           skillId: "household-management-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to home planning." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -280,10 +280,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "Which statement best explains schedules in Household Management?",
           skillId: "household-management-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains schedules using evidence from the lesson." },
+            { id: "b", text: "It ignores how schedules works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Household Management." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -292,10 +292,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "What is the best first step when analyzing meal planning?",
           skillId: "household-management-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for meal planning." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to meal planning." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -304,10 +304,10 @@ export const HouseholdManagement101Module: LearningModule = {
           text: "Which option shows strong reasoning about home planning?",
           skillId: "household-management-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to home planning." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },

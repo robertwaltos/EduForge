@@ -33,9 +33,9 @@ export const FinancialLiteracy101Module: LearningModule = {
       duration: 12,
       metadata: {
         prompts: [
-          "Identify one core idea from this lesson.",
-          "Explain how that idea appears in real life.",
-          "Describe one question you still have."
+          "Identify one core idea about budgeting from this lesson.",
+          "Explain where saving appears in real life.",
+          "Describe one question you still have about money management."
         ]
       },
       learningAids: [
@@ -53,10 +53,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "Which statement best explains budgeting in Financial Literacy?",
           skillId: "financial-literacy-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains budgeting using evidence from the lesson." },
+            { id: "b", text: "It ignores how budgeting works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Financial Literacy." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -65,10 +65,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "What is the best first step when analyzing saving?",
           skillId: "financial-literacy-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for saving." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to saving." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -77,10 +77,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "Which option shows strong reasoning about money management?",
           skillId: "financial-literacy-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to money management." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -137,10 +137,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "Which statement best explains needs vs wants in Financial Literacy?",
           skillId: "financial-literacy-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains needs vs wants using evidence from the lesson." },
+            { id: "b", text: "It ignores how needs vs wants works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Financial Literacy." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -149,10 +149,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "What is the best first step when analyzing interest?",
           skillId: "financial-literacy-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for interest." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to interest." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -161,10 +161,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "Which option shows strong reasoning about money management?",
           skillId: "financial-literacy-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to money management." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -221,10 +221,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "Which statement best explains saving in Financial Literacy?",
           skillId: "financial-literacy-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains saving using evidence from the lesson." },
+            { id: "b", text: "It ignores how saving works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Financial Literacy." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -233,10 +233,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "What is the best first step when analyzing interest?",
           skillId: "financial-literacy-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for interest." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to interest." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -245,10 +245,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "Which option shows strong reasoning about money management?",
           skillId: "financial-literacy-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to money management." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -280,10 +280,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "Which statement best explains budgeting in Financial Literacy?",
           skillId: "financial-literacy-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains budgeting using evidence from the lesson." },
+            { id: "b", text: "It ignores how budgeting works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Financial Literacy." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -292,10 +292,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "What is the best first step when analyzing needs vs wants?",
           skillId: "financial-literacy-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for needs vs wants." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to needs vs wants." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -304,10 +304,10 @@ export const FinancialLiteracy101Module: LearningModule = {
           text: "Which option shows strong reasoning about money management?",
           skillId: "financial-literacy-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to money management." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },

@@ -33,9 +33,9 @@ export const Geography101Module: LearningModule = {
       duration: 12,
       metadata: {
         prompts: [
-          "Identify one core idea from this lesson.",
-          "Explain how that idea appears in real life.",
-          "Describe one question you still have."
+          "Identify one core idea about map skills from this lesson.",
+          "Explain where landforms appears in real life.",
+          "Describe one question you still have about maps and regions."
         ]
       },
       learningAids: [
@@ -53,10 +53,10 @@ export const Geography101Module: LearningModule = {
           text: "Which statement best explains map skills in Geography?",
           skillId: "geography-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains map skills using evidence from the lesson." },
+            { id: "b", text: "It ignores how map skills works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Geography." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -65,10 +65,10 @@ export const Geography101Module: LearningModule = {
           text: "What is the best first step when analyzing landforms?",
           skillId: "geography-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for landforms." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to landforms." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -77,10 +77,10 @@ export const Geography101Module: LearningModule = {
           text: "Which option shows strong reasoning about maps and regions?",
           skillId: "geography-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to maps and regions." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -137,10 +137,10 @@ export const Geography101Module: LearningModule = {
           text: "Which statement best explains climate zones in Geography?",
           skillId: "geography-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains climate zones using evidence from the lesson." },
+            { id: "b", text: "It ignores how climate zones works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Geography." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -149,10 +149,10 @@ export const Geography101Module: LearningModule = {
           text: "What is the best first step when analyzing human geography?",
           skillId: "geography-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for human geography." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to human geography." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -161,10 +161,10 @@ export const Geography101Module: LearningModule = {
           text: "Which option shows strong reasoning about maps and regions?",
           skillId: "geography-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to maps and regions." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -221,10 +221,10 @@ export const Geography101Module: LearningModule = {
           text: "Which statement best explains landforms in Geography?",
           skillId: "geography-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains landforms using evidence from the lesson." },
+            { id: "b", text: "It ignores how landforms works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Geography." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -233,10 +233,10 @@ export const Geography101Module: LearningModule = {
           text: "What is the best first step when analyzing human geography?",
           skillId: "geography-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for human geography." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to human geography." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -245,10 +245,10 @@ export const Geography101Module: LearningModule = {
           text: "Which option shows strong reasoning about maps and regions?",
           skillId: "geography-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to maps and regions." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -280,10 +280,10 @@ export const Geography101Module: LearningModule = {
           text: "Which statement best explains map skills in Geography?",
           skillId: "geography-101-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains map skills using evidence from the lesson." },
+            { id: "b", text: "It ignores how map skills works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside Geography." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -292,10 +292,10 @@ export const Geography101Module: LearningModule = {
           text: "What is the best first step when analyzing climate zones?",
           skillId: "geography-101-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for climate zones." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to climate zones." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -304,10 +304,10 @@ export const Geography101Module: LearningModule = {
           text: "Which option shows strong reasoning about maps and regions?",
           skillId: "geography-101-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to maps and regions." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },

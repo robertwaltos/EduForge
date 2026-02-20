@@ -416,10 +416,10 @@ function quizLesson(moduleId, lessonNum, subject, focus, title, strandA, strandB
           text: "Which statement best explains ${strandA} in ${subject}?",
           skillId: "${moduleId}-skill-core",
           options: [
-            { id: "a", text: "A principle supported by lesson evidence" },
-            { id: "b", text: "A claim with no support" },
-            { id: "c", text: "A topic from a different unit" },
-            { id: "d", text: "None of the above" }
+            { id: "a", text: "It explains ${strandA} using evidence from the lesson." },
+            { id: "b", text: "It ignores how ${strandA} works in practice." },
+            { id: "c", text: "It focuses on an unrelated topic outside ${subject}." },
+            { id: "d", text: "It repeats terms without showing meaning." }
           ],
           correctOptionId: "a"
         },
@@ -428,10 +428,10 @@ function quizLesson(moduleId, lessonNum, subject, focus, title, strandA, strandB
           text: "What is the best first step when analyzing ${strandB}?",
           skillId: "${moduleId}-skill-process",
           options: [
-            { id: "a", text: "Identify key evidence and define the goal" },
-            { id: "b", text: "Guess quickly" },
-            { id: "c", text: "Skip the question" },
-            { id: "d", text: "Use no evidence" }
+            { id: "a", text: "Define the goal and examine evidence for ${strandB}." },
+            { id: "b", text: "Guess quickly without checking evidence." },
+            { id: "c", text: "Use data unrelated to ${strandB}." },
+            { id: "d", text: "Skip the context and jump to a conclusion." }
           ],
           correctOptionId: "a"
         },
@@ -440,10 +440,10 @@ function quizLesson(moduleId, lessonNum, subject, focus, title, strandA, strandB
           text: "Which option shows strong reasoning about ${focus}?",
           skillId: "${moduleId}-skill-reasoning",
           options: [
-            { id: "a", text: "Citing examples and checking assumptions" },
-            { id: "b", text: "Ignoring key details" },
-            { id: "c", text: "Using unrelated assumptions" },
-            { id: "d", text: "Changing the topic" }
+            { id: "a", text: "Use examples and verify assumptions step by step." },
+            { id: "b", text: "Ignore important details and edge cases." },
+            { id: "c", text: "Use assumptions unrelated to ${focus}." },
+            { id: "d", text: "Change the topic when evidence gets hard." }
           ],
           correctOptionId: "a"
         },
@@ -486,9 +486,9 @@ function buildModuleText(moduleInfo) {
       duration: 12,
       metadata: {
         prompts: [
-          "Identify one core idea from this lesson.",
-          "Explain how that idea appears in real life.",
-          "Describe one question you still have."
+          "Identify one core idea about ${strands[0]} from this lesson.",
+          "Explain where ${strands[1]} appears in real life.",
+          "Describe one question you still have about ${focus}."
         ]
       },
       learningAids: [

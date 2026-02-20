@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-20T15:10:05.102Z",
+  "generatedAt": "2026-02-20T15:12:41.856Z",
   "sourceDir": "src/lib/modules/catalog",
   "totals": {
     "modules": 29,
@@ -9,12 +9,12 @@
     "videoLessons": 80,
     "questions": 405,
     "learningAidBlocks": 250,
-    "placeholderOptionCount": 72,
-    "genericReflectionCount": 18,
-    "averageScore": 83.79,
-    "highPriorityModules": 22,
+    "placeholderOptionCount": 0,
+    "genericReflectionCount": 0,
+    "averageScore": 93.1,
+    "highPriorityModules": 4,
     "mediumPriorityModules": 0,
-    "lowPriorityModules": 7
+    "lowPriorityModules": 25
   },
   "topPriorityModules": [
     {
@@ -132,492 +132,6 @@
       ]
     },
     {
-      "moduleId": "advanced-math-201",
-      "title": "Advanced Math Topics",
-      "subject": "Advanced Math",
-      "file": "src/lib/modules/catalog/advanced-math-201.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "arts-101",
-      "title": "Creative Arts Studio",
-      "subject": "Arts",
-      "file": "src/lib/modules/catalog/arts-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "astronomy-101",
-      "title": "Astronomy Explorer",
-      "subject": "Astronomy",
-      "file": "src/lib/modules/catalog/astronomy-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "basic-math-101",
-      "title": "Basic Math Foundations",
-      "subject": "Math",
-      "file": "src/lib/modules/catalog/basic-math-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "biology-101",
-      "title": "Biology Essentials",
-      "subject": "Biology",
-      "file": "src/lib/modules/catalog/biology-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "chemistry-101",
-      "title": "Chemistry Essentials",
-      "subject": "Chemistry",
-      "file": "src/lib/modules/catalog/chemistry-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "coding-101",
-      "title": "Coding Foundations",
-      "subject": "Coding",
-      "file": "src/lib/modules/catalog/coding-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "farming-101",
-      "title": "Farming and Food Systems",
-      "subject": "Farming",
-      "file": "src/lib/modules/catalog/farming-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "financial-literacy-101",
-      "title": "Financial Literacy Basics",
-      "subject": "Financial Literacy",
-      "file": "src/lib/modules/catalog/financial-literacy-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "general-relativity-101",
-      "title": "General Relativity Intro",
-      "subject": "General Relativity",
-      "file": "src/lib/modules/catalog/general-relativity-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "general-science-101",
-      "title": "General Science Explorer",
-      "subject": "Science",
-      "file": "src/lib/modules/catalog/general-science-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "geography-101",
-      "title": "Geography and Maps",
-      "subject": "Geography",
-      "file": "src/lib/modules/catalog/geography-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "household-management-101",
-      "title": "Household Management Skills",
-      "subject": "Household Management",
-      "file": "src/lib/modules/catalog/household-management-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "language-arts-101",
-      "title": "Language Arts Foundations",
-      "subject": "Language Arts",
-      "file": "src/lib/modules/catalog/language-arts-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "physics-101",
-      "title": "Physics Essentials",
-      "subject": "Physics",
-      "file": "src/lib/modules/catalog/physics-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "social-studies-us-101",
-      "title": "Social Studies: United States",
-      "subject": "Social Studies US",
-      "file": "src/lib/modules/catalog/social-studies-us-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "social-studies-world-101",
-      "title": "Social Studies: World",
-      "subject": "Social Studies World",
-      "file": "src/lib/modules/catalog/social-studies-world-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "world-history-101",
-      "title": "World History Journey",
-      "subject": "History Worldwide",
-      "file": "src/lib/modules/catalog/world-history-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
       "moduleId": "a-level-prep-101",
       "title": "A-Level Prep Foundations",
       "subject": "Exam Prep",
@@ -664,10 +178,217 @@
       ]
     },
     {
+      "moduleId": "advanced-math-201",
+      "title": "Advanced Math Topics",
+      "subject": "Advanced Math",
+      "file": "src/lib/modules/catalog/advanced-math-201.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
       "moduleId": "ap-prep-101",
       "title": "AP Exam Prep Toolkit",
       "subject": "Exam Prep",
       "file": "src/lib/modules/catalog/ap-prep-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "arts-101",
+      "title": "Creative Arts Studio",
+      "subject": "Arts",
+      "file": "src/lib/modules/catalog/arts-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "astronomy-101",
+      "title": "Astronomy Explorer",
+      "subject": "Astronomy",
+      "file": "src/lib/modules/catalog/astronomy-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "basic-math-101",
+      "title": "Basic Math Foundations",
+      "subject": "Math",
+      "file": "src/lib/modules/catalog/basic-math-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "biology-101",
+      "title": "Biology Essentials",
+      "subject": "Biology",
+      "file": "src/lib/modules/catalog/biology-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "chemistry-101",
+      "title": "Chemistry Essentials",
+      "subject": "Chemistry",
+      "file": "src/lib/modules/catalog/chemistry-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "coding-101",
+      "title": "Coding Foundations",
+      "subject": "Coding",
+      "file": "src/lib/modules/catalog/coding-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "farming-101",
+      "title": "Farming and Food Systems",
+      "subject": "Farming",
+      "file": "src/lib/modules/catalog/farming-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "financial-literacy-101",
+      "title": "Financial Literacy Basics",
+      "subject": "Financial Literacy",
+      "file": "src/lib/modules/catalog/financial-literacy-101.ts",
       "lessonCount": 10,
       "lessonTypeCounts": {
         "video": 3,
@@ -733,6 +454,98 @@
       ]
     },
     {
+      "moduleId": "general-relativity-101",
+      "title": "General Relativity Intro",
+      "subject": "General Relativity",
+      "file": "src/lib/modules/catalog/general-relativity-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "general-science-101",
+      "title": "General Science Explorer",
+      "subject": "Science",
+      "file": "src/lib/modules/catalog/general-science-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "geography-101",
+      "title": "Geography and Maps",
+      "subject": "Geography",
+      "file": "src/lib/modules/catalog/geography-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "household-management-101",
+      "title": "Household Management Skills",
+      "subject": "Household Management",
+      "file": "src/lib/modules/catalog/household-management-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
       "moduleId": "jee-neet-prep-101",
       "title": "JEE / NEET Prep Foundations",
       "subject": "Exam Prep",
@@ -756,10 +569,125 @@
       ]
     },
     {
+      "moduleId": "language-arts-101",
+      "title": "Language Arts Foundations",
+      "subject": "Language Arts",
+      "file": "src/lib/modules/catalog/language-arts-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "physics-101",
+      "title": "Physics Essentials",
+      "subject": "Physics",
+      "file": "src/lib/modules/catalog/physics-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
       "moduleId": "sat-prep-101",
       "title": "SAT Prep Foundations",
       "subject": "Exam Prep",
       "file": "src/lib/modules/catalog/sat-prep-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "social-studies-us-101",
+      "title": "Social Studies: United States",
+      "subject": "Social Studies US",
+      "file": "src/lib/modules/catalog/social-studies-us-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "social-studies-world-101",
+      "title": "Social Studies: World",
+      "subject": "Social Studies World",
+      "file": "src/lib/modules/catalog/social-studies-world-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "world-history-101",
+      "title": "World History Journey",
+      "subject": "History Worldwide",
+      "file": "src/lib/modules/catalog/world-history-101.ts",
       "lessonCount": 10,
       "lessonTypeCounts": {
         "video": 3,
@@ -895,492 +823,6 @@
       ]
     },
     {
-      "moduleId": "advanced-math-201",
-      "title": "Advanced Math Topics",
-      "subject": "Advanced Math",
-      "file": "src/lib/modules/catalog/advanced-math-201.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "arts-101",
-      "title": "Creative Arts Studio",
-      "subject": "Arts",
-      "file": "src/lib/modules/catalog/arts-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "astronomy-101",
-      "title": "Astronomy Explorer",
-      "subject": "Astronomy",
-      "file": "src/lib/modules/catalog/astronomy-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "basic-math-101",
-      "title": "Basic Math Foundations",
-      "subject": "Math",
-      "file": "src/lib/modules/catalog/basic-math-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "biology-101",
-      "title": "Biology Essentials",
-      "subject": "Biology",
-      "file": "src/lib/modules/catalog/biology-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "chemistry-101",
-      "title": "Chemistry Essentials",
-      "subject": "Chemistry",
-      "file": "src/lib/modules/catalog/chemistry-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "coding-101",
-      "title": "Coding Foundations",
-      "subject": "Coding",
-      "file": "src/lib/modules/catalog/coding-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "farming-101",
-      "title": "Farming and Food Systems",
-      "subject": "Farming",
-      "file": "src/lib/modules/catalog/farming-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "financial-literacy-101",
-      "title": "Financial Literacy Basics",
-      "subject": "Financial Literacy",
-      "file": "src/lib/modules/catalog/financial-literacy-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "general-relativity-101",
-      "title": "General Relativity Intro",
-      "subject": "General Relativity",
-      "file": "src/lib/modules/catalog/general-relativity-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "general-science-101",
-      "title": "General Science Explorer",
-      "subject": "Science",
-      "file": "src/lib/modules/catalog/general-science-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "geography-101",
-      "title": "Geography and Maps",
-      "subject": "Geography",
-      "file": "src/lib/modules/catalog/geography-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "household-management-101",
-      "title": "Household Management Skills",
-      "subject": "Household Management",
-      "file": "src/lib/modules/catalog/household-management-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "language-arts-101",
-      "title": "Language Arts Foundations",
-      "subject": "Language Arts",
-      "file": "src/lib/modules/catalog/language-arts-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "physics-101",
-      "title": "Physics Essentials",
-      "subject": "Physics",
-      "file": "src/lib/modules/catalog/physics-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "social-studies-us-101",
-      "title": "Social Studies: United States",
-      "subject": "Social Studies US",
-      "file": "src/lib/modules/catalog/social-studies-us-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "social-studies-world-101",
-      "title": "Social Studies: World",
-      "subject": "Social Studies World",
-      "file": "src/lib/modules/catalog/social-studies-world-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
-      "moduleId": "world-history-101",
-      "title": "World History Journey",
-      "subject": "History Worldwide",
-      "file": "src/lib/modules/catalog/world-history-101.ts",
-      "lessonCount": 10,
-      "lessonTypeCounts": {
-        "video": 3,
-        "interactive": 3,
-        "quiz": 4
-      },
-      "questionCount": 16,
-      "learningAidBlocks": 10,
-      "placeholderOptionCount": 4,
-      "genericReflectionCount": 1,
-      "averageQuestionsPerQuiz": 4,
-      "score": 85,
-      "priority": "high",
-      "issues": [
-        "Contains 4 placeholder quiz option(s).",
-        "Contains 1 generic reflection prompt(s)."
-      ],
-      "recommendedActions": [
-        "Replace placeholder quiz options with concept-specific distractors and evidence-backed correct answers.",
-        "Replace generic reflection prompts with lesson-specific prompts tied to concrete outcomes."
-      ]
-    },
-    {
       "moduleId": "a-level-prep-101",
       "title": "A-Level Prep Foundations",
       "subject": "Exam Prep",
@@ -1427,10 +869,217 @@
       ]
     },
     {
+      "moduleId": "advanced-math-201",
+      "title": "Advanced Math Topics",
+      "subject": "Advanced Math",
+      "file": "src/lib/modules/catalog/advanced-math-201.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
       "moduleId": "ap-prep-101",
       "title": "AP Exam Prep Toolkit",
       "subject": "Exam Prep",
       "file": "src/lib/modules/catalog/ap-prep-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "arts-101",
+      "title": "Creative Arts Studio",
+      "subject": "Arts",
+      "file": "src/lib/modules/catalog/arts-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "astronomy-101",
+      "title": "Astronomy Explorer",
+      "subject": "Astronomy",
+      "file": "src/lib/modules/catalog/astronomy-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "basic-math-101",
+      "title": "Basic Math Foundations",
+      "subject": "Math",
+      "file": "src/lib/modules/catalog/basic-math-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "biology-101",
+      "title": "Biology Essentials",
+      "subject": "Biology",
+      "file": "src/lib/modules/catalog/biology-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "chemistry-101",
+      "title": "Chemistry Essentials",
+      "subject": "Chemistry",
+      "file": "src/lib/modules/catalog/chemistry-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "coding-101",
+      "title": "Coding Foundations",
+      "subject": "Coding",
+      "file": "src/lib/modules/catalog/coding-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "farming-101",
+      "title": "Farming and Food Systems",
+      "subject": "Farming",
+      "file": "src/lib/modules/catalog/farming-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "financial-literacy-101",
+      "title": "Financial Literacy Basics",
+      "subject": "Financial Literacy",
+      "file": "src/lib/modules/catalog/financial-literacy-101.ts",
       "lessonCount": 10,
       "lessonTypeCounts": {
         "video": 3,
@@ -1496,6 +1145,98 @@
       ]
     },
     {
+      "moduleId": "general-relativity-101",
+      "title": "General Relativity Intro",
+      "subject": "General Relativity",
+      "file": "src/lib/modules/catalog/general-relativity-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "general-science-101",
+      "title": "General Science Explorer",
+      "subject": "Science",
+      "file": "src/lib/modules/catalog/general-science-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "geography-101",
+      "title": "Geography and Maps",
+      "subject": "Geography",
+      "file": "src/lib/modules/catalog/geography-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "household-management-101",
+      "title": "Household Management Skills",
+      "subject": "Household Management",
+      "file": "src/lib/modules/catalog/household-management-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
       "moduleId": "jee-neet-prep-101",
       "title": "JEE / NEET Prep Foundations",
       "subject": "Exam Prep",
@@ -1519,10 +1260,125 @@
       ]
     },
     {
+      "moduleId": "language-arts-101",
+      "title": "Language Arts Foundations",
+      "subject": "Language Arts",
+      "file": "src/lib/modules/catalog/language-arts-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "physics-101",
+      "title": "Physics Essentials",
+      "subject": "Physics",
+      "file": "src/lib/modules/catalog/physics-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
       "moduleId": "sat-prep-101",
       "title": "SAT Prep Foundations",
       "subject": "Exam Prep",
       "file": "src/lib/modules/catalog/sat-prep-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "social-studies-us-101",
+      "title": "Social Studies: United States",
+      "subject": "Social Studies US",
+      "file": "src/lib/modules/catalog/social-studies-us-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "social-studies-world-101",
+      "title": "Social Studies: World",
+      "subject": "Social Studies World",
+      "file": "src/lib/modules/catalog/social-studies-world-101.ts",
+      "lessonCount": 10,
+      "lessonTypeCounts": {
+        "video": 3,
+        "interactive": 3,
+        "quiz": 4
+      },
+      "questionCount": 16,
+      "learningAidBlocks": 10,
+      "placeholderOptionCount": 0,
+      "genericReflectionCount": 0,
+      "averageQuestionsPerQuiz": 4,
+      "score": 100,
+      "priority": "low",
+      "issues": [],
+      "recommendedActions": [
+        "Maintain current quality and continue periodic review for factual depth and age alignment."
+      ]
+    },
+    {
+      "moduleId": "world-history-101",
+      "title": "World History Journey",
+      "subject": "History Worldwide",
+      "file": "src/lib/modules/catalog/world-history-101.ts",
       "lessonCount": 10,
       "lessonTypeCounts": {
         "video": 3,
