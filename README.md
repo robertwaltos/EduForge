@@ -190,6 +190,25 @@ This generates:
 - `public/LESSON-MEDIA-PROMPT-PACK.json`
 - `public/LESSON-MEDIA-PROMPT-PACK.md`
 
+Bulk queue media jobs from the generated prompt pack (dry-run by default):
+
+```bash
+npm run media:queue:from-prompts
+```
+
+Apply inserts to Supabase with explicit flags:
+
+```bash
+node scripts/queue-media-from-prompts.mjs --asset all --limit 300 --apply
+```
+
+Optional filters:
+
+- `--module <module-id>`
+- `--lesson <lesson-id>`
+- `--asset video|animation|image|all`
+- `--created-by <admin-user-uuid>`
+
 App store compliance audit report:
 
 ```bash

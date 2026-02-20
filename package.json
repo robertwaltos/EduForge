@@ -10,6 +10,7 @@
     "modules:check": "npm run modules:sync && git diff --exit-code -- src/lib/modules/generated/registry.ts",
     "curriculum:validate": "node scripts/validate-curriculum.mjs",
     "media:report": "node scripts/media-readiness-report.mjs",
+    "media:queue:from-prompts": "node scripts/queue-media-from-prompts.mjs",
     "compliance:audit": "node scripts/appstore-compliance-audit.mjs",
     "curriculum:report": "node scripts/curriculum-coverage-report.mjs",
     "curriculum:quality": "node scripts/curriculum-quality-report.mjs",
