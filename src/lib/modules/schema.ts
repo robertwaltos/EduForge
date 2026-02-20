@@ -3,6 +3,8 @@ import { z } from "zod";
 export const lessonOptionSchema = z.object({
   id: z.string().min(1),
   text: z.string().min(1),
+  imageUrl: z.string().min(1).optional(),
+  imageAlt: z.string().min(1).optional(),
 });
 
 export const questionSchema = z.object({
@@ -11,6 +13,10 @@ export const questionSchema = z.object({
   skillId: z.string().min(1),
   options: z.array(lessonOptionSchema).min(2),
   correctOptionId: z.string().min(1),
+  hint: z.string().min(1).optional(),
+  explanation: z.string().min(1).optional(),
+  imageUrl: z.string().min(1).optional(),
+  imageAlt: z.string().min(1).optional(),
 });
 
 export const learningAidSchema = z.object({

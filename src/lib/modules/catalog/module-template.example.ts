@@ -31,8 +31,12 @@ export const templateModule: LearningModule = {
           id: "subject-001-l2-q1",
           text: "Sample question",
           skillId: "your-skill-id",
+          hint: "Think about which option best matches the lesson objective.",
+          explanation: "Option A is correct because it directly applies the core concept taught in the lesson.",
+          imageUrl: "/placeholders/lesson-robot.svg",
+          imageAlt: "Example visual aid for the quiz question.",
           options: [
-            { id: "a", text: "Option A" },
+            { id: "a", text: "Option A", imageUrl: "/placeholders/avatar-student.svg" },
             { id: "b", text: "Option B" },
           ],
           correctOptionId: "a",

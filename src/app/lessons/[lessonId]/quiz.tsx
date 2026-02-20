@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useRef, useState } from "react";
 import type { Lesson, Question } from "@/lib/data/curriculum";
@@ -11,6 +12,7 @@ export default function Quiz({ lesson }: { lesson: Lesson & { questions: Questio
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
@@ -121,6 +123,7 @@ export default function Quiz({ lesson }: { lesson: Lesson & { questions: Questio
 
   const handleNext = () => {
     setIsAnswered(false);
+    setShowHint(false);
     setSelectedOptionId(null);
     setLastAnswerCorrect(null);
     setCurrentQuestionIndex((prev) => prev + 1);
@@ -133,6 +136,7 @@ export default function Quiz({ lesson }: { lesson: Lesson & { questions: Questio
     setBestStreak(0);
     setLastAnswerCorrect(null);
     setIsAnswered(false);
+    setShowHint(false);
     setSelectedOptionId(null);
     setProgressSyncState("idle");
     setStartTime(Date.now());
@@ -241,9 +245,42 @@ export default function Quiz({ lesson }: { lesson: Lesson & { questions: Questio
         </div>
       ) : null}
 
+      {isAnswered && currentQuestion.explanation ? (
+        <div className="rounded-2xl border border-sky-300 bg-sky-50 p-3 text-sm text-sky-900 dark:border-sky-700/40 dark:bg-sky-900/25 dark:text-sky-100">
+          <p className="text-xs font-semibold uppercase tracking-wide">Why this answer works</p>
+          <p className="mt-1">{currentQuestion.explanation}</p>
+        </div>
+      ) : null}
+
       <article className="rounded-2xl border border-border bg-[var(--gradient-hero)] p-5">
         <h2 className="text-xl font-extrabold sm:text-2xl">{currentQuestion.text}</h2>
+        {currentQuestion.imageUrl ? (
+          <img
+            src={currentQuestion.imageUrl}
+            alt={currentQuestion.imageAlt ?? `${currentQuestion.text} visual aid`}
+            className="mt-3 w-full rounded-xl border border-black/10 bg-white object-cover"
+            loading="lazy"
+          />
+        ) : null}
       </article>
+
+      {!isAnswered && currentQuestion.hint ? (
+        <div className="rounded-2xl border border-amber-300 bg-amber-50 p-3 dark:border-amber-600/40 dark:bg-amber-900/20">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-xs font-semibold uppercase tracking-wide text-amber-800 dark:text-amber-200">
+              Hint
+            </p>
+            <button
+              type="button"
+              onClick={() => setShowHint((previous) => !previous)}
+              className="rounded-full border border-amber-300 bg-white px-3 py-1 text-xs font-semibold text-amber-700 dark:border-amber-500/50 dark:bg-transparent dark:text-amber-200"
+            >
+              {showHint ? "Hide Hint" : "Show Hint"}
+            </button>
+          </div>
+          {showHint ? <p className="mt-2 text-sm text-amber-900 dark:text-amber-100">{currentQuestion.hint}</p> : null}
+        </div>
+      ) : null}
 
       <div className="grid gap-3 sm:grid-cols-2">
         {currentQuestion.options.map((option) => {
@@ -273,17 +310,27 @@ export default function Quiz({ lesson }: { lesson: Lesson & { questions: Questio
               disabled={isAnswered}
               className={optionClass}
             >
-              <span className="inline-flex items-center gap-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/5 text-sm dark:bg-white/10">
+              <span className="flex items-start gap-2">
+                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black/5 text-sm dark:bg-white/10">
                   {option.id.toUpperCase()}
                 </span>
-                {option.text}
+                <span className="flex-1">
+                  <span>{option.text}</span>
+                  {option.imageUrl ? (
+                    <img
+                      src={option.imageUrl}
+                      alt={option.imageAlt ?? `Option ${option.id.toUpperCase()} image`}
+                      className="mt-2 w-full rounded-lg border border-black/10 bg-white object-cover"
+                      loading="lazy"
+                    />
+                  ) : null}
+                </span>
               </span>
             </button>
           );
         })}
       </div>
-      <div className="mt-2 flex items-center justify-between rounded-2xl border border-border bg-surface-muted p-3">
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-border bg-surface-muted p-3">
         <p className="text-sm font-semibold">
           Score: {score} • Streak: {streak}
         </p>

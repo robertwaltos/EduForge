@@ -6,6 +6,8 @@ export type Skill = {
 export type LessonOption = {
   id: string;
   text: string;
+  imageUrl?: string;
+  imageAlt?: string;
 };
 
 export type Question = {
@@ -14,6 +16,10 @@ export type Question = {
   skillId: string;
   options: LessonOption[];
   correctOptionId: string;
+  hint?: string;
+  explanation?: string;
+  imageUrl?: string;
+  imageAlt?: string;
 };
 
 export type LessonType = "video" | "quiz" | "interactive" | (string & {});
