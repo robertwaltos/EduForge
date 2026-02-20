@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { deleteSyncedProgress, saveOfflineProgress } from "@/lib/offline/progress-db";
 
 type InteractiveActivityProps = {
@@ -21,7 +21,9 @@ export default function InteractiveActivity({ lessonId, title, prompts }: Intera
   const [validationMessage, setValidationMessage] = useState("");
   const [isComplete, setIsComplete] = useState(false);
   const [syncState, setSyncState] = useState<ProgressSyncState>("idle");
+  const [draftHydrated, setDraftHydrated] = useState(false);
   const completionPersistedRef = useRef(false);
+  const storageKey = useMemo(() => `interactive-activity:${lessonId}`, [lessonId]);
 
   const currentPrompt = useMemo(() => prompts[currentIndex] ?? "Try the activity in your own words.", [prompts, currentIndex]);
   const currentResponse = responses[currentIndex] ?? "";
@@ -41,6 +43,52 @@ export default function InteractiveActivity({ lessonId, title, prompts }: Intera
       Math.max(MIN_INTERACTIVE_SCORE, completionRatio),
     );
   }, [answeredCount, prompts.length]);
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(storageKey);
+      if (!raw) {
+        return;
+      }
+      const parsed = JSON.parse(raw) as {
+        currentIndex?: number;
+        responses?: string[];
+        isComplete?: boolean;
+      };
+      if (Array.isArray(parsed.responses) && parsed.responses.length === prompts.length) {
+        setResponses(parsed.responses.map((entry) => String(entry ?? "")));
+      }
+      if (typeof parsed.currentIndex === "number" && Number.isFinite(parsed.currentIndex)) {
+        setCurrentIndex(Math.max(0, Math.min(prompts.length - 1, Math.floor(parsed.currentIndex))));
+      }
+      if (parsed.isComplete === true) {
+        setIsComplete(true);
+      }
+    } catch {
+      // Ignore malformed local drafts.
+    } finally {
+      setDraftHydrated(true);
+    }
+  }, [prompts.length, storageKey]);
+
+  useEffect(() => {
+    if (!draftHydrated) {
+      return;
+    }
+
+    if (isComplete) {
+      window.localStorage.removeItem(storageKey);
+      return;
+    }
+
+    const payload = JSON.stringify({
+      currentIndex,
+      responses,
+      isComplete,
+      updatedAt: new Date().toISOString(),
+    });
+    window.localStorage.setItem(storageKey, payload);
+  }, [currentIndex, draftHydrated, isComplete, responses, storageKey]);
 
   const persistCompletion = async (scorePercentage: number) => {
     if (completionPersistedRef.current) return;
@@ -119,6 +167,7 @@ export default function InteractiveActivity({ lessonId, title, prompts }: Intera
     setIsComplete(false);
     setSyncState("idle");
     completionPersistedRef.current = false;
+    window.localStorage.removeItem(storageKey);
   };
 
   return (
