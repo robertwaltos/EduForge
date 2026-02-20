@@ -65,6 +65,27 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     setJobs(payload.jobs ?? []);
   };
 
+  const handleRunQueue = async () => {
+    try {
+      const result = (await postJson("/api/admin/media/jobs/run", { batchSize: 10 })) as {
+        processed?: number;
+        completed?: number;
+        failed?: number;
+        message?: string;
+      };
+      if (result.message) {
+        setStatus(result.message);
+      } else {
+        setStatus(
+          `Queue run complete. Processed ${result.processed ?? 0}, completed ${result.completed ?? 0}, failed ${result.failed ?? 0}.`,
+        );
+      }
+      await refreshJobs();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "Failed to run media queue.");
+    }
+  };
+
   const handleStatusUpdate = async (jobId: string, nextStatus: MediaJob["status"]) => {
     try {
       await postJson(`/api/admin/media/jobs/${jobId}/status`, { status: nextStatus });
@@ -119,13 +140,22 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
       <section className="rounded-lg border border-black/10 bg-white p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-lg font-semibold">Media Job Queue</h2>
-          <button
-            type="button"
-            className="rounded-md border border-black/15 px-3 py-1 text-sm hover:bg-black/5"
-            onClick={() => void refreshJobs()}
-          >
-            Refresh
-          </button>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              className="rounded-md bg-indigo-600 px-3 py-1 text-sm text-white hover:bg-indigo-500"
+              onClick={() => void handleRunQueue()}
+            >
+              Process Queue
+            </button>
+            <button
+              type="button"
+              className="rounded-md border border-black/15 px-3 py-1 text-sm hover:bg-black/5"
+              onClick={() => void refreshJobs()}
+            >
+              Refresh
+            </button>
+          </div>
         </div>
         <p className="mt-2 text-xs text-zinc-600">
           Queued: {queuedCount} | Running: {runningCount} | Total: {jobs.length}

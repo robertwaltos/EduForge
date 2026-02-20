@@ -64,6 +64,7 @@ npm run dev
 - `GET /api/admin/reports/audit`
 - `GET /api/admin/curriculum/coverage`
 - `GET/POST /api/admin/media/jobs`
+- `POST /api/admin/media/jobs/run`
 - `POST /api/admin/media/jobs/[jobId]/status`
 - `POST /api/admin/users/update-roles`
 - `GET/POST /api/admin/approvals`
