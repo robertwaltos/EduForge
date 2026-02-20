@@ -62,6 +62,7 @@ npm run dev
 - `GET /api/admin/reports/dsar`
 - `GET /api/admin/reports/support`
 - `GET /api/admin/reports/audit`
+- `GET /api/admin/curriculum/coverage`
 - `POST /api/admin/users/update-roles`
 - `GET/POST /api/admin/approvals`
 - `POST /api/admin/approvals/[approvalId]`
@@ -78,6 +79,7 @@ npm run dev
 - `/modules` (dynamic module catalog from central registry)
 - `/support` (user issue reporting and ticket tracking)
 - `/admin/operations` (owner/admin operations console)
+- `/admin/curriculum` (curriculum coverage and gap planning console)
 - `/admin/compliance` (app store policy readiness checklist)
 - `/admin/reports` (CSV exports for DSAR/support/audit)
 - `/admin/alerts` (operational anomaly and rate-limit alerts)
@@ -106,6 +108,17 @@ This generates:
 
 - `public/CURRICULUM-COVERAGE-REPORT.json`
 - `public/CURRICULUM-COVERAGE-REPORT.md`
+
+To generate a curriculum expansion plan against the target matrix:
+
+```bash
+npm run curriculum:plan
+```
+
+This generates:
+
+- `public/CURRICULUM-EXPANSION-PLAN.json`
+- `public/CURRICULUM-EXPANSION-PLAN.md`
 
 Once registered, the module automatically appears in:
 

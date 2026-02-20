@@ -6,6 +6,7 @@
     "dev": "next dev",
     "modules:sync": "node scripts/sync-modules.mjs",
     "curriculum:report": "node scripts/curriculum-coverage-report.mjs",
+    "curriculum:plan": "npm run curriculum:report && node scripts/curriculum-expansion-plan.mjs",
     "prebuild": "npm run modules:sync",
     "build": "next build",
     "start": "next start",

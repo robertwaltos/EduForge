@@ -1,0 +1,515 @@
+{
+  "generatedAt": "2026-02-20T06:26:25.069Z",
+  "targetPerSubjectPerGrade": 10,
+  "totals": {
+    "targetRows": 72,
+    "totalExisting": 0,
+    "totalNeeded": 720
+  },
+  "targets": [
+    {
+      "gradeBand": "elementary",
+      "subject": "language-arts",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "basic-math",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "advanced-math",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "general-science",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "biology",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "chemistry",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "physics",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "social-studies-us",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "social-studies-world",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "world-history",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "arts",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "coding",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "financial-literacy",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "household-management",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "farming",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "astronomy",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "geography",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "elementary",
+      "subject": "general-relativity",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "language-arts",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "basic-math",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "advanced-math",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "general-science",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "biology",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "chemistry",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "physics",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "social-studies-us",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "social-studies-world",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "world-history",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "arts",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "coding",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "financial-literacy",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "household-management",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "farming",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "astronomy",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "geography",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "high-school",
+      "subject": "general-relativity",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "language-arts",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "basic-math",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "advanced-math",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "general-science",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "biology",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "chemistry",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "physics",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "social-studies-us",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "social-studies-world",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "world-history",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "arts",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "coding",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "financial-literacy",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "household-management",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "farming",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "astronomy",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "geography",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "middle-school",
+      "subject": "general-relativity",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "language-arts",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "basic-math",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "advanced-math",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "general-science",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "biology",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "chemistry",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "physics",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "social-studies-us",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "social-studies-world",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "world-history",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "arts",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "coding",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "financial-literacy",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "household-management",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "farming",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "astronomy",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "geography",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "general-relativity",
+      "existingCount": 0,
+      "targetCount": 10,
+      "missingCount": 10
+    }
+  ]
+}

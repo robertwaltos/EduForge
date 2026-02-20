@@ -27,6 +27,7 @@ const parentNavItems = [
 
 const adminNavItems = [
   { href: "/admin/operations", labelKey: "nav_owner_ops" },
+  { href: "/admin/curriculum", labelKey: "nav_curriculum" },
   { href: "/admin/reports", labelKey: "nav_reports" },
   { href: "/admin/alerts", labelKey: "nav_alerts" },
   { href: "/admin/audit", labelKey: "nav_audit" },
