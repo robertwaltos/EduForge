@@ -12,6 +12,7 @@ EduForge is a web-first educational platform starter built with Next.js App Rout
 - Mixpanel event helper for lesson tracking
 - Media placeholders in `public/placeholders/`
 - AI prompt catalog in `public/AI-MEDIA-PROMPTS.md`
+- External AI research prompt pack in `public/AI-RESEARCH-AGENT-PROMPTS.md`
 
 ## Quick start
 
@@ -95,6 +96,17 @@ To add a new learning module with minimal changes:
 2. Export a typed `LearningModule` object with metadata + lessons.
 3. Run `npm run modules:sync` to regenerate the validated registry.
 
+To inspect curriculum breadth and identify coverage gaps:
+
+```bash
+npm run curriculum:report
+```
+
+This generates:
+
+- `public/CURRICULUM-COVERAGE-REPORT.json`
+- `public/CURRICULUM-COVERAGE-REPORT.md`
+
 Once registered, the module automatically appears in:
 
 - `GET`/lookup logic via `src/lib/modules/index.ts` (validated with Zod)
@@ -112,7 +124,9 @@ Once registered, the module automatically appears in:
 
 ## Themes and grading
 
-- Global theme controls with mode (`System`, `Light`, `Dark`) and packs (`Sunrise`, `Ocean`, `Forest`, `Candy`, `Space`).
+- Global theme controls with a light-first model:
+  - mode: `System` or `Light`
+  - packs: `Simple`, `Sunrise`, `Ocean`, `Forest`, `Candy`, `Space`
 - User theme preferences sync to `user_profiles` through `GET/PATCH /api/user/preferences`.
 - Learner-visible grade cards on `/dashboard`:
   - Overall grade (A-F)

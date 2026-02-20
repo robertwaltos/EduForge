@@ -1,0 +1,288 @@
+{
+  "generatedAt": "2026-02-20T06:16:43.574Z",
+  "totalLessons": 37,
+  "gradeSubjectSummary": [
+    {
+      "gradeBand": "5th",
+      "subject": "grade",
+      "count": 16,
+      "files": [
+        "5th-grade-basic-math-adding-and-subtracting-decimals.json",
+        "5th-grade-basic-math-adding-and-subtracting-fractions-unlike-denominators.json",
+        "5th-grade-basic-math-multiplying-and-dividing-decimals.json",
+        "5th-grade-basic-math-multiplying-and-dividing-fractions.json",
+        "5th-grade-basic-math-order-of-operations.json",
+        "5th-grade-basic-math-place-value-and-decimals.json",
+        "5th-grade-language arts-cause-and-effect.json",
+        "5th-grade-language arts-context-clues.json",
+        "5th-grade-language arts-elements-of-poetry.json",
+        "5th-grade-language arts-expository-writing.json",
+        "5th-grade-language arts-figurative-language.json",
+        "5th-grade-language arts-main-idea.json",
+        "5th-grade-language arts-narrative-writing.json",
+        "5th-grade-language arts-parts-of-speech.json",
+        "5th-grade-language arts-persuasive-writing.json",
+        "5th-grade-language arts-punctuation-and-capitalization.json"
+      ]
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "count": 11,
+      "files": [
+        "pre-k-math-basic-shapes.json",
+        "pre-k-math-comparing-numbers.json",
+        "pre-k-math-counting-1-10.json",
+        "pre-k-math-counting-to-20.json",
+        "pre-k-math-measurement-size.json",
+        "pre-k-math-money.json",
+        "pre-k-math-number-recognition-0-10.json",
+        "pre-k-math-patterns.json",
+        "pre-k-math-simple-addition.json",
+        "pre-k-math-sorting-and-classifying.json",
+        "pre-k-math-time-day-night.json"
+      ]
+    },
+    {
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "count": 10,
+      "files": [
+        "pre-k-science-animals.json",
+        "pre-k-science-dinosaurs.json",
+        "pre-k-science-living-and-non-living-things.json",
+        "pre-k-science-our-bodies.json",
+        "pre-k-science-plants.json",
+        "pre-k-science-seasons.json",
+        "pre-k-science-space.json",
+        "pre-k-science-the-five-senses.json",
+        "pre-k-science-water.json",
+        "pre-k-science-weather.json"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "fileName": "5th-grade-basic-math-adding-and-subtracting-decimals.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "basic-math-adding-and-subtracting-decimals"
+    },
+    {
+      "fileName": "5th-grade-basic-math-adding-and-subtracting-fractions-unlike-denominators.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "basic-math-adding-and-subtracting-fractions-unlike-denominators"
+    },
+    {
+      "fileName": "5th-grade-basic-math-multiplying-and-dividing-decimals.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "basic-math-multiplying-and-dividing-decimals"
+    },
+    {
+      "fileName": "5th-grade-basic-math-multiplying-and-dividing-fractions.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "basic-math-multiplying-and-dividing-fractions"
+    },
+    {
+      "fileName": "5th-grade-basic-math-order-of-operations.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "basic-math-order-of-operations"
+    },
+    {
+      "fileName": "5th-grade-basic-math-place-value-and-decimals.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "basic-math-place-value-and-decimals"
+    },
+    {
+      "fileName": "5th-grade-language arts-cause-and-effect.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-cause-and-effect"
+    },
+    {
+      "fileName": "5th-grade-language arts-context-clues.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-context-clues"
+    },
+    {
+      "fileName": "5th-grade-language arts-elements-of-poetry.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-elements-of-poetry"
+    },
+    {
+      "fileName": "5th-grade-language arts-expository-writing.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-expository-writing"
+    },
+    {
+      "fileName": "5th-grade-language arts-figurative-language.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-figurative-language"
+    },
+    {
+      "fileName": "5th-grade-language arts-main-idea.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-main-idea"
+    },
+    {
+      "fileName": "5th-grade-language arts-narrative-writing.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-narrative-writing"
+    },
+    {
+      "fileName": "5th-grade-language arts-parts-of-speech.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-parts-of-speech"
+    },
+    {
+      "fileName": "5th-grade-language arts-persuasive-writing.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-persuasive-writing"
+    },
+    {
+      "fileName": "5th-grade-language arts-punctuation-and-capitalization.json",
+      "gradeBand": "5th",
+      "subject": "grade",
+      "lessonSlug": "language arts-punctuation-and-capitalization"
+    },
+    {
+      "fileName": "pre-k-math-basic-shapes.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "basic-shapes"
+    },
+    {
+      "fileName": "pre-k-math-comparing-numbers.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "comparing-numbers"
+    },
+    {
+      "fileName": "pre-k-math-counting-1-10.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "counting-1-10"
+    },
+    {
+      "fileName": "pre-k-math-counting-to-20.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "counting-to-20"
+    },
+    {
+      "fileName": "pre-k-math-measurement-size.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "measurement-size"
+    },
+    {
+      "fileName": "pre-k-math-money.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "money"
+    },
+    {
+      "fileName": "pre-k-math-number-recognition-0-10.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "number-recognition-0-10"
+    },
+    {
+      "fileName": "pre-k-math-patterns.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "patterns"
+    },
+    {
+      "fileName": "pre-k-math-simple-addition.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "simple-addition"
+    },
+    {
+      "fileName": "pre-k-math-sorting-and-classifying.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "sorting-and-classifying"
+    },
+    {
+      "fileName": "pre-k-math-time-day-night.json",
+      "gradeBand": "pre-k",
+      "subject": "math",
+      "lessonSlug": "time-day-night"
+    },
+    {
+      "fileName": "pre-k-science-animals.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "animals"
+    },
+    {
+      "fileName": "pre-k-science-dinosaurs.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "dinosaurs"
+    },
+    {
+      "fileName": "pre-k-science-living-and-non-living-things.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "living-and-non-living-things"
+    },
+    {
+      "fileName": "pre-k-science-our-bodies.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "our-bodies"
+    },
+    {
+      "fileName": "pre-k-science-plants.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "plants"
+    },
+    {
+      "fileName": "pre-k-science-seasons.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "seasons"
+    },
+    {
+      "fileName": "pre-k-science-space.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "space"
+    },
+    {
+      "fileName": "pre-k-science-the-five-senses.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "the-five-senses"
+    },
+    {
+      "fileName": "pre-k-science-water.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "water"
+    },
+    {
+      "fileName": "pre-k-science-weather.json",
+      "gradeBand": "pre-k",
+      "subject": "science",
+      "lessonSlug": "weather"
+    }
+  ]
+}

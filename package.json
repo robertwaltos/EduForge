@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "modules:sync": "node scripts/sync-modules.mjs",
+    "curriculum:report": "node scripts/curriculum-coverage-report.mjs",
     "prebuild": "npm run modules:sync",
     "build": "next build",
     "start": "next start",
