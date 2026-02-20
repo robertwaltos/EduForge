@@ -38,6 +38,16 @@ npm run dev
 
 `http://localhost:3000`
 
+## Continuous integration
+
+GitHub Actions workflow: `.github/workflows/ci.yml`
+
+Checks on push/PR:
+
+- `npm run modules:check`
+- `npm run lint`
+- `npm run build`
+
 ## API endpoints (starter)
 
 - `GET /api/health`
