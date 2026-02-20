@@ -50,6 +50,15 @@ jobs:
       - name: Generate lesson prompt pack
         run: npm run prompts:lesson-media
 
+      - name: Requeue stale running media jobs
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ] || [ "$NEXT_PUBLIC_SUPABASE_URL" = "https://placeholder.supabase.co" ]; then
+            echo "Supabase service role or real URL missing. Skipping stale media requeue step."
+            exit 0
+          fi
+
+          npm run media:requeue:stale -- --apply --max-age-minutes 90 --limit 200
+
       - name: Run media queue SLA alert checks
         run: |
           if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ] || [ "$NEXT_PUBLIC_SUPABASE_URL" = "https://placeholder.supabase.co" ]; then

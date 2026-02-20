@@ -79,6 +79,7 @@ jobs:
           fi
 
           npm run media:retry -- --apply --status failed,canceled --limit "$QUEUE_LIMIT"
+          npm run media:requeue:stale -- --apply --max-age-minutes 90 --limit "$QUEUE_LIMIT"
           npm run media:process -- --limit "$QUEUE_LIMIT"
 
       - name: Upload prompt pack artifact

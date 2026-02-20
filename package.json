@@ -12,6 +12,7 @@
     "media:report": "node scripts/media-readiness-report.mjs",
     "media:queue:from-prompts": "node scripts/queue-media-from-prompts.mjs",
     "media:retry": "node scripts/retry-media-jobs.mjs",
+    "media:requeue:stale": "node scripts/requeue-stale-media-jobs.mjs",
     "alerts:media:sla": "node scripts/check-media-sla-alerts.mjs",
     "alerts:notifications": "node scripts/process-alert-notifications.mjs",
     "report-jobs:process": "node scripts/process-report-jobs.mjs",

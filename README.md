@@ -86,6 +86,7 @@ Media automation workflow behavior:
 - Regenerates lesson media prompt pack artifacts.
 - Queues missing media jobs into `media_generation_jobs` using `scripts/queue-media-from-prompts.mjs`.
 - Re-queues failed/canceled media jobs using `scripts/retry-media-jobs.mjs`.
+- Re-queues stale `running` media jobs using `scripts/requeue-stale-media-jobs.mjs`.
 - Runs media/report queue SLA alert checks using `scripts/check-media-sla-alerts.mjs`.
 - Processes queued/failed alert notifications using `scripts/process-alert-notifications.mjs`.
 - Processes queued media jobs using `scripts/process-media-jobs.mjs`.
@@ -280,6 +281,12 @@ npm run media:retry -- --status failed,canceled --limit 100 --apply
 
 The retry flow skips jobs when a queued/running/completed asset already exists for the same module + lesson + asset type.
 
+Requeue stale running jobs that have not been updated recently:
+
+```bash
+npm run media:requeue:stale -- --max-age-minutes 90 --limit 100 --apply
+```
+
 Run media/report queue SLA checks and auto-create admin alerts:
 
 ```bash
@@ -332,6 +339,7 @@ Optional filters:
 - `--lesson <lesson-id>`
 - `--asset video|animation|image|all`
 - `--created-by <admin-user-uuid>`
+- `--max-age-minutes <minutes>` (for `media:requeue:stale`)
 
 Lesson-level media operations:
 
