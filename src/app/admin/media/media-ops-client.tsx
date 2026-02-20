@@ -20,17 +20,13 @@ type MediaJob = {
 type PromptLesson = {
   lessonId: string;
   lessonTitle: string;
-  prompts: {
-    seedanceVideo: string;
-    seedanceAnimation: string;
-    lessonImage: string;
-    researchAgent: string;
-  };
+  lessonType: string;
 };
 
 type PromptModule = {
   moduleId: string;
   moduleTitle: string;
+  lessonCount: number;
   lessons: PromptLesson[];
 };
 
@@ -76,9 +72,9 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     if (promptModules.length > 0 || packLoading) return;
     setPackLoading(true);
     try {
-      const response = await fetch("/LESSON-MEDIA-PROMPT-PACK.json", { method: "GET" });
+      const response = await fetch("/api/admin/media/prompt-pack", { method: "GET" });
       const payload = (await response.json().catch(() => ({}))) as PromptPack;
-      const modules = payload.modules ?? [];
+      const modules = Array.isArray(payload.modules) ? payload.modules : [];
       setPromptModules(modules);
       if (modules.length > 0) {
         const firstModule = modules[0];
@@ -96,12 +92,6 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     void loadPromptPack();
   }, [loadPromptPack]);
 
-  const resolvePromptForAsset = (lesson: PromptLesson, assetType: MediaJob["asset_type"]) => {
-    if (assetType === "video") return lesson.prompts.seedanceVideo;
-    if (assetType === "animation") return lesson.prompts.seedanceAnimation;
-    return lesson.prompts.lessonImage;
-  };
-
   const handleQuickQueueFromPromptPack = async () => {
     if (!selectedPromptLesson || !packModuleId || !packLessonId) {
       setStatus("Select module + lesson from prompt pack before queueing.");
@@ -109,15 +99,15 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
     }
 
     try {
-      const prompt = resolvePromptForAsset(selectedPromptLesson, packAssetType);
-      const result = (await postJson("/api/admin/media/jobs", {
-        moduleId: packModuleId,
-        lessonId: packLessonId,
+      const result = (await postJson("/api/admin/media/jobs/queue-from-pack", {
+        moduleId: packModuleId || undefined,
+        lessonId: packLessonId || undefined,
         assetType: packAssetType,
-        provider: "seedance",
-        prompt,
-      })) as { job?: { id: string } };
-      setStatus(`Queued prompt-pack job ${result.job?.id ?? ""}`.trim());
+        limit: 1,
+      })) as { queued?: number; skipped?: number };
+      setStatus(
+        `Prompt-pack queue complete. Queued ${result.queued ?? 0}, skipped ${result.skipped ?? 0}.`,
+      );
       await refreshJobs();
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "Failed to queue prompt-pack job.");
