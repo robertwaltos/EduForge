@@ -30,6 +30,34 @@ function buildSimulatedOutputUrl(assetType: string, moduleId: string | null, les
   return token ? `/placeholders/${base}?token=${token}` : `/placeholders/${base}`;
 }
 
+async function claimQueuedMediaJob(
+  admin: ReturnType<typeof createSupabaseAdminClient>,
+  jobId: string,
+  startedAtIso: string,
+) {
+  const { data, error } = await admin
+    .from("media_generation_jobs")
+    .update({
+      status: "running",
+      error: null,
+      completed_at: null,
+      metadata: {
+        started_at: startedAtIso,
+        runner: "admin-media-run-api",
+      },
+    })
+    .eq("id", jobId)
+    .eq("status", "queued")
+    .select("id")
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(`Unable to claim media job ${jobId}: ${error.message}`);
+  }
+
+  return Boolean(data?.id);
+}
+
 export async function POST(request: Request) {
   const adminUserId = await assertAdmin();
   if (!adminUserId) {
@@ -87,13 +115,18 @@ export async function POST(request: Request) {
 
   const results = [];
   for (const job of queuedJobs) {
-    const runningUpdate = await admin
-      .from("media_generation_jobs")
-      .update({ status: "running", error: null })
-      .eq("id", job.id);
+    const startedAtIso = new Date().toISOString();
+    let wasClaimed = false;
+    try {
+      wasClaimed = await claimQueuedMediaJob(admin, job.id, startedAtIso);
+    } catch (claimError) {
+      const message = claimError instanceof Error ? claimError.message : "Unable to claim job.";
+      results.push({ id: job.id, status: "failed", error: message });
+      continue;
+    }
 
-    if (runningUpdate.error) {
-      results.push({ id: job.id, status: "failed", error: runningUpdate.error.message });
+    if (!wasClaimed) {
+      results.push({ id: job.id, status: "skipped", error: "Already claimed by another worker." });
       continue;
     }
 
@@ -109,7 +142,8 @@ export async function POST(request: Request) {
           runner: "simulated-provider",
         },
       })
-      .eq("id", job.id);
+      .eq("id", job.id)
+      .eq("status", "running");
 
     if (finalUpdate.error) {
       await admin
@@ -119,7 +153,8 @@ export async function POST(request: Request) {
           error: finalUpdate.error.message,
           completed_at: new Date().toISOString(),
         })
-        .eq("id", job.id);
+        .eq("id", job.id)
+        .eq("status", "running");
       results.push({ id: job.id, status: "failed", error: finalUpdate.error.message });
       continue;
     }
@@ -131,6 +166,7 @@ export async function POST(request: Request) {
     processed: results.length,
     completed: results.filter((item) => item.status === "completed").length,
     failed: results.filter((item) => item.status === "failed").length,
+    skipped: results.filter((item) => item.status === "skipped").length,
     filters: {
       moduleId: moduleId || null,
       lessonId: lessonId || null,

@@ -81,23 +81,28 @@ function buildSimulatedOutputUrl(assetType, moduleId, lessonId) {
 async function processJob(supabase, job) {
   const runningAt = new Date().toISOString();
 
-  const runningPayload = {
-    status: "running",
-    error: null,
-    metadata: {
-      ...(job.metadata ?? {}),
-      runner: "media-process-script",
-      started_at: runningAt,
-    },
-  };
-
-  const { error: runningError } = await supabase
+  const { data: claimedRow, error: runningError } = await supabase
     .from("media_generation_jobs")
-    .update(runningPayload)
-    .eq("id", job.id);
+    .update({
+      status: "running",
+      error: null,
+      completed_at: null,
+      metadata: {
+        ...(job.metadata ?? {}),
+        runner: "media-process-script",
+        started_at: runningAt,
+      },
+    })
+    .eq("id", job.id)
+    .eq("status", "queued")
+    .select("id")
+    .maybeSingle();
 
   if (runningError) {
     return { id: job.id, status: "failed", error: runningError.message };
+  }
+  if (!claimedRow?.id) {
+    return { id: job.id, status: "skipped", error: "Already claimed by another worker." };
   }
 
   const completedAt = new Date().toISOString();
@@ -118,7 +123,8 @@ async function processJob(supabase, job) {
   const { error: completedError } = await supabase
     .from("media_generation_jobs")
     .update(completedPayload)
-    .eq("id", job.id);
+    .eq("id", job.id)
+    .eq("status", "running");
 
   if (completedError) {
     await supabase
@@ -133,7 +139,8 @@ async function processJob(supabase, job) {
           failed_at: completedAt,
         },
       })
-      .eq("id", job.id);
+      .eq("id", job.id)
+      .eq("status", "running");
 
     return { id: job.id, status: "failed", error: completedError.message };
   }
@@ -185,10 +192,12 @@ async function main() {
 
   const completedCount = results.filter((item) => item.status === "completed").length;
   const failedCount = results.filter((item) => item.status === "failed").length;
+  const skippedCount = results.filter((item) => item.status === "skipped").length;
 
   console.log(`Processed: ${results.length}`);
   console.log(`Completed: ${completedCount}`);
   console.log(`Failed: ${failedCount}`);
+  console.log(`Skipped: ${skippedCount}`);
 
   if (failedCount > 0) {
     console.log("");
