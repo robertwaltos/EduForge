@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 
 type MediaJob = {
   id: string;
@@ -15,6 +15,27 @@ type MediaJob = {
   created_at: string;
   updated_at: string;
   completed_at: string | null;
+};
+
+type PromptLesson = {
+  lessonId: string;
+  lessonTitle: string;
+  prompts: {
+    seedanceVideo: string;
+    seedanceAnimation: string;
+    lessonImage: string;
+    researchAgent: string;
+  };
+};
+
+type PromptModule = {
+  moduleId: string;
+  moduleTitle: string;
+  lessons: PromptLesson[];
+};
+
+type PromptPack = {
+  modules?: PromptModule[];
 };
 
 async function postJson(url: string, payload: unknown) {
@@ -33,9 +54,74 @@ async function postJson(url: string, payload: unknown) {
 export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[] }) {
   const [jobs, setJobs] = useState(initialJobs);
   const [status, setStatus] = useState("");
+  const [promptModules, setPromptModules] = useState<PromptModule[]>([]);
+  const [packLoading, setPackLoading] = useState(false);
+  const [packModuleId, setPackModuleId] = useState("");
+  const [packLessonId, setPackLessonId] = useState("");
+  const [packAssetType, setPackAssetType] = useState<MediaJob["asset_type"]>("video");
 
   const queuedCount = useMemo(() => jobs.filter((job) => job.status === "queued").length, [jobs]);
   const runningCount = useMemo(() => jobs.filter((job) => job.status === "running").length, [jobs]);
+  const selectedPromptModule = useMemo(
+    () => promptModules.find((entry) => entry.moduleId === packModuleId) ?? null,
+    [packModuleId, promptModules],
+  );
+  const selectedPromptLesson = useMemo(
+    () => selectedPromptModule?.lessons.find((entry) => entry.lessonId === packLessonId) ?? null,
+    [packLessonId, selectedPromptModule],
+  );
+
+  const loadPromptPack = useCallback(async () => {
+    if (promptModules.length > 0 || packLoading) return;
+    setPackLoading(true);
+    try {
+      const response = await fetch("/LESSON-MEDIA-PROMPT-PACK.json", { method: "GET" });
+      const payload = (await response.json().catch(() => ({}))) as PromptPack;
+      const modules = payload.modules ?? [];
+      setPromptModules(modules);
+      if (modules.length > 0) {
+        const firstModule = modules[0];
+        setPackModuleId(firstModule.moduleId);
+        setPackLessonId(firstModule.lessons[0]?.lessonId ?? "");
+      }
+    } catch {
+      setStatus("Unable to load lesson media prompt pack.");
+    } finally {
+      setPackLoading(false);
+    }
+  }, [packLoading, promptModules.length]);
+
+  useEffect(() => {
+    void loadPromptPack();
+  }, [loadPromptPack]);
+
+  const resolvePromptForAsset = (lesson: PromptLesson, assetType: MediaJob["asset_type"]) => {
+    if (assetType === "video") return lesson.prompts.seedanceVideo;
+    if (assetType === "animation") return lesson.prompts.seedanceAnimation;
+    return lesson.prompts.lessonImage;
+  };
+
+  const handleQuickQueueFromPromptPack = async () => {
+    if (!selectedPromptLesson || !packModuleId || !packLessonId) {
+      setStatus("Select module + lesson from prompt pack before queueing.");
+      return;
+    }
+
+    try {
+      const prompt = resolvePromptForAsset(selectedPromptLesson, packAssetType);
+      const result = (await postJson("/api/admin/media/jobs", {
+        moduleId: packModuleId,
+        lessonId: packLessonId,
+        assetType: packAssetType,
+        provider: "seedance",
+        prompt,
+      })) as { job?: { id: string } };
+      setStatus(`Queued prompt-pack job ${result.job?.id ?? ""}`.trim());
+      await refreshJobs();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "Failed to queue prompt-pack job.");
+    }
+  };
 
   const handleCreateJob = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -114,6 +200,62 @@ export default function MediaOpsClient({ initialJobs }: { initialJobs: MediaJob[
             Open AI Media Prompt Catalog
           </a>
         </div>
+
+        <div className="mt-4 rounded-md border border-black/10 bg-zinc-50 p-4">
+          <h3 className="text-sm font-semibold">Quick Queue From Lesson Prompt Pack</h3>
+          <p className="mt-1 text-xs text-zinc-600">
+            Select a module/lesson and queue a pre-generated Seedance prompt without manual copy/paste.
+          </p>
+          <div className="mt-3 grid gap-2 md:grid-cols-4">
+            <select
+              className="rounded-md border border-black/15 px-2 py-2 text-sm"
+              value={packModuleId}
+              onChange={(event) => {
+                const nextModuleId = event.target.value;
+                setPackModuleId(nextModuleId);
+                const nextModule = promptModules.find((entry) => entry.moduleId === nextModuleId);
+                setPackLessonId(nextModule?.lessons[0]?.lessonId ?? "");
+              }}
+            >
+              <option value="">{packLoading ? "Loading modules..." : "Select module"}</option>
+              {promptModules.map((moduleEntry) => (
+                <option key={moduleEntry.moduleId} value={moduleEntry.moduleId}>
+                  {moduleEntry.moduleTitle}
+                </option>
+              ))}
+            </select>
+            <select
+              className="rounded-md border border-black/15 px-2 py-2 text-sm"
+              value={packLessonId}
+              onChange={(event) => setPackLessonId(event.target.value)}
+              disabled={!selectedPromptModule}
+            >
+              <option value="">{selectedPromptModule ? "Select lesson" : "Select module first"}</option>
+              {(selectedPromptModule?.lessons ?? []).map((lesson) => (
+                <option key={lesson.lessonId} value={lesson.lessonId}>
+                  {lesson.lessonTitle}
+                </option>
+              ))}
+            </select>
+            <select
+              className="rounded-md border border-black/15 px-2 py-2 text-sm"
+              value={packAssetType}
+              onChange={(event) => setPackAssetType(event.target.value as MediaJob["asset_type"])}
+            >
+              <option value="video">Video Prompt</option>
+              <option value="animation">Animation Prompt</option>
+              <option value="image">Image Prompt</option>
+            </select>
+            <button
+              type="button"
+              className="rounded-md bg-emerald-600 px-3 py-2 text-sm font-medium text-white hover:bg-emerald-500"
+              onClick={() => void handleQuickQueueFromPromptPack()}
+            >
+              Queue From Pack
+            </button>
+          </div>
+        </div>
+
         <form className="mt-4 grid gap-3 md:grid-cols-2" onSubmit={handleCreateJob}>
           <input name="moduleId" placeholder="Module ID (optional)" className="rounded-md border border-black/15 px-3 py-2 text-sm" />
           <input name="lessonId" placeholder="Lesson ID (optional)" className="rounded-md border border-black/15 px-3 py-2 text-sm" />
