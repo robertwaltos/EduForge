@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Animation placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="100%" stop-color="#e0e7ff" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" rx="28" fill="url(#bg)" />
+  <g fill="none" stroke="#4f46e5" stroke-width="8">
+    <circle cx="270" cy="225" r="56" />
+    <path d="M326 225h130" />
+    <path d="M430 208l34 17-34 17" />
+  </g>
+  <rect x="490" y="169" width="120" height="112" rx="16" fill="#ffffff" stroke="#6366f1" stroke-width="6" />
+  <circle cx="550" cy="225" r="22" fill="#6366f1" />
+  <text x="400" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#1f2937">
+    Animation Asset Placeholder
+  </text>
+</svg>

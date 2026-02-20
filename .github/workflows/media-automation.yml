@@ -51,6 +51,15 @@ jobs:
 
           npm run media:queue:from-prompts -- --apply --asset all --limit "$QUEUE_LIMIT"
 
+      - name: Process queued media jobs
+        run: |
+          if [ -z "$NEXT_PUBLIC_SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "Supabase environment variables are missing. Skipping process step."
+            exit 0
+          fi
+
+          npm run media:process -- --limit "$QUEUE_LIMIT"
+
       - name: Upload prompt pack artifact
         uses: actions/upload-artifact@v4
         with:

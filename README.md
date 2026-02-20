@@ -83,6 +83,7 @@ Media automation workflow behavior:
 
 - Regenerates lesson media prompt pack artifacts.
 - Queues missing media jobs into `media_generation_jobs` using `scripts/queue-media-from-prompts.mjs`.
+- Processes queued media jobs using `scripts/process-media-jobs.mjs`.
 - Skips queue writes gracefully if Supabase secrets are not configured.
 
 Required GitHub secrets/vars for media queue apply mode:
@@ -239,6 +240,12 @@ Apply inserts to Supabase with explicit flags:
 
 ```bash
 node scripts/queue-media-from-prompts.mjs --asset all --limit 300 --apply
+```
+
+Process queued media jobs into completed outputs:
+
+```bash
+npm run media:process -- --limit 100
 ```
 
 Optional filters:

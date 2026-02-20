@@ -20,7 +20,12 @@ async function assertAdmin() {
 }
 
 function buildSimulatedOutputUrl(assetType: string, moduleId: string | null, lessonId: string | null) {
-  const base = assetType === "video" ? "video-placeholder.svg" : "lesson-robot.svg";
+  const base =
+    assetType === "video"
+      ? "video-placeholder.svg"
+      : assetType === "animation"
+        ? "animation-placeholder.svg"
+        : "lesson-robot.svg";
   const token = [moduleId, lessonId].filter(Boolean).join("-").replace(/[^a-zA-Z0-9_-]/g, "");
   return token ? `/placeholders/${base}?token=${token}` : `/placeholders/${base}`;
 }
