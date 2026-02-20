@@ -49,6 +49,38 @@ function pushIssue(target, level, message) {
   target.push({ level, message });
 }
 
+function normalizeLookupKey(value) {
+  try {
+    return decodeURIComponent(String(value ?? "").trim().toLowerCase());
+  } catch {
+    return String(value ?? "").trim().toLowerCase();
+  }
+}
+
+function slugify(value) {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function registerLookupKey({ map, key, owner, label, issues }) {
+  if (!key) {
+    return;
+  }
+  const existingOwner = map.get(key);
+  if (existingOwner && existingOwner !== owner) {
+    pushIssue(
+      issues,
+      "error",
+      `${label} lookup key "${key}" collides with ${existingOwner}.`,
+    );
+    return;
+  }
+  map.set(key, owner);
+}
+
 function validateModule(moduleEntry, state) {
   const { module: learningModule, fileName } = moduleEntry;
   const issues = [];
@@ -67,6 +99,29 @@ function validateModule(moduleEntry, state) {
   } else {
     state.moduleIds.set(learningModule.id, fileName);
   }
+
+  const moduleLookupOwner = `module "${learningModule.id}"`;
+  registerLookupKey({
+    map: state.moduleLookupKeys,
+    key: normalizeLookupKey(learningModule.id),
+    owner: moduleLookupOwner,
+    label: "Module",
+    issues,
+  });
+  registerLookupKey({
+    map: state.moduleLookupKeys,
+    key: normalizeLookupKey(learningModule.title),
+    owner: moduleLookupOwner,
+    label: "Module",
+    issues,
+  });
+  registerLookupKey({
+    map: state.moduleLookupKeys,
+    key: slugify(learningModule.title),
+    owner: moduleLookupOwner,
+    label: "Module",
+    issues,
+  });
 
   if (!Array.isArray(learningModule.lessons) || learningModule.lessons.length === 0) {
     pushIssue(issues, "error", "Module has no lessons.");
@@ -106,6 +161,29 @@ function validateModule(moduleEntry, state) {
     } else {
       state.globalLessonIds.set(lesson.id, `${learningModule.id} (${fileName})`);
     }
+
+    const lessonLookupOwner = `lesson "${lesson.id}" in module "${learningModule.id}"`;
+    registerLookupKey({
+      map: state.lessonLookupKeys,
+      key: normalizeLookupKey(lesson.id),
+      owner: lessonLookupOwner,
+      label: "Lesson",
+      issues,
+    });
+    registerLookupKey({
+      map: state.lessonLookupKeys,
+      key: normalizeLookupKey(lesson.title),
+      owner: lessonLookupOwner,
+      label: "Lesson",
+      issues,
+    });
+    registerLookupKey({
+      map: state.lessonLookupKeys,
+      key: slugify(lesson.title),
+      owner: lessonLookupOwner,
+      label: "Lesson",
+      issues,
+    });
 
     if (!["video", "interactive", "quiz"].includes(lesson.type)) {
       pushIssue(issues, "error", `Lesson "${lesson.id}" has unsupported type "${lesson.type}".`);
@@ -191,6 +269,8 @@ function main() {
   const state = {
     moduleIds: new Map(),
     globalLessonIds: new Map(),
+    moduleLookupKeys: new Map(),
+    lessonLookupKeys: new Map(),
   };
 
   const byModule = [];
