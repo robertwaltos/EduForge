@@ -21,17 +21,17 @@ export const JeeNeetPrep101Module: LearningModule = {
   lessons: [
     {
       id: "jee-neet-prep-101-l01",
-      title: "JEE/NEET Pattern and Cutoff Basics",
+      title: "JEE/NEET: JEE/NEET Pattern and Cutoff Basics",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "jee-neet-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET Pattern and Cutoff Basics." },
-        { id: "jee-neet-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET Pattern and Cutoff Basics." }
+        { id: "jee-neet-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: JEE/NEET Pattern and Cutoff Basics." },
+        { id: "jee-neet-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: JEE/NEET Pattern and Cutoff Basics." }
       ]
     },
     {
       id: "jee-neet-prep-101-l02",
-      title: "Physics Problem Frameworks",
+      title: "JEE/NEET: Physics Problem Frameworks",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const JeeNeetPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "jee-neet-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Physics Problem Frameworks." },
-        { id: "jee-neet-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Physics Problem Frameworks." }
+        { id: "jee-neet-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Physics Problem Frameworks." },
+        { id: "jee-neet-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Physics Problem Frameworks." }
       ]
     },
     {
       id: "jee-neet-prep-101-l03",
-      title: "Chemistry Memory + Application",
+      title: "JEE/NEET: Chemistry Memory + Application",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "jee-neet-prep-101-l03-q1",
-          text: "Which strategy best improves chemistry memory + application performance?",
+          text: "Which strategy best improves jee/neet: chemistry memory + application performance?",
           skillId: "jee-neet-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const JeeNeetPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "jee-neet-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Chemistry Memory + Application." },
-        { id: "jee-neet-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Chemistry Memory + Application." }
+        { id: "jee-neet-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Chemistry Memory + Application." },
+        { id: "jee-neet-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Chemistry Memory + Application." }
       ]
     },
     {
       id: "jee-neet-prep-101-l04",
-      title: "Math Track: Speed and Precision",
+      title: "JEE/NEET: Math Track: Speed and Precision",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const JeeNeetPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "jee-neet-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Math Track: Speed and Precision." },
-        { id: "jee-neet-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Math Track: Speed and Precision." }
+        { id: "jee-neet-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Math Track: Speed and Precision." },
+        { id: "jee-neet-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Math Track: Speed and Precision." }
       ]
     },
     {
       id: "jee-neet-prep-101-l05",
-      title: "Biology Track: NCERT Mastery",
+      title: "JEE/NEET: Biology Track: NCERT Mastery",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "jee-neet-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Biology Track: NCERT Mastery." },
-        { id: "jee-neet-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Biology Track: NCERT Mastery." }
+        { id: "jee-neet-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Biology Track: NCERT Mastery." },
+        { id: "jee-neet-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Biology Track: NCERT Mastery." }
       ]
     },
     {
       id: "jee-neet-prep-101-l06",
-      title: "Question Selection Strategy",
+      title: "JEE/NEET: Question Selection Strategy",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "jee-neet-prep-101-l06-q1",
-          text: "Which strategy best improves question selection strategy performance?",
+          text: "Which strategy best improves jee/neet: question selection strategy performance?",
           skillId: "jee-neet-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const JeeNeetPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "jee-neet-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Question Selection Strategy." },
-        { id: "jee-neet-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Question Selection Strategy." }
+        { id: "jee-neet-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Question Selection Strategy." },
+        { id: "jee-neet-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Question Selection Strategy." }
       ]
     },
     {
       id: "jee-neet-prep-101-l07",
-      title: "Negative Marking Risk Control",
+      title: "JEE/NEET: Negative Marking Risk Control",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "jee-neet-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Negative Marking Risk Control." },
-        { id: "jee-neet-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Negative Marking Risk Control." }
+        { id: "jee-neet-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Negative Marking Risk Control." },
+        { id: "jee-neet-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Negative Marking Risk Control." }
       ]
     },
     {
       id: "jee-neet-prep-101-l08",
-      title: "Timed Mixed Subject Drill",
+      title: "JEE/NEET: Timed Mixed Subject Drill",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const JeeNeetPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "jee-neet-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Timed Mixed Subject Drill." },
-        { id: "jee-neet-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Timed Mixed Subject Drill." }
+        { id: "jee-neet-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Timed Mixed Subject Drill." },
+        { id: "jee-neet-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Timed Mixed Subject Drill." }
       ]
     },
     {
       id: "jee-neet-prep-101-l09",
-      title: "Mock Test Analysis Loop",
+      title: "JEE/NEET: Mock Test Analysis Loop",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "jee-neet-prep-101-l09-q1",
-          text: "Which strategy best improves mock test analysis loop performance?",
+          text: "Which strategy best improves jee/neet: mock test analysis loop performance?",
           skillId: "jee-neet-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const JeeNeetPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "jee-neet-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Mock Test Analysis Loop." },
-        { id: "jee-neet-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Mock Test Analysis Loop." }
+        { id: "jee-neet-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Mock Test Analysis Loop." },
+        { id: "jee-neet-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Mock Test Analysis Loop." }
       ]
     },
     {
       id: "jee-neet-prep-101-l10",
-      title: "Final 60-Day Exam Plan",
+      title: "JEE/NEET: Final 60-Day Exam Plan",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "jee-neet-prep-101-l10-q1",
-          text: "Which strategy best improves final 60-day exam plan performance?",
+          text: "Which strategy best improves jee/neet: final 60-day exam plan performance?",
           skillId: "jee-neet-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const JeeNeetPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "jee-neet-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Final 60-Day Exam Plan." },
-        { id: "jee-neet-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Final 60-Day Exam Plan." }
+        { id: "jee-neet-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for JEE/NEET: Final 60-Day Exam Plan." },
+        { id: "jee-neet-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of JEE/NEET: Final 60-Day Exam Plan." }
       ]
     }
   ],

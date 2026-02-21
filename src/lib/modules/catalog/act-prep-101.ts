@@ -21,17 +21,17 @@ export const ActPrep101Module: LearningModule = {
   lessons: [
     {
       id: "act-prep-101-l01",
-      title: "ACT Overview and Scoring",
+      title: "ACT: ACT Overview and Scoring",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "act-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT Overview and Scoring." },
-        { id: "act-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT Overview and Scoring." }
+        { id: "act-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: ACT Overview and Scoring." },
+        { id: "act-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: ACT Overview and Scoring." }
       ]
     },
     {
       id: "act-prep-101-l02",
-      title: "English Usage and Rhetoric",
+      title: "ACT: English Usage and Rhetoric",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const ActPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "act-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for English Usage and Rhetoric." },
-        { id: "act-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of English Usage and Rhetoric." }
+        { id: "act-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: English Usage and Rhetoric." },
+        { id: "act-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: English Usage and Rhetoric." }
       ]
     },
     {
       id: "act-prep-101-l03",
-      title: "Math Core Skill Review",
+      title: "ACT: Math Core Skill Review",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "act-prep-101-l03-q1",
-          text: "Which strategy best improves math core skill review performance?",
+          text: "Which strategy best improves act: math core skill review performance?",
           skillId: "act-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const ActPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "act-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Math Core Skill Review." },
-        { id: "act-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Math Core Skill Review." }
+        { id: "act-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: Math Core Skill Review." },
+        { id: "act-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: Math Core Skill Review." }
       ]
     },
     {
       id: "act-prep-101-l04",
-      title: "Reading Passage Strategy",
+      title: "ACT: Reading Passage Strategy",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const ActPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "act-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Reading Passage Strategy." },
-        { id: "act-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Reading Passage Strategy." }
+        { id: "act-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: Reading Passage Strategy." },
+        { id: "act-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: Reading Passage Strategy." }
       ]
     },
     {
       id: "act-prep-101-l05",
-      title: "Science Reasoning Techniques",
+      title: "ACT: Science Reasoning Techniques",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "act-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Science Reasoning Techniques." },
-        { id: "act-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Science Reasoning Techniques." }
+        { id: "act-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: Science Reasoning Techniques." },
+        { id: "act-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: Science Reasoning Techniques." }
       ]
     },
     {
       id: "act-prep-101-l06",
-      title: "Pacing Under Time Limits",
+      title: "ACT: Pacing Under Time Limits",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "act-prep-101-l06-q1",
-          text: "Which strategy best improves pacing under time limits performance?",
+          text: "Which strategy best improves act: pacing under time limits performance?",
           skillId: "act-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const ActPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "act-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Pacing Under Time Limits." },
-        { id: "act-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Pacing Under Time Limits." }
+        { id: "act-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: Pacing Under Time Limits." },
+        { id: "act-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: Pacing Under Time Limits." }
       ]
     },
     {
       id: "act-prep-101-l07",
-      title: "Error Log and Recovery",
+      title: "ACT: Error Log and Recovery",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "act-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Error Log and Recovery." },
-        { id: "act-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Error Log and Recovery." }
+        { id: "act-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: Error Log and Recovery." },
+        { id: "act-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: Error Log and Recovery." }
       ]
     },
     {
       id: "act-prep-101-l08",
-      title: "Section Drill: English + Reading",
+      title: "ACT: Section Drill: English + Reading",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const ActPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "act-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Section Drill: English + Reading." },
-        { id: "act-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Section Drill: English + Reading." }
+        { id: "act-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: Section Drill: English + Reading." },
+        { id: "act-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: Section Drill: English + Reading." }
       ]
     },
     {
       id: "act-prep-101-l09",
-      title: "Section Drill: Math + Science",
+      title: "ACT: Section Drill: Math + Science",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "act-prep-101-l09-q1",
-          text: "Which strategy best improves section drill: math + science performance?",
+          text: "Which strategy best improves act: section drill: math + science performance?",
           skillId: "act-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const ActPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "act-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Section Drill: Math + Science." },
-        { id: "act-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Section Drill: Math + Science." }
+        { id: "act-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: Section Drill: Math + Science." },
+        { id: "act-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: Section Drill: Math + Science." }
       ]
     },
     {
       id: "act-prep-101-l10",
-      title: "Full ACT Mock and Review",
+      title: "ACT: Full ACT Mock and Review",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "act-prep-101-l10-q1",
-          text: "Which strategy best improves full act mock and review performance?",
+          text: "Which strategy best improves act: full act mock and review performance?",
           skillId: "act-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const ActPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "act-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Full ACT Mock and Review." },
-        { id: "act-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Full ACT Mock and Review." }
+        { id: "act-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ACT: Full ACT Mock and Review." },
+        { id: "act-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ACT: Full ACT Mock and Review." }
       ]
     }
   ],

@@ -21,17 +21,17 @@ export const IbPrep101Module: LearningModule = {
   lessons: [
     {
       id: "ib-prep-101-l01",
-      title: "IB Diploma Structure and Subject Planning",
+      title: "IB: IB Diploma Structure and Subject Planning",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "ib-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB Diploma Structure and Subject Planning." },
-        { id: "ib-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB Diploma Structure and Subject Planning." }
+        { id: "ib-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: IB Diploma Structure and Subject Planning." },
+        { id: "ib-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: IB Diploma Structure and Subject Planning." }
       ]
     },
     {
       id: "ib-prep-101-l02",
-      title: "Higher Level and Standard Level Strategy",
+      title: "IB: Higher Level and Standard Level Strategy",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const IbPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "ib-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Higher Level and Standard Level Strategy." },
-        { id: "ib-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Higher Level and Standard Level Strategy." }
+        { id: "ib-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Higher Level and Standard Level Strategy." },
+        { id: "ib-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Higher Level and Standard Level Strategy." }
       ]
     },
     {
       id: "ib-prep-101-l03",
-      title: "Theory of Knowledge Reasoning Skills",
+      title: "IB: Theory of Knowledge Reasoning Skills",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "ib-prep-101-l03-q1",
-          text: "Which strategy best improves theory of knowledge reasoning skills performance?",
+          text: "Which strategy best improves ib: theory of knowledge reasoning skills performance?",
           skillId: "ib-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const IbPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "ib-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Theory of Knowledge Reasoning Skills." },
-        { id: "ib-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Theory of Knowledge Reasoning Skills." }
+        { id: "ib-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Theory of Knowledge Reasoning Skills." },
+        { id: "ib-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Theory of Knowledge Reasoning Skills." }
       ]
     },
     {
       id: "ib-prep-101-l04",
-      title: "Extended Essay Research Workflow",
+      title: "IB: Extended Essay Research Workflow",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const IbPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "ib-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Extended Essay Research Workflow." },
-        { id: "ib-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Extended Essay Research Workflow." }
+        { id: "ib-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Extended Essay Research Workflow." },
+        { id: "ib-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Extended Essay Research Workflow." }
       ]
     },
     {
       id: "ib-prep-101-l05",
-      title: "Internal Assessment Quality Standards",
+      title: "IB: Internal Assessment Quality Standards",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "ib-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Internal Assessment Quality Standards." },
-        { id: "ib-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Internal Assessment Quality Standards." }
+        { id: "ib-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Internal Assessment Quality Standards." },
+        { id: "ib-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Internal Assessment Quality Standards." }
       ]
     },
     {
       id: "ib-prep-101-l06",
-      title: "Command Terms and Markscheme Use",
+      title: "IB: Command Terms and Markscheme Use",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "ib-prep-101-l06-q1",
-          text: "Which strategy best improves command terms and markscheme use performance?",
+          text: "Which strategy best improves ib: command terms and markscheme use performance?",
           skillId: "ib-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const IbPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "ib-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Command Terms and Markscheme Use." },
-        { id: "ib-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Command Terms and Markscheme Use." }
+        { id: "ib-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Command Terms and Markscheme Use." },
+        { id: "ib-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Command Terms and Markscheme Use." }
       ]
     },
     {
       id: "ib-prep-101-l07",
-      title: "Time Management Across Components",
+      title: "IB: Time Management Across Components",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "ib-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Time Management Across Components." },
-        { id: "ib-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Time Management Across Components." }
+        { id: "ib-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Time Management Across Components." },
+        { id: "ib-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Time Management Across Components." }
       ]
     },
     {
       id: "ib-prep-101-l08",
-      title: "Past Paper Analysis Loop",
+      title: "IB: Past Paper Analysis Loop",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const IbPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "ib-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Past Paper Analysis Loop." },
-        { id: "ib-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Past Paper Analysis Loop." }
+        { id: "ib-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Past Paper Analysis Loop." },
+        { id: "ib-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Past Paper Analysis Loop." }
       ]
     },
     {
       id: "ib-prep-101-l09",
-      title: "Exam Session Simulation",
+      title: "IB: Exam Session Simulation",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "ib-prep-101-l09-q1",
-          text: "Which strategy best improves exam session simulation performance?",
+          text: "Which strategy best improves ib: exam session simulation performance?",
           skillId: "ib-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const IbPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "ib-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Exam Session Simulation." },
-        { id: "ib-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Exam Session Simulation." }
+        { id: "ib-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Exam Session Simulation." },
+        { id: "ib-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Exam Session Simulation." }
       ]
     },
     {
       id: "ib-prep-101-l10",
-      title: "Final IB Sprint and Reflection",
+      title: "IB: Final IB Sprint and Reflection",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "ib-prep-101-l10-q1",
-          text: "Which strategy best improves final ib sprint and reflection performance?",
+          text: "Which strategy best improves ib: final ib sprint and reflection performance?",
           skillId: "ib-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const IbPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "ib-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Final IB Sprint and Reflection." },
-        { id: "ib-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Final IB Sprint and Reflection." }
+        { id: "ib-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for IB: Final IB Sprint and Reflection." },
+        { id: "ib-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of IB: Final IB Sprint and Reflection." }
       ]
     }
   ],

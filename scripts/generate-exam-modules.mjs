@@ -299,6 +299,38 @@ function slugToFileName(id) {
   return `${id}.ts`;
 }
 
+function lessonPrefixFromModuleId(moduleId) {
+  const trackKey = String(moduleId).replace(/-prep-.+$/i, "");
+  switch (trackKey) {
+    case "sat":
+      return "SAT";
+    case "act":
+      return "ACT";
+    case "ap":
+      return "AP";
+    case "toefl":
+      return "TOEFL";
+    case "ielts":
+      return "IELTS";
+    case "gcse":
+      return "GCSE";
+    case "a-level":
+      return "A-Level";
+    case "ib":
+      return "IB";
+    case "jee-neet":
+      return "JEE/NEET";
+    case "cuet":
+      return "CUET";
+    case "gaokao":
+      return "Gaokao";
+    case "atar":
+      return "ATAR";
+    default:
+      return trackKey.toUpperCase();
+  }
+}
+
 function qBlock(moduleId, lessonId, topicText) {
   return `[
         {
@@ -402,8 +434,9 @@ function makeLesson(moduleId, index, title) {
 }
 
 function moduleSource(exam) {
+  const lessonPrefix = lessonPrefixFromModuleId(exam.id);
   const lessons = exam.lessonTitles
-    .map((title, index) => makeLesson(exam.id, index, title))
+    .map((title, index) => makeLesson(exam.id, index, `${lessonPrefix}: ${title}`))
     .join(",\n    ");
 
   return `import type { LearningModule } from "@/lib/modules/types";

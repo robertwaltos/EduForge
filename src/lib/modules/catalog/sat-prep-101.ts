@@ -21,17 +21,17 @@ export const SatPrep101Module: LearningModule = {
   lessons: [
     {
       id: "sat-prep-101-l01",
-      title: "SAT Structure and Strategy",
+      title: "SAT: SAT Structure and Strategy",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "sat-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT Structure and Strategy." },
-        { id: "sat-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT Structure and Strategy." }
+        { id: "sat-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: SAT Structure and Strategy." },
+        { id: "sat-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: SAT Structure and Strategy." }
       ]
     },
     {
       id: "sat-prep-101-l02",
-      title: "Reading Evidence Skills",
+      title: "SAT: Reading Evidence Skills",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const SatPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "sat-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Reading Evidence Skills." },
-        { id: "sat-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Reading Evidence Skills." }
+        { id: "sat-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Reading Evidence Skills." },
+        { id: "sat-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Reading Evidence Skills." }
       ]
     },
     {
       id: "sat-prep-101-l03",
-      title: "Writing and Language Rules",
+      title: "SAT: Writing and Language Rules",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "sat-prep-101-l03-q1",
-          text: "Which strategy best improves writing and language rules performance?",
+          text: "Which strategy best improves sat: writing and language rules performance?",
           skillId: "sat-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const SatPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "sat-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Writing and Language Rules." },
-        { id: "sat-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Writing and Language Rules." }
+        { id: "sat-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Writing and Language Rules." },
+        { id: "sat-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Writing and Language Rules." }
       ]
     },
     {
       id: "sat-prep-101-l04",
-      title: "Algebra and Data Essentials",
+      title: "SAT: Algebra and Data Essentials",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const SatPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "sat-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Algebra and Data Essentials." },
-        { id: "sat-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Algebra and Data Essentials." }
+        { id: "sat-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Algebra and Data Essentials." },
+        { id: "sat-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Algebra and Data Essentials." }
       ]
     },
     {
       id: "sat-prep-101-l05",
-      title: "Advanced Math Problem Solving",
+      title: "SAT: Advanced Math Problem Solving",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "sat-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Advanced Math Problem Solving." },
-        { id: "sat-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Advanced Math Problem Solving." }
+        { id: "sat-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Advanced Math Problem Solving." },
+        { id: "sat-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Advanced Math Problem Solving." }
       ]
     },
     {
       id: "sat-prep-101-l06",
-      title: "Timing and Pacing Practice",
+      title: "SAT: Timing and Pacing Practice",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "sat-prep-101-l06-q1",
-          text: "Which strategy best improves timing and pacing practice performance?",
+          text: "Which strategy best improves sat: timing and pacing practice performance?",
           skillId: "sat-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const SatPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "sat-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Timing and Pacing Practice." },
-        { id: "sat-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Timing and Pacing Practice." }
+        { id: "sat-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Timing and Pacing Practice." },
+        { id: "sat-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Timing and Pacing Practice." }
       ]
     },
     {
       id: "sat-prep-101-l07",
-      title: "Error Analysis Workshop",
+      title: "SAT: Error Analysis Workshop",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "sat-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Error Analysis Workshop." },
-        { id: "sat-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Error Analysis Workshop." }
+        { id: "sat-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Error Analysis Workshop." },
+        { id: "sat-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Error Analysis Workshop." }
       ]
     },
     {
       id: "sat-prep-101-l08",
-      title: "Section Drill: Reading + Writing",
+      title: "SAT: Section Drill: Reading + Writing",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const SatPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "sat-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Section Drill: Reading + Writing." },
-        { id: "sat-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Section Drill: Reading + Writing." }
+        { id: "sat-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Section Drill: Reading + Writing." },
+        { id: "sat-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Section Drill: Reading + Writing." }
       ]
     },
     {
       id: "sat-prep-101-l09",
-      title: "Section Drill: Math",
+      title: "SAT: Section Drill: Math",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "sat-prep-101-l09-q1",
-          text: "Which strategy best improves section drill: math performance?",
+          text: "Which strategy best improves sat: section drill: math performance?",
           skillId: "sat-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const SatPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "sat-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Section Drill: Math." },
-        { id: "sat-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Section Drill: Math." }
+        { id: "sat-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Section Drill: Math." },
+        { id: "sat-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Section Drill: Math." }
       ]
     },
     {
       id: "sat-prep-101-l10",
-      title: "Full SAT Mock and Review",
+      title: "SAT: Full SAT Mock and Review",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "sat-prep-101-l10-q1",
-          text: "Which strategy best improves full sat mock and review performance?",
+          text: "Which strategy best improves sat: full sat mock and review performance?",
           skillId: "sat-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const SatPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "sat-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Full SAT Mock and Review." },
-        { id: "sat-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Full SAT Mock and Review." }
+        { id: "sat-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for SAT: Full SAT Mock and Review." },
+        { id: "sat-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of SAT: Full SAT Mock and Review." }
       ]
     }
   ],

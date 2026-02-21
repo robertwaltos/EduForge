@@ -21,17 +21,17 @@ export const GaokaoPrep101Module: LearningModule = {
   lessons: [
     {
       id: "gaokao-prep-101-l01",
-      title: "Gaokao Structure and Planning",
+      title: "Gaokao: Gaokao Structure and Planning",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "gaokao-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao Structure and Planning." },
-        { id: "gaokao-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao Structure and Planning." }
+        { id: "gaokao-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Gaokao Structure and Planning." },
+        { id: "gaokao-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Gaokao Structure and Planning." }
       ]
     },
     {
       id: "gaokao-prep-101-l02",
-      title: "Chinese Language Performance",
+      title: "Gaokao: Chinese Language Performance",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const GaokaoPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "gaokao-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Chinese Language Performance." },
-        { id: "gaokao-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Chinese Language Performance." }
+        { id: "gaokao-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Chinese Language Performance." },
+        { id: "gaokao-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Chinese Language Performance." }
       ]
     },
     {
       id: "gaokao-prep-101-l03",
-      title: "Mathematics Intensive Strategy",
+      title: "Gaokao: Mathematics Intensive Strategy",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "gaokao-prep-101-l03-q1",
-          text: "Which strategy best improves mathematics intensive strategy performance?",
+          text: "Which strategy best improves gaokao: mathematics intensive strategy performance?",
           skillId: "gaokao-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const GaokaoPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "gaokao-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Mathematics Intensive Strategy." },
-        { id: "gaokao-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Mathematics Intensive Strategy." }
+        { id: "gaokao-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Mathematics Intensive Strategy." },
+        { id: "gaokao-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Mathematics Intensive Strategy." }
       ]
     },
     {
       id: "gaokao-prep-101-l04",
-      title: "English Exam Techniques",
+      title: "Gaokao: English Exam Techniques",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const GaokaoPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "gaokao-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for English Exam Techniques." },
-        { id: "gaokao-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of English Exam Techniques." }
+        { id: "gaokao-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: English Exam Techniques." },
+        { id: "gaokao-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: English Exam Techniques." }
       ]
     },
     {
       id: "gaokao-prep-101-l05",
-      title: "Elective Subject Mastery",
+      title: "Gaokao: Elective Subject Mastery",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "gaokao-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Elective Subject Mastery." },
-        { id: "gaokao-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Elective Subject Mastery." }
+        { id: "gaokao-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Elective Subject Mastery." },
+        { id: "gaokao-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Elective Subject Mastery." }
       ]
     },
     {
       id: "gaokao-prep-101-l06",
-      title: "Speed and Accuracy Training",
+      title: "Gaokao: Speed and Accuracy Training",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "gaokao-prep-101-l06-q1",
-          text: "Which strategy best improves speed and accuracy training performance?",
+          text: "Which strategy best improves gaokao: speed and accuracy training performance?",
           skillId: "gaokao-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const GaokaoPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "gaokao-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Speed and Accuracy Training." },
-        { id: "gaokao-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Speed and Accuracy Training." }
+        { id: "gaokao-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Speed and Accuracy Training." },
+        { id: "gaokao-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Speed and Accuracy Training." }
       ]
     },
     {
       id: "gaokao-prep-101-l07",
-      title: "Error Notebook Method",
+      title: "Gaokao: Error Notebook Method",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "gaokao-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Error Notebook Method." },
-        { id: "gaokao-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Error Notebook Method." }
+        { id: "gaokao-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Error Notebook Method." },
+        { id: "gaokao-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Error Notebook Method." }
       ]
     },
     {
       id: "gaokao-prep-101-l08",
-      title: "Past Paper Sequencing",
+      title: "Gaokao: Past Paper Sequencing",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const GaokaoPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "gaokao-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Past Paper Sequencing." },
-        { id: "gaokao-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Past Paper Sequencing." }
+        { id: "gaokao-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Past Paper Sequencing." },
+        { id: "gaokao-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Past Paper Sequencing." }
       ]
     },
     {
       id: "gaokao-prep-101-l09",
-      title: "Performance Week Simulation",
+      title: "Gaokao: Performance Week Simulation",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "gaokao-prep-101-l09-q1",
-          text: "Which strategy best improves performance week simulation performance?",
+          text: "Which strategy best improves gaokao: performance week simulation performance?",
           skillId: "gaokao-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const GaokaoPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "gaokao-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Performance Week Simulation." },
-        { id: "gaokao-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Performance Week Simulation." }
+        { id: "gaokao-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Performance Week Simulation." },
+        { id: "gaokao-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Performance Week Simulation." }
       ]
     },
     {
       id: "gaokao-prep-101-l10",
-      title: "Final Sprint and Recovery Plan",
+      title: "Gaokao: Final Sprint and Recovery Plan",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "gaokao-prep-101-l10-q1",
-          text: "Which strategy best improves final sprint and recovery plan performance?",
+          text: "Which strategy best improves gaokao: final sprint and recovery plan performance?",
           skillId: "gaokao-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const GaokaoPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "gaokao-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Final Sprint and Recovery Plan." },
-        { id: "gaokao-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Final Sprint and Recovery Plan." }
+        { id: "gaokao-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Gaokao: Final Sprint and Recovery Plan." },
+        { id: "gaokao-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Gaokao: Final Sprint and Recovery Plan." }
       ]
     }
   ],

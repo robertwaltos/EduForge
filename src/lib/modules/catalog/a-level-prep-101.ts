@@ -21,17 +21,17 @@ export const ALevelPrep101Module: LearningModule = {
   lessons: [
     {
       id: "a-level-prep-101-l01",
-      title: "A-Level Standards and Targets",
+      title: "A-Level: A-Level Standards and Targets",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "a-level-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level Standards and Targets." },
-        { id: "a-level-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level Standards and Targets." }
+        { id: "a-level-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: A-Level Standards and Targets." },
+        { id: "a-level-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: A-Level Standards and Targets." }
       ]
     },
     {
       id: "a-level-prep-101-l02",
-      title: "Knowledge Retrieval Systems",
+      title: "A-Level: Knowledge Retrieval Systems",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const ALevelPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "a-level-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Knowledge Retrieval Systems." },
-        { id: "a-level-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Knowledge Retrieval Systems." }
+        { id: "a-level-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: Knowledge Retrieval Systems." },
+        { id: "a-level-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: Knowledge Retrieval Systems." }
       ]
     },
     {
       id: "a-level-prep-101-l03",
-      title: "High-Value Topic Prioritization",
+      title: "A-Level: High-Value Topic Prioritization",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "a-level-prep-101-l03-q1",
-          text: "Which strategy best improves high-value topic prioritization performance?",
+          text: "Which strategy best improves a-level: high-value topic prioritization performance?",
           skillId: "a-level-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const ALevelPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "a-level-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for High-Value Topic Prioritization." },
-        { id: "a-level-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of High-Value Topic Prioritization." }
+        { id: "a-level-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: High-Value Topic Prioritization." },
+        { id: "a-level-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: High-Value Topic Prioritization." }
       ]
     },
     {
       id: "a-level-prep-101-l04",
-      title: "Analytical Essay Construction",
+      title: "A-Level: Analytical Essay Construction",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const ALevelPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "a-level-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Analytical Essay Construction." },
-        { id: "a-level-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Analytical Essay Construction." }
+        { id: "a-level-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: Analytical Essay Construction." },
+        { id: "a-level-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: Analytical Essay Construction." }
       ]
     },
     {
       id: "a-level-prep-101-l05",
-      title: "Data and Source Evaluation",
+      title: "A-Level: Data and Source Evaluation",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "a-level-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Data and Source Evaluation." },
-        { id: "a-level-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Data and Source Evaluation." }
+        { id: "a-level-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: Data and Source Evaluation." },
+        { id: "a-level-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: Data and Source Evaluation." }
       ]
     },
     {
       id: "a-level-prep-101-l06",
-      title: "Synoptic Question Strategy",
+      title: "A-Level: Synoptic Question Strategy",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "a-level-prep-101-l06-q1",
-          text: "Which strategy best improves synoptic question strategy performance?",
+          text: "Which strategy best improves a-level: synoptic question strategy performance?",
           skillId: "a-level-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const ALevelPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "a-level-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Synoptic Question Strategy." },
-        { id: "a-level-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Synoptic Question Strategy." }
+        { id: "a-level-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: Synoptic Question Strategy." },
+        { id: "a-level-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: Synoptic Question Strategy." }
       ]
     },
     {
       id: "a-level-prep-101-l07",
-      title: "Revision Under Time Pressure",
+      title: "A-Level: Revision Under Time Pressure",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "a-level-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Revision Under Time Pressure." },
-        { id: "a-level-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Revision Under Time Pressure." }
+        { id: "a-level-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: Revision Under Time Pressure." },
+        { id: "a-level-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: Revision Under Time Pressure." }
       ]
     },
     {
       id: "a-level-prep-101-l08",
-      title: "Past Paper Mark-Scheme Analysis",
+      title: "A-Level: Past Paper Mark-Scheme Analysis",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const ALevelPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "a-level-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Past Paper Mark-Scheme Analysis." },
-        { id: "a-level-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Past Paper Mark-Scheme Analysis." }
+        { id: "a-level-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: Past Paper Mark-Scheme Analysis." },
+        { id: "a-level-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: Past Paper Mark-Scheme Analysis." }
       ]
     },
     {
       id: "a-level-prep-101-l09",
-      title: "Coursework/Practical Integration",
+      title: "A-Level: Coursework/Practical Integration",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "a-level-prep-101-l09-q1",
-          text: "Which strategy best improves coursework/practical integration performance?",
+          text: "Which strategy best improves a-level: coursework/practical integration performance?",
           skillId: "a-level-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const ALevelPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "a-level-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Coursework/Practical Integration." },
-        { id: "a-level-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Coursework/Practical Integration." }
+        { id: "a-level-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: Coursework/Practical Integration." },
+        { id: "a-level-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: Coursework/Practical Integration." }
       ]
     },
     {
       id: "a-level-prep-101-l10",
-      title: "Full Mock and Gap Closure",
+      title: "A-Level: Full Mock and Gap Closure",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "a-level-prep-101-l10-q1",
-          text: "Which strategy best improves full mock and gap closure performance?",
+          text: "Which strategy best improves a-level: full mock and gap closure performance?",
           skillId: "a-level-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const ALevelPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "a-level-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Full Mock and Gap Closure." },
-        { id: "a-level-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Full Mock and Gap Closure." }
+        { id: "a-level-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for A-Level: Full Mock and Gap Closure." },
+        { id: "a-level-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of A-Level: Full Mock and Gap Closure." }
       ]
     }
   ],

@@ -21,17 +21,17 @@ export const AtarPrep101Module: LearningModule = {
   lessons: [
     {
       id: "atar-prep-101-l01",
-      title: "ATAR Pathways and Subject Selection",
+      title: "ATAR: ATAR Pathways and Subject Selection",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "atar-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR Pathways and Subject Selection." },
-        { id: "atar-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR Pathways and Subject Selection." }
+        { id: "atar-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: ATAR Pathways and Subject Selection." },
+        { id: "atar-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: ATAR Pathways and Subject Selection." }
       ]
     },
     {
       id: "atar-prep-101-l02",
-      title: "Study Design Interpretation",
+      title: "ATAR: Study Design Interpretation",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const AtarPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "atar-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Study Design Interpretation." },
-        { id: "atar-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Study Design Interpretation." }
+        { id: "atar-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: Study Design Interpretation." },
+        { id: "atar-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: Study Design Interpretation." }
       ]
     },
     {
       id: "atar-prep-101-l03",
-      title: "Exam Technique by Subject Type",
+      title: "ATAR: Exam Technique by Subject Type",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "atar-prep-101-l03-q1",
-          text: "Which strategy best improves exam technique by subject type performance?",
+          text: "Which strategy best improves atar: exam technique by subject type performance?",
           skillId: "atar-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const AtarPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "atar-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Exam Technique by Subject Type." },
-        { id: "atar-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Exam Technique by Subject Type." }
+        { id: "atar-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: Exam Technique by Subject Type." },
+        { id: "atar-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: Exam Technique by Subject Type." }
       ]
     },
     {
       id: "atar-prep-101-l04",
-      title: "ATAR High-Value Topic Prioritization",
+      title: "ATAR: ATAR High-Value Topic Prioritization",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const AtarPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "atar-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR High-Value Topic Prioritization." },
-        { id: "atar-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR High-Value Topic Prioritization." }
+        { id: "atar-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: ATAR High-Value Topic Prioritization." },
+        { id: "atar-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: ATAR High-Value Topic Prioritization." }
       ]
     },
     {
       id: "atar-prep-101-l05",
-      title: "Timed Response Quality Control",
+      title: "ATAR: Timed Response Quality Control",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "atar-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Timed Response Quality Control." },
-        { id: "atar-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Timed Response Quality Control." }
+        { id: "atar-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: Timed Response Quality Control." },
+        { id: "atar-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: Timed Response Quality Control." }
       ]
     },
     {
       id: "atar-prep-101-l06",
-      title: "Marking Criteria and Self-Assessment",
+      title: "ATAR: Marking Criteria and Self-Assessment",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "atar-prep-101-l06-q1",
-          text: "Which strategy best improves marking criteria and self-assessment performance?",
+          text: "Which strategy best improves atar: marking criteria and self-assessment performance?",
           skillId: "atar-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const AtarPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "atar-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Marking Criteria and Self-Assessment." },
-        { id: "atar-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Marking Criteria and Self-Assessment." }
+        { id: "atar-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: Marking Criteria and Self-Assessment." },
+        { id: "atar-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: Marking Criteria and Self-Assessment." }
       ]
     },
     {
       id: "atar-prep-101-l07",
-      title: "Revision Cycle Planning",
+      title: "ATAR: Revision Cycle Planning",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "atar-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Revision Cycle Planning." },
-        { id: "atar-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Revision Cycle Planning." }
+        { id: "atar-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: Revision Cycle Planning." },
+        { id: "atar-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: Revision Cycle Planning." }
       ]
     },
     {
       id: "atar-prep-101-l08",
-      title: "Mock Exam Analytics",
+      title: "ATAR: Mock Exam Analytics",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const AtarPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "atar-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Mock Exam Analytics." },
-        { id: "atar-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Mock Exam Analytics." }
+        { id: "atar-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: Mock Exam Analytics." },
+        { id: "atar-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: Mock Exam Analytics." }
       ]
     },
     {
       id: "atar-prep-101-l09",
-      title: "Stress and Consistency Routines",
+      title: "ATAR: Stress and Consistency Routines",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "atar-prep-101-l09-q1",
-          text: "Which strategy best improves stress and consistency routines performance?",
+          text: "Which strategy best improves atar: stress and consistency routines performance?",
           skillId: "atar-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const AtarPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "atar-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Stress and Consistency Routines." },
-        { id: "atar-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Stress and Consistency Routines." }
+        { id: "atar-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: Stress and Consistency Routines." },
+        { id: "atar-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: Stress and Consistency Routines." }
       ]
     },
     {
       id: "atar-prep-101-l10",
-      title: "Final ATAR Readiness Blueprint",
+      title: "ATAR: Final ATAR Readiness Blueprint",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "atar-prep-101-l10-q1",
-          text: "Which strategy best improves final atar readiness blueprint performance?",
+          text: "Which strategy best improves atar: final atar readiness blueprint performance?",
           skillId: "atar-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const AtarPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "atar-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Final ATAR Readiness Blueprint." },
-        { id: "atar-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Final ATAR Readiness Blueprint." }
+        { id: "atar-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for ATAR: Final ATAR Readiness Blueprint." },
+        { id: "atar-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of ATAR: Final ATAR Readiness Blueprint." }
       ]
     }
   ],

@@ -21,17 +21,17 @@ export const GcsePrep101Module: LearningModule = {
   lessons: [
     {
       id: "gcse-prep-101-l01",
-      title: "GCSE Pathway Planning",
+      title: "GCSE: GCSE Pathway Planning",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "gcse-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE Pathway Planning." },
-        { id: "gcse-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE Pathway Planning." }
+        { id: "gcse-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: GCSE Pathway Planning." },
+        { id: "gcse-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: GCSE Pathway Planning." }
       ]
     },
     {
       id: "gcse-prep-101-l02",
-      title: "English Language Techniques",
+      title: "GCSE: English Language Techniques",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const GcsePrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "gcse-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for English Language Techniques." },
-        { id: "gcse-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of English Language Techniques." }
+        { id: "gcse-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: English Language Techniques." },
+        { id: "gcse-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: English Language Techniques." }
       ]
     },
     {
       id: "gcse-prep-101-l03",
-      title: "Math Non-Calculator Skills",
+      title: "GCSE: Math Non-Calculator Skills",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "gcse-prep-101-l03-q1",
-          text: "Which strategy best improves math non-calculator skills performance?",
+          text: "Which strategy best improves gcse: math non-calculator skills performance?",
           skillId: "gcse-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const GcsePrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "gcse-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Math Non-Calculator Skills." },
-        { id: "gcse-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Math Non-Calculator Skills." }
+        { id: "gcse-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: Math Non-Calculator Skills." },
+        { id: "gcse-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: Math Non-Calculator Skills." }
       ]
     },
     {
       id: "gcse-prep-101-l04",
-      title: "Math Calculator Skills",
+      title: "GCSE: Math Calculator Skills",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const GcsePrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "gcse-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Math Calculator Skills." },
-        { id: "gcse-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Math Calculator Skills." }
+        { id: "gcse-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: Math Calculator Skills." },
+        { id: "gcse-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: Math Calculator Skills." }
       ]
     },
     {
       id: "gcse-prep-101-l05",
-      title: "Science Command Words",
+      title: "GCSE: Science Command Words",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "gcse-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Science Command Words." },
-        { id: "gcse-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Science Command Words." }
+        { id: "gcse-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: Science Command Words." },
+        { id: "gcse-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: Science Command Words." }
       ]
     },
     {
       id: "gcse-prep-101-l06",
-      title: "Structured Long Answers",
+      title: "GCSE: Structured Long Answers",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "gcse-prep-101-l06-q1",
-          text: "Which strategy best improves structured long answers performance?",
+          text: "Which strategy best improves gcse: structured long answers performance?",
           skillId: "gcse-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const GcsePrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "gcse-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Structured Long Answers." },
-        { id: "gcse-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Structured Long Answers." }
+        { id: "gcse-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: Structured Long Answers." },
+        { id: "gcse-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: Structured Long Answers." }
       ]
     },
     {
       id: "gcse-prep-101-l07",
-      title: "Revision Timetable Execution",
+      title: "GCSE: Revision Timetable Execution",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "gcse-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Revision Timetable Execution." },
-        { id: "gcse-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Revision Timetable Execution." }
+        { id: "gcse-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: Revision Timetable Execution." },
+        { id: "gcse-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: Revision Timetable Execution." }
       ]
     },
     {
       id: "gcse-prep-101-l08",
-      title: "Past Paper Strategy",
+      title: "GCSE: Past Paper Strategy",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const GcsePrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "gcse-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Past Paper Strategy." },
-        { id: "gcse-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Past Paper Strategy." }
+        { id: "gcse-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: Past Paper Strategy." },
+        { id: "gcse-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: Past Paper Strategy." }
       ]
     },
     {
       id: "gcse-prep-101-l09",
-      title: "Exam-Day Readiness",
+      title: "GCSE: Exam-Day Readiness",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "gcse-prep-101-l09-q1",
-          text: "Which strategy best improves exam-day readiness performance?",
+          text: "Which strategy best improves gcse: exam-day readiness performance?",
           skillId: "gcse-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const GcsePrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "gcse-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Exam-Day Readiness." },
-        { id: "gcse-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Exam-Day Readiness." }
+        { id: "gcse-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: Exam-Day Readiness." },
+        { id: "gcse-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: Exam-Day Readiness." }
       ]
     },
     {
       id: "gcse-prep-101-l10",
-      title: "Full Mock Cycle and Review",
+      title: "GCSE: Full Mock Cycle and Review",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "gcse-prep-101-l10-q1",
-          text: "Which strategy best improves full mock cycle and review performance?",
+          text: "Which strategy best improves gcse: full mock cycle and review performance?",
           skillId: "gcse-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const GcsePrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "gcse-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Full Mock Cycle and Review." },
-        { id: "gcse-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Full Mock Cycle and Review." }
+        { id: "gcse-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for GCSE: Full Mock Cycle and Review." },
+        { id: "gcse-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of GCSE: Full Mock Cycle and Review." }
       ]
     }
   ],

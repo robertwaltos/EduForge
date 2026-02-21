@@ -21,17 +21,17 @@ export const ToeflPrep101Module: LearningModule = {
   lessons: [
     {
       id: "toefl-prep-101-l01",
-      title: "TOEFL Format and Score Goals",
+      title: "TOEFL: TOEFL Format and Score Goals",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "toefl-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL Format and Score Goals." },
-        { id: "toefl-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL Format and Score Goals." }
+        { id: "toefl-prep-101-l01-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: TOEFL Format and Score Goals." },
+        { id: "toefl-prep-101-l01-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: TOEFL Format and Score Goals." }
       ]
     },
     {
       id: "toefl-prep-101-l02",
-      title: "Academic Reading Strategy",
+      title: "TOEFL: Academic Reading Strategy",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -42,19 +42,19 @@ export const ToeflPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "toefl-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Academic Reading Strategy." },
-        { id: "toefl-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Academic Reading Strategy." }
+        { id: "toefl-prep-101-l02-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Academic Reading Strategy." },
+        { id: "toefl-prep-101-l02-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Academic Reading Strategy." }
       ]
     },
     {
       id: "toefl-prep-101-l03",
-      title: "Listening for Main Ideas and Detail",
+      title: "TOEFL: Listening for Main Ideas and Detail",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "toefl-prep-101-l03-q1",
-          text: "Which strategy best improves listening for main ideas and detail performance?",
+          text: "Which strategy best improves toefl: listening for main ideas and detail performance?",
           skillId: "toefl-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -102,13 +102,13 @@ export const ToeflPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "toefl-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Listening for Main Ideas and Detail." },
-        { id: "toefl-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Listening for Main Ideas and Detail." }
+        { id: "toefl-prep-101-l03-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Listening for Main Ideas and Detail." },
+        { id: "toefl-prep-101-l03-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Listening for Main Ideas and Detail." }
       ]
     },
     {
       id: "toefl-prep-101-l04",
-      title: "Integrated Speaking Frameworks",
+      title: "TOEFL: Integrated Speaking Frameworks",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -119,29 +119,29 @@ export const ToeflPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "toefl-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Integrated Speaking Frameworks." },
-        { id: "toefl-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Integrated Speaking Frameworks." }
+        { id: "toefl-prep-101-l04-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Integrated Speaking Frameworks." },
+        { id: "toefl-prep-101-l04-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Integrated Speaking Frameworks." }
       ]
     },
     {
       id: "toefl-prep-101-l05",
-      title: "Independent Speaking Clarity",
+      title: "TOEFL: Independent Speaking Clarity",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "toefl-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Independent Speaking Clarity." },
-        { id: "toefl-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Independent Speaking Clarity." }
+        { id: "toefl-prep-101-l05-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Independent Speaking Clarity." },
+        { id: "toefl-prep-101-l05-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Independent Speaking Clarity." }
       ]
     },
     {
       id: "toefl-prep-101-l06",
-      title: "Integrated Writing Structure",
+      title: "TOEFL: Integrated Writing Structure",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "toefl-prep-101-l06-q1",
-          text: "Which strategy best improves integrated writing structure performance?",
+          text: "Which strategy best improves toefl: integrated writing structure performance?",
           skillId: "toefl-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -189,23 +189,23 @@ export const ToeflPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "toefl-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Integrated Writing Structure." },
-        { id: "toefl-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Integrated Writing Structure." }
+        { id: "toefl-prep-101-l06-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Integrated Writing Structure." },
+        { id: "toefl-prep-101-l06-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Integrated Writing Structure." }
       ]
     },
     {
       id: "toefl-prep-101-l07",
-      title: "Independent Writing Organization",
+      title: "TOEFL: Independent Writing Organization",
       type: "video",
       duration: 11,
       learningAids: [
-        { id: "toefl-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Independent Writing Organization." },
-        { id: "toefl-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Independent Writing Organization." }
+        { id: "toefl-prep-101-l07-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Independent Writing Organization." },
+        { id: "toefl-prep-101-l07-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Independent Writing Organization." }
       ]
     },
     {
       id: "toefl-prep-101-l08",
-      title: "Timing and Note-Taking Systems",
+      title: "TOEFL: Timing and Note-Taking Systems",
       type: "interactive",
       duration: 14,
       metadata: {
@@ -216,19 +216,19 @@ export const ToeflPrep101Module: LearningModule = {
         ]
       },
       learningAids: [
-        { id: "toefl-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Timing and Note-Taking Systems." },
-        { id: "toefl-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Timing and Note-Taking Systems." }
+        { id: "toefl-prep-101-l08-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Timing and Note-Taking Systems." },
+        { id: "toefl-prep-101-l08-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Timing and Note-Taking Systems." }
       ]
     },
     {
       id: "toefl-prep-101-l09",
-      title: "Full Section Drill and Review",
+      title: "TOEFL: Full Section Drill and Review",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "toefl-prep-101-l09-q1",
-          text: "Which strategy best improves full section drill and review performance?",
+          text: "Which strategy best improves toefl: full section drill and review performance?",
           skillId: "toefl-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -276,19 +276,19 @@ export const ToeflPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "toefl-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Full Section Drill and Review." },
-        { id: "toefl-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Full Section Drill and Review." }
+        { id: "toefl-prep-101-l09-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Full Section Drill and Review." },
+        { id: "toefl-prep-101-l09-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Full Section Drill and Review." }
       ]
     },
     {
       id: "toefl-prep-101-l10",
-      title: "Mock TOEFL and Gap Closure Plan",
+      title: "TOEFL: Mock TOEFL and Gap Closure Plan",
       type: "quiz",
       duration: 12,
       questions: [
         {
           id: "toefl-prep-101-l10-q1",
-          text: "Which strategy best improves mock toefl and gap closure plan performance?",
+          text: "Which strategy best improves toefl: mock toefl and gap closure plan performance?",
           skillId: "toefl-prep-101-skill-strategy",
           options: [
             { id: "a", text: "Set a plan, practice, and review errors" },
@@ -336,8 +336,8 @@ export const ToeflPrep101Module: LearningModule = {
         }
       ],
       learningAids: [
-        { id: "toefl-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for Mock TOEFL and Gap Closure Plan." },
-        { id: "toefl-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of Mock TOEFL and Gap Closure Plan." }
+        { id: "toefl-prep-101-l10-a1", type: "image", title: "Concept Snapshot", content: "Visual summary for TOEFL: Mock TOEFL and Gap Closure Plan." },
+        { id: "toefl-prep-101-l10-a2", type: "animation", title: "Animated Walkthrough", content: "Step-by-step explanation of TOEFL: Mock TOEFL and Gap Closure Plan." }
       ]
     }
   ],
