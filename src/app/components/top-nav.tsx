@@ -345,6 +345,7 @@ export default function TopNav() {
   }, [authContext.isAdmin, authContext.isAuthenticated, authContext.isParent, primaryNavItems]);
 
   const isAdminRoute = pathname?.startsWith("/admin") ?? false;
+  const isHomePage = pathname === "/";
   const brandHref = authContext.isAuthenticated ? "/dashboard" : "/";
   const parentPortalHref = authContext.isAuthenticated
     ? "/parent/dashboard"
@@ -368,7 +369,9 @@ export default function TopNav() {
     <header
       style={{ paddingTop: "env(safe-area-inset-top)" }}
       className={`sticky top-0 z-50 w-full border-b backdrop-blur-xl ${
-        isAdminRoute
+        isHomePage
+          ? "border-white/8 bg-slate-950/50"
+          : isAdminRoute
           ? "border-zinc-200/80 bg-white/90 dark:border-white/10 dark:bg-slate-950/85"
           : "border-zinc-200/70 bg-[linear-gradient(92deg,rgba(255,251,242,0.93),rgba(236,253,245,0.9),rgba(239,246,255,0.92))] dark:border-white/10 dark:bg-[linear-gradient(92deg,rgba(15,23,38,0.92),rgba(21,35,54,0.9),rgba(22,30,47,0.9))]"
       }`}
@@ -378,7 +381,11 @@ export default function TopNav() {
           <Link
             href={brandHref}
             title={authContext.isAuthenticated ? t("top_nav_go_to_dashboard") : t("top_nav_go_to_home")}
-            className="ui-focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-2xl border border-white/80 bg-white/80 px-3.5 py-2 shadow-sm backdrop-blur-sm transition-colors hover:bg-white dark:border-white/15 dark:bg-slate-900/70 dark:hover:bg-slate-900/90"
+            className={`ui-focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-2xl border px-3.5 py-2 shadow-sm backdrop-blur-sm transition-colors ${
+              isHomePage
+                ? "border-white/12 bg-white/8 hover:bg-white/15"
+                : "border-white/80 bg-white/80 hover:bg-white dark:border-white/15 dark:bg-slate-900/70 dark:hover:bg-slate-900/90"
+            }`}
             onClick={closeMenus}
           >
             <span
@@ -388,10 +395,10 @@ export default function TopNav() {
               ✨
             </span>
             <span className="leading-tight">
-              <span className="ui-type-display block text-base font-extrabold tracking-tight text-zinc-900 dark:text-zinc-100">
+              <span className={`ui-type-display block text-base font-extrabold tracking-tight ${isHomePage ? "text-white" : "text-zinc-900 dark:text-zinc-100"}`}>
                 Koydo
               </span>
-              <span className="block text-[11px] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+              <span className={`block text-[11px] font-semibold uppercase tracking-wide ${isHomePage ? "text-slate-400" : "text-zinc-500 dark:text-zinc-400"}`}>
                 {t("top_nav_brand_tagline")}
               </span>
             </span>
@@ -409,8 +416,12 @@ export default function TopNav() {
                 }
                 className={`ui-soft-button ui-focus-ring ui-type-body-sm inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3.5 py-1.5 font-semibold tracking-[0.01em] transition-all ${
                   isItemActive(item.href)
-                    ? "border-zinc-900 bg-zinc-900 text-white shadow-sm dark:border-white/18 dark:bg-white/14 dark:text-zinc-100"
-                    : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:border-zinc-300 hover:bg-white dark:border-white/14 dark:bg-slate-900/58 dark:text-zinc-200 dark:hover:border-white/22 dark:hover:bg-slate-900/82"
+                    ? isHomePage
+                      ? "border-amber-400/50 bg-amber-400/15 text-amber-300 shadow-sm"
+                      : "border-zinc-900 bg-zinc-900 text-white shadow-sm dark:border-white/18 dark:bg-white/14 dark:text-zinc-100"
+                    : isHomePage
+                      ? "border-white/12 bg-white/8 text-slate-200 hover:border-white/22 hover:bg-white/15"
+                      : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:border-zinc-300 hover:bg-white dark:border-white/14 dark:bg-slate-900/58 dark:text-zinc-200 dark:hover:border-white/22 dark:hover:bg-slate-900/82"
                 }`}
                 aria-current={isItemActive(item.href) ? "page" : undefined}
                 onClick={closeMenus}
@@ -426,7 +437,11 @@ export default function TopNav() {
           {!authContext.isAuthenticated ? (
             <Link
               href="/auth/sign-up"
-              className="ui-soft-button ui-focus-ring hidden min-h-10 items-center rounded-full bg-zinc-900 px-4 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 sm:inline-flex dark:bg-white dark:text-zinc-900"
+              className={`ui-soft-button ui-focus-ring hidden min-h-10 items-center rounded-full px-4 py-1.5 text-sm font-semibold shadow-sm transition hover:brightness-110 sm:inline-flex ${
+              isHomePage
+                ? "bg-gradient-to-r from-amber-400 to-amber-500 font-bold text-stone-950"
+                : "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
+            }`}
             >
               {t("nav_sign_up")}
             </Link>
@@ -439,7 +454,11 @@ export default function TopNav() {
             >
               <button
                 type="button"
-                className="ui-soft-button ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-full border border-zinc-200/80 bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-zinc-700 shadow-sm transition hover:bg-white dark:border-white/14 dark:bg-slate-900/68 dark:text-zinc-100 dark:hover:bg-slate-900/88"
+                className={`ui-soft-button ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-semibold shadow-sm transition ${
+                  isHomePage
+                    ? "border-white/12 bg-white/8 text-slate-200 hover:bg-white/15"
+                    : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:bg-white dark:border-white/14 dark:bg-slate-900/68 dark:text-zinc-100 dark:hover:bg-slate-900/88"
+                }`}
                 aria-haspopup="menu"
                 aria-expanded={isMainMenuOpen}
                 onClick={() => {
@@ -525,7 +544,11 @@ export default function TopNav() {
             >
               <button
                 type="button"
-                className="ui-soft-button ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-full border border-zinc-200/80 bg-white/80 px-3.5 py-1.5 text-sm font-semibold text-zinc-700 shadow-sm transition hover:bg-white dark:border-white/14 dark:bg-slate-900/68 dark:text-zinc-100 dark:hover:bg-slate-900/88"
+                className={`ui-soft-button ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-semibold shadow-sm transition ${
+                  isHomePage
+                    ? "border-white/12 bg-white/8 text-slate-200 hover:bg-white/15"
+                    : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:bg-white dark:border-white/14 dark:bg-slate-900/68 dark:text-zinc-100 dark:hover:bg-slate-900/88"
+                }`}
                 aria-haspopup="menu"
                 aria-expanded={isExploreToolsOpen}
                 onClick={() => {
