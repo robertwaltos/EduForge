@@ -98,6 +98,7 @@ Checks on push/PR:
 
 - `npm run modules:check`
 - `npm run curriculum:validate`
+- `npm run curriculum:capstone-defense:check`
 - `npm run lint`
 - `npm run build`
 

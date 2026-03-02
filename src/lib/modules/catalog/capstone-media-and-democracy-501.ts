@@ -373,7 +373,7 @@ export const CapstoneMediaAndDemocracy501Module: LearningModule = {
           "id": "capstone-media-and-democracy-501-l04-c2",
           "kind": "recap",
           "title": "Debrief and Correction",
-          "content": "Each simulation run is reviewed for gains, side effects, and governance compliance gaps."
+          "content": "Each simulation run is reviewed for gains, side effects, and governance compliance gaps through explicit data analysis that feeds an implementation artifact."
         }
       ],
       "interactiveActivities": [
@@ -624,13 +624,13 @@ export const CapstoneMediaAndDemocracy501Module: LearningModule = {
           "id": "capstone-media-and-democracy-501-l06-c1",
           "kind": "practice",
           "title": "Defense Brief Assembly",
-          "content": "Learners assemble claims, evidence, uncertainty ranges, and remediation pathways in one defense brief."
+          "content": "Learners assemble claims, evidence, uncertainty ranges, remediation pathways, and one implementation artifact mapped to rubric criteria in one defense brief."
         },
         {
           "id": "capstone-media-and-democracy-501-l06-c2",
           "kind": "recap",
           "title": "Panel Rehearsal",
-          "content": "Learners rehearse responses to technical, policy, and stakeholder critiques."
+          "content": "Learners rehearse responses to technical, policy, and stakeholder critiques in a structured policy debate using the scoring rubric."
         }
       ],
       "interactiveActivities": [
@@ -638,7 +638,7 @@ export const CapstoneMediaAndDemocracy501Module: LearningModule = {
           "id": "capstone-media-and-democracy-501-l06-act1",
           "type": "debate_simulator",
           "title": "Expert Defense Panel",
-          "description": "Defend capstone recommendations under adversarial cross-examination."
+          "description": "Defend capstone recommendations under adversarial cross-examination with a rubric-based debate and implementation artifact walkthrough."
         }
       ]
     }

@@ -304,6 +304,13 @@ Last Updated: 2026-03-02
 - Status update (2026-03-02): regression guard added for advanced assessment depth via
   `npm run curriculum:advanced-quiz-depth:check` (`scripts/check-advanced-quiz-depth.mjs`),
   enforcing minimum 8-question coverage for every 501/601 quiz checkpoint in CI/preflight flows.
+- Status update (2026-03-02): capstone defense-alignment hardening completed by
+  adding explicit data-analysis, implementation-artifact, and rubric-based debate
+  language across all capstone modules plus a new CI-ready gate
+  `npm run curriculum:capstone-defense:check`
+  (`scripts/check-capstone-defense-alignment.mjs`). Validation remains green:
+  capstone audit 8/8 coverage, advanced quiz-depth audit 368/368 quizzes at 8
+  questions, curriculum validation 585 modules with 0 errors and 0 warnings.
 - Acceptance criteria:
   - At least 5 new tracks launched with complete 101/201/301/401 ladders.
   - At least 3 established tracks gain 501/601 specialization modules.

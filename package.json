@@ -20,6 +20,7 @@
     "curriculum:validate": "node scripts/validate-curriculum.mjs",
     "curriculum:validate:report": "node scripts/validate-curriculum.mjs --write-report --no-fail",
     "curriculum:advanced-quiz-depth:check": "node scripts/check-advanced-quiz-depth.mjs",
+    "curriculum:capstone-defense:check": "node scripts/check-capstone-defense-alignment.mjs",
     "curriculum:fix:quiz-depth": "node scripts/fix-curriculum-quiz-depth.mjs",
     "curriculum:fix:quality": "node scripts/fix-curriculum-quiz-depth.mjs --fix-learning-aids",
     "media:report": "node scripts/media-readiness-report.mjs",

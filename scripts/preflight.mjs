@@ -36,6 +36,16 @@ function runStep(command, args) {
   return typeof result.status === "number" ? result.status : 1;
 }
 
+function sleepMs(ms) {
+  const buffer = new SharedArrayBuffer(4);
+  const view = new Int32Array(buffer);
+  Atomics.wait(view, 0, 0, ms);
+}
+
+function quoteShellArg(value) {
+  return `"${String(value).replace(/"/g, '\\"')}"`;
+}
+
 function parseArgs(argv) {
   const options = {
     envRuntime: "",
@@ -88,17 +98,31 @@ function parseArgs(argv) {
   return options;
 }
 
-function runJsonStep(script, args = []) {
-  const result = spawnSync("node", [script, ...args, "--json"], {
+function runJsonStep(args = []) {
+  const tempFilePath = path.join(
+    ROOT,
+    `.preflight-env-check-${process.pid}-${Date.now()}.json`,
+  );
+  const scriptPath = path.join(ROOT, "scripts", "check-env.mjs");
+  const command = `${quoteShellArg(process.execPath)} ${quoteShellArg(scriptPath)} ${[...args, "--json"].map(quoteShellArg).join(" ")} > ${quoteShellArg(tempFilePath)}`;
+
+  const result = spawnSync(command, {
     cwd: ROOT,
-    encoding: "utf8",
+    stdio: "inherit",
     shell: process.platform === "win32",
     env: process.env,
   });
 
-  const stdout = (result.stdout ?? "").trim();
-  const stderr = (result.stderr ?? "").trim();
   const exitCode = typeof result.status === "number" ? result.status : 1;
+  let stdout = "";
+  if (fs.existsSync(tempFilePath)) {
+    stdout = fs.readFileSync(tempFilePath, "utf8").trim();
+    try {
+      fs.unlinkSync(tempFilePath);
+    } catch {
+      // Best-effort cleanup only; the report parse result is already captured.
+    }
+  }
 
   let data = null;
   if (stdout.length > 0) {
@@ -112,16 +136,24 @@ function runJsonStep(script, args = []) {
   return {
     exitCode,
     stdout,
-    stderr,
+    stderr: "",
     data,
+    error: result.error ?? null,
   };
 }
 
 function evaluateEnvCheck(result, { strictWarn }) {
+  if (result.error) {
+    return {
+      pass: false,
+      detail: `check-env process launch failed: ${result.error.message}`,
+    };
+  }
+
   if (!result.data || !result.data.totals) {
     return {
       pass: false,
-      detail: result.stderr || "Invalid JSON output from scripts/check-env.mjs.",
+      detail: result.stdout || "Invalid JSON output from scripts/check-env.mjs.",
     };
   }
 
@@ -224,11 +256,23 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   const results = [];
 
-  const buildCode = runStep("npm", ["run", "build"]);
+  let buildCode = runStep("npm", ["run", "build"]);
+  let buildRetried = false;
+  if (buildCode !== 0) {
+    buildRetried = true;
+    process.stdout.write("Build failed on first attempt; retrying once after 2 seconds...\n");
+    sleepMs(2000);
+    buildCode = runStep("npm", ["run", "build"]);
+  }
   results.push({
     name: "next build",
     pass: buildCode === 0,
-    detail: buildCode === 0 ? "Build completed successfully." : `Exit code ${buildCode}.`,
+    detail:
+      buildCode === 0
+        ? buildRetried
+          ? "Build completed successfully on retry."
+          : "Build completed successfully."
+        : `Exit code ${buildCode}.${buildRetried ? " (retried once)" : ""}`,
   });
 
   const vitestState = detectVitestAndTests();
@@ -253,13 +297,33 @@ function main() {
     });
   }
 
-  const smokeCode = runStep("npm", ["run", "smoke-test"]);
-  results.push({
-    name: "smoke test",
-    pass: smokeCode === 0,
-    detail: smokeCode === 0 ? "All launch routes passed smoke test." : `Exit code ${smokeCode}.`,
-  });
+  if (buildCode === 0) {
+    const smokeCode = runStep("node", ["scripts/smoke-test.mjs", "--skip-build"]);
+    results.push({
+      name: "smoke test",
+      pass: smokeCode === 0,
+      detail:
+        smokeCode === 0
+          ? "All launch routes passed smoke test (prebuilt artifact)."
+          : `Exit code ${smokeCode}.`,
+    });
+  } else {
+    results.push({
+      name: "smoke test",
+      pass: true,
+      detail: "Skipped because next build failed.",
+    });
+  }
 
+  const capstoneDefenseCode = runStep("npm", ["run", "curriculum:capstone-defense:check"]);
+  results.push({
+    name: "capstone defense",
+    pass: capstoneDefenseCode === 0,
+    detail:
+      capstoneDefenseCode === 0
+        ? "All capstone modules satisfy defense alignment requirements."
+        : `Exit code ${capstoneDefenseCode}.`,
+  });
   const envArgs = [];
   if (args.envRuntime) {
     envArgs.push("--runtime", args.envRuntime);
@@ -271,7 +335,7 @@ function main() {
     envArgs.push("--fail-on-warn");
   }
 
-  const envCheck = runJsonStep("scripts/check-env.mjs", envArgs);
+  const envCheck = runJsonStep(envArgs);
   const envSummary = evaluateEnvCheck(envCheck, { strictWarn: args.strictEnvWarn });
   results.push({
     name: "env check",

@@ -394,8 +394,8 @@ export default function TopNav() {
       className={`safe-area-top sticky top-0 z-50 w-full border-b backdrop-blur-xl ${isHomePage
           ? "border-white/8 bg-slate-950/50"
           : isAdminRoute
-            ? "border-zinc-200/80 bg-white/90 border-border/40 dark:bg-slate-950/85"
-            : "border-zinc-200/70 bg-[linear-gradient(92deg,rgba(255,251,242,0.93),rgba(236,253,245,0.9),rgba(239,246,255,0.92))] border-border/40 dark:bg-[linear-gradient(92deg,rgba(15,23,38,0.92),rgba(21,35,54,0.9),rgba(22,30,47,0.9))]"
+            ? "border-zinc-200/80 bg-white/90 border-border/40 dark:bg-background/85"
+            : "border-zinc-200/70 bg-[linear-gradient(92deg,rgba(255,251,242,0.93),rgba(236,253,245,0.9),rgba(239,246,255,0.92))] border-border/40 dark:bg-background/92"
         }`}
     >
       <div className="mx-auto w-full max-w-7xl px-4 py-3">
@@ -405,7 +405,7 @@ export default function TopNav() {
             title={authContext.isAuthenticated ? t("top_nav_go_to_dashboard") : t("top_nav_go_to_home")}
             className={`ui-focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-2xl border px-3.5 py-2 shadow-sm backdrop-blur-sm transition-colors ${isHomePage
                 ? "border-white/12 bg-white/8 hover:bg-white/15"
-                : "border-white/80 bg-white/80 hover:bg-white border-border/55 dark:bg-slate-900/70 dark:hover:bg-slate-900/90"
+                : "border-white/80 bg-white/80 hover:bg-white border-border/55 dark:bg-surface/70 dark:hover:bg-surface/90"
               }`}
             onClick={closeMenus}
           >
@@ -444,7 +444,7 @@ export default function TopNav() {
                         : "border-zinc-900 bg-zinc-900 text-white shadow-sm border-border/60 dark:bg-white/14 dark:text-foreground"
                       : isHomePage
                         ? "border-white/12 bg-white/8 text-slate-200 hover:border-white/22 hover:bg-white/15"
-                        : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:border-zinc-300 hover:bg-white border-border/50 dark:bg-slate-900/58 dark:text-foreground/90 dark:hover:border-white/22 dark:hover:bg-slate-900/82"
+                        : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:border-zinc-300 hover:bg-white border-border/50 dark:bg-surface/58 dark:text-foreground/90 dark:hover:border-border/40 dark:hover:bg-surface/82"
                     }`}
                   aria-current={isItemActive(item.href) ? "page" : undefined}
                   onClick={closeMenus}
@@ -468,13 +468,13 @@ export default function TopNav() {
                 onClick={openCommandPalette}
                 className={`ui-soft-button ui-focus-ring hidden min-h-10 items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-semibold shadow-sm transition hover:brightness-110 sm:inline-flex ${isHomePage
                     ? "border-white/14 bg-white/10 text-slate-200 hover:bg-white/16"
-                    : "border-zinc-300 bg-white text-zinc-700 hover:bg-surface-muted border-border/65 dark:bg-slate-900/60 dark:text-foreground dark:hover:bg-slate-900/80"
+                    : "border-zinc-300 bg-white text-zinc-700 hover:bg-surface-muted border-border/65 dark:bg-surface/60 dark:text-foreground dark:hover:bg-surface/80"
                   }`}
                 title="Search navigation (Ctrl/Cmd+K)"
               >
                 <span aria-hidden="true">🔎</span>
                 <span>{t("top_nav_search")}</span>
-                <kbd className="rounded border border-zinc-300 px-1.5 py-0.5 text-[10px] text-zinc-500 dark:border-zinc-600 dark:text-zinc-300">
+                <kbd className="rounded border border-zinc-300 px-1.5 py-0.5 text-[10px] text-zinc-500 dark:border-border dark:text-foreground/70">
                   ⌘K
                 </kbd>
               </button>
@@ -482,7 +482,7 @@ export default function TopNav() {
                 href="/auth/sign-in"
                 className={`ui-soft-button ui-focus-ring inline-flex min-h-10 items-center rounded-full border px-3 py-1.5 text-sm font-semibold shadow-sm transition hover:brightness-110 sm:px-4 ${isHomePage
                     ? "border-amber-200 bg-amber-300 text-amber-950 hover:bg-amber-200"
-                    : "border-zinc-300 bg-white text-zinc-800 hover:bg-surface-muted border-border/65 dark:bg-slate-900/60 dark:text-foreground dark:hover:bg-slate-900/80"
+                    : "border-zinc-300 bg-white text-zinc-800 hover:bg-surface-muted border-border/65 dark:bg-surface/60 dark:text-foreground dark:hover:bg-surface/80"
                   }`}
               >
                 {t("nav_sign_in")}
@@ -491,7 +491,7 @@ export default function TopNav() {
                 href="/auth/sign-up"
                 className={`ui-soft-button ui-focus-ring inline-flex min-h-10 items-center rounded-full px-3 py-1.5 text-sm font-semibold shadow-sm transition hover:brightness-110 max-[360px]:hidden sm:px-4 ${isHomePage
                     ? "bg-gradient-to-r from-amber-400 to-amber-500 font-bold text-stone-950"
-                    : "bg-zinc-900 text-white dark:bg-white dark:text-slate-900"
+                    : "bg-zinc-900 text-white dark:bg-foreground dark:text-background"
                   }`}
               >
                 {t("nav_sign_up")}
@@ -506,14 +506,14 @@ export default function TopNav() {
                 type="button"
                 className={`ui-soft-button ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-semibold shadow-sm transition ${isHomePage
                     ? "border-white/12 bg-white/8 text-slate-200 hover:bg-white/15"
-                    : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:bg-white border-border/50 dark:bg-slate-900/68 dark:text-foreground dark:hover:bg-slate-900/88"
+                    : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:bg-white border-border/50 dark:bg-surface/68 dark:text-foreground dark:hover:bg-surface/88"
                   }`}
                 title="Search navigation (Ctrl/Cmd+K)"
                 onClick={openCommandPalette}
               >
                 <span aria-hidden="true">🔎</span>
                 <span className="hidden sm:inline">{t("top_nav_search")}</span>
-                <kbd className="hidden rounded border border-zinc-300 px-1.5 py-0.5 text-[10px] text-zinc-500 dark:border-zinc-600 dark:text-zinc-300 md:inline-block">
+                <kbd className="hidden rounded border border-zinc-300 px-1.5 py-0.5 text-[10px] text-zinc-500 dark:border-border dark:text-foreground/70 md:inline-block">
                   ⌘K
                 </kbd>
               </button>
@@ -525,7 +525,7 @@ export default function TopNav() {
                   type="button"
                   className={`ui-soft-button ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-semibold shadow-sm transition ${isHomePage
                       ? "border-white/12 bg-white/8 text-slate-200 hover:bg-white/15"
-                      : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:bg-white border-border/50 dark:bg-slate-900/68 dark:text-foreground dark:hover:bg-slate-900/88"
+                      : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:bg-white border-border/50 dark:bg-surface/68 dark:text-foreground dark:hover:bg-surface/88"
                     }`}
                   aria-haspopup="true"
                   aria-expanded={isMainMenuOpen}
@@ -548,14 +548,14 @@ export default function TopNav() {
                 {isMainMenuOpen && (
                   <div
                     ref={mainMenuPanelRef}
-                    className="absolute right-0 mt-2 w-[min(92vw,24rem)] rounded-2xl border border-zinc-200/90 bg-white/95 p-3 shadow-xl backdrop-blur-sm border-border/50 dark:bg-slate-950/92"
+                    className="absolute right-0 mt-2 w-[min(92vw,24rem)] rounded-2xl border border-zinc-200/90 bg-white/95 p-3 shadow-xl backdrop-blur-sm border-border/50 dark:bg-background/92"
                   >
                     <div className="grid gap-2">
                       {primaryNavItems.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-slate-900/72 dark:text-foreground dark:hover:bg-slate-800/72"
+                          className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-surface/72 dark:text-foreground dark:hover:bg-surface-muted/72"
                           onClick={closeMenus}
                         >
                           <span aria-hidden="true">{item.icon}</span>
@@ -572,7 +572,7 @@ export default function TopNav() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-surface-muted border-border/45 dark:bg-slate-900/52 dark:text-foreground/90 dark:hover:bg-slate-800/68"
+                              className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-surface-muted border-border/45 dark:bg-surface-muted/55 dark:text-foreground/90 dark:hover:bg-surface-muted/70"
                               onClick={closeMenus}
                             >
                               <span aria-hidden="true">{item.icon}</span>
@@ -597,7 +597,7 @@ export default function TopNav() {
                     ) : null}
 
                     <div className="mt-3 border-t border-zinc-200/80 pt-3 border-border/45">
-                      <div className="space-y-3 rounded-xl border border-zinc-200/80 bg-surface-muted/90 p-3 border-border/45 dark:bg-slate-900/72">
+                      <div className="space-y-3 rounded-xl border border-zinc-200/80 bg-surface-muted/90 p-3 border-border/45 dark:bg-surface/72">
                         <ThemeControls compact />
                         <LanguageSwitcher compact />
                       </div>
@@ -614,7 +614,7 @@ export default function TopNav() {
                   type="button"
                   className={`ui-soft-button ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm font-semibold shadow-sm transition ${isHomePage
                       ? "border-white/12 bg-white/8 text-slate-200 hover:bg-white/15"
-                      : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:bg-white border-border/50 dark:bg-slate-900/68 dark:text-foreground dark:hover:bg-slate-900/88"
+                      : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:bg-white border-border/50 dark:bg-surface/68 dark:text-foreground dark:hover:bg-surface/88"
                     }`}
                   aria-haspopup="true"
                   aria-expanded={isExploreToolsOpen}
@@ -637,12 +637,12 @@ export default function TopNav() {
                 {isExploreToolsOpen && (
                   <div
                     ref={exploreToolsPanelRef}
-                    className="absolute right-0 mt-2 w-[min(92vw,20rem)] rounded-2xl border border-zinc-200/90 bg-white/95 p-3 shadow-xl backdrop-blur-sm border-border/50 dark:bg-slate-950/92"
+                    className="absolute right-0 mt-2 w-[min(92vw,20rem)] rounded-2xl border border-zinc-200/90 bg-white/95 p-3 shadow-xl backdrop-blur-sm border-border/50 dark:bg-background/92"
                   >
                     <div className="grid gap-2">
                       <Link
                         href="/explore"
-                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-slate-900/72 dark:text-foreground dark:hover:bg-slate-800/72"
+                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-surface/72 dark:text-foreground dark:hover:bg-surface-muted/72"
                         onClick={closeMenus}
                       >
                         <span aria-hidden="true">🌍</span>
@@ -650,7 +650,7 @@ export default function TopNav() {
                       </Link>
                       <Link
                         href="/modules"
-                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-slate-900/72 dark:text-foreground dark:hover:bg-slate-800/72"
+                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-surface/72 dark:text-foreground dark:hover:bg-surface-muted/72"
                         onClick={closeMenus}
                       >
                         <span aria-hidden="true">📚</span>
@@ -658,7 +658,7 @@ export default function TopNav() {
                       </Link>
                       <Link
                         href="/language/speaking-lab"
-                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-slate-900/72 dark:text-foreground dark:hover:bg-slate-800/72"
+                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-surface/72 dark:text-foreground dark:hover:bg-surface-muted/72"
                         onClick={closeMenus}
                       >
                         <span aria-hidden="true">🎙️</span>
@@ -666,7 +666,7 @@ export default function TopNav() {
                       </Link>
                       <Link
                         href={parentPortalHref}
-                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-slate-900/72 dark:text-foreground dark:hover:bg-slate-800/72"
+                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-surface-muted px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 border-border/50 dark:bg-surface/72 dark:text-foreground dark:hover:bg-surface-muted/72"
                         onClick={closeMenus}
                       >
                         <span aria-hidden="true">👨‍👩‍👧</span>
@@ -675,7 +675,7 @@ export default function TopNav() {
                       <button
                         type="button"
                         onClick={togglePreReaderMode}
-                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-surface-muted border-border/45 dark:bg-slate-900/52 dark:text-foreground/90 dark:hover:bg-slate-800/68"
+                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-surface-muted border-border/45 dark:bg-surface-muted/55 dark:text-foreground/90 dark:hover:bg-surface-muted/70"
                       >
                         <span aria-hidden="true">{isPreReaderMode ? "👶" : "🔤"}</span>
                         {isPreReaderMode ? t("top_nav_reader_mode_off") : t("top_nav_reader_mode_on")}
@@ -683,7 +683,7 @@ export default function TopNav() {
                       <button
                         type="button"
                         onClick={() => setTypographyDensity(nextTypographyDensity)}
-                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-surface-muted border-border/45 dark:bg-slate-900/52 dark:text-foreground/90 dark:hover:bg-slate-800/68"
+                        className="ui-focus-ring inline-flex min-h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-surface-muted border-border/45 dark:bg-surface-muted/55 dark:text-foreground/90 dark:hover:bg-surface-muted/70"
                       >
                         <span aria-hidden="true">{typographyIcon}</span>
                         {typographyLabel}
@@ -691,7 +691,7 @@ export default function TopNav() {
 
                       {/* ── Narrator voice selector ── */}
                       <div className="mt-2 border-t border-zinc-200/80 pt-2 border-border/45">
-                        <p className="mb-1.5 px-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                        <p className="mb-1.5 px-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-foreground/60">
                           🎙️ Narrator Voice
                         </p>
                         <div className="grid grid-cols-2 gap-1">
@@ -702,7 +702,7 @@ export default function TopNav() {
                               onClick={() => setVoice(v.id)}
                               className={`ui-focus-ring flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-medium transition ${v.id === voice
                                   ? "border border-indigo-300 bg-indigo-100 text-indigo-900 border-accent/60 dark:bg-indigo-900/40 dark:text-indigo-100"
-                                  : "border border-transparent text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700/50"
+                                  : "border border-transparent text-slate-600 hover:bg-slate-100 dark:text-foreground/70 dark:hover:bg-surface-muted/50"
                                 }`}
                             >
                               <span className="text-sm">{v.emoji}</span>
@@ -739,7 +739,7 @@ export default function TopNav() {
                       : "border-zinc-900 bg-zinc-900 text-white border-border/60 dark:bg-white/14 dark:text-foreground"
                     : isHomePage
                       ? "border-white/14 bg-white/10 text-slate-200 hover:border-white/24 hover:bg-white/16"
-                      : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:border-zinc-300 hover:bg-white border-border/50 dark:bg-slate-900/58 dark:text-foreground/90 dark:hover:border-white/22 dark:hover:bg-slate-900/82"
+                      : "border-zinc-200/80 bg-white/80 text-zinc-700 hover:border-zinc-300 hover:bg-white border-border/50 dark:bg-surface/58 dark:text-foreground/90 dark:hover:border-border/40 dark:hover:bg-surface/82"
                   }`}
                 aria-current={isItemActive(item.href) ? "page" : undefined}
                 onClick={closeMenus}

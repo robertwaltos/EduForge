@@ -5,7 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { JUICY_SPRINGS, JUICY_VARIANTS } from "@/lib/experience/interaction-primitives";
 import MascotFriend from "./KoydoMascotFriends";
 import { hapticSelection, hapticSuccess } from "@/lib/platform/haptics";
-import { Brain, Flame, Atom, Palette, Cpu, Rocket, ShieldCheck, Beaker, Zap, Box, Search, ChevronRight, Code, Leaf, TrendingUp, Globe, TreePine, Music, Mountain, Bot, Wind, History as HistoryIcon, Microscope, Navigation, Grid3X3, ShieldAlert, Scale, Compass, Building2, Construction } from "lucide-react";
+import { Brain, Flame, Atom, Palette, Cpu, Rocket, ShieldCheck, Beaker, Zap, Box, Search, ChevronRight, Code, Leaf, TrendingUp, Globe, TreePine, Music, Mountain, Bot, Wind, History as HistoryIcon, Microscope, Navigation, Grid3X3, ShieldAlert, Scale, Compass, Building2, Construction, Lock, BookOpen, CircuitBoard } from "lucide-react";
 import Link from "next/link";
 
 interface PlanetNode {
@@ -62,7 +62,8 @@ const PLANETS: PlanetNode[] = [
             { id: "quantum", title: "Quantum Quest", icon: Atom },
             { id: "market", title: "Market Maker", icon: TrendingUp },
             { id: "orbit", title: "Orbit Operator", icon: Globe },
-            { id: "star-steer", title: "Star Steer", icon: Navigation }
+            { id: "star-steer", title: "Star Steer", icon: Navigation },
+            { id: "spark-quest", title: "Spark's Quest", icon: Construction }
         ]
     },
     {
@@ -100,7 +101,9 @@ const PLANETS: PlanetNode[] = [
             { id: "syntax", title: "Syntax Serpent", icon: Code },
             { id: "bot", title: "Bot Builder", icon: Bot },
             { id: "quantum-quirk", title: "Quantum Quirk", icon: Atom },
-            { id: "logic-labyrinth", title: "Logic Labyrinth", icon: Grid3X3 }
+            { id: "logic-labyrinth", title: "Logic Labyrinth", icon: Grid3X3 },
+            { id: "pixel-path", title: "Pixel's Path", icon: Lock },
+            { id: "circuit-crusader", title: "Circuit Crusader", icon: CircuitBoard }
         ]
     },
     {
@@ -116,7 +119,8 @@ const PLANETS: PlanetNode[] = [
         games: [
             { id: "artistic", title: "Artistic Algorithms", icon: Palette },
             { id: "canvas", title: "Cosmic Canvas", icon: Box },
-            { id: "rhythm", title: "Rhythm Rules", icon: Music }
+            { id: "rhythm", title: "Rhythm Rules", icon: Music },
+            { id: "luna-legend", title: "Luna's Legend", icon: BookOpen }
         ]
     }
 ];

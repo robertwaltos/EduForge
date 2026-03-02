@@ -24,8 +24,8 @@ export function BookCard({ book }: BookCardProps) {
   return (
     <Link
       href={`/explore/audiobooks/${book.slug}`}
-      className="group flex flex-col rounded-2xl border border-neutral-200 dark:border-neutral-800
-        bg-white dark:bg-neutral-900 p-5 gap-3
+      className="group flex flex-col rounded-2xl border border-neutral-200 dark:border-border
+        bg-white dark:bg-surface p-5 gap-3
         hover:border-sky-300 dark:hover:border-sky-700
         hover:shadow-lg hover:shadow-sky-100/50 dark:hover:shadow-sky-900/30
         active:scale-[0.98] transition-all duration-200
@@ -37,26 +37,26 @@ export function BookCard({ book }: BookCardProps) {
           {badge.label}
         </span>
         {book.yearPublished && (
-          <span className="text-xs text-neutral-400 dark:text-neutral-500">
+          <span className="text-xs text-neutral-400 dark:text-foreground/50">
             {book.yearPublished}
           </span>
         )}
       </div>
 
       {/* Title */}
-      <h3 className="font-semibold text-base leading-snug text-neutral-900 dark:text-neutral-100 group-hover:text-sky-700 dark:group-hover:text-sky-400 transition-colors line-clamp-2">
+      <h3 className="font-semibold text-base leading-snug text-neutral-900 dark:text-foreground/90 group-hover:text-sky-700 dark:group-hover:text-accent transition-colors line-clamp-2">
         {book.title}
       </h3>
 
       {/* Author */}
-      <p className="text-sm text-neutral-500 dark:text-neutral-400 truncate">
+      <p className="text-sm text-neutral-500 dark:text-foreground/60 truncate">
         {book.author}
       </p>
 
       {/* Meta */}
-      <div className="mt-auto flex items-center gap-3 text-xs text-neutral-400 dark:text-neutral-500">
+      <div className="mt-auto flex items-center gap-3 text-xs text-neutral-400 dark:text-foreground/50">
         <span>{book.chapterCount} chapters</span>
-        <span className="w-px h-3 bg-neutral-200 dark:bg-neutral-700" />
+        <span className="w-px h-3 bg-neutral-200 dark:bg-surface-muted" />
         <span>{Math.round(book.wordCount / 1000)}k words</span>
       </div>
 
@@ -66,7 +66,7 @@ export function BookCard({ book }: BookCardProps) {
           {book.genres.slice(0, 3).map((genre) => (
             <span
               key={genre}
-              className="rounded-md bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 text-[11px] text-neutral-500 dark:text-neutral-400"
+              className="rounded-md bg-neutral-100 dark:bg-surface-muted px-2 py-0.5 text-[11px] text-neutral-500 dark:text-foreground/60"
             >
               {genre}
             </span>

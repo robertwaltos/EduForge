@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-03-02T06:37:17.086Z",
+  "source": "D:\\PythonProjects\\Koydo\\eduforge-web\\.env",
+  "options": {
+    "runtimeOverride": null,
+    "envFile": null,
+    "failOnWarn": false
+  },
+  "runtime": {
+    "runtime": "development",
+    "isProduction": false,
+    "overrideApplied": false
+  },
+  "totals": {
+    "pass": 17,
+    "warn": 2,
+    "fail": 0,
+    "total": 19
+  },
+  "checks": [
+    {
+      "label": "Env Source File",
+      "status": "pass",
+      "detail": "Loaded D:\\PythonProjects\\Koydo\\eduforge-web\\.env"
+    },
+    {
+      "label": "Public App URL",
+      "status": "pass",
+      "detail": "http://localhost:3000"
+    },
+    {
+      "label": "Supabase URL",
+      "status": "pass",
+      "detail": "https://osnxbuusohdzzcrakavn.supabase.co"
+    },
+    {
+      "label": "Supabase Anon Key",
+      "status": "pass",
+      "detail": "Present"
+    },
+    {
+      "label": "Supabase Service Role Key",
+      "status": "pass",
+      "detail": "Present"
+    },
+    {
+      "label": "Upstash Redis Rate Limit Backend",
+      "status": "warn",
+      "detail": "Not configured (local in-memory fallback will be used)."
+    },
+    {
+      "label": "Billing Provider Mode",
+      "status": "pass",
+      "detail": "stripe_external"
+    },
+    {
+      "label": "Billing Mode Consistency",
+      "status": "pass",
+      "detail": "Both set to stripe_external."
+    },
+    {
+      "label": "Stripe Secret + Webhook",
+      "status": "pass",
+      "detail": "Both present"
+    },
+    {
+      "label": "Stripe Publishable Key",
+      "status": "pass",
+      "detail": "Present"
+    },
+    {
+      "label": "RevenueCat Client Keys",
+      "status": "pass",
+      "detail": "Not required (BILLING_PROVIDER_MODE=stripe_external)."
+    },
+    {
+      "label": "RevenueCat Webhook Secret",
+      "status": "pass",
+      "detail": "Not required (BILLING_PROVIDER_MODE=stripe_external)."
+    },
+    {
+      "label": "Admin Approval Enforcement",
+      "status": "pass",
+      "detail": "REQUIRE_ADMIN_APPROVALS=true"
+    },
+    {
+      "label": "Debug Flags",
+      "status": "pass",
+      "detail": "No production debug flags enabled."
+    },
+    {
+      "label": "Escaped Line Ending Audit",
+      "status": "pass",
+      "detail": "No values with literal escaped line endings detected in .env file."
+    },
+    {
+      "label": "Placeholder Secrets Audit",
+      "status": "warn",
+      "detail": "Detected placeholder-style values in: PARENT_CONSENT_TOKEN_SECRET"
+    },
+    {
+      "label": "Parent Consent Email",
+      "status": "pass",
+      "detail": "Resend + sender configured"
+    },
+    {
+      "label": "Parent Consent Token Secret",
+      "status": "pass",
+      "detail": "Configured"
+    },
+    {
+      "label": "Mixpanel Token",
+      "status": "pass",
+      "detail": "Analytics disabled (NEXT_PUBLIC_ANALYTICS_ENABLED is not true)."
+    }
+  ]
+}

@@ -1,10 +1,29 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import vm from "node:vm";
+import { z } from "zod";
 
 const projectRoot = process.cwd();
 const catalogDir = path.join(projectRoot, "src", "lib", "modules", "catalog");
 const outputDir = path.join(projectRoot, "src", "lib", "modules", "generated");
 const outputFile = path.join(outputDir, "registry.ts");
+
+const lessonValidationSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  type: z.string().min(1),
+  duration: z.number().finite().nonnegative(),
+});
+
+const learningModuleValidationSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  description: z.string().min(1),
+  subject: z.string().min(1),
+  lessons: z.array(lessonValidationSchema).min(1),
+});
+
+const moduleRegistryValidationSchema = z.array(learningModuleValidationSchema);
 
 function toImportPath(relativePath) {
   // relativePath is relative to catalogDir, e.g. "math-101.ts" or "epub-generated/some-book.ts"
@@ -43,14 +62,85 @@ async function readCatalogEntries() {
     if (!match) {
       throw new Error(`Could not find "export const ...: LearningModule =" in ${relPath}`);
     }
+
+    const exportName = match[1];
+    const transformed = source
+      .replace(/^import\s+type\s+\{[^}]+\}\s+from\s+"[^"]+";\s*$/gm, "")
+      .replace(/\s+as\s+const\b/g, "")
+      .replace(
+        new RegExp(`export const\\s+${exportName}\\s*:\\s*LearningModule\\s*=`, "m"),
+        `const ${exportName} =`,
+      )
+      .concat(`\nmodule.exports = ${exportName};\n`);
+
+    let evaluatedModule;
+    try {
+      const context = vm.createContext({ module: { exports: {} }, exports: {} });
+      const script = new vm.Script(transformed, { filename: relPath });
+      script.runInContext(context);
+      evaluatedModule = context.module.exports;
+    } catch (error) {
+      throw new Error(
+        `Unable to evaluate module payload in ${relPath}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+
     parsed.push({
       fileName:   relPath,
-      exportName: match[1],
+      exportName,
       importPath: toImportPath(relPath),
+      payload: evaluatedModule,
     });
   }
 
   return parsed;
+}
+
+function formatIssuePath(issuePath) {
+  if (!Array.isArray(issuePath) || issuePath.length === 0) {
+    return "module";
+  }
+  return issuePath
+    .map((segment) => (typeof segment === "number" ? `[${segment}]` : String(segment)))
+    .join(".");
+}
+
+function validateCatalogPayloads(modules) {
+  const payloads = modules.map((moduleEntry) => moduleEntry.payload);
+  const validation = moduleRegistryValidationSchema.safeParse(payloads);
+
+  if (!validation.success) {
+    const issues = validation.error.issues.map((issue) => {
+      const [moduleIndex, ...pathSegments] = issue.path;
+      const fileName =
+        typeof moduleIndex === "number"
+          ? modules[moduleIndex]?.fileName ?? "<unknown-file>"
+          : "<unknown-file>";
+      const pathLabel = formatIssuePath(pathSegments);
+      return `- ${fileName} (${pathLabel}): ${issue.message}`;
+    });
+
+    throw new Error(
+      `Module registry validation failed (${issues.length} issue(s)).\n${issues.join("\n")}`,
+    );
+  }
+
+  const duplicateIds = [];
+  const seen = new Map();
+  for (const [index, moduleEntry] of validation.data.entries()) {
+    const owner = seen.get(moduleEntry.id);
+    if (owner) {
+      duplicateIds.push(`${moduleEntry.id} (${owner} and ${modules[index]?.fileName ?? "<unknown-file>"})`);
+      continue;
+    }
+    seen.set(moduleEntry.id, modules[index]?.fileName ?? "<unknown-file>");
+  }
+
+  if (duplicateIds.length > 0) {
+    throw new Error(
+      `Duplicate module id(s) detected during sync:\n- ${duplicateIds.join("\n- ")}`,
+    );
+  }
 }
 
 function buildRegistrySource(modules) {
@@ -69,6 +159,7 @@ ${listItems}
 
 async function main() {
   const modules = await readCatalogEntries();
+  validateCatalogPayloads(modules);
   await fs.mkdir(outputDir, { recursive: true });
   const source = buildRegistrySource(modules);
   await fs.writeFile(outputFile, source, "utf8");

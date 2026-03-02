@@ -77,20 +77,20 @@ function SignUpPageInner() {
       {/* Page background — same as sign-in */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <Image
-          src={ASSETS.bgDay}
+          src={ASSETS.bgAuth}
           alt=""
           fill
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-white/55 dark:bg-slate-950/72" />
+        <div className="absolute inset-0 bg-white/55 dark:bg-background/72" />
       </div>
 
       <section className="relative isolate overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
         <div className="relative mx-auto grid w-full max-w-5xl gap-8 lg:grid-cols-[1.35fr_0.9fr] lg:gap-10">
 
-          {/* Left column: hero image + feature pills */}
-          <div className="space-y-5">
+          {/* Left column: hero image */}
+          <div>
             <div className="relative overflow-hidden rounded-3xl shadow-xl">
               <Image
                 src={ASSETS.heroSignUp}
@@ -108,23 +108,6 @@ function SignUpPageInner() {
                   {t("auth_sign_up_hero_title")}
                 </h1>
               </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              {[
-                { emoji: "🌱", label: t("auth_sign_in_pill_curiosity") },
-                { emoji: "🎧", label: t("auth_sign_in_pill_read_aloud") },
-                { emoji: "🧭", label: t("auth_sign_in_pill_parent_safe") },
-              ].map((pill, index) => (
-                <div
-                  key={pill.label}
-                  className="explore-float rounded-2xl border border-white/80 bg-white/70 px-4 py-3 text-sm font-semibold text-zinc-700 dark:border-border dark:bg-surface/70 dark:text-foreground/85 shadow-sm backdrop-blur-sm"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <span className="mr-2" aria-hidden="true">{pill.emoji}</span>
-                  {pill.label}
-                </div>
-              ))}
             </div>
           </div>
 

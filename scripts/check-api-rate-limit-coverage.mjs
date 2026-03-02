@@ -7,6 +7,26 @@ const ROOT = process.cwd();
 
 const ROUTE_GUARDS = [
   {
+    file: "src/app/api/ai/tutor/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:ai:tutor:post", "max: 10"],
+  },
+  {
+    file: "src/app/api/progress/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:progress:post", "max: 60"],
+  },
+  {
+    file: "src/app/api/answers/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:answers:post", "max: 60"],
+  },
+  {
+    file: "src/app/api/telemetry/events/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:telemetry:events:post", "max: 60"],
+  },
+  {
+    file: "src/app/api/health/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:health:get", "max: 60"],
+  },
+  {
     file: "src/app/api/tts/generate/route.ts",
     mustInclude: ["enforceIpRateLimit", "api:tts:generate:post"],
   },

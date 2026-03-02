@@ -236,26 +236,26 @@ export default async function DashboardPage() {
         </Link>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          <SoftCard as="article" className="border-rose-200 bg-rose-50 p-4">
-            <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_achievement_level")}</p>
+          <SoftCard as="article" className="border-rose-200 bg-rose-50 p-4 dark:border-rose-800/40 dark:bg-rose-950/30">
+            <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_achievement_level")}</p>
             <p className="mt-2 text-3xl font-bold">{level}</p>
-            <p className="mt-1 text-xs text-zinc-500">{t("dashboard_progress_band", { grade })}</p>
+            <p className="mt-1 text-xs text-zinc-500 dark:text-foreground/60">{t("dashboard_progress_band", { grade })}</p>
           </SoftCard>
-          <SoftCard as="article" className="border-sky-200 bg-sky-50 p-4">
-            <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_mastery_score")}</p>
+          <SoftCard as="article" className="border-sky-200 bg-sky-50 p-4 dark:border-sky-800/40 dark:bg-sky-950/30">
+            <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_mastery_score")}</p>
             <p className="mt-2 text-3xl font-bold">{averageMasteryPercent}%</p>
           </SoftCard>
-          <SoftCard as="article" className="border-emerald-200 bg-emerald-50 p-4">
-            <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_lessons_completed")}</p>
+          <SoftCard as="article" className="border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800/40 dark:bg-emerald-950/30">
+            <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_lessons_completed")}</p>
             <p className="mt-2 text-3xl font-bold">{completedLessons}</p>
           </SoftCard>
-          <SoftCard as="article" className="border-amber-200 bg-amber-50 p-4">
-            <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_stars_earned")}</p>
+          <SoftCard as="article" className="border-amber-200 bg-amber-50 p-4 dark:border-amber-800/40 dark:bg-amber-950/30">
+            <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_stars_earned")}</p>
             <p className="mt-2 text-3xl font-bold">{starsEarned}</p>
-            <p className="mt-1 text-xs text-zinc-500">{t("dashboard_accuracy", { percent: accuracyPercent })}</p>
+            <p className="mt-1 text-xs text-zinc-500 dark:text-foreground/60">{t("dashboard_accuracy", { percent: accuracyPercent })}</p>
           </SoftCard>
-          <SoftCard as="article" className="border-indigo-200 bg-indigo-50 p-4">
-            <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_open_exam_errors")}</p>
+          <SoftCard as="article" className="border-indigo-200 bg-indigo-50 p-4 dark:border-indigo-800/40 dark:bg-indigo-950/30">
+            <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_open_exam_errors")}</p>
             <p className="mt-2 text-3xl font-bold">{openExamErrors}</p>
             <Link href="/exam-prep/error-log" className="mt-1 inline-block text-xs font-medium text-indigo-700 hover:underline">
               {t("dashboard_review_logbook")}
@@ -263,11 +263,11 @@ export default async function DashboardPage() {
           </SoftCard>
         </div>
 
-        <SoftCard as="section" className="border-cyan-200 bg-cyan-50/70 p-5">
+        <SoftCard as="section" className="border-cyan-200 bg-cyan-50/70 p-5 dark:border-cyan-800/40 dark:bg-cyan-950/30">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <h2 className="text-lg font-semibold text-zinc-900">{t("dashboard_language_progress_title")}</h2>
-              <p className="mt-1 text-sm text-zinc-600">
+              <h2 className="text-lg font-semibold text-zinc-900 dark:text-foreground">{t("dashboard_language_progress_title")}</h2>
+              <p className="mt-1 text-sm text-zinc-600 dark:text-foreground/70">
                 {t("dashboard_language_progress_subtitle")}
               </p>
             </div>
@@ -288,29 +288,29 @@ export default async function DashboardPage() {
           </div>
 
           {hasMissingLanguageTables ? (
-            <div className="mt-4 rounded-2xl border border-dashed border-cyan-300 bg-white/80 p-4 text-sm text-zinc-600">
+            <div className="mt-4 rounded-2xl border border-dashed border-cyan-300 bg-white/80 p-4 text-sm text-zinc-600 dark:text-foreground/70">
               {t("dashboard_language_progress_pending_migration")}
             </div>
           ) : (
             <>
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
-                <div className="rounded-2xl border border-cyan-200 bg-white p-3">
-                  <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_avg_pronunciation")}</p>
-                  <p className="mt-1 text-2xl font-bold text-zinc-900">
+                <div className="rounded-2xl border border-cyan-200 bg-white p-3 dark:border-cyan-800/30 dark:bg-surface">
+                  <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_avg_pronunciation")}</p>
+                  <p className="mt-1 text-2xl font-bold text-zinc-900 dark:text-foreground">
                     {languageProgress.averageScore !== null ? `${Math.round(languageProgress.averageScore)}%` : t("dashboard_not_available_short")}
                   </p>
                   <p className="mt-1 text-xs text-zinc-500">
                     {t("dashboard_graded_attempts", { count: languageProgress.gradedAttempts })}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-cyan-200 bg-white p-3">
-                  <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_confidence_safe_mode")}</p>
-                  <p className="mt-1 text-2xl font-bold text-zinc-900">{languageProgress.practiceOnlyAttempts}</p>
+                <div className="rounded-2xl border border-cyan-200 bg-white p-3 dark:border-cyan-800/30 dark:bg-surface">
+                  <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_confidence_safe_mode")}</p>
+                  <p className="mt-1 text-2xl font-bold text-zinc-900 dark:text-foreground">{languageProgress.practiceOnlyAttempts}</p>
                   <p className="mt-1 text-xs text-zinc-500">{t("dashboard_practice_only_attempts")}</p>
                 </div>
-                <div className="rounded-2xl border border-cyan-200 bg-white p-3">
-                  <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_gamification")}</p>
-                  <p className="mt-1 text-2xl font-bold text-zinc-900">
+                <div className="rounded-2xl border border-cyan-200 bg-white p-3 dark:border-cyan-800/30 dark:bg-surface">
+                  <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_gamification")}</p>
+                  <p className="mt-1 text-2xl font-bold text-zinc-900 dark:text-foreground">
                     {t("dashboard_level_points", {
                       level: languageProgress.level,
                       points: languageProgress.points,
@@ -323,9 +323,9 @@ export default async function DashboardPage() {
                     })}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-cyan-200 bg-white p-3">
-                  <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_recent_trend")}</p>
-                  <p className="mt-1 text-2xl font-bold text-zinc-900">
+                <div className="rounded-2xl border border-cyan-200 bg-white p-3 dark:border-cyan-800/30 dark:bg-surface">
+                  <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_recent_trend")}</p>
+                  <p className="mt-1 text-2xl font-bold text-zinc-900 dark:text-foreground">
                     {languageProgress.recentScoreTrendDelta === null
                       ? t("dashboard_not_available_short")
                       : `${languageProgress.recentScoreTrendDelta > 0 ? "+" : ""}${languageProgress.recentScoreTrendDelta}`}
@@ -338,15 +338,15 @@ export default async function DashboardPage() {
                 </div>
               </div>
 
-              <div className="mt-3 rounded-2xl border border-cyan-200 bg-white p-3">
-                <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_monthly_scored_usage")}</p>
-                <p className="mt-1 text-lg font-semibold text-zinc-900">
+              <div className="mt-3 rounded-2xl border border-cyan-200 bg-white p-3 dark:border-cyan-800/30 dark:bg-surface">
+                <p className="text-xs uppercase tracking-wide text-zinc-500 dark:text-foreground/60">{t("dashboard_stat_monthly_scored_usage")}</p>
+                <p className="mt-1 text-lg font-semibold text-zinc-900 dark:text-foreground">
                   {usageEntitlement
                     ? `${usageEntitlement.scoredAttemptsUsed}/${usageEntitlement.scoredAttemptsLimit}`
                     : t("dashboard_not_available_short")}
                 </p>
                 {usageEntitlement ? (
-                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-zinc-100">
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-zinc-100 dark:bg-surface-muted">
                     <div
                       className="h-full rounded-full bg-cyan-500"
                       style={{ width: `${usagePercent}%` }}
@@ -379,10 +379,10 @@ export default async function DashboardPage() {
                 )}
               </div>
 
-              <div className="mt-4 rounded-2xl border border-cyan-200 bg-white p-4">
+              <div className="mt-4 rounded-2xl border border-cyan-200 bg-white p-4 dark:border-cyan-800/30 dark:bg-surface">
                 <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_recent_language_events")}</p>
                 {languageEvents.length === 0 ? (
-                  <p className="mt-2 text-sm text-zinc-600">{t("dashboard_no_events_yet")}</p>
+                  <p className="mt-2 text-sm text-zinc-600 dark:text-foreground/70">{t("dashboard_no_events_yet")}</p>
                 ) : (
                   <ul className="mt-2 space-y-1.5 text-sm text-zinc-700">
                     {languageEvents.map((event, index) => (
@@ -442,7 +442,7 @@ export default async function DashboardPage() {
                     fallbackSrc={learningModule.thumbnail}
                     className="h-28 w-full rounded-xl border border-violet-100 object-cover"
                   />
-                  <h3 className="mt-3 text-sm font-bold text-violet-900 line-clamp-2">
+                  <h3 className="mt-3 text-sm font-bold text-violet-900 dark:text-violet-200 line-clamp-2">
                     {learningModule.title}
                   </h3>
 

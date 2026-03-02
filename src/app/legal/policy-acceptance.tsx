@@ -78,7 +78,7 @@ export default function PolicyAcceptance({ policyType }: Props) {
         <button
           type="button"
           onClick={acceptPolicy}
-          className="ui-soft-button ui-focus-ring mt-2 rounded-md border border-border bg-surface-muted px-3 py-1 text-sm"
+          className="ui-soft-button ui-focus-ring mt-2 rounded-md border border-border bg-surface-muted px-4 py-2 min-h-11 text-sm"
         >
           Acknowledge Policy
         </button>

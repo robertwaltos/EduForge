@@ -109,10 +109,10 @@ export function AudiobookReader({ book }: AudiobookReaderProps) {
 
       {/* ── Book header ─────────────────────────────────────── */}
       <header className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+        <h1 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-foreground/90">
           {book.title}
         </h1>
-        <p className="mt-1 text-neutral-500 dark:text-neutral-400">
+        <p className="mt-1 text-neutral-500 dark:text-foreground/60">
           by {book.author}
           {book.yearPublished && ` (${book.yearPublished})`}
         </p>
@@ -124,7 +124,7 @@ export function AudiobookReader({ book }: AudiobookReaderProps) {
       </div>
 
       {/* ── Audio player ────────────────────────────────────── */}
-      <div className="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 sm:p-6 mb-6">
+      <div className="rounded-2xl border border-neutral-200 dark:border-border bg-white dark:bg-surface p-4 sm:p-6 mb-6">
         <AudiobookPlayer
           bookSlug={book.slug}
           chapterNumber={chapterNumber}
@@ -137,8 +137,8 @@ export function AudiobookReader({ book }: AudiobookReaderProps) {
       </div>
 
       {/* ── Chapter text ────────────────────────────────────── */}
-      <section className="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 sm:p-8">
-        <h2 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-4">
+      <section className="rounded-2xl border border-neutral-200 dark:border-border bg-white dark:bg-surface p-5 sm:p-8">
+        <h2 className="text-lg font-semibold text-neutral-800 dark:text-foreground/80 mb-4">
           {chapterTitle || `Chapter ${chapterNumber}`}
         </h2>
 

@@ -63,14 +63,14 @@ export default function CookieConsentBanner() {
           <button
             type="button"
             onClick={() => accept(true)}
-            className="ui-focus-ring rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white hover:brightness-110"
+            className="ui-focus-ring rounded-full bg-accent px-5 py-2 min-h-11 text-sm font-semibold text-white hover:brightness-110"
           >
             Accept All
           </button>
           <button
             type="button"
             onClick={() => accept(false)}
-            className="ui-focus-ring rounded-full border border-border bg-surface-muted px-5 py-2 text-sm font-semibold text-foreground hover:bg-surface dark:bg-surface/60 dark:hover:bg-surface/80"
+            className="ui-focus-ring rounded-full border border-border bg-surface-muted px-5 py-2 min-h-11 text-sm font-semibold text-foreground hover:bg-surface dark:bg-surface/60 dark:hover:bg-surface/80"
           >
             Necessary Only
           </button>

@@ -373,7 +373,7 @@ export const CapstoneSmartCitySystems601Module: LearningModule = {
           "id": "capstone-smart-city-systems-601-l04-c2",
           "kind": "recap",
           "title": "Debrief",
-          "content": "Each run is debriefed for objective attainment, side effects, and governance compliance."
+          "content": "Each run is debriefed for objective attainment, side effects, and governance compliance through explicit data analysis that feeds an implementation artifact."
         }
       ],
       "interactiveActivities": [
@@ -624,13 +624,13 @@ export const CapstoneSmartCitySystems601Module: LearningModule = {
           "id": "capstone-smart-city-systems-601-l06-c1",
           "kind": "practice",
           "title": "Defense Preparation",
-          "content": "Learners assemble a decision brief with claims, evidence, and uncertainty ranges."
+          "content": "Learners assemble a decision brief with claims, evidence, uncertainty ranges, and one implementation artifact mapped to rubric criteria."
         },
         {
           "id": "capstone-smart-city-systems-601-l06-c2",
           "kind": "recap",
           "title": "Panel Response Strategy",
-          "content": "Learners rehearse responses to technical, governance, and stakeholder critiques."
+          "content": "Learners rehearse responses to technical, governance, and stakeholder critiques in a structured policy debate using the scoring rubric."
         }
       ],
       "interactiveActivities": [
@@ -638,7 +638,7 @@ export const CapstoneSmartCitySystems601Module: LearningModule = {
           "id": "capstone-smart-city-systems-601-l06-act1",
           "type": "debate_simulator",
           "title": "Expert Panel Defense",
-          "description": "Defend the capstone recommendation under adversarial questioning."
+          "description": "Defend the capstone recommendation under adversarial questioning with a rubric-based debate and implementation artifact walkthrough."
         }
       ]
     }

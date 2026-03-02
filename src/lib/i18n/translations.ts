@@ -69,11 +69,11 @@ export const translations: Record<Locale, TranslationDictionary> = {
     home_quick_choose_learner: "Choose Learner",
     home_quick_parent_command_center: "Parent Command Center",
     home_quick_module_catalog: "Module Catalog",
-    home_hero_eyebrow: "Koydo Explorer",
-    home_hero_title_prefix: "Start with curiosity,",
-    home_hero_title_highlight: "not menus.",
+    home_hero_eyebrow: "Free for Every Learner",
+    home_hero_title_prefix: "Where curiosity becomes",
+    home_hero_title_highlight: "knowledge.",
     home_hero_body:
-      "Tap a picture, hear the prompt, and jump into a lesson - all in one move. Built for curious minds of every age.",
+      "Interactive lessons across every subject — from Pre-K to college. Tap, listen, and learn in one seamless experience. No ads. No cost. Just learning.",
     home_hero_cta: "Start Exploring",
     home_hero_speak_text: "Tap start exploring to begin your adventure!",
     home_levels_aria: "Learning levels",
@@ -577,11 +577,11 @@ export const translations: Record<Locale, TranslationDictionary> = {
     home_quick_choose_learner: "Elegir estudiante",
     home_quick_parent_command_center: "Centro de mando familiar",
     home_quick_module_catalog: "Catálogo de módulos",
-    home_hero_eyebrow: "Explorador Koydo",
-    home_hero_title_prefix: "Empieza con curiosidad,",
-    home_hero_title_highlight: "no con menús.",
+    home_hero_eyebrow: "Gratis para cada estudiante",
+    home_hero_title_prefix: "Donde la curiosidad se convierte en",
+    home_hero_title_highlight: "conocimiento.",
     home_hero_body:
-      "Toca una imagen, escucha la indicación y entra a una lección - todo en un solo paso. Hecho para mentes curiosas de todas las edades.",
+      "Lecciones interactivas en todas las materias — desde preescolar hasta la universidad. Toca, escucha y aprende en una sola experiencia. Sin anuncios. Sin costo. Solo aprendizaje.",
     home_hero_cta: "Comenzar a explorar",
     home_hero_speak_text: "¡Toca comenzar a explorar para iniciar tu aventura!",
     home_levels_aria: "Niveles de aprendizaje",
@@ -1353,12 +1353,12 @@ const launchSupplementalTranslations: Record<ActiveLocale, TranslationDictionary
     account_settings_delete_title: "Delete Account",
     account_settings_delete_desc_prefix: "Type",
     account_settings_delete_desc_suffix:
-      "to permanently delete your account and all associated learner data.",
+      "to delete your account. Your account will be deactivated immediately and permanently erased after a 30-day grace period. You can contact support@koydo.app within this period to cancel the deletion.",
     account_settings_delete_placeholder: "Type DELETE to confirm",
     account_settings_delete_deleting: "Deleting...",
     account_settings_delete_cta: "Delete Account",
     account_settings_delete_success_redirecting:
-      "Account deleted. Redirecting to the home page...",
+      "Account scheduled for deletion (30-day grace period). Redirecting to the home page...",
     account_settings_delete_unable:
       "We could not delete your account right now. Please try again.",
     dashboard_title: "Dashboard",
@@ -1568,12 +1568,12 @@ const launchSupplementalTranslations: Record<ActiveLocale, TranslationDictionary
     account_settings_delete_title: "Eliminar cuenta",
     account_settings_delete_desc_prefix: "Escribe",
     account_settings_delete_desc_suffix:
-      "para eliminar permanentemente tu cuenta y todos los datos de estudiantes asociados.",
+      "para eliminar tu cuenta. Tu cuenta será desactivada inmediatamente y eliminada permanentemente después de un período de gracia de 30 días. Puedes contactar support@koydo.app dentro de este período para cancelar la eliminación.",
     account_settings_delete_placeholder: "Escribe DELETE para confirmar",
     account_settings_delete_deleting: "Eliminando...",
     account_settings_delete_cta: "Eliminar cuenta",
     account_settings_delete_success_redirecting:
-      "Cuenta eliminada. Redirigiendo a la página principal...",
+      "Cuenta programada para eliminación (período de gracia de 30 días). Redirigiendo a la página principal...",
     account_settings_delete_unable:
       "No pudimos eliminar tu cuenta ahora. Inténtalo de nuevo.",
     dashboard_title: "Panel",

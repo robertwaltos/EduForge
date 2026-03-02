@@ -6,6 +6,7 @@ import type { Lesson, Question } from "@/lib/modules/types";
 import { trackLessonCompleted } from "@/lib/analytics/mixpanel";
 import { trackLearningEvent } from "@/lib/analytics/xapi-lite";
 import { deleteSyncedProgress, saveOfflineProgress } from "@/lib/offline/progress-db";
+import { maybePromptForRating } from "@/lib/platform/app-rating";
 import type { ExamSection } from "@/lib/exam/tracks";
 import { getExamTrackProfileByModuleId } from "@/lib/exam/tracks";
 import Link from "next/link";
@@ -332,6 +333,13 @@ export default function Quiz({
 
         await deleteSyncedProgress(lesson.id);
         setProgressSyncState("synced");
+
+        // Increment local completion count and maybe prompt for app store review
+        const LESSONS_COMPLETED_KEY = "koydo.lessonsCompletedCount";
+        const prev = parseInt(localStorage.getItem(LESSONS_COMPLETED_KEY) ?? "0", 10);
+        const next = (isNaN(prev) ? 0 : prev) + 1;
+        localStorage.setItem(LESSONS_COMPLETED_KEY, next.toString());
+        maybePromptForRating(next);
       } catch (error) {
         console.error("Unable to sync lesson progress online. Saving offline.", error);
         try {

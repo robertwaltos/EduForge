@@ -64,7 +64,7 @@ export default async function StageModuleGrid({ stage }: StageModuleGridProps) {
           {/* Back link */}
           <Link
             href="/explore"
-            className="ui-focus-ring mb-4 inline-flex min-h-11 items-center gap-1.5 rounded-full border border-white/40 bg-white/60 px-3 py-2 text-sm font-semibold text-zinc-700 backdrop-blur-sm transition-colors hover:bg-white/80 border-border/65 dark:bg-slate-900/40 dark:text-foreground/90 dark:hover:bg-slate-900/60"
+            className="ui-focus-ring mb-4 inline-flex min-h-11 items-center gap-1.5 rounded-full border border-white/40 bg-white/60 px-3 py-2 text-sm font-semibold text-zinc-700 backdrop-blur-sm transition-colors hover:bg-white/80 border-border/65 dark:bg-surface/40 dark:text-foreground/90 dark:hover:bg-surface/60"
             aria-label={t("stage_grid_back_aria")}
           >
             <span aria-hidden="true">&larr;</span> {t("stage_grid_back_to_levels")}
@@ -91,7 +91,7 @@ export default async function StageModuleGrid({ stage }: StageModuleGridProps) {
                 >
                   {stage.gradeRange}
                 </span>
-                <span className="rounded-full border border-zinc-200 bg-white/80 px-2.5 py-0.5 text-xs font-semibold text-zinc-600 backdrop-blur-sm border-border/65 dark:bg-slate-800/60 dark:text-foreground/80">
+                <span className="rounded-full border border-zinc-200 bg-white/80 px-2.5 py-0.5 text-xs font-semibold text-zinc-600 backdrop-blur-sm border-border/65 dark:bg-surface-muted/60 dark:text-foreground/80">
                   {stage.ageRange}
                 </span>
                 <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 text-xs font-bold text-emerald-700 border-success/55 dark:bg-emerald-950/50 dark:text-emerald-300">
@@ -225,10 +225,10 @@ function ModuleCard({ mod, index, stageGlow, locked, locale }: ModuleCardProps) 
       {/* Lock overlay for premium */}
       {locked && (
         <div
-          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1.5 rounded-2xl bg-zinc-900/5 backdrop-blur-[1px] dark:bg-slate-950/20"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1.5 rounded-2xl bg-zinc-900/5 backdrop-blur-[1px] dark:bg-background/20"
           aria-hidden="true"
         >
-          <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-zinc-600 shadow-sm dark:bg-slate-800/90 dark:text-foreground/80">
+          <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-zinc-600 shadow-sm dark:bg-surface-muted/90 dark:text-foreground/80">
             <span aria-hidden="true">🔒</span> {t("stage_grid_premium_chip")}
           </span>
           <span className="text-[10px] font-medium text-zinc-500 dark:text-foreground/70">

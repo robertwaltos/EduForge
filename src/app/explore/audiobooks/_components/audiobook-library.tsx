@@ -74,7 +74,7 @@ export function AudiobookLibrary({ books }: AudiobookLibraryProps) {
       {/* ── Filter bar ─────────────────────────────────────── */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
         {/* Age tabs */}
-        <div className="flex gap-1.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 p-1" role="tablist" aria-label="Filter by age group">
+        <div className="flex gap-1.5 rounded-xl bg-neutral-100 dark:bg-surface-muted p-1" role="tablist" aria-label="Filter by age group">
           {AGE_FILTERS.map((f) => (
             <button
               key={f.value}
@@ -85,8 +85,8 @@ export function AudiobookLibrary({ books }: AudiobookLibraryProps) {
               className={`rounded-lg px-4 py-1.5 text-sm font-medium transition-all
                 ${
                   ageFilter === f.value
-                    ? "bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 shadow-sm"
-                    : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+                    ? "bg-white dark:bg-surface-muted text-neutral-900 dark:text-foreground/90 shadow-sm"
+                    : "text-neutral-500 dark:text-foreground/60 hover:text-neutral-700 dark:hover:text-foreground/80"
                 }`}
             >
               {f.label}
@@ -97,7 +97,7 @@ export function AudiobookLibrary({ books }: AudiobookLibraryProps) {
         <select
           value={genreFilter}
           onChange={(event) => setGenreFilter(event.target.value)}
-          className="rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 text-sm ui-focus-ring"
+          className="rounded-xl border border-neutral-200 dark:border-border bg-white dark:bg-surface px-3 py-2 text-sm ui-focus-ring"
           aria-label="Filter audiobooks by genre"
         >
           <option value="all">All genres</option>
@@ -111,7 +111,7 @@ export function AudiobookLibrary({ books }: AudiobookLibraryProps) {
         <select
           value={languageFilter}
           onChange={(event) => setLanguageFilter(event.target.value as AudiobookLanguage | "all")}
-          className="rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 text-sm ui-focus-ring"
+          className="rounded-xl border border-neutral-200 dark:border-border bg-white dark:bg-surface px-3 py-2 text-sm ui-focus-ring"
           aria-label="Filter audiobooks by language"
         >
           <option value="all">All languages</option>
@@ -128,7 +128,7 @@ export function AudiobookLibrary({ books }: AudiobookLibraryProps) {
           placeholder="Search by title, author, or genre..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900
+          className="flex-1 rounded-xl border border-neutral-200 dark:border-border bg-white dark:bg-surface
             px-4 py-2 text-sm placeholder:text-neutral-400
             ui-focus-ring"
           aria-label="Search audiobooks"
@@ -137,7 +137,7 @@ export function AudiobookLibrary({ books }: AudiobookLibraryProps) {
 
       {/* ── Grid ───────────────────────────────────────────── */}
       {filtered.length === 0 ? (
-        <p className="text-center text-neutral-400 dark:text-neutral-500 py-16">
+        <p className="text-center text-neutral-400 dark:text-foreground/50 py-16">
           No books match your search.
         </p>
       ) : (

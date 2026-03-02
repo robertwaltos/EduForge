@@ -7,6 +7,7 @@ const PORT = Number(process.env.SMOKE_TEST_PORT ?? (4200 + Math.floor(Math.rando
 const BASE_URL = `http://127.0.0.1:${PORT}`;
 const STARTUP_TIMEOUT_MS = 120_000;
 const NPM_COMMAND = "npm";
+const SKIP_BUILD = process.argv.includes("--skip-build");
 
 const ROUTES = [
   { path: "/", allowRedirect: false },
@@ -54,38 +55,32 @@ function runCommand(command, args, options = {}) {
 }
 
 function waitForServerReady(child, timeoutMs) {
-  return new Promise((resolve, reject) => {
-    let settled = false;
-    const timer = setTimeout(() => {
-      if (settled) return;
-      settled = true;
-      reject(new Error(`Timed out waiting for dev server readiness after ${timeoutMs}ms.`));
-    }, timeoutMs);
+  return new Promise(async (resolve, reject) => {
+    const startedAt = Date.now();
 
-    const onData = (chunk) => {
-      const text = chunk.toString();
-      process.stdout.write(text);
-      if (settled) return;
-      if (
-        text.includes("Ready in")
-        || text.includes("ready - started server")
-        || text.includes(`http://localhost:${PORT}`)
-      ) {
-        settled = true;
-        clearTimeout(timer);
-        resolve();
+    while (Date.now() - startedAt < timeoutMs) {
+      if (child.exitCode !== null) {
+        reject(new Error(`Dev server exited before readiness (exit ${child.exitCode}).`));
+        return;
       }
-    };
 
-    child.stdout?.on("data", onData);
-    child.stderr?.on("data", onData);
+      try {
+        const response = await fetch(`${BASE_URL}/api/health`, {
+          method: "GET",
+          redirect: "manual",
+        });
+        if (response.status < 500) {
+          resolve();
+          return;
+        }
+      } catch {
+        // Keep polling until startup timeout.
+      }
 
-    child.on("exit", (code) => {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      reject(new Error(`Dev server exited before readiness (exit ${code ?? "null"}).`));
-    });
+      await new Promise((r) => setTimeout(r, 1000));
+    }
+
+    reject(new Error(`Timed out waiting for dev server readiness after ${timeoutMs}ms.`));
   });
 }
 
@@ -136,13 +131,17 @@ async function checkHealthEndpoint() {
 }
 
 async function main() {
-  log("1/3 Building app (next build)...");
-  await runCommand(NPM_COMMAND, ["run", "build"]);
+  if (SKIP_BUILD) {
+    log("1/3 Skipping build (using existing build output)...");
+  } else {
+    log("1/3 Building app (next build)...");
+    await runCommand(NPM_COMMAND, ["run", "build"]);
+  }
 
   log(`2/3 Starting Next server on port ${PORT}...`);
   const devServer = spawn(NPM_COMMAND, ["run", "start", "--", "-p", String(PORT)], {
     cwd: process.cwd(),
-    stdio: ["ignore", "pipe", "pipe"],
+    stdio: "inherit",
     shell: true,
   });
 

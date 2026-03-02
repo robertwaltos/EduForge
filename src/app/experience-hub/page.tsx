@@ -78,7 +78,7 @@ function ExperienceHubContent({ selectedMascot, setSelectedMascot, showToast, se
     ];
 
     return (
-        <main className="min-h-screen bg-slate-950 text-white selection:bg-indigo-500/30 overflow-x-hidden">
+        <main className="min-h-screen bg-background text-foreground selection:bg-indigo-500/30 overflow-x-hidden">
             {/* Background Atmosphere */}
             <div className="fixed inset-0 pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px]" />
@@ -107,7 +107,7 @@ function ExperienceHubContent({ selectedMascot, setSelectedMascot, showToast, se
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex items-center gap-12 bg-white/5 backdrop-blur-2xl border border-white/10 p-8 rounded-[3.5rem] shadow-2xl relative overflow-hidden"
+                    className="flex items-center gap-12 bg-white/5 backdrop-blur-2xl border border-border/40 p-8 rounded-[3.5rem] shadow-2xl relative overflow-hidden"
                 >
                     <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -165,7 +165,7 @@ function ExperienceHubContent({ selectedMascot, setSelectedMascot, showToast, se
                     </motion.div>
 
                     {/* Global Quest System (New Feature) */}
-                    <div className="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 border border-white/10 rounded-[2.5rem] p-8 relative overflow-hidden">
+                    <div className="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 border border-border/40 rounded-[2.5rem] p-8 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none" />
 
                         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -196,7 +196,7 @@ function ExperienceHubContent({ selectedMascot, setSelectedMascot, showToast, se
 
                 {/* --- Right Column: Social & Mascots --- */}
                 <div className="lg:col-span-4 space-y-8">
-                    <div className="bg-gradient-to-b from-indigo-500/20 to-transparent border border-white/10 rounded-[3rem] p-8 relative flex flex-col items-center text-center">
+                    <div className="bg-gradient-to-b from-indigo-500/20 to-transparent border border-border/40 rounded-[3rem] p-8 relative flex flex-col items-center text-center">
                         <div className="absolute top-4 right-6 flex flex-col items-center">
                             <span className="text-[8px] font-black text-white/40 uppercase tracking-widest mb-1">Affinity</span>
                             <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
@@ -225,7 +225,7 @@ function ExperienceHubContent({ selectedMascot, setSelectedMascot, showToast, se
                                     }}
                                     className={`w-12 h-12 rounded-2xl border transition-all ${selectedMascot === mid
                                         ? "bg-white border-white scale-110 shadow-xl"
-                                        : "bg-white/5 border-white/10 hover:bg-white/10"
+                                        : "bg-white/5 border-border/40 hover:bg-white/10"
                                         }`}
                                 >
                                     <MascotFriend id={mid as any} mood="happy" size="sm" />
@@ -239,7 +239,7 @@ function ExperienceHubContent({ selectedMascot, setSelectedMascot, showToast, se
                             <Sparkles className="text-amber-400 w-5 h-5" />
                             <h3 className="text-xl font-black italic">ACTIVE STREAK</h3>
                         </div>
-                        <div className="bg-white/5 p-6 rounded-[2.5rem] border border-white/10 text-center">
+                        <div className="bg-white/5 p-6 rounded-[2.5rem] border border-border/40 text-center">
                             <p className="text-4xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-500">7 DAYS</p>
                             <p className="text-[10px] uppercase font-black text-zinc-500 tracking-widest mt-2">Personal Record Smashed!</p>
                         </div>

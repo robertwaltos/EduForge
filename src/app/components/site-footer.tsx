@@ -29,6 +29,7 @@ const COMPANY_LINKS = [
   { href: "/legal/terms",            label: "Terms of Use" },
   { href: "/legal/refunds",          label: "Refund Policy" },
   { href: "/legal/accessibility",    label: "Accessibility" },
+  { href: "/legal/dsa",              label: "DSA Transparency" },
   { href: "/auth/sign-up",           label: "Create Free Account" },
 ];
 
@@ -73,7 +74,7 @@ export default function SiteFooter() {
       className={`safe-area-bottom border-t text-sm ${
         isHomePage
           ? "border-white/10 bg-slate-950 text-slate-400"
-          : "border-border bg-surface-muted text-zinc-600 dark:bg-slate-900/60 dark:text-foreground/70"
+          : "border-border bg-surface-muted text-zinc-600 dark:bg-surface/60 dark:text-foreground/70"
       }`}
     >
       {/* ── Main grid ── */}
@@ -107,7 +108,7 @@ export default function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className={`inline-flex size-9 items-center justify-center rounded-full border transition-colors ${
+                className={`inline-flex size-11 items-center justify-center rounded-full border transition-colors ${
                   isHomePage
                     ? "border-white/15 text-slate-400 hover:border-white/30 hover:text-white"
                     : "border-border text-zinc-500 hover:border-zinc-400 hover:text-zinc-800 dark:hover:text-foreground"
@@ -124,12 +125,12 @@ export default function SiteFooter() {
           <p className={`mb-4 text-[11px] font-bold uppercase tracking-widest ${isHomePage ? "text-slate-400" : "text-zinc-600 dark:text-foreground/60"}`}>
             Platform
           </p>
-          <ul className="space-y-2.5">
+          <ul className="space-y-0.5">
             {PRODUCT_LINKS.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className={`transition-colors hover:underline ${isHomePage ? "hover:text-white" : "hover:text-zinc-900 dark:hover:text-foreground"}`}
+                  className={`inline-flex min-h-11 items-center transition-colors hover:underline ${isHomePage ? "hover:text-white" : "hover:text-zinc-900 dark:hover:text-foreground"}`}
                 >
                   {l.label}
                 </Link>
@@ -143,12 +144,12 @@ export default function SiteFooter() {
           <p className={`mb-4 text-[11px] font-bold uppercase tracking-widest ${isHomePage ? "text-slate-400" : "text-zinc-600 dark:text-foreground/60"}`}>
             Learn For
           </p>
-          <ul className="space-y-2.5">
+          <ul className="space-y-0.5">
             {LEARN_FOR_LINKS.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className={`transition-colors hover:underline ${isHomePage ? "hover:text-white" : "hover:text-zinc-900 dark:hover:text-foreground"}`}
+                  className={`inline-flex min-h-11 items-center transition-colors hover:underline ${isHomePage ? "hover:text-white" : "hover:text-zinc-900 dark:hover:text-foreground"}`}
                 >
                   {l.label}
                 </Link>
@@ -162,12 +163,12 @@ export default function SiteFooter() {
           <p className={`mb-4 text-[11px] font-bold uppercase tracking-widest ${isHomePage ? "text-slate-400" : "text-zinc-600 dark:text-foreground/60"}`}>
             Company
           </p>
-          <ul className="space-y-2.5">
+          <ul className="space-y-0.5">
             {COMPANY_LINKS.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className={`transition-colors hover:underline ${isHomePage ? "hover:text-white" : "hover:text-zinc-900 dark:hover:text-foreground"}`}
+                  className={`inline-flex min-h-11 items-center transition-colors hover:underline ${isHomePage ? "hover:text-white" : "hover:text-zinc-900 dark:hover:text-foreground"}`}
                 >
                   {l.label}
                 </Link>
@@ -184,10 +185,10 @@ export default function SiteFooter() {
             © {new Date().getFullYear()} Koydo. Free education for every mind.
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs">
-            <Link href="/legal/privacy" className="hover:underline">Privacy</Link>
-            <Link href="/legal/terms"   className="hover:underline">Terms</Link>
-            <Link href="/legal/refunds" className="hover:underline">Refunds</Link>
-            <Link href="/support"       className="hover:underline">Support</Link>
+            <Link href="/legal/privacy" className="inline-flex min-h-11 items-center hover:underline">Privacy</Link>
+            <Link href="/legal/terms"   className="inline-flex min-h-11 items-center hover:underline">Terms</Link>
+            <Link href="/legal/refunds" className="inline-flex min-h-11 items-center hover:underline">Refunds</Link>
+            <Link href="/support"       className="inline-flex min-h-11 items-center hover:underline">Support</Link>
           </div>
         </div>
       </div>

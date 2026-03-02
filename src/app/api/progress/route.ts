@@ -23,7 +23,7 @@ function isMissingAtomicFunctionError(message: string) {
 export async function POST(request: Request) {
   try {
     const rateLimit = await enforceIpRateLimit(request, "api:progress:post", {
-      max: 30,
+      max: 60,
       windowMs: 60_000,
     });
     if (!rateLimit.allowed) {

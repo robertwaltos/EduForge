@@ -183,69 +183,37 @@ function SignInPageContent() {
       {/* Page background */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <Image
-          src={ASSETS.bgDay}
+          src={ASSETS.bgAuth}
           alt=""
           fill
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-white/55 dark:bg-slate-950/72" />
+        <div className="absolute inset-0 bg-white/55 dark:bg-background/72" />
       </div>
 
       <section className="relative isolate overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
 
-        <div className="relative mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.35fr_0.9fr] lg:gap-10">
-          <div className="space-y-5">
-            {/* Hero image with overlaid title */}
-            <div className="relative overflow-hidden rounded-3xl shadow-xl">
-              <Image
-                src={ASSETS.heroSignIn}
-                alt="Students exploring the world of learning on Koydo"
-                width={800}
-                height={480}
-                className="w-full object-cover"
-                priority
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-5 pb-5 pt-14">
-                <p className="text-xs font-bold uppercase tracking-widest text-emerald-300">
-                  {t("auth_sign_in_hero_eyebrow")}
-                </p>
-                <h1 className="mt-1 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-                  {t("auth_sign_in_hero_title")}
-                </h1>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              {[
-                { emoji: "🌱", label: t("auth_sign_in_pill_curiosity") },
-                { emoji: "🎧", label: t("auth_sign_in_pill_read_aloud") },
-                { emoji: "🧭", label: t("auth_sign_in_pill_parent_safe") },
-              ].map((pill, index) => (
-                <div
-                  key={pill.label}
-                  className="explore-float rounded-2xl border border-white/80 bg-white/70 px-4 py-3 text-sm font-semibold text-zinc-700 dark:border-border dark:bg-surface/70 dark:text-foreground/85 shadow-sm backdrop-blur-sm"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <span className="mr-2" aria-hidden="true">
-                    {pill.emoji}
-                  </span>
-                  {pill.label}
-                </div>
-              ))}
+        <div className="relative mx-auto w-full max-w-6xl">
+          {/* Hero image with overlaid title */}
+          <div className="relative overflow-hidden rounded-3xl shadow-xl">
+            <Image
+              src={ASSETS.heroSignIn}
+              alt="Students exploring the world of learning on Koydo"
+              width={800}
+              height={480}
+              className="w-full object-cover"
+              priority
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-5 pb-5 pt-14">
+              <p className="text-xs font-bold uppercase tracking-widest text-emerald-300">
+                {t("auth_sign_in_hero_eyebrow")}
+              </p>
+              <h1 className="mt-1 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+                {t("auth_sign_in_hero_title")}
+              </h1>
             </div>
           </div>
-
-          <SoftCard as="section" organicCorners className="self-start border-white/75 bg-white/80 p-6 backdrop-blur-sm dark:border-border dark:bg-surface/80">
-            <p className="ui-type-heading-lg text-zinc-900 dark:text-foreground">{t("auth_sign_in_adventure_title")}</p>
-            <p className="mt-3 ui-type-body-sm text-zinc-600 dark:text-foreground/70">
-              {t("auth_sign_in_adventure_description")}
-            </p>
-            <ul className="mt-4 space-y-2 ui-type-body-sm text-zinc-700 dark:text-foreground/85">
-              <li>{t("auth_sign_in_step_pick_method")}</li>
-              <li>{t("auth_sign_in_step_choose_learner")}</li>
-              <li>{t("auth_sign_in_step_resume_map")}</li>
-            </ul>
-          </SoftCard>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MascotHost from "@/components/experience/MascotHost";
 import {
@@ -35,13 +35,17 @@ import {
     BioBlast,
     EthosEngine,
     EchosExpedition,
-    TerrasTrek
+    TerrasTrek,
+    SparksSparkQuest,
+    PixelsPath,
+    LunasLegend,
+    CircuitCrusader
 } from "@/components/games";
 import PhysicalButton from "@/components/experience/PhysicalButton";
-import { Sparkles, Brain, Flame, Rocket, ArrowLeft, Palette, ShieldCheck, Beaker, Zap, Cpu, Box, Search, Leaf, Atom, TrendingUp, Globe, TreePine, Music, Mountain, Bot, Wind, History as HistoryIcon, Microscope, Navigation, Grid3X3, Scale, Compass } from "lucide-react";
+import { Sparkles, Brain, Flame, Rocket, ArrowLeft, Palette, ShieldCheck, Beaker, Zap, Cpu, Box, Search, Leaf, Atom, TrendingUp, Globe, TreePine, Music, Mountain, Bot, Wind, History as HistoryIcon, Microscope, Navigation, Grid3X3, Scale, Compass, Construction, Lock, BookOpen, CircuitBoard } from "lucide-react";
 import Link from "next/link";
 
-type GameId = "neural" | "fraction" | "vocabulary" | "artistic" | "ethical" | "synthesis" | "velocity" | "logic" | "canvas" | "chronicle" | "syntax" | "genetic" | "quantum" | "market" | "orbit" | "cipher" | "biome" | "rhythm" | "tectonic" | "flora" | "bot" | "eco" | "aero" | "histo" | "nano" | "quantum-quirk" | "star-steer" | "logic-labyrinth" | "bio-blast" | "ethos-engine" | "echo-expedition" | "terra-trek";
+type GameId = "neural" | "fraction" | "vocabulary" | "artistic" | "ethical" | "synthesis" | "velocity" | "logic" | "canvas" | "chronicle" | "syntax" | "genetic" | "quantum" | "market" | "orbit" | "cipher" | "biome" | "rhythm" | "tectonic" | "flora" | "bot" | "eco" | "aero" | "histo" | "nano" | "quantum-quirk" | "star-steer" | "logic-labyrinth" | "bio-blast" | "ethos-engine" | "echo-expedition" | "terra-trek" | "spark-quest" | "pixel-path" | "luna-legend" | "circuit-crusader";
 
 export default function NextGenGameGallery() {
     const [activeGame, setActiveGame] = useState<GameId | null>(null);
@@ -366,6 +370,46 @@ export default function NextGenGameGallery() {
             color: "text-emerald-400",
             bg: "bg-emerald-500/10",
             border: "border-emerald-500/20"
+        },
+        {
+            id: "spark-quest",
+            title: "Spark's Spark-Quest",
+            mascot: "spark",
+            description: "A 4K city-building math quest. Power the future with numerical precision!",
+            icon: Construction,
+            color: "text-amber-400",
+            bg: "bg-amber-500/10",
+            border: "border-amber-500/20"
+        },
+        {
+            id: "pixel-path",
+            title: "Pixel's Path",
+            mascot: "pixel",
+            description: "A 4K digital frontier quest. Secure the network and master protocols!",
+            icon: Lock,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/20"
+        },
+        {
+            id: "luna-legend",
+            title: "Luna's Legend",
+            mascot: "luna",
+            description: "A 4K advanced storytelling quest. Craft a legendary tale with deep narrative choices!",
+            icon: BookOpen,
+            color: "text-purple-400",
+            bg: "bg-purple-500/10",
+            border: "border-purple-500/20"
+        },
+        {
+            id: "circuit-crusader",
+            title: "Circuit Crusader",
+            mascot: "pixel",
+            description: "A 4K electronics simulator. Design logic gates to power the future!",
+            icon: CircuitBoard,
+            color: "text-indigo-400",
+            bg: "bg-indigo-500/10",
+            border: "border-indigo-500/20"
         }
     ];
 
@@ -402,7 +446,11 @@ export default function NextGenGameGallery() {
                                                                                                                             activeGame === "bio-blast" ? "terra" :
                                                                                                                                 activeGame === "ethos-engine" ? "echo" :
                                                                                                                                     activeGame === "echo-expedition" ? "echo" :
-                                                                                                                                        activeGame === "terra-trek" ? "terra" : "pixel"
+                                                                                                                                        activeGame === "terra-trek" ? "terra" :
+                                                                                                                                            activeGame === "spark-quest" ? "spark" :
+                                                                                                                                                activeGame === "pixel-path" ? "pixel" :
+                                                                                                                                                    activeGame === "luna-legend" ? "luna" :
+                                                                                                                                                        activeGame === "circuit-crusader" ? "pixel" : "pixel"
         }>
             <div className="max-w-6xl mx-auto px-4 py-12">
                 {/* Back Link */}
@@ -455,7 +503,7 @@ export default function NextGenGameGallery() {
                                     >
                                         <div className="relative z-10 flex flex-col items-center text-center space-y-6">
                                             <div className={`p-6 rounded-3xl ${game.bg} border-2 ${game.border}`}>
-                                                <game.icon className={`${game.color} w-16 h-16`} />
+                                                {React.createElement(game.icon as any, { className: `${game.color} w-16 h-16` })}
                                             </div>
                                             <div>
                                                 <h3 className="text-3xl font-black text-white italic">{game.title}</h3>
@@ -523,6 +571,10 @@ export default function NextGenGameGallery() {
                                 {activeGame === "ethos-engine" && <EthosEngine />}
                                 {activeGame === "echo-expedition" && <EchosExpedition />}
                                 {activeGame === "terra-trek" && <TerrasTrek />}
+                                {activeGame === "spark-quest" && <SparksSparkQuest />}
+                                {activeGame === "pixel-path" && <PixelsPath />}
+                                {activeGame === "luna-legend" && <LunasLegend />}
+                                {activeGame === "circuit-crusader" && <CircuitCrusader />}
                             </div>
                         </motion.div>
                     )}

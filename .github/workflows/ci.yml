@@ -38,6 +38,9 @@ jobs:
       - name: Validate curriculum data quality rules
         run: npm run curriculum:validate
 
+      - name: Validate capstone defense alignment
+        run: npm run curriculum:capstone-defense:check
+
       - name: Lint
         run: npm run lint
 

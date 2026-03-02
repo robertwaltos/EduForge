@@ -236,7 +236,7 @@ export function AudiobookPlayer({
 
       {/* ── Chapter & language selectors ──────────────────── */}
       <div className="flex items-center justify-center gap-4 text-sm">
-        <span className="text-neutral-500 dark:text-neutral-400">
+        <span className="text-neutral-500 dark:text-foreground/60">
           Chapter {chapterNumber} / {totalChapters}
         </span>
 
@@ -246,7 +246,7 @@ export function AudiobookPlayer({
             stopAudio();
             onLanguageChange(e.target.value as AudiobookLanguage);
           }}
-          className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900
+          className="rounded-lg border border-neutral-200 dark:border-border bg-white dark:bg-surface
             px-3 py-1.5 text-sm ui-focus-ring"
           aria-label="Audio language"
         >

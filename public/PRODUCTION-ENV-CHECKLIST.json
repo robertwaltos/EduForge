@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-02-28T16:24:12.662Z",
+  "generatedAt": "2026-03-02T06:29:11.046Z",
   "command": "node scripts/check-env.mjs --json --runtime production --source-file .env.production.audit --fail-on-warn",
   "commandExitCode": 1,
   "sourceFile": ".env.production.audit",
   "runtime": "production",
   "envReport": {
-    "generatedAt": "2026-02-28T16:24:12.647Z",
-    "source": "D:\\PythonProjects\\Koydo\\eduforge-web\\.env.production.audit (process.env fallback)",
+    "generatedAt": "2026-03-02T06:29:11.012Z",
+    "source": "D:\\PythonProjects\\Koydo\\eduforge-web\\.env.production.audit",
     "options": {
       "runtimeOverride": "production",
       "envFile": ".env.production.audit",
@@ -18,36 +18,41 @@
       "overrideApplied": true
     },
     "totals": {
-      "pass": 4,
-      "warn": 7,
-      "fail": 7,
-      "total": 18
+      "pass": 18,
+      "warn": 0,
+      "fail": 1,
+      "total": 19
     },
     "checks": [
       {
         "label": "Env Source File",
-        "status": "fail",
-        "detail": "Specified env file not found: D:\\PythonProjects\\Koydo\\eduforge-web\\.env.production.audit"
+        "status": "pass",
+        "detail": "Loaded D:\\PythonProjects\\Koydo\\eduforge-web\\.env.production.audit"
       },
       {
         "label": "Public App URL",
-        "status": "fail",
-        "detail": "Missing NEXT_PUBLIC_APP_URL."
+        "status": "pass",
+        "detail": "https://koydo.vercel.app"
       },
       {
         "label": "Supabase URL",
-        "status": "fail",
-        "detail": "Missing NEXT_PUBLIC_SUPABASE_URL/EXPO_PUBLIC_SUPABASE_URL"
+        "status": "pass",
+        "detail": "https://osnxbuusohdzzcrakavn.supabase.co"
       },
       {
         "label": "Supabase Anon Key",
-        "status": "fail",
-        "detail": "Missing NEXT_PUBLIC_SUPABASE_ANON_KEY/EXPO_PUBLIC_SUPABASE_KEY"
+        "status": "pass",
+        "detail": "Present"
       },
       {
         "label": "Supabase Service Role Key",
-        "status": "warn",
-        "detail": "Missing (admin APIs requiring service role will fail)"
+        "status": "pass",
+        "detail": "Present"
+      },
+      {
+        "label": "Upstash Redis Rate Limit Backend",
+        "status": "fail",
+        "detail": "Missing UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN in production runtime."
       },
       {
         "label": "Billing Provider Mode",
@@ -56,33 +61,33 @@
       },
       {
         "label": "Billing Mode Consistency",
-        "status": "warn",
-        "detail": "Missing BILLING_PROVIDER_MODE and NEXT_PUBLIC_BILLING_PROVIDER_MODE (defaults apply)."
+        "status": "pass",
+        "detail": "Both set to stripe_external."
       },
       {
         "label": "Stripe Secret + Webhook",
-        "status": "fail",
-        "detail": "Billing blocked in production: missing STRIPE_SECRET_KEY or STRIPE_WEBHOOK_SECRET while BILLING_PROVIDER_MODE=stripe_external."
+        "status": "pass",
+        "detail": "Both present"
       },
       {
         "label": "Stripe Publishable Key",
-        "status": "warn",
-        "detail": "Missing (optional for hosted Checkout redirects, required for Stripe Elements/Card UI flows)"
+        "status": "pass",
+        "detail": "Present"
       },
       {
         "label": "RevenueCat Client Keys",
-        "status": "fail",
-        "detail": "Missing NEXT_PUBLIC_REVENUECAT_APPLE_KEY and/or NEXT_PUBLIC_REVENUECAT_GOOGLE_KEY."
+        "status": "pass",
+        "detail": "Not required (BILLING_PROVIDER_MODE=stripe_external)."
       },
       {
         "label": "RevenueCat Webhook Secret",
-        "status": "fail",
-        "detail": "Missing REVENUECAT_WEBHOOK_SECRET."
+        "status": "pass",
+        "detail": "Not required (BILLING_PROVIDER_MODE=stripe_external)."
       },
       {
         "label": "Admin Approval Enforcement",
-        "status": "warn",
-        "detail": "REQUIRE_ADMIN_APPROVALS missing."
+        "status": "pass",
+        "detail": "REQUIRE_ADMIN_APPROVALS=true"
       },
       {
         "label": "Debug Flags",
@@ -101,18 +106,18 @@
       },
       {
         "label": "Parent Consent Email",
-        "status": "warn",
-        "detail": "Missing RESEND_API_KEY or PARENT_CONSENT_FROM_EMAIL (falls back to local simulation link)"
+        "status": "pass",
+        "detail": "Local simulation mode configured (Resend optional)."
       },
       {
         "label": "Parent Consent Token Secret",
-        "status": "warn",
-        "detail": "Missing/short (verification link signing may be weaker or disabled)"
+        "status": "pass",
+        "detail": "Configured"
       },
       {
         "label": "Mixpanel Token",
-        "status": "warn",
-        "detail": "Missing (analytics disabled)"
+        "status": "pass",
+        "detail": "Analytics disabled (NEXT_PUBLIC_ANALYTICS_ENABLED is not true)."
       }
     ]
   }

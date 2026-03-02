@@ -374,6 +374,52 @@ function buildSupabaseUrlCheck({ supabaseUrl, isProduction }) {
   };
 }
 
+function buildUpstashRedisRateLimitCheck({ redisUrl, redisToken, isProduction }) {
+  const hasUrl = Boolean(redisUrl);
+  const hasToken = Boolean(redisToken);
+
+  if (!hasUrl && !hasToken) {
+    return {
+      label: "Upstash Redis Rate Limit Backend",
+      status: isProduction ? "fail" : "warn",
+      detail: isProduction
+        ? "Missing UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN in production runtime."
+        : "Not configured (local in-memory fallback will be used).",
+    };
+  }
+
+  if (!hasUrl || !hasToken) {
+    return {
+      label: "Upstash Redis Rate Limit Backend",
+      status: isProduction ? "fail" : "warn",
+      detail: "Both UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN are required together.",
+    };
+  }
+
+  if (!checkUrl(redisUrl)) {
+    return {
+      label: "Upstash Redis Rate Limit Backend",
+      status: "fail",
+      detail: `Invalid UPSTASH_REDIS_REST_URL: ${redisUrl}`,
+    };
+  }
+
+  const parsed = new URL(redisUrl);
+  if (isProduction && isLocalHostname(parsed.hostname)) {
+    return {
+      label: "Upstash Redis Rate Limit Backend",
+      status: "fail",
+      detail: `Production runtime cannot use local Upstash Redis URL: ${redisUrl}`,
+    };
+  }
+
+  return {
+    label: "Upstash Redis Rate Limit Backend",
+    status: "pass",
+    detail: "Configured",
+  };
+}
+
 function isPlaceholderValue(value) {
   if (!value) return false;
   const normalized = normalizeValue(value).toLowerCase();
@@ -409,6 +455,8 @@ function buildPlaceholderSecretAudit({ env, isProduction }) {
     "NEXT_PUBLIC_REVENUECAT_API_KEY",
     "EXPO_PUBLIC_REVENUECAT_API_KEY",
     "REVENUECAT_WEBHOOK_SECRET",
+    "UPSTASH_REDIS_REST_URL",
+    "UPSTASH_REDIS_REST_TOKEN",
     "RESEND_API_KEY",
     "PARENT_CONSENT_FROM_EMAIL",
     "PARENT_CONSENT_TOKEN_SECRET",
@@ -711,6 +759,8 @@ function main() {
   const supabaseUrl = readValue(env, "NEXT_PUBLIC_SUPABASE_URL", "EXPO_PUBLIC_SUPABASE_URL");
   const supabaseAnon = readValue(env, "NEXT_PUBLIC_SUPABASE_ANON_KEY", "EXPO_PUBLIC_SUPABASE_KEY");
   const supabaseService = readValue(env, "SUPABASE_SERVICE_ROLE_KEY");
+  const upstashRedisUrl = readValue(env, "UPSTASH_REDIS_REST_URL");
+  const upstashRedisToken = readValue(env, "UPSTASH_REDIS_REST_TOKEN");
   const billingMode = readValue(env, "BILLING_PROVIDER_MODE");
   const publicBillingMode = readValue(env, "NEXT_PUBLIC_BILLING_PROVIDER_MODE");
   const effectiveBillingMode = billingMode || publicBillingMode || "stripe_external";
@@ -774,6 +824,14 @@ function main() {
     status: supabaseService ? "pass" : "warn",
     detail: supabaseService ? "Present" : "Missing (admin APIs requiring service role will fail)",
   });
+
+  checks.push(
+    buildUpstashRedisRateLimitCheck({
+      redisUrl: upstashRedisUrl,
+      redisToken: upstashRedisToken,
+      isProduction: runtime.isProduction,
+    }),
+  );
 
   checks.push({
     label: "Billing Provider Mode",

@@ -169,6 +169,19 @@ Owner: Codex (curriculum lane)
   - `npm run curriculum:validate`: 585 modules validated, 0 errors, 0 warnings.
   - Curriculum quality report remains strong (average score 100, 0 medium-priority modules, 0 no-interactive flags).
 
+- Capstone defense-alignment hardening delivered: explicit data-analysis, implementation-artifact,
+  and rubric-based debate requirements now embedded across all 8 capstone modules.
+- Scope completed:
+  - Updated capstone simulation debriefs to require explicit data analysis feeding implementation artifacts.
+  - Updated defense-panel lessons to require implementation artifact walkthroughs mapped to rubric criteria.
+  - Updated defense activities to enforce rubric-based debate language during adversarial panel review.
+  - Added automated guard script `npm run curriculum:capstone-defense:check` to fail builds when capstone modules
+    lose simulation, defense, debate, data-analysis, artifact, or rubric markers.
+- Post-capstone-defense validation baseline:
+  - `npm run curriculum:capstone-defense:check`: 8 capstone modules, 8/8 full marker coverage.
+  - `npm run curriculum:advanced-quiz-depth:check`: 368 quizzes, min/avg/max = 8/8.00/8.
+  - `npm run curriculum:validate`: 585 modules validated, 0 errors, 0 warnings.
+
 ## Expansion Goal
 
 Move from "full ladder coverage" to "depth + breadth + transfer":

@@ -31,7 +31,7 @@ const telemetryRequestSchema = z.object({
 export async function POST(request: Request) {
   try {
     const rateLimit = await enforceIpRateLimit(request, "api:telemetry:events:post", {
-      max: 30,
+      max: 60,
       windowMs: 60_000,
     });
     if (!rateLimit.allowed) {
