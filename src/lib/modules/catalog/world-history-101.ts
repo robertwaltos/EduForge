@@ -161,7 +161,7 @@ export const WorldHistory101Module: LearningModule = {
     {
       "id": "world-history-101-l02",
       "title": "Ancient Egypt",
-      "type": "video",
+      "type": "interactive",
       "duration": 12,
       "chunks": [
         {

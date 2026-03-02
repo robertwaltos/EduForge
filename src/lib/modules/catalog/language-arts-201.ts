@@ -162,7 +162,7 @@ export const LanguageArts201Module: LearningModule = {
     {
       "id": "language-arts-201-l02",
       "title": "Argumentative Writing",
-      "type": "video",
+      "type": "interactive",
       "duration": 12,
       "chunks": [
         {

@@ -151,8 +151,36 @@ const ROUTE_GUARDS = [
     mustInclude: ["enforceIpRateLimit", "api:billing:revenuecat-webhook"],
   },
   {
+    file: "src/app/api/stripe/checkout/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:billing:stripe-checkout"],
+  },
+  {
+    file: "src/app/api/stripe/portal/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:billing:stripe-portal"],
+  },
+  {
+    file: "src/app/api/stripe/checkout/gift/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:stripe:checkout:gift"],
+  },
+  {
+    file: "src/app/api/stripe/checkout/organization/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:stripe:checkout:organization"],
+  },
+  {
+    file: "src/app/api/subscription/status/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:subscription:status:get"],
+  },
+  {
     file: "src/app/api/testing/classes/[classId]/analytics/route.ts",
     mustInclude: ["enforceIpRateLimit", "api:testing:classes:analytics:get"],
+  },
+  {
+    file: "src/app/api/testing/classes/route.ts",
+    mustInclude: [
+      "enforceIpRateLimit",
+      "api:testing:classes:get",
+      "api:testing:classes:post",
+    ],
   },
   {
     file: "src/app/api/testing/classes/[classId]/enrollments/route.ts",

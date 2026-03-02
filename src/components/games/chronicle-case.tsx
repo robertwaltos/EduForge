@@ -218,7 +218,7 @@ export default function ChronicleCase() {
                         <motion.div
                             className="absolute pointer-events-none z-20"
                             animate={{ x: `${searchPos.x}%`, y: `${searchPos.y}%` }}
-                            transition={{ type: "spring", ...JUICY_SPRINGS.stiff }}
+                            transition={JUICY_SPRINGS.stiff}
                             style={{ left: -100, top: -100 }}
                         >
                             <div className="w-[200px] h-[200px] rounded-full border-2 border-amber-400/50 flex items-center justify-center">

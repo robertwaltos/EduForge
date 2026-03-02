@@ -1,11 +1,11 @@
 # Module Level Gap Report
 
-Generated: 2026-03-02T05:43:03.749Z
+Generated: 2026-03-02T06:16:41.458Z
 
 ## Summary
 
-- Tracks analyzed: 83
-- Complete 101-401 tracks: 83
+- Tracks analyzed: 88
+- Complete 101-401 tracks: 88
 - Partial tracks: 0
 - Multi-level but incomplete tracks: 0
 - Single-level tracks: 0
@@ -39,10 +39,12 @@ Generated: 2026-03-02T05:43:03.749Z
 | climate-science | 101, 201, 301, 401 | - | 100% |
 | cloud-computing | 101, 201, 301, 401 | - | 100% |
 | coding | 101, 201, 301, 401 | - | 100% |
+| comparative-politics | 101, 201, 301, 401 | - | 100% |
 | cpu-gpu-memory-design | 101, 201, 301, 401 | - | 100% |
 | cybersecurity | 101, 201, 301, 401 | - | 100% |
 | data-engineering | 101, 201, 301, 401 | - | 100% |
 | data-science | 101, 201, 301, 401 | - | 100% |
+| developer-tools-devops | 101, 201, 301, 401 | - | 100% |
 | digital-marketing | 101, 201, 301, 401 | - | 100% |
 | distributed-systems | 101, 201, 301, 401 | - | 100% |
 | economics | 101, 201, 301, 401 | - | 100% |
@@ -56,6 +58,7 @@ Generated: 2026-03-02T05:43:03.749Z
 | general-relativity | 101, 201, 301, 401 | - | 100% |
 | general-science | 101, 201, 301, 401 | - | 100% |
 | geography | 101, 201, 301, 401 | - | 100% |
+| geoscience | 101, 201, 301, 401 | - | 100% |
 | household-management | 101, 201, 301, 401 | - | 100% |
 | human-resource-management | 101, 201, 301, 401 | - | 100% |
 | hvac | 101, 201, 301, 401 | - | 100% |
@@ -70,6 +73,7 @@ Generated: 2026-03-02T05:43:03.749Z
 | math | 101, 201, 301, 401 | - | 100% |
 | media-literacy | 101, 201, 301, 401 | - | 100% |
 | medicine | 101, 201, 301, 401 | - | 100% |
+| mental-health-literacy | 101, 201, 301, 401 | - | 100% |
 | meteorology | 101, 201, 301, 401 | - | 100% |
 | micro-circuits | 101, 201, 301, 401 | - | 100% |
 | microelectronics | 101, 201, 301, 401 | - | 100% |
@@ -80,6 +84,7 @@ Generated: 2026-03-02T05:43:03.749Z
 | network-engineering | 101, 201, 301, 401 | - | 100% |
 | neuroscience | 101, 201, 301, 401 | - | 100% |
 | nursing | 101, 201, 301, 401 | - | 100% |
+| nutrition-science | 101, 201, 301, 401 | - | 100% |
 | oceanography | 101, 201, 301, 401 | - | 100% |
 | operations-management | 101, 201, 301, 401 | - | 100% |
 | organizational-behavior | 101, 201, 301, 401 | - | 100% |

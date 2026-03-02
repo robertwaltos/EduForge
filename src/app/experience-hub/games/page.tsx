@@ -14,13 +14,34 @@ import {
     LogicalLink,
     CosmicCanvas,
     ChronicleCase,
-    SyntaxSerpent
+    SyntaxSerpent,
+    GeneticGarden,
+    QuantumQuest,
+    MarketMaker,
+    OrbitOperator,
+    CipherCity,
+    BiomeBuilder,
+    RhythmRules,
+    TectonicTrek,
+    FloraFusion,
+    BotBuilder,
+    EcoEngineer,
+    AeroArchitect,
+    HistoHunt,
+    NanoNavigator,
+    QuantumQuirk,
+    StarSteer,
+    LogicLabyrinth,
+    BioBlast,
+    EthosEngine,
+    EchosExpedition,
+    TerrasTrek
 } from "@/components/games";
 import PhysicalButton from "@/components/experience/PhysicalButton";
-import { Sparkles, Brain, Flame, Rocket, ArrowLeft, Palette, ShieldCheck, Beaker, Zap, Cpu, Box, Search } from "lucide-react";
+import { Sparkles, Brain, Flame, Rocket, ArrowLeft, Palette, ShieldCheck, Beaker, Zap, Cpu, Box, Search, Leaf, Atom, TrendingUp, Globe, TreePine, Music, Mountain, Bot, Wind, History as HistoryIcon, Microscope, Navigation, Grid3X3, Scale, Compass } from "lucide-react";
 import Link from "next/link";
 
-type GameId = "neural" | "fraction" | "vocabulary" | "artistic" | "ethical" | "synthesis" | "velocity" | "logic" | "canvas" | "chronicle" | "syntax";
+type GameId = "neural" | "fraction" | "vocabulary" | "artistic" | "ethical" | "synthesis" | "velocity" | "logic" | "canvas" | "chronicle" | "syntax" | "genetic" | "quantum" | "market" | "orbit" | "cipher" | "biome" | "rhythm" | "tectonic" | "flora" | "bot" | "eco" | "aero" | "histo" | "nano" | "quantum-quirk" | "star-steer" | "logic-labyrinth" | "bio-blast" | "ethos-engine" | "echo-expedition" | "terra-trek";
 
 export default function NextGenGameGallery() {
     const [activeGame, setActiveGame] = useState<GameId | null>(null);
@@ -135,6 +156,216 @@ export default function NextGenGameGallery() {
             color: "text-sky-400",
             bg: "bg-sky-500/10",
             border: "border-sky-500/20"
+        },
+        {
+            id: "genetic",
+            title: "Genetic Garden",
+            mascot: "terra",
+            description: "Master the art of selection and breed rare floral hybrids in 4K.",
+            icon: Leaf,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "quantum",
+            title: "Quantum Quest",
+            mascot: "terra",
+            description: "Stabilize gravity wells and master subatomic particles in a 4K physics sim.",
+            icon: Atom,
+            color: "text-sky-400",
+            bg: "bg-sky-500/10",
+            border: "border-sky-500/20"
+        },
+        {
+            id: "market",
+            title: "Market Maker",
+            mascot: "echo",
+            description: "Master the art of high-frequency trading and economic theory in 4K.",
+            icon: TrendingUp,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "orbit",
+            title: "Orbit Operator",
+            mascot: "terra",
+            description: "Launch satellites and master the physics of orbital mechanics in 4K.",
+            icon: Globe,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/20"
+        },
+        {
+            id: "cipher",
+            title: "Cipher City",
+            mascot: "pixel",
+            description: "Break complex ciphers and secure neon signals in 4K.",
+            icon: ShieldCheck,
+            color: "text-green-400",
+            bg: "bg-green-500/10",
+            border: "border-green-500/20"
+        },
+        {
+            id: "biome",
+            title: "Biome Builder",
+            mascot: "terra",
+            description: "Balance a 4K living ecosystem and master environmental equilibrium.",
+            icon: TreePine,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "rhythm",
+            title: "Rhythm Rules",
+            mascot: "terra",
+            description: "Master the beat of linguistics and syllabic flow in 4K.",
+            icon: Music,
+            color: "text-fuchsia-400",
+            bg: "bg-fuchsia-500/10",
+            border: "border-fuchsia-500/20"
+        },
+        {
+            id: "tectonic",
+            title: "Tectonic Trek",
+            mascot: "terra",
+            description: "Shape the planet by moving tectonic plates and mastering geology in 4K.",
+            icon: Mountain,
+            color: "text-orange-400",
+            bg: "bg-orange-500/10",
+            border: "border-orange-500/20"
+        },
+        {
+            id: "flora",
+            title: "Flora Fusion",
+            mascot: "terra",
+            description: "Step into the bio-synth lab to create new bioluminescent plant species in 4K.",
+            icon: Leaf,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "bot",
+            title: "Bot Builder",
+            mascot: "pixel",
+            description: "Master the logic of automation and visual programming in a 4K IDE.",
+            icon: Bot,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/20"
+        },
+        {
+            id: "eco",
+            title: "Eco Engineer",
+            mascot: "terra",
+            description: "Manage a futuristic energy grid and balance sustainability in 4K.",
+            icon: Leaf,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "aero",
+            title: "Aero Architect",
+            mascot: "pixel",
+            description: "Design aircraft and test aerodynamics in a 4K wind tunnel.",
+            icon: Wind,
+            color: "text-sky-400",
+            bg: "bg-sky-500/10",
+            border: "border-sky-500/20"
+        },
+        {
+            id: "histo",
+            title: "Histo Hunt",
+            mascot: "echo",
+            description: "Unearth ancient artifacts and reconstruct history in 4K.",
+            icon: HistoryIcon,
+            color: "text-amber-400",
+            bg: "bg-amber-500/10",
+            border: "border-amber-500/20"
+        },
+        {
+            id: "nano",
+            title: "Nano Navigator",
+            mascot: "terra",
+            description: "Journey into the atomic realm and navigate cellular landscapes in 4K.",
+            icon: Microscope,
+            color: "text-indigo-400",
+            bg: "bg-indigo-500/10",
+            border: "border-indigo-500/20"
+        },
+        {
+            id: "quantum-quirk",
+            title: "Quantum Quirk",
+            mascot: "pixel",
+            description: "Master the logic of the subatomic and exploit entanglement in 4K.",
+            icon: Atom,
+            color: "text-cyan-400",
+            bg: "bg-cyan-500/10",
+            border: "border-cyan-500/20"
+        },
+        {
+            id: "star-steer",
+            title: "Star Steer",
+            mascot: "luna",
+            description: "Navigate the final frontier using celestial charts and spherical geometry in 4K.",
+            icon: Navigation,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/20"
+        },
+        {
+            id: "logic-labyrinth",
+            title: "Logic Labyrinth",
+            mascot: "pixel",
+            description: "Program your way through complex mazes and refine pathfinding algorithms in 4K.",
+            icon: Grid3X3,
+            color: "text-fuchsia-400",
+            bg: "bg-fuchsia-500/10",
+            border: "border-fuchsia-500/20"
+        },
+        {
+            id: "bio-blast",
+            title: "Bio Blast",
+            mascot: "terra",
+            description: "Lead the immune system vanguard against elite pathogens in high-fidelity 4K micro-combat.",
+            icon: ShieldCheck,
+            color: "text-red-400",
+            bg: "bg-red-500/10",
+            border: "border-red-500/20"
+        },
+        {
+            id: "ethos-engine",
+            title: "Ethos Engine",
+            mascot: "echo",
+            description: "Navigate civilization-defining moral dilemmas and archive your legacy in 4K.",
+            icon: Scale,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/20"
+        },
+        {
+            id: "echo-expedition",
+            title: "Echo's Expedition",
+            mascot: "echo",
+            description: "A 4K journey through ancient civilizations. Find the fragments of history!",
+            icon: Compass,
+            color: "text-amber-400",
+            bg: "bg-amber-500/10",
+            border: "border-amber-500/20"
+        },
+        {
+            id: "terra-trek",
+            title: "Terra's Trek",
+            mascot: "terra",
+            description: "A 4K biological survey mission. Catalog the hidden flora and fauna!",
+            icon: Leaf,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
         }
     ];
 
@@ -150,7 +381,28 @@ export default function NextGenGameGallery() {
                                         activeGame === "logic" ? "pixel" :
                                             activeGame === "canvas" ? "luna" :
                                                 activeGame === "chronicle" ? "echo" :
-                                                    activeGame === "syntax" ? "pixel" : "pixel"
+                                                    activeGame === "syntax" ? "pixel" :
+                                                        activeGame === "genetic" ? "terra" :
+                                                            activeGame === "quantum" ? "terra" :
+                                                                activeGame === "market" ? "echo" :
+                                                                    activeGame === "orbit" ? "terra" :
+                                                                        activeGame === "cipher" ? "pixel" :
+                                                                            activeGame === "biome" ? "terra" :
+                                                                                activeGame === "rhythm" ? "terra" :
+                                                                                    activeGame === "tectonic" ? "terra" :
+                                                                                        activeGame === "flora" ? "terra" :
+                                                                                            activeGame === "bot" ? "pixel" :
+                                                                                                activeGame === "eco" ? "terra" :
+                                                                                                    activeGame === "aero" ? "pixel" :
+                                                                                                        activeGame === "histo" ? "echo" :
+                                                                                                            activeGame === "nano" ? "terra" :
+                                                                                                                activeGame === "quantum-quirk" ? "pixel" :
+                                                                                                                    activeGame === "star-steer" ? "luna" :
+                                                                                                                        activeGame === "logic-labyrinth" ? "pixel" :
+                                                                                                                            activeGame === "bio-blast" ? "terra" :
+                                                                                                                                activeGame === "ethos-engine" ? "echo" :
+                                                                                                                                    activeGame === "echo-expedition" ? "echo" :
+                                                                                                                                        activeGame === "terra-trek" ? "terra" : "pixel"
         }>
             <div className="max-w-6xl mx-auto px-4 py-12">
                 {/* Back Link */}
@@ -250,6 +502,27 @@ export default function NextGenGameGallery() {
                                 {activeGame === "canvas" && <CosmicCanvas />}
                                 {activeGame === "chronicle" && <ChronicleCase />}
                                 {activeGame === "syntax" && <SyntaxSerpent />}
+                                {activeGame === "genetic" && <GeneticGarden />}
+                                {activeGame === "quantum" && <QuantumQuest />}
+                                {activeGame === "market" && <MarketMaker />}
+                                {activeGame === "orbit" && <OrbitOperator />}
+                                {activeGame === "cipher" && <CipherCity />}
+                                {activeGame === "biome" && <BiomeBuilder />}
+                                {activeGame === "rhythm" && <RhythmRules />}
+                                {activeGame === "tectonic" && <TectonicTrek />}
+                                {activeGame === "flora" && <FloraFusion />}
+                                {activeGame === "bot" && <BotBuilder />}
+                                {activeGame === "eco" && <EcoEngineer />}
+                                {activeGame === "aero" && <AeroArchitect />}
+                                {activeGame === "histo" && <HistoHunt />}
+                                {activeGame === "nano" && <NanoNavigator />}
+                                {activeGame === "quantum-quirk" && <QuantumQuirk />}
+                                {activeGame === "star-steer" && <StarSteer />}
+                                {activeGame === "logic-labyrinth" && <LogicLabyrinth />}
+                                {activeGame === "bio-blast" && <BioBlast />}
+                                {activeGame === "ethos-engine" && <EthosEngine />}
+                                {activeGame === "echo-expedition" && <EchosExpedition />}
+                                {activeGame === "terra-trek" && <TerrasTrek />}
                             </div>
                         </motion.div>
                     )}

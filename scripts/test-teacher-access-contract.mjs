@@ -77,6 +77,31 @@ function createMockAdmin(resolver) {
   };
 }
 
+function createMockSupabase(resolver) {
+  return {
+    from(table) {
+      const state = { table, filters: {} };
+      const builder = {
+        select() {
+          return builder;
+        },
+        eq(column, value) {
+          state.filters[column] = value;
+          return builder;
+        },
+        async maybeSingle() {
+          const result = await resolver(state);
+          return {
+            data: result?.data ?? null,
+            error: result?.error ?? null,
+          };
+        },
+      };
+      return builder;
+    },
+  };
+}
+
 async function runWithResolver(resolver, input) {
   const admin = createMockAdmin(resolver);
   const contract = loadTranspiledTsModule(MODULE_PATH, {
@@ -92,6 +117,24 @@ async function runWithResolver(resolver, input) {
   return resolveVerifiedTeacherClassAccess(input);
 }
 
+async function runTeacherRoleResolver(resolver, input) {
+  const supabase = createMockSupabase(resolver);
+  const contract = loadTranspiledTsModule(MODULE_PATH, {
+    "@/lib/supabase/admin": { createSupabaseAdminClient: () => createMockAdmin(async () => ({ data: null, error: null })) },
+    "@/lib/logging/safe-error": { toSafeErrorRecord: (error) => error },
+  });
+
+  const resolveVerifiedTeacherRole = contract.resolveVerifiedTeacherRole;
+  if (typeof resolveVerifiedTeacherRole !== "function") {
+    throw new Error("Expected resolveVerifiedTeacherRole export.");
+  }
+
+  return resolveVerifiedTeacherRole({
+    ...input,
+    supabase,
+  });
+}
+
 async function main() {
   const contract = loadTranspiledTsModule(MODULE_PATH, {
     "@/lib/supabase/admin": { createSupabaseAdminClient: () => createMockAdmin(async () => ({ data: null, error: null })) },
@@ -104,6 +147,72 @@ async function main() {
   assert.ok(purposes.includes("testing_class_assignments"));
   assert.ok(purposes.includes("testing_class_enrollments"));
   console.log("PASS: teacher access purpose contract");
+
+  const rolePurposes = contract.TEACHER_ROLE_PURPOSES;
+  assert.ok(Array.isArray(rolePurposes), "Expected TEACHER_ROLE_PURPOSES array export.");
+  assert.ok(rolePurposes.includes("testing_classes_get"));
+  assert.ok(rolePurposes.includes("testing_classes_post"));
+  console.log("PASS: teacher role purpose contract");
+
+  const teacherRoleInvalidPurpose = await runTeacherRoleResolver(
+    async () => ({ data: null, error: null }),
+    {
+      userId: "teacher-1",
+      purpose: "invalid-purpose",
+    },
+  );
+  assert.equal(teacherRoleInvalidPurpose.ok, false);
+  if (!teacherRoleInvalidPurpose.ok) {
+    assert.equal(teacherRoleInvalidPurpose.status, 500);
+    assert.equal(teacherRoleInvalidPurpose.error, "Invalid teacher role access purpose.");
+  }
+  console.log("PASS: invalid teacher role purpose rejected");
+
+  const teacherRoleDbError = await runTeacherRoleResolver(
+    async () => ({ data: null, error: { message: "db unavailable" } }),
+    {
+      userId: "teacher-1",
+      purpose: "testing_classes_get",
+    },
+  );
+  assert.equal(teacherRoleDbError.ok, false);
+  if (!teacherRoleDbError.ok) {
+    assert.equal(teacherRoleDbError.status, 500);
+    assert.equal(teacherRoleDbError.error, "Database error.");
+  }
+  console.log("PASS: teacher role db error handling");
+
+  const notTeacherRole = await runTeacherRoleResolver(
+    async () => ({ data: { is_teacher: false }, error: null }),
+    {
+      userId: "teacher-1",
+      purpose: "testing_classes_get",
+    },
+  );
+  assert.equal(notTeacherRole.ok, false);
+  if (!notTeacherRole.ok) {
+    assert.equal(notTeacherRole.status, 403);
+    assert.equal(notTeacherRole.error, "Teacher role is required for this request.");
+  }
+  console.log("PASS: non-teacher role blocked");
+
+  const teacherRoleAllowed = await runTeacherRoleResolver(
+    async ({ table, filters }) => {
+      assert.equal(table, "user_profiles");
+      assert.equal(filters.user_id, "teacher-1");
+      return { data: { is_teacher: true }, error: null };
+    },
+    {
+      userId: "teacher-1",
+      purpose: "testing_classes_post",
+    },
+  );
+  assert.equal(teacherRoleAllowed.ok, true);
+  if (teacherRoleAllowed.ok) {
+    assert.equal(teacherRoleAllowed.teacherUserId, "teacher-1");
+    assert.equal(teacherRoleAllowed.purpose, "testing_classes_post");
+  }
+  console.log("PASS: teacher role success path");
 
   const baseInput = {
     userId: "teacher-1",

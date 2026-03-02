@@ -4,13 +4,35 @@ import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isMissingTestingTableError } from "@/lib/testing/api-utils";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
+import { resolveVerifiedTeacherRole } from "@/lib/compliance/teacher-access";
 
 const createClassSchema = z.object({
   name: z.string().min(2).max(120),
   maxSize: z.coerce.number().int().min(1).max(35).optional(),
 });
 
-export async function GET() {
+function rateLimitExceededResponse(retryAfterSeconds: number) {
+  return NextResponse.json(
+    { error: "Too many class requests. Please retry shortly." },
+    {
+      status: 429,
+      headers: {
+        "Retry-After": String(retryAfterSeconds),
+      },
+    },
+  );
+}
+
+export async function GET(request: Request) {
+  const rateLimit = await enforceIpRateLimit(request, "api:testing:classes:get", {
+    max: 60,
+    windowMs: 60_000,
+  });
+  if (!rateLimit.allowed) {
+    return rateLimitExceededResponse(rateLimit.retryAfterSeconds);
+  }
+
   const supabase = await createSupabaseServerClient();
   const {
     data: { user },
@@ -19,6 +41,15 @@ export async function GET() {
 
   if (authError || !user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const teacherRole = await resolveVerifiedTeacherRole({
+    supabase,
+    userId: user.id,
+    purpose: "testing_classes_get",
+  });
+  if (!teacherRole.ok) {
+    return NextResponse.json({ error: teacherRole.error }, { status: teacherRole.status });
   }
 
   const admin = createSupabaseAdminClient();
@@ -79,6 +110,14 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const rateLimit = await enforceIpRateLimit(request, "api:testing:classes:post", {
+    max: 30,
+    windowMs: 5 * 60 * 1000,
+  });
+  if (!rateLimit.allowed) {
+    return rateLimitExceededResponse(rateLimit.retryAfterSeconds);
+  }
+
   const supabase = await createSupabaseServerClient();
   const {
     data: { user },
@@ -87,6 +126,15 @@ export async function POST(request: Request) {
 
   if (authError || !user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const teacherRole = await resolveVerifiedTeacherRole({
+    supabase,
+    userId: user.id,
+    purpose: "testing_classes_post",
+  });
+  if (!teacherRole.ok) {
+    return NextResponse.json({ error: teacherRole.error }, { status: teacherRole.status });
   }
 
   const body = await request.json().catch(() => ({}));
@@ -132,5 +180,4 @@ export async function POST(request: Request) {
     },
   });
 }
-
 

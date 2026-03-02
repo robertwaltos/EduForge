@@ -172,7 +172,7 @@ export const PreKBiology101Module: LearningModule = {
     {
       "id": "prek-biology-l02",
       "title": "Pet Animals",
-      "type": "video",
+      "type": "interactive",
       "duration": 8,
       "objectives": [
         "Name five common pets: dog, cat, fish, hamster, rabbit",

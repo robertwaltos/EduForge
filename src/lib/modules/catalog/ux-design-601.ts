@@ -300,6 +300,81 @@ export const UxDesign601Module: LearningModule = {
           ],
           "correctOptionId": "b",
           "explanation": "Governance quality comes from linking policy intent to measurable controls and action."
+        },
+        {
+          "id": "ux-design-601-l03-q6",
+          "text": "In high-stakes UX Design Research and Leadership execution, which communication protocol is strongest?",
+          "skillId": "ux-design-601-skill-advanced-6",
+          "options": [
+            {
+              "id": "a",
+              "text": "Broadcast conclusions without assumptions"
+            },
+            {
+              "id": "b",
+              "text": "Publish assumptions, confidence ranges, and decision checkpoints to stakeholders"
+            },
+            {
+              "id": "c",
+              "text": "Share only final outcomes after completion"
+            },
+            {
+              "id": "d",
+              "text": "Limit updates to a single informal channel"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "High-stakes communication must expose assumptions, confidence, and checkpoints."
+        },
+        {
+          "id": "ux-design-601-l03-q7",
+          "text": "A mature remediation loop in advanced UX Design should prioritize:",
+          "skillId": "ux-design-601-skill-advanced-7",
+          "options": [
+            {
+              "id": "a",
+              "text": "Blame assignment without system updates"
+            },
+            {
+              "id": "b",
+              "text": "Root-cause analysis, control redesign, and measurable follow-up verification"
+            },
+            {
+              "id": "c",
+              "text": "One-time fixes without retesting"
+            },
+            {
+              "id": "d",
+              "text": "Issue closure based on elapsed time"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Mature remediation ties root causes to control redesign and verification."
+        },
+        {
+          "id": "ux-design-601-l03-q8",
+          "text": "Which portfolio decision rule best balances performance and resilience in UX Design Research and Leadership?",
+          "skillId": "ux-design-601-skill-advanced-8",
+          "options": [
+            {
+              "id": "a",
+              "text": "Maximize short-term gains regardless of concentration risk"
+            },
+            {
+              "id": "b",
+              "text": "Optimize for expected value while enforcing risk limits and contingency capacity"
+            },
+            {
+              "id": "c",
+              "text": "Ignore correlated failure modes"
+            },
+            {
+              "id": "d",
+              "text": "Commit all resources to one irreversible pathway"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Balanced portfolios combine value optimization with explicit risk limits and contingency options."
         }
       ]
     },
@@ -557,6 +632,81 @@ export const UxDesign601Module: LearningModule = {
           ],
           "correctOptionId": "b",
           "explanation": "Governance quality comes from linking policy intent to measurable controls and action."
+        },
+        {
+          "id": "ux-design-601-l06-q6",
+          "text": "In high-stakes UX Design Research and Leadership execution, which communication protocol is strongest?",
+          "skillId": "ux-design-601-skill-advanced-6",
+          "options": [
+            {
+              "id": "a",
+              "text": "Broadcast conclusions without assumptions"
+            },
+            {
+              "id": "b",
+              "text": "Publish assumptions, confidence ranges, and decision checkpoints to stakeholders"
+            },
+            {
+              "id": "c",
+              "text": "Share only final outcomes after completion"
+            },
+            {
+              "id": "d",
+              "text": "Limit updates to a single informal channel"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "High-stakes communication must expose assumptions, confidence, and checkpoints."
+        },
+        {
+          "id": "ux-design-601-l06-q7",
+          "text": "A mature remediation loop in advanced UX Design should prioritize:",
+          "skillId": "ux-design-601-skill-advanced-7",
+          "options": [
+            {
+              "id": "a",
+              "text": "Blame assignment without system updates"
+            },
+            {
+              "id": "b",
+              "text": "Root-cause analysis, control redesign, and measurable follow-up verification"
+            },
+            {
+              "id": "c",
+              "text": "One-time fixes without retesting"
+            },
+            {
+              "id": "d",
+              "text": "Issue closure based on elapsed time"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Mature remediation ties root causes to control redesign and verification."
+        },
+        {
+          "id": "ux-design-601-l06-q8",
+          "text": "Which portfolio decision rule best balances performance and resilience in UX Design Research and Leadership?",
+          "skillId": "ux-design-601-skill-advanced-8",
+          "options": [
+            {
+              "id": "a",
+              "text": "Maximize short-term gains regardless of concentration risk"
+            },
+            {
+              "id": "b",
+              "text": "Optimize for expected value while enforcing risk limits and contingency capacity"
+            },
+            {
+              "id": "c",
+              "text": "Ignore correlated failure modes"
+            },
+            {
+              "id": "d",
+              "text": "Commit all resources to one irreversible pathway"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Balanced portfolios combine value optimization with explicit risk limits and contingency options."
         }
       ]
     },

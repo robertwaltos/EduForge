@@ -1,5 +1,6 @@
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 export const TEACHER_ACCESS_PURPOSES = [
   "placement_history_teacher_scope",
@@ -11,6 +12,29 @@ export const TEACHER_ACCESS_PURPOSES = [
 export type TeacherAccessPurpose = (typeof TEACHER_ACCESS_PURPOSES)[number];
 
 const PURPOSE_SET = new Set<string>(TEACHER_ACCESS_PURPOSES);
+
+export const TEACHER_ROLE_PURPOSES = [
+  "testing_classes_get",
+  "testing_classes_post",
+] as const;
+
+export type TeacherRolePurpose = (typeof TEACHER_ROLE_PURPOSES)[number];
+
+const ROLE_PURPOSE_SET = new Set<string>(TEACHER_ROLE_PURPOSES);
+
+type TeacherRoleAccessSuccess = {
+  ok: true;
+  purpose: TeacherRolePurpose;
+  teacherUserId: string;
+};
+
+type TeacherRoleAccessFailure = {
+  ok: false;
+  status: number;
+  error: string;
+};
+
+export type TeacherRoleAccessResult = TeacherRoleAccessSuccess | TeacherRoleAccessFailure;
 
 type TeacherAccessSuccess = {
   ok: true;
@@ -39,6 +63,42 @@ function isClassroomTableMissingError(message: string | undefined) {
     normalized.includes("class_enrollments") ||
     normalized.includes("testing/classroom")
   );
+}
+
+export async function resolveVerifiedTeacherRole(input: {
+  supabase: SupabaseClient;
+  userId: string;
+  purpose: TeacherRolePurpose;
+}): Promise<TeacherRoleAccessResult> {
+  const { supabase, userId, purpose } = input;
+
+  if (!ROLE_PURPOSE_SET.has(purpose)) {
+    return { ok: false, status: 500, error: "Invalid teacher role access purpose." };
+  }
+
+  const { data: teacherProfile, error: teacherProfileError } = await supabase
+    .from("user_profiles")
+    .select("is_teacher")
+    .eq("user_id", userId)
+    .maybeSingle();
+
+  if (teacherProfileError) {
+    console.error(
+      `[compliance/teacher-access] teacher role lookup failed (${purpose})`,
+      toSafeErrorRecord(teacherProfileError),
+    );
+    return { ok: false, status: 500, error: "Database error." };
+  }
+
+  if (!teacherProfile?.is_teacher) {
+    return { ok: false, status: 403, error: "Teacher role is required for this request." };
+  }
+
+  return {
+    ok: true,
+    purpose,
+    teacherUserId: userId,
+  };
 }
 
 export async function resolveVerifiedTeacherClassAccess(input: {

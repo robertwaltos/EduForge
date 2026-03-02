@@ -5,7 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { JUICY_SPRINGS, JUICY_VARIANTS } from "@/lib/experience/interaction-primitives";
 import MascotFriend from "./KoydoMascotFriends";
 import { hapticSelection, hapticSuccess } from "@/lib/platform/haptics";
-import { Brain, Flame, Atom, Palette, Cpu, Rocket, ShieldCheck, Beaker, Zap, Box, Search, ChevronRight, Code } from "lucide-react";
+import { Brain, Flame, Atom, Palette, Cpu, Rocket, ShieldCheck, Beaker, Zap, Box, Search, ChevronRight, Code, Leaf, TrendingUp, Globe, TreePine, Music, Mountain, Bot, Wind, History as HistoryIcon, Microscope, Navigation, Grid3X3, ShieldAlert, Scale, Compass, Building2, Construction } from "lucide-react";
 import Link from "next/link";
 
 interface PlanetNode {
@@ -34,7 +34,16 @@ const PLANETS: PlanetNode[] = [
         progress: 85,
         games: [
             { id: "neural", title: "Neural Navigator", icon: Brain },
-            { id: "synthesis", title: "Synthesis Sphere", icon: Beaker }
+            { id: "synthesis", title: "Synthesis Sphere", icon: Beaker },
+            { id: "genetic", title: "Genetic Garden", icon: Leaf },
+            { id: "cipher", title: "Cipher City", icon: ShieldCheck },
+            { id: "biome", title: "Biome Builder", icon: TreePine },
+            { id: "tectonic", title: "Tectonic Trek", icon: Mountain },
+            { id: "flora", title: "Flora Fusion", icon: Leaf },
+            { id: "eco", title: "Eco Engineer", icon: Leaf },
+            { id: "nano", title: "Nano Navigator", icon: Microscope },
+            { id: "bio-blast", title: "Bio Blast", icon: ShieldAlert },
+            { id: "terra-trek", title: "Terra's Trek", icon: Leaf }
         ]
     },
     {
@@ -49,7 +58,11 @@ const PLANETS: PlanetNode[] = [
         progress: 60,
         games: [
             { id: "fraction", title: "Fraction Forge", icon: Flame },
-            { id: "velocity", title: "Velocity Vector", icon: Zap }
+            { id: "velocity", title: "Velocity Vector", icon: Zap },
+            { id: "quantum", title: "Quantum Quest", icon: Atom },
+            { id: "market", title: "Market Maker", icon: TrendingUp },
+            { id: "orbit", title: "Orbit Operator", icon: Globe },
+            { id: "star-steer", title: "Star Steer", icon: Navigation }
         ]
     },
     {
@@ -64,7 +77,11 @@ const PLANETS: PlanetNode[] = [
         progress: 45,
         games: [
             { id: "vocabulary", title: "Vocabulary Voyager", icon: Rocket },
-            { id: "chronicle", title: "Chronicle Case", icon: Search }
+            { id: "chronicle", title: "Chronicle Case", icon: Search },
+            { id: "aero", title: "Aero Architect", icon: Wind },
+            { id: "histo", title: "Histo Hunt", icon: HistoryIcon },
+            { id: "ethos-engine", title: "Ethos Engine", icon: Scale },
+            { id: "echo-expedition", title: "Echo's Expedition", icon: Compass }
         ]
     },
     {
@@ -80,7 +97,10 @@ const PLANETS: PlanetNode[] = [
         games: [
             { id: "ethical", title: "Ethical Engine", icon: ShieldCheck },
             { id: "logic", title: "Logical Link", icon: Cpu },
-            { id: "syntax", title: "Syntax Serpent", icon: Code }
+            { id: "syntax", title: "Syntax Serpent", icon: Code },
+            { id: "bot", title: "Bot Builder", icon: Bot },
+            { id: "quantum-quirk", title: "Quantum Quirk", icon: Atom },
+            { id: "logic-labyrinth", title: "Logic Labyrinth", icon: Grid3X3 }
         ]
     },
     {
@@ -95,7 +115,8 @@ const PLANETS: PlanetNode[] = [
         progress: 30,
         games: [
             { id: "artistic", title: "Artistic Algorithms", icon: Palette },
-            { id: "canvas", title: "Cosmic Canvas", icon: Box }
+            { id: "canvas", title: "Cosmic Canvas", icon: Box },
+            { id: "rhythm", title: "Rhythm Rules", icon: Music }
         ]
     }
 ];

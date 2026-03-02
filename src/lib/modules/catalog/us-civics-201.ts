@@ -167,7 +167,7 @@ export const UsCivics201Module: LearningModule = {
     {
       "id": "us-civics-201-l02",
       "title": "The Bill of Rights",
-      "type": "video",
+      "type": "interactive",
       "duration": 13,
       "chunks": [
         {

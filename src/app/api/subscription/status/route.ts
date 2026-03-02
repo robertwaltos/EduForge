@@ -4,6 +4,7 @@ import { cookies } from 'next/headers';
 import { toSafeErrorRecord } from '@/lib/logging/safe-error';
 import { serverEnv } from '@/lib/config/env';
 import { resolveCadenceFromProductId } from '@/lib/billing/revenuecat-matrix';
+import { enforceIpRateLimit } from '@/lib/security/ip-rate-limit';
 
 /**
  * GET /api/subscription/status
@@ -22,8 +23,28 @@ import { resolveCadenceFromProductId } from '@/lib/billing/revenuecat-matrix';
  *   managementUrl: string | null;
  * }
  */
-export async function GET() {
+function rateLimitExceededResponse(retryAfterSeconds: number) {
+  return NextResponse.json(
+    { error: 'Too many requests. Please retry shortly.' },
+    {
+      status: 429,
+      headers: {
+        'Retry-After': String(retryAfterSeconds),
+      },
+    },
+  );
+}
+
+export async function GET(request: Request) {
   try {
+    const rateLimit = await enforceIpRateLimit(request, 'api:subscription:status:get', {
+      max: 120,
+      windowMs: 60 * 1000,
+    });
+    if (!rateLimit.allowed) {
+      return rateLimitExceededResponse(rateLimit.retryAfterSeconds);
+    }
+
     const cookieStore = await cookies();
 
     const supabase = createServerClient(

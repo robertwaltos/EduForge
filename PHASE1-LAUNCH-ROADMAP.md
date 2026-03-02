@@ -1,6 +1,6 @@
 # Koydo V1 Launch Roadmap
 
-Last Updated: 2026-03-02 (teacher access contract harness + legal gate coverage checks)
+Last Updated: 2026-03-02 (billing webhook retention cleanup tooling + teacher class role hardening)
 Owner: Koydo Core Team (Claude Code + Codex + Gemini)
 
 > **Coordination doc**: See `V1-LAUNCH-COORDINATION.md` (project root) for agent
@@ -143,6 +143,10 @@ Ship the highest-value content experience first: stable media pipeline, reviewed
 | P1-79 | Codex: Teacher class endpoint hardening (shared auth guard + abuse controls) | DONE | Codex | Replaced duplicated teacher ownership checks in `GET /api/testing/classes/[classId]/analytics`, `GET/POST /api/testing/classes/[classId]/enrollments`, and `GET/POST /api/testing/classes/[classId]/assignments` with shared `resolveVerifiedTeacherClassAccess` purpose-scoped enforcement. Added route-level rate limits for all five teacher class endpoints and expanded `scripts/check-api-rate-limit-coverage.mjs` guard contract checks to include them. |
 | P1-80 | Codex: Testing content licensing fail-closed guardrails (legal hardening) | DONE | Codex | Hardened `POST /api/testing/exams/[examId]/start` and `POST /api/testing/attempts/[attemptId]/submit` to enforce governed question-bank serving (`review_status=approved` + `commercial_use_allowed=true`) and fail closed in production when governance columns are missing. Added controlled dev override via `LEGAL_ALLOW_LEGACY_TESTING_QUESTION_BANK=1`; submit path now blocks attempts that reference restricted/unapproved question content in governed mode. Added guard coverage script `scripts/check-testing-content-legal-guard-coverage.mjs` (`npm run security:testing-content-legal-guard:check`). |
 | P1-81 | Codex: Teacher access contract-test harness | DONE | Codex | Added `scripts/test-teacher-access-contract.mjs` with mocked Supabase query chains to validate `resolveVerifiedTeacherClassAccess` behavior across invalid purpose, missing table, class ownership, enrollment, and parent-consent gating scenarios. Added npm script `teacher:access:contract:test` to keep teacher authorization policy changes regression-safe. |
+| P1-82 | Codex: Billing webhook auth/replay hardening + guard-contract automation | DONE | Codex | Hardened `POST /api/stripe/webhook` with explicit signature tolerance (`STRIPE_WEBHOOK_SIGNATURE_TOLERANCE_SECONDS`), empty-payload rejection, and production test-mode (`livemode=false`) event blocking. Hardened `POST /api/revenuecat/webhook` with non-mutating alias-event handling (`SUBSCRIBER_ALIAS` no-op), strict purchase-event `product_id` requirements, app/product identifier length checks, and timestamp-range validation before subscription upsert. Extended release gates with new marker checks (`scripts/check-billing-webhook-hardening-coverage.mjs`, `npm run security:billing-webhook-hardening:check`), preflight integration, and added billing webhook routes to API rate-limit guard coverage (`Checked: 39`). |
+| P1-83 | Codex: Billing checkout/portal/status abuse-guard contract expansion | DONE | Codex | Added route-level rate limiting to `GET /api/subscription/status` (`api:subscription:status:get`) and expanded `scripts/check-api-rate-limit-coverage.mjs` to enforce abuse-guard markers across billing checkout surfaces: `POST /api/stripe/checkout`, `POST /api/stripe/checkout/gift`, `POST /api/stripe/checkout/organization`, `POST /api/stripe/portal`, plus subscription-status reads. Guard coverage check now validates 44 protected high-cost/sensitive routes. |
+| P1-84 | Codex: Teacher class index/create role hardening + route guard contract | DONE | Codex | Hardened `GET/POST /api/testing/classes` with explicit teacher-role verification via shared `resolveVerifiedTeacherRole` (`src/lib/compliance/teacher-access.ts`) and route-level IP throttling (`api:testing:classes:get`, `api:testing:classes:post`). Expanded teacher compliance contract test coverage (`scripts/test-teacher-access-contract.mjs`) for role-purpose validation + non-teacher rejection paths, and extended API abuse coverage checks to include class index/create route markers (`Checked: 45`). |
+| P1-85 | Codex: Billing webhook event retention/cleanup strategy (safe-bounds tooling) | DONE | Codex | Added operational cleanup utility `scripts/cleanup-billing-webhook-events.mjs` with default dry-run mode, bounded age/deletion windows, per-table summaries, and optional failed-event inclusion. Script targets both `stripe_webhook_events` and `revenuecat_webhook_events` with safe defaults (`--max-age-days 120`, `--max-delete-per-table 1000`) and graceful missing-table handling. Added npm command `billing:webhook:events:cleanup` for scheduled/ops execution. |
 
 ## Tranche 3: Audiobook & Voice Infrastructure
 
@@ -412,39 +416,22 @@ Before store submission:
 ## Agent Ownership Update (2026-03-02)
 - Owner: Codex agent (this thread)
 - Scope claimed:
-  - Full 100-400 completion ownership for established tracks, including all Wave 1/2/3 expansion closures.
-  - Post-401 specialization ownership (501/601 delivered across 8 tracks).
-  - Interdisciplinary capstone ownership:
-    - `capstone-smart-city-systems-501/601`
-    - `capstone-human-health-ai-501/601`
-  - Ongoing ownership of module-flow hardening, quiz depth, and capstone defense alignment for these tracks.
-- Primary files in active scope (latest tranche):
-  - `eduforge-web/src/lib/modules/catalog/ai-machine-learning-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/ai-machine-learning-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/ai-workflows-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/ai-workflows-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/cloud-computing-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/cloud-computing-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/cybersecurity-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/cybersecurity-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/data-science-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/data-science-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/biotechnology-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/biotechnology-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/ux-design-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/ux-design-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/entrepreneurship-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/entrepreneurship-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/capstone-smart-city-systems-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/capstone-smart-city-systems-601.ts`
-  - `eduforge-web/src/lib/modules/catalog/capstone-human-health-ai-501.ts`
-  - `eduforge-web/src/lib/modules/catalog/capstone-human-health-ai-601.ts`
+  - Full 100-400 completion ownership for established and expansion tracks, including all delivered wave closures.
+  - Post-401 specialization ownership (501/601 delivered across baseline and newly added track families).
+  - Full interdisciplinary capstone ownership (all proposed capstone families delivered).
+  - Ongoing ownership of module-flow hardening, quiz depth, and capstone defense alignment across these tracks.
+- Primary files in active scope (latest specialization tranche):
+  - `eduforge-web/src/lib/modules/catalog/*-501.ts` and `eduforge-web/src/lib/modules/catalog/*-601.ts` (catalog-wide specialization closure across all tracks).
+  - `eduforge-web/src/lib/modules/catalog/capstone-*-501.ts` and `eduforge-web/src/lib/modules/catalog/capstone-*-601.ts`.
   - `eduforge-web/CURRICULUM-EXPANSION-PROPOSALS-2026.md`
   - `eduforge-web/PRODUCT-BACKLOG-EPICS.md`
 - Current status:
-  - Curriculum sync and validation are green after specialization + capstone expansion: `npm run modules:sync` -> 531 modules; `npm run curriculum:validate` -> 401 modules, 0 errors, 0 warnings.
-  - Module-level 101-401 coverage remains fully closed and expanded: 83/83 tracks complete.
-  - Curriculum quality report remains strong (average score ~99.75) with 0 medium-priority modules.
+  - Curriculum sync and validation are green after catalog-wide specialization closure: `npm run modules:sync` -> 715 modules; `npm run curriculum:validate` -> 585 modules, 0 errors, 0 warnings.
+  - Module-level 101-401 coverage remains fully closed and expanded: 88/88 tracks complete.
+  - Post-401 specialization closure is now complete: 88/88 tracks include both 501 and 601 modules.
+  - Advanced assessment-depth hardening is complete: every 501/601 checkpoint quiz now contains 8 questions (2,944 total advanced checkpoint questions across 368 quizzes).
+  - Automated depth-regression guard is in place: `npm run curriculum:advanced-quiz-depth:check` validates minimum 8-question coverage for all 501/601 quizzes.
+  - Curriculum quality report remains strong (average score 100, 0 medium-priority modules, 0 no-interactive flags).
 - Coordination request to other agents:
   - Do not modify files listed in this ownership scope without explicit coordination in handoff docs.
   - Route overlap proposals through this handoff update section first.

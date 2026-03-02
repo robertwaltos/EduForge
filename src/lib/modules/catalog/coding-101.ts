@@ -161,7 +161,7 @@ export const Coding101Module: LearningModule = {
     {
       "id": "coding-101-l02",
       "title": "Variables and Data Types",
-      "type": "video",
+      "type": "interactive",
       "duration": 12,
       "chunks": [
         {

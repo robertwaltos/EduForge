@@ -246,6 +246,106 @@ export const CapstoneSmartCitySystems501Module: LearningModule = {
           ],
           "correctOptionId": "b",
           "explanation": "Capstone maturity comes from linking policy to metrics and response execution."
+        },
+        {
+          "id": "capstone-smart-city-systems-501-l03-q5",
+          "text": "What is the best way to compare competing interventions in advanced Interdisciplinary Studies?",
+          "skillId": "capstone-smart-city-systems-501-skill-advanced-5",
+          "options": [
+            {
+              "id": "a",
+              "text": "Choose the option with the most persuasive narrative"
+            },
+            {
+              "id": "b",
+              "text": "Score alternatives against shared metrics, side effects, and uncertainty bounds"
+            },
+            {
+              "id": "c",
+              "text": "Switch metrics after results arrive"
+            },
+            {
+              "id": "d",
+              "text": "Prioritize whichever option has the shortest memo"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Defensible comparisons require shared metrics, side-effect accounting, and uncertainty disclosure."
+        },
+        {
+          "id": "capstone-smart-city-systems-501-l03-q6",
+          "text": "In high-stakes Capstone Smart City Systems Studio execution, which communication protocol is strongest?",
+          "skillId": "capstone-smart-city-systems-501-skill-advanced-6",
+          "options": [
+            {
+              "id": "a",
+              "text": "Broadcast conclusions without assumptions"
+            },
+            {
+              "id": "b",
+              "text": "Publish assumptions, confidence ranges, and decision checkpoints to stakeholders"
+            },
+            {
+              "id": "c",
+              "text": "Share only final outcomes after completion"
+            },
+            {
+              "id": "d",
+              "text": "Limit updates to a single informal channel"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "High-stakes communication must expose assumptions, confidence, and checkpoints."
+        },
+        {
+          "id": "capstone-smart-city-systems-501-l03-q7",
+          "text": "A mature remediation loop in advanced Interdisciplinary Studies should prioritize:",
+          "skillId": "capstone-smart-city-systems-501-skill-advanced-7",
+          "options": [
+            {
+              "id": "a",
+              "text": "Blame assignment without system updates"
+            },
+            {
+              "id": "b",
+              "text": "Root-cause analysis, control redesign, and measurable follow-up verification"
+            },
+            {
+              "id": "c",
+              "text": "One-time fixes without retesting"
+            },
+            {
+              "id": "d",
+              "text": "Issue closure based on elapsed time"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Mature remediation ties root causes to control redesign and verification."
+        },
+        {
+          "id": "capstone-smart-city-systems-501-l03-q8",
+          "text": "Which portfolio decision rule best balances performance and resilience in Capstone Smart City Systems Studio?",
+          "skillId": "capstone-smart-city-systems-501-skill-advanced-8",
+          "options": [
+            {
+              "id": "a",
+              "text": "Maximize short-term gains regardless of concentration risk"
+            },
+            {
+              "id": "b",
+              "text": "Optimize for expected value while enforcing risk limits and contingency capacity"
+            },
+            {
+              "id": "c",
+              "text": "Ignore correlated failure modes"
+            },
+            {
+              "id": "d",
+              "text": "Commit all resources to one irreversible pathway"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Balanced portfolios combine value optimization with explicit risk limits and contingency options."
         }
       ]
     },
@@ -403,6 +503,106 @@ export const CapstoneSmartCitySystems501Module: LearningModule = {
           ],
           "correctOptionId": "b",
           "explanation": "Capstone maturity comes from linking policy to metrics and response execution."
+        },
+        {
+          "id": "capstone-smart-city-systems-501-l05-q5",
+          "text": "What is the best way to compare competing interventions in advanced Interdisciplinary Studies?",
+          "skillId": "capstone-smart-city-systems-501-skill-advanced-5",
+          "options": [
+            {
+              "id": "a",
+              "text": "Choose the option with the most persuasive narrative"
+            },
+            {
+              "id": "b",
+              "text": "Score alternatives against shared metrics, side effects, and uncertainty bounds"
+            },
+            {
+              "id": "c",
+              "text": "Switch metrics after results arrive"
+            },
+            {
+              "id": "d",
+              "text": "Prioritize whichever option has the shortest memo"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Defensible comparisons require shared metrics, side-effect accounting, and uncertainty disclosure."
+        },
+        {
+          "id": "capstone-smart-city-systems-501-l05-q6",
+          "text": "In high-stakes Capstone Smart City Systems Studio execution, which communication protocol is strongest?",
+          "skillId": "capstone-smart-city-systems-501-skill-advanced-6",
+          "options": [
+            {
+              "id": "a",
+              "text": "Broadcast conclusions without assumptions"
+            },
+            {
+              "id": "b",
+              "text": "Publish assumptions, confidence ranges, and decision checkpoints to stakeholders"
+            },
+            {
+              "id": "c",
+              "text": "Share only final outcomes after completion"
+            },
+            {
+              "id": "d",
+              "text": "Limit updates to a single informal channel"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "High-stakes communication must expose assumptions, confidence, and checkpoints."
+        },
+        {
+          "id": "capstone-smart-city-systems-501-l05-q7",
+          "text": "A mature remediation loop in advanced Interdisciplinary Studies should prioritize:",
+          "skillId": "capstone-smart-city-systems-501-skill-advanced-7",
+          "options": [
+            {
+              "id": "a",
+              "text": "Blame assignment without system updates"
+            },
+            {
+              "id": "b",
+              "text": "Root-cause analysis, control redesign, and measurable follow-up verification"
+            },
+            {
+              "id": "c",
+              "text": "One-time fixes without retesting"
+            },
+            {
+              "id": "d",
+              "text": "Issue closure based on elapsed time"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Mature remediation ties root causes to control redesign and verification."
+        },
+        {
+          "id": "capstone-smart-city-systems-501-l05-q8",
+          "text": "Which portfolio decision rule best balances performance and resilience in Capstone Smart City Systems Studio?",
+          "skillId": "capstone-smart-city-systems-501-skill-advanced-8",
+          "options": [
+            {
+              "id": "a",
+              "text": "Maximize short-term gains regardless of concentration risk"
+            },
+            {
+              "id": "b",
+              "text": "Optimize for expected value while enforcing risk limits and contingency capacity"
+            },
+            {
+              "id": "c",
+              "text": "Ignore correlated failure modes"
+            },
+            {
+              "id": "d",
+              "text": "Commit all resources to one irreversible pathway"
+            }
+          ],
+          "correctOptionId": "b",
+          "explanation": "Balanced portfolios combine value optimization with explicit risk limits and contingency options."
         }
       ]
     },

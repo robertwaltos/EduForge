@@ -161,7 +161,7 @@ export const Arts101Module: LearningModule = {
     {
       "id": "arts-101-l02",
       "title": "The Color Wheel",
-      "type": "video",
+      "type": "interactive",
       "duration": 12,
       "chunks": [
         {

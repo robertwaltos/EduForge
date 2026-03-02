@@ -177,7 +177,7 @@ export const Astronomy101Module: LearningModule = {
     {
       "id": "astronomy-101-l02",
       "title": "The Sun",
-      "type": "video",
+      "type": "interactive",
       "duration": 12,
       "chunks": [
         {

@@ -124,6 +124,11 @@ Last Updated: 2026-03-02
 - Status update (2026-03-02): teacher authorization contract harness added via
   `npm run teacher:access:contract:test` (`scripts/test-teacher-access-contract.mjs`)
   to lock class ownership + enrollment + parent-consent enforcement behavior.
+- Status update (2026-03-02): teacher class index/create surface hardening completed for
+  `GET/POST /api/testing/classes` by adding explicit teacher-role verification through
+  shared compliance helper `resolveVerifiedTeacherRole` plus route-level throttles
+  (`api:testing:classes:get`, `api:testing:classes:post`). Teacher contract harness now
+  also validates role-purpose checks and non-teacher rejection paths.
 - Acceptance criteria:
   - Dashboard shows per-skill mastery and trend.
   - Alerting identifies at-risk learners.
@@ -177,6 +182,12 @@ Last Updated: 2026-03-02
   when governance columns are missing and to enforce approved/commercially-allowed
   question scope during governed-mode attempt submission. Added automated marker
   coverage check via `npm run security:testing-content-legal-guard:check`.
+- Status update (2026-03-02): webhook compliance hardening added for billing ingestion:
+  Stripe now enforces explicit signature tolerance and blocks test-mode events in production,
+  RevenueCat now treats `SUBSCRIBER_ALIAS` as non-mutating and enforces strict purchase payload
+  validation (`product_id` required for purchase events, bounded identifier length, timestamp sanity checks).
+  Added automated billing marker coverage check via
+  `npm run security:billing-webhook-hardening:check`.
 - Acceptance criteria:
   - Every ingest entry has provenance status.
   - Pending rights content is excluded from production serving.
@@ -201,6 +212,23 @@ Last Updated: 2026-03-02
   processing by honoring active `processing` locks and optimistic status-guarded claims.
   Added shared lock helper `src/lib/billing/webhook-processing-lock.ts` and contract test
   `scripts/test-billing-webhook-processing-lock.mjs`.
+- Status update (2026-03-02): webhook resilience and contract gates strengthened:
+  Stripe now rejects empty payloads and enforces explicit signature replay tolerance,
+  production blocks `livemode=false` events, and RevenueCat prevents alias events from
+  mutating subscriptions while rejecting malformed purchase payloads early.
+  Billing webhook protections are now codified in release automation through
+  `scripts/check-billing-webhook-hardening-coverage.mjs` and preflight integration.
+- Status update (2026-03-02): billing abuse-guard coverage expanded across checkout
+  and account-management surfaces. Added route-level limiter to
+  `GET /api/subscription/status` (`api:subscription:status:get`) and extended
+  `scripts/check-api-rate-limit-coverage.mjs` to enforce markers for
+  `POST /api/stripe/checkout`, `POST /api/stripe/checkout/gift`,
+  `POST /api/stripe/checkout/organization`, and `POST /api/stripe/portal`.
+- Status update (2026-03-02): webhook retention/cleanup strategy added with bounded
+  operational tooling `scripts/cleanup-billing-webhook-events.mjs` (default dry-run,
+  age threshold + per-table delete caps, optional failed-event inclusion) for both
+  `stripe_webhook_events` and `revenuecat_webhook_events`. Added npm command
+  `billing:webhook:events:cleanup` for scheduled maintenance windows.
 - Acceptance criteria:
   - Compatibility suite passes current app billing flows.
   - Dashboard parity for offerings/packages/entitlements/customers.
@@ -234,6 +262,48 @@ Last Updated: 2026-03-02
   `capstone-smart-city-systems-501/601` and `capstone-human-health-ai-501/601`
   (4 modules total). Capstone acceptance criteria now includes delivered multi-domain
   defense modules with simulation + debate-style evaluation.
+- Status update (2026-03-02): remaining proposed family tracks now shipped with full
+  101/201/301/401 ladders for `developer-tools-devops`, `geoscience`,
+  `nutrition-science`, `mental-health-literacy`, and `comparative-politics`
+  (20 modules total). Catalog growth and quality gates remain green.
+- Status update (2026-03-02): additional interdisciplinary capstones now shipped with
+  `capstone-climate-and-economy-501/601` and
+  `capstone-media-and-democracy-501/601` (4 modules total), completing all capstone
+  proposals defined in the expansion plan.
+- Status update (2026-03-02): advanced specialization extension shipped with
+  `developer-tools-devops-501/601`, `geoscience-501/601`,
+  `nutrition-science-501/601`, `mental-health-literacy-501/601`, and
+  `comparative-politics-501/601` (10 modules total), extending post-401 depth across
+  newly delivered track families.
+- Status update (2026-03-02): advanced specialization extension tranche 2 shipped with
+  `oceanography-501/601`, `international-relations-501/601`,
+  `sports-science-501/601`, `public-health-501/601`, and
+  `distributed-systems-501/601` (10 modules total), extending post-401 depth across
+  additional previously expanded track families while preserving green validation and
+  quality gates.
+- Status update (2026-03-02): advanced specialization extension tranche 3 shipped with
+  `ai-safety-alignment-501/601`, `data-engineering-501/601`,
+  `climate-science-501/601`, `neuroscience-501/601`, and
+  `media-literacy-501/601` (10 modules total), extending post-401 depth across
+  early expansion-wave tracks while preserving green validation and quality gates.
+- Status update (2026-03-02): advanced specialization extension tranche 4 shipped with
+  `negotiation-conflict-resolution-501/601`, `sustainability-policy-501/601`,
+  `ethics-of-technology-501/601`, `quantum-computing-501/601`, and
+  `space-missions-engineering-501/601` (10 modules total), extending post-401
+  depth across remaining expansion-wave tracks while preserving green validation
+  and quality gates.
+- Status update (2026-03-02): advanced specialization extension tranche 5 shipped with
+  full 501/601 coverage for the remaining 60 tracks that previously ended at 401
+  (120 modules total), closing specialization depth across the entire 88-track
+  curriculum. Validation and quality gates remain green at `npm run modules:sync`
+  = 715 modules, `npm run curriculum:validate` = 585 modules, and quality score 100.
+- Status update (2026-03-02): post-401 assessment-depth hardening shipped across all
+  advanced modules. Every 501/601 checkpoint quiz now has 8 questions (up from ~4),
+  adding 1,440 new high-rigor questions and bringing advanced checkpoint coverage to
+  2,944 questions across 368 quizzes, while preserving green validation and quality gates.
+- Status update (2026-03-02): regression guard added for advanced assessment depth via
+  `npm run curriculum:advanced-quiz-depth:check` (`scripts/check-advanced-quiz-depth.mjs`),
+  enforcing minimum 8-question coverage for every 501/601 quiz checkpoint in CI/preflight flows.
 - Acceptance criteria:
   - At least 5 new tracks launched with complete 101/201/301/401 ladders.
   - At least 3 established tracks gain 501/601 specialization modules.

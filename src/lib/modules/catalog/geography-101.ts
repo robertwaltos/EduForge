@@ -161,7 +161,7 @@ export const Geography101Module: LearningModule = {
     {
       "id": "geography-101-l02",
       "title": "Reading Maps",
-      "type": "video",
+      "type": "interactive",
       "duration": 12,
       "chunks": [
         {

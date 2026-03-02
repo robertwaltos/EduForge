@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-03-02T05:43:03.749Z",
+  "generatedAt": "2026-03-02T06:16:41.458Z",
   "totals": {
-    "tracksAnalyzed": 83,
-    "completeTracks": 83,
+    "tracksAnalyzed": 88,
+    "completeTracks": 88,
     "partialTracks": 0,
     "startedTracks": 0,
     "singleLevelTracks": 0
@@ -417,6 +417,30 @@
       ]
     },
     {
+      "trackId": "comparative-politics",
+      "trackTitle": "Comparative Politics",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "comparative-politics-101",
+        "comparative-politics-201",
+        "comparative-politics-301",
+        "comparative-politics-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/comparative-politics-101.ts",
+        "src/lib/modules/catalog/comparative-politics-201.ts",
+        "src/lib/modules/catalog/comparative-politics-301.ts",
+        "src/lib/modules/catalog/comparative-politics-401.ts"
+      ]
+    },
+    {
       "trackId": "cpu-gpu-memory-design",
       "trackTitle": "Cpu Gpu Memory Design",
       "levelsPresent": [
@@ -510,6 +534,30 @@
         "src/lib/modules/catalog/data-science-201.ts",
         "src/lib/modules/catalog/data-science-301.ts",
         "src/lib/modules/catalog/data-science-401.ts"
+      ]
+    },
+    {
+      "trackId": "developer-tools-devops",
+      "trackTitle": "Developer Tools Devops",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "developer-tools-devops-101",
+        "developer-tools-devops-201",
+        "developer-tools-devops-301",
+        "developer-tools-devops-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/developer-tools-devops-101.ts",
+        "src/lib/modules/catalog/developer-tools-devops-201.ts",
+        "src/lib/modules/catalog/developer-tools-devops-301.ts",
+        "src/lib/modules/catalog/developer-tools-devops-401.ts"
       ]
     },
     {
@@ -822,6 +870,30 @@
         "src/lib/modules/catalog/geography-201.ts",
         "src/lib/modules/catalog/geography-301.ts",
         "src/lib/modules/catalog/geography-401.ts"
+      ]
+    },
+    {
+      "trackId": "geoscience",
+      "trackTitle": "Geoscience",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "geoscience-101",
+        "geoscience-201",
+        "geoscience-301",
+        "geoscience-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/geoscience-101.ts",
+        "src/lib/modules/catalog/geoscience-201.ts",
+        "src/lib/modules/catalog/geoscience-301.ts",
+        "src/lib/modules/catalog/geoscience-401.ts"
       ]
     },
     {
@@ -1161,6 +1233,30 @@
       ]
     },
     {
+      "trackId": "mental-health-literacy",
+      "trackTitle": "Mental Health Literacy",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "mental-health-literacy-101",
+        "mental-health-literacy-201",
+        "mental-health-literacy-301",
+        "mental-health-literacy-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/mental-health-literacy-101.ts",
+        "src/lib/modules/catalog/mental-health-literacy-201.ts",
+        "src/lib/modules/catalog/mental-health-literacy-301.ts",
+        "src/lib/modules/catalog/mental-health-literacy-401.ts"
+      ]
+    },
+    {
       "trackId": "meteorology",
       "trackTitle": "Meteorology",
       "levelsPresent": [
@@ -1398,6 +1494,30 @@
         "src/lib/modules/catalog/nursing-201.ts",
         "src/lib/modules/catalog/nursing-301.ts",
         "src/lib/modules/catalog/nursing-401.ts"
+      ]
+    },
+    {
+      "trackId": "nutrition-science",
+      "trackTitle": "Nutrition Science",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "nutrition-science-101",
+        "nutrition-science-201",
+        "nutrition-science-301",
+        "nutrition-science-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/nutrition-science-101.ts",
+        "src/lib/modules/catalog/nutrition-science-201.ts",
+        "src/lib/modules/catalog/nutrition-science-301.ts",
+        "src/lib/modules/catalog/nutrition-science-401.ts"
       ]
     },
     {

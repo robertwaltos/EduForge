@@ -161,7 +161,7 @@ export const PreKGeneralScience101Module: LearningModule = {
     {
       "id": "pre-k-general-science-101-l02",
       "title": "Forces: Push and Pull",
-      "type": "video",
+      "type": "interactive",
       "duration": 10,
       "chunks": [
         {

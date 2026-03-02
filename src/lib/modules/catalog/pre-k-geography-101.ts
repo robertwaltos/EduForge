@@ -172,7 +172,7 @@ export const PreKGeography101Module: LearningModule = {
     {
       "id": "prek-geography-l02",
       "title": "My Neighborhood",
-      "type": "video",
+      "type": "interactive",
       "duration": 8,
       "objectives": [
         "Name five places in a neighborhood: school, store, park, library, fire station",
