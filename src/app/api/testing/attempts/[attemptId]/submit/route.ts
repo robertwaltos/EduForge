@@ -9,6 +9,8 @@ import type { TestingAttemptResultResponse } from "@/lib/testing/types";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
 import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
+const LEGACY_TESTING_QBANK_OVERRIDE_ENV = "LEGAL_ALLOW_LEGACY_TESTING_QUESTION_BANK";
+
 const submitSchema = z.object({
   answers: z
     .array(
@@ -45,6 +47,8 @@ type QuestionRow = {
   correct_answer_hash: string;
 };
 
+type QuestionBankMode = "governed" | "legacy";
+
 function normalizeObjectRecord(
   input: unknown,
 ): Record<string, { correct: number; total: number; score: number }> {
@@ -77,6 +81,66 @@ function normalizeDiagnosis(
     remediationModules: Array.isArray(value.remediationModules)
       ? value.remediationModules.filter((entry): entry is string => typeof entry === "string")
       : [],
+  };
+}
+
+function isMissingGovernanceColumnError(error: unknown) {
+  if (!error || typeof error !== "object") return false;
+  const code = "code" in error ? String((error as { code?: unknown }).code ?? "") : "";
+  const message = "message" in error ? String((error as { message?: unknown }).message ?? "") : "";
+  return code === "42703" || message.toLowerCase().includes("could not find the");
+}
+
+function shouldAllowLegacyTestingQuestionBankMode() {
+  if (process.env[LEGACY_TESTING_QBANK_OVERRIDE_ENV] === "1") {
+    return true;
+  }
+  return process.env.NODE_ENV !== "production";
+}
+
+async function loadQuestionsForAttempt(params: {
+  admin: ReturnType<typeof createSupabaseAdminClient>;
+  questionIds: string[];
+}) {
+  const governed = await params.admin
+    .from("testing_question_bank")
+    .select("id, domain, correct_answer_hash")
+    .in("id", params.questionIds)
+    .eq("review_status", "approved")
+    .eq("commercial_use_allowed", true);
+
+  if (!governed.error) {
+    return {
+      mode: "governed" as QuestionBankMode,
+      questions: (governed.data ?? []) as QuestionRow[],
+    };
+  }
+
+  if (!isMissingGovernanceColumnError(governed.error)) {
+    throw governed.error;
+  }
+
+  if (!shouldAllowLegacyTestingQuestionBankMode()) {
+    return {
+      mode: "legacy" as QuestionBankMode,
+      questions: [] as QuestionRow[],
+      blocked: true,
+    };
+  }
+
+  const legacy = await params.admin
+    .from("testing_question_bank")
+    .select("id, domain, correct_answer_hash")
+    .in("id", params.questionIds);
+
+  if (legacy.error) {
+    throw legacy.error;
+  }
+
+  return {
+    mode: "legacy" as QuestionBankMode,
+    questions: (legacy.data ?? []) as QuestionRow[],
+    blocked: false,
   };
 }
 
@@ -189,19 +253,37 @@ export async function POST(
     return NextResponse.json({ error: "Attempt has no question set." }, { status: 409 });
   }
 
-  const { data: questionRows, error: questionError } = await admin
-    .from("testing_question_bank")
-    .select("id, domain, correct_answer_hash")
-    .in("id", questionIds);
-
-  if (questionError) {
+  let questionMode: QuestionBankMode = "governed";
+  let questions: QuestionRow[] = [];
+  try {
+    const loaded = await loadQuestionsForAttempt({ admin, questionIds });
+    if (loaded.mode === "legacy" && loaded.blocked) {
+      return NextResponse.json(
+        {
+          error:
+            "Testing question governance columns are missing. Legacy question-bank mode is blocked until migrations are applied.",
+        },
+        { status: 503 },
+      );
+    }
+    questionMode = loaded.mode;
+    questions = loaded.questions;
+  } catch (questionError) {
     console.error("Unexpected API error.", toSafeErrorRecord(questionError));
     return NextResponse.json({ error: "Internal server error." }, { status: 500 });
   }
 
-  const questions = (questionRows ?? []) as QuestionRow[];
   if (questions.length === 0) {
     return NextResponse.json({ error: "Questions for this attempt were not found." }, { status: 409 });
+  }
+  if (questionMode === "governed" && questions.length < questionIds.length) {
+    return NextResponse.json(
+      {
+        error:
+          "Attempt references restricted or unapproved question content. Please restart the attempt after question-bank remediation.",
+      },
+      { status: 409 },
+    );
   }
 
   const answerMap = new Map<string, string>();

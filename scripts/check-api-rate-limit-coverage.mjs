@@ -47,8 +47,48 @@ const ROUTE_GUARDS = [
     mustInclude: ["enforceIpRateLimit", "api:ai:recommendations:get"],
   },
   {
+    file: "src/app/api/ai/review-queue/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:ai:review-queue:get"],
+  },
+  {
+    file: "src/app/api/ai/mastery-map/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:ai:mastery-map:get"],
+  },
+  {
+    file: "src/app/api/ai/placement-diagnostic/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:ai:placement-diagnostic:get", "api:ai:placement-diagnostic:post"],
+  },
+  {
+    file: "src/app/api/ai/placement-diagnostic/summary/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:ai:placement-diagnostic:summary:get"],
+  },
+  {
+    file: "src/app/api/ai/placement-diagnostic/history/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:ai:placement-diagnostic:history:get"],
+  },
+  {
     file: "src/app/api/ai/study-plan/week/route.ts",
     mustInclude: ["enforceIpRateLimit", "api:ai:study-plan:week:get"],
+  },
+  {
+    file: "src/app/api/exam/remediation-queue/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:exam:remediation-queue:get"],
+  },
+  {
+    file: "src/app/api/exam/remediation-tasks/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:exam:remediation-tasks:get", "api:exam:remediation-tasks:post"],
+  },
+  {
+    file: "src/app/api/exam/error-log/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:exam:error-log:get", "api:exam:error-log:post"],
+  },
+  {
+    file: "src/app/api/exam/error-log/[errorId]/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:exam:error-log:item:patch"],
+  },
+  {
+    file: "src/app/api/exam/error-log/auto-resolve/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:exam:error-log:auto-resolve:get", "api:exam:error-log:auto-resolve:post"],
   },
   {
     file: "src/app/api/support/tickets/route.ts",
@@ -81,6 +121,54 @@ const ROUTE_GUARDS = [
   {
     file: "src/app/api/audiobooks/public-domain/route.ts",
     mustInclude: ["enforceIpRateLimit", "api:audiobooks:public-domain:get"],
+  },
+  {
+    file: "src/app/api/audiobooks/catalog/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:audiobooks:catalog:get"],
+  },
+  {
+    file: "src/app/api/audiobooks/chapter-text/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:audiobooks:chapter-text:get"],
+  },
+  {
+    file: "src/app/api/parent/reports/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:parent:reports:get"],
+  },
+  {
+    file: "src/app/api/parent/reports/language/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:parent:reports:language:get"],
+  },
+  {
+    file: "src/app/api/parent/ai-interventions/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:parent:ai-interventions:get"],
+  },
+  {
+    file: "src/app/api/stripe/webhook/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:billing:stripe-webhook:route"],
+  },
+  {
+    file: "src/app/api/revenuecat/webhook/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:billing:revenuecat-webhook"],
+  },
+  {
+    file: "src/app/api/testing/classes/[classId]/analytics/route.ts",
+    mustInclude: ["enforceIpRateLimit", "api:testing:classes:analytics:get"],
+  },
+  {
+    file: "src/app/api/testing/classes/[classId]/enrollments/route.ts",
+    mustInclude: [
+      "enforceIpRateLimit",
+      "api:testing:classes:enrollments:get",
+      "api:testing:classes:enrollments:post",
+    ],
+  },
+  {
+    file: "src/app/api/testing/classes/[classId]/assignments/route.ts",
+    mustInclude: [
+      "enforceIpRateLimit",
+      "api:testing:classes:assignments:get",
+      "api:testing:classes:assignments:post",
+    ],
   },
 ];
 

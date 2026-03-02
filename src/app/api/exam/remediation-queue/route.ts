@@ -1,18 +1,29 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getAllLearningModules } from "@/lib/modules";
 import { buildAdaptiveRemediationQueue } from "@/lib/exam/remediation-queue";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
-function parseLimit(value: string | null, fallback = 15) {
-  if (!value) return fallback;
-  const numeric = Number(value);
-  if (!Number.isFinite(numeric)) return fallback;
-  return Math.max(1, Math.min(100, Math.trunc(numeric)));
-}
+const QuerySchema = z.object({
+  limit: z.coerce.number().int().min(1).max(100).default(15),
+});
 
 export async function GET(request: Request) {
   try {
+    const rateLimit = await enforceIpRateLimit(request, "api:exam:remediation-queue:get", {
+      max: 45,
+      windowMs: 60_000,
+    });
+
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many remediation-queue requests. Please retry shortly." },
+        { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+      );
+    }
+
     const supabase = await createSupabaseServerClient();
     const {
       data: { user },
@@ -25,7 +36,13 @@ export async function GET(request: Request) {
 
     const learningModules = getAllLearningModules();
     const url = new URL(request.url);
-    const limit = parseLimit(url.searchParams.get("limit"));
+    const parsedQuery = QuerySchema.safeParse({
+      limit: url.searchParams.get("limit") ?? undefined,
+    });
+    if (!parsedQuery.success) {
+      return NextResponse.json({ error: "Invalid limit query parameter." }, { status: 400 });
+    }
+    const limit = parsedQuery.data.limit;
 
     const [progressResult, errorResult, masteryResult] = await Promise.all([
       supabase

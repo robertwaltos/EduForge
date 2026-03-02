@@ -14,10 +14,12 @@ import {
   TESTING_EXAM_UNLOCK_CURRENCY,
   TESTING_EXAM_UNLOCK_PRICE_CENTS,
 } from "@/lib/testing/unlock-pricing";
+import { isWebhookProcessingLockActive } from "@/lib/billing/webhook-processing-lock";
 
 type WebhookClaimResult = "process" | "duplicate" | "untracked";
 
 const MAX_STRIPE_WEBHOOK_PAYLOAD_BYTES = 1_000_000;
+const STRIPE_WEBHOOK_SIGNATURE_TOLERANCE_SECONDS = 300;
 
 function rateLimitExceededResponse(retryAfterSeconds: number) {
   return NextResponse.json(
@@ -84,7 +86,7 @@ async function claimWebhookEvent(event: Stripe.Event): Promise<WebhookClaimResul
   const supabase = createSupabaseAdminClient();
   const { data: existing, error: existingError } = await supabase
     .from("stripe_webhook_events")
-    .select("event_id, status, attempt_count")
+    .select("event_id, status, attempt_count, updated_at")
     .eq("event_id", event.id)
     .maybeSingle();
 
@@ -124,9 +126,15 @@ async function claimWebhookEvent(event: Stripe.Event): Promise<WebhookClaimResul
   if (existing.status === "processed") {
     return "duplicate";
   }
+  if (
+    existing.status === "processing" &&
+    isWebhookProcessingLockActive({ updatedAtIso: existing.updated_at })
+  ) {
+    return "duplicate";
+  }
 
   const nextAttempt = Math.max(1, Number(existing.attempt_count ?? 1) + 1);
-  const { error: updateError } = await supabase
+  const { data: claimedRow, error: updateError } = await supabase
     .from("stripe_webhook_events")
     .update({
       event_type: event.type,
@@ -135,13 +143,19 @@ async function claimWebhookEvent(event: Stripe.Event): Promise<WebhookClaimResul
       last_error: null,
       updated_at: now,
     })
-    .eq("event_id", event.id);
+    .eq("event_id", event.id)
+    .eq("status", existing.status)
+    .select("event_id")
+    .maybeSingle();
 
   if (updateError) {
     if (isMissingTableError(updateError.message)) {
       return "untracked";
     }
     throw new Error(updateError.message);
+  }
+  if (!claimedRow) {
+    return "duplicate";
   }
 
   return "process";
@@ -611,6 +625,9 @@ export async function POST(request: NextRequest) {
   }
 
   const payload = await request.text();
+  if (!payload) {
+    return NextResponse.json({ error: "Missing webhook payload." }, { status: 400 });
+  }
   if (Buffer.byteLength(payload, "utf8") > MAX_STRIPE_WEBHOOK_PAYLOAD_BYTES) {
     return NextResponse.json({ error: "Payload too large." }, { status: 413 });
   }
@@ -623,10 +640,18 @@ export async function POST(request: NextRequest) {
       payload,
       signature,
       serverEnv.STRIPE_WEBHOOK_SECRET,
+      STRIPE_WEBHOOK_SIGNATURE_TOLERANCE_SECONDS,
     );
   } catch (error) {
     console.error("Stripe webhook signature validation failed.", toSafeErrorRecord(error));
     return NextResponse.json({ error: "Invalid webhook signature." }, { status: 400 });
+  }
+
+  if (process.env.NODE_ENV === "production" && !event.livemode) {
+    return NextResponse.json(
+      { error: "Stripe test-mode events are not accepted in production." },
+      { status: 400 },
+    );
   }
 
   let claimResult: WebhookClaimResult = "untracked";

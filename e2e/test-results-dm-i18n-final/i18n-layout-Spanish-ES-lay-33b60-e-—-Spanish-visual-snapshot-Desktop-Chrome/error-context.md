@@ -1,0 +1,114 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#app-main-content"
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Koydo" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e9]
+          - generic [ref=e10]: Koydo
+        - generic [ref=e11]:
+          - button "Search ⌘K" [ref=e12]:
+            - generic [ref=e13]: 🔎
+            - generic [ref=e14]: Search
+            - generic [ref=e15]: ⌘K
+          - link "Sign In" [ref=e16] [cursor=pointer]:
+            - /url: /auth/sign-in
+          - link "Sign Up" [ref=e17] [cursor=pointer]:
+            - /url: /auth/sign-up
+    - main [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - navigation "Breadcrumb" [ref=e23]:
+            - list [ref=e24]:
+              - listitem [ref=e25]:
+                - link "Dashboard" [ref=e26] [cursor=pointer]:
+                  - /url: /dashboard
+              - listitem [ref=e27]:
+                - generic [ref=e28]: /
+                - generic [ref=e29]: Comenzar a aprender
+          - heading "Comenzar a aprender" [level=1] [ref=e30]
+          - paragraph [ref=e31]: Elige tu nivel - seis etapas guiadas desde Pre-K hasta universidad
+          - generic [ref=e32]:
+            - generic [ref=e33]: De Pre-K a universidad
+            - 'button "Read aloud: ¡Elige tu nivel de aprendizaje para comenzar!" [ref=e34]': Escuchar
+            - button "Choose narrator voice" [ref=e36]:
+              - img [ref=e37]
+              - text: Nova
+        - generic [ref=e41]:
+          - generic [ref=e42]: ✨
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: Unlock the full learning experience
+            - paragraph [ref=e45]: Free learners get 7–10 modules per level. Upgrade to access 200+ modules, exam prep, and more.
+          - generic [ref=e46]:
+            - link "See Plans" [ref=e47] [cursor=pointer]:
+              - /url: /billing/checkout
+            - button "Maybe later" [ref=e48]
+        - region "Niveles educativos" [ref=e49]:
+          - link "Explore Little Explorers - Pre-K, Ages 3–5" [ref=e50] [cursor=pointer]:
+            - /url: /explore?stage=pre-k
+            - article [ref=e51]:
+              - generic [ref=e53]: 🧒
+              - generic [ref=e54]: Stage 1 of 6
+              - heading "Little Explorers" [level=2] [ref=e55]
+              - paragraph [ref=e56]: "Play-first foundations: colors, shapes, sounds, and counting."
+              - generic [ref=e57]:
+                - generic [ref=e58]: Pre-K
+                - generic [ref=e59]: Ages 3–5
+          - link "Explore First Adventures - K–2, Ages 6–8" [ref=e61] [cursor=pointer]:
+            - /url: /explore?stage=early-elem
+            - article [ref=e62]:
+              - generic [ref=e64]: 🌈
+              - generic [ref=e65]: Stage 2 of 6
+              - heading "First Adventures" [level=2] [ref=e66]
+              - paragraph [ref=e67]: Core literacy and math confidence for early elementary learners.
+              - generic [ref=e68]:
+                - generic [ref=e69]: K–2
+                - generic [ref=e70]: Ages 6–8
+          - link "Explore Discovery Lab - 3–5, Ages 9–11" [ref=e72] [cursor=pointer]:
+            - /url: /explore?stage=upper-elem
+            - article [ref=e73]:
+              - generic [ref=e75]: 🔬
+              - generic [ref=e76]: Stage 3 of 6
+              - heading "Discovery Lab" [level=2] [ref=e77]
+              - paragraph [ref=e78]: Deeper practice in science, multiplication, writing, and projects.
+              - generic [ref=e79]:
+                - generic [ref=e80]: 3–5
+                - generic [ref=e81]: Ages 9–11
+          - link "Explore Challenge Zone - 6–8, Ages 12–14" [ref=e83] [cursor=pointer]:
+            - /url: /explore?stage=middle
+            - article [ref=e84]:
+              - generic [ref=e86]: ⚡
+              - generic [ref=e87]: Stage 4 of 6
+              - heading "Challenge Zone" [level=2] [ref=e88]
+              - paragraph [ref=e89]: "Middle-school rigor: pre-algebra, history, and coding fundamentals."
+              - generic [ref=e90]:
+                - generic [ref=e91]: 6–8
+                - generic [ref=e92]: Ages 12–14
+          - link "Explore Launchpad - 9–11, Ages 15–17" [ref=e94] [cursor=pointer]:
+            - /url: /explore?stage=high
+            - article [ref=e95]:
+              - generic [ref=e97]: 🚀
+              - generic [ref=e98]: Stage 5 of 6
+              - heading "Launchpad" [level=2] [ref=e99]
+              - paragraph [ref=e100]: "High-school acceleration: AP readiness, exams, and career pathways."
+              - generic [ref=e101]:
+                - generic [ref=e102]: 9–11
+                - generic [ref=e103]: Ages 15–17
+          - link "Explore Mastery Studio - 12 + College, Ages 18–21+" [ref=e105] [cursor=pointer]:
+            - /url: /explore?stage=college
+            - article [ref=e106]:
+              - generic [ref=e108]: 🎓
+              - generic [ref=e109]: Stage 6 of 6
+              - heading "Mastery Studio" [level=2] [ref=e110]
+              - paragraph [ref=e111]: Grade 12 to college transition, certifications, and career-ready skills.
+              - generic [ref=e112]:
+                - generic [ref=e113]: 12 + College
+                - generic [ref=e114]: Ages 18–21+
+  - button "Open Next.js Dev Tools" [ref=e121] [cursor=pointer]:
+    - img [ref=e122]
+```

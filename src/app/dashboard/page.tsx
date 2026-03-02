@@ -220,6 +220,21 @@ export default async function DashboardPage() {
       />
 
       <section className="flex flex-col gap-8">
+        <Link href="/experience-hub" className="group relative overflow-hidden bg-indigo-600 rounded-[2rem] p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 transition-transform hover:scale-[1.01] active:scale-[0.99] shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 opacity-50" />
+          <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-all" />
+
+          <div className="relative z-10 flex flex-col gap-1 text-center md:text-left">
+            <span className="text-xs font-black uppercase tracking-widest text-indigo-200">New Feature</span>
+            <h2 className="text-3xl font-black italic tracking-tighter">ENTER EXPERIENCE HUB</h2>
+            <p className="text-indigo-100 font-medium">Your progress galaxy, trophies, and companions await!</p>
+          </div>
+
+          <div className="relative z-10 bg-white/20 px-8 py-4 rounded-3xl backdrop-blur-md border border-white/30 font-black italic text-xl group-hover:bg-white transition-colors group-hover:text-indigo-600">
+            LAUNCH →
+          </div>
+        </Link>
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <SoftCard as="article" className="border-rose-200 bg-rose-50 p-4">
             <p className="text-xs uppercase tracking-wide text-zinc-500">{t("dashboard_stat_achievement_level")}</p>
@@ -341,9 +356,9 @@ export default async function DashboardPage() {
                 <p className="mt-1 text-xs text-zinc-500">
                   {usageEntitlement
                     ? t("dashboard_remaining_month", {
-                        count: usageEntitlement.scoredAttemptsRemaining,
-                        plan: usageEntitlement.planName,
-                      })
+                      count: usageEntitlement.scoredAttemptsRemaining,
+                      plan: usageEntitlement.planName,
+                    })
                     : usageEntitlementWarning ?? t("dashboard_usage_state_awaiting_telemetry")}
                 </p>
                 <p className="mt-1 text-xs text-zinc-500">{usageStateMessage}</p>

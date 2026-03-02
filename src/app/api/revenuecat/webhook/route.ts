@@ -6,9 +6,19 @@ import { toSafeErrorRecord } from '@/lib/logging/safe-error';
 import { serverEnv } from '@/lib/config/env';
 import { enforceIpRateLimit } from '@/lib/security/ip-rate-limit';
 import { resolveRevenueCatPlanIdFromProductId } from '@/lib/billing/revenuecat-matrix';
+import { isWebhookProcessingLockActive } from '@/lib/billing/webhook-processing-lock';
 
 const shouldDebugWebhook = process.env.NODE_ENV !== 'production';
 const MAX_REVENUECAT_WEBHOOK_PAYLOAD_BYTES = 512_000;
+const MAX_REVENUECAT_APP_USER_ID_LENGTH = 128;
+const MAX_REVENUECAT_PRODUCT_ID_LENGTH = 128;
+const NON_MUTATING_REVENUECAT_EVENTS = new Set(['SUBSCRIBER_ALIAS']);
+const PRODUCT_REQUIRED_REVENUECAT_EVENTS = new Set([
+  'INITIAL_PURCHASE',
+  'RENEWAL',
+  'NON_RENEWING_PURCHASE',
+  'PRODUCT_CHANGE',
+]);
 const timestampMsSchema = z.union([
   z.number().int().nonnegative(),
   z.string().regex(/^\d+$/).transform((value) => Number(value)),
@@ -64,6 +74,17 @@ function buildRevenueCatEventId(event: z.infer<typeof revenueCatEventSchema>, ra
 
   const digest = crypto.createHash('sha256').update(rawBody).digest('hex');
   return `sha256:${digest}`;
+}
+
+function toIsoFromEpochMs(value: number | null | undefined, fieldName: string) {
+  if (value === null || value === undefined) {
+    return null;
+  }
+  const numericValue = Number(value);
+  if (!Number.isFinite(numericValue) || numericValue < 0 || numericValue > 8.64e15) {
+    throw new Error(`Invalid ${fieldName} timestamp`);
+  }
+  return new Date(numericValue).toISOString();
 }
 
 /**
@@ -179,7 +200,7 @@ async function claimRevenueCatWebhookEvent(
   const supabase = getSupabaseAdmin();
   const { data: existing, error: existingError } = await supabase
     .from('revenuecat_webhook_events')
-    .select('event_id, status, attempt_count')
+    .select('event_id, status, attempt_count, updated_at')
     .eq('event_id', eventId)
     .maybeSingle();
 
@@ -218,9 +239,15 @@ async function claimRevenueCatWebhookEvent(
   if (existing.status === 'processed') {
     return 'duplicate';
   }
+  if (
+    existing.status === 'processing' &&
+    isWebhookProcessingLockActive({ updatedAtIso: existing.updated_at })
+  ) {
+    return 'duplicate';
+  }
 
   const nextAttempt = Math.max(1, Number(existing.attempt_count ?? 1) + 1);
-  const { error: updateError } = await supabase
+  const { data: claimedRow, error: updateError } = await supabase
     .from('revenuecat_webhook_events')
     .update({
       event_type: eventType,
@@ -229,13 +256,19 @@ async function claimRevenueCatWebhookEvent(
       last_error: null,
       updated_at: now,
     })
-    .eq('event_id', eventId);
+    .eq('event_id', eventId)
+    .eq('status', existing.status)
+    .select('event_id')
+    .maybeSingle();
 
   if (updateError) {
     if (isMissingTableError(updateError.message)) {
       return 'untracked';
     }
     throw updateError;
+  }
+  if (!claimedRow) {
+    return 'duplicate';
   }
 
   return 'process';
@@ -397,18 +430,29 @@ export async function POST(request: NextRequest) {
     console.error('[revenuecat/webhook] Missing app_user_id in event');
     return NextResponse.json({ error: 'Missing app_user_id' }, { status: 400 });
   }
+  if (appUserId.length > MAX_REVENUECAT_APP_USER_ID_LENGTH) {
+    return NextResponse.json({ error: 'Invalid app_user_id length' }, { status: 400 });
+  }
+  if (productId && productId.length > MAX_REVENUECAT_PRODUCT_ID_LENGTH) {
+    return NextResponse.json({ error: 'Invalid product_id length' }, { status: 400 });
+  }
+  if (PRODUCT_REQUIRED_REVENUECAT_EVENTS.has(eventType) && !productId) {
+    return NextResponse.json({ error: 'Missing product_id for purchase event' }, { status: 400 });
+  }
 
   const newStatus = mapEventToStatus(eventType);
   const isInTrial = periodType === 'TRIAL';
   const willRenew = !['CANCELLATION', 'EXPIRATION'].includes(eventType);
   const cancelAtPeriodEnd = eventType === 'CANCELLATION';
 
-  const expiresAt = expirationAtMs
-    ? new Date(expirationAtMs).toISOString()
-    : null;
-  const purchasedAt = purchasedAtMs
-    ? new Date(purchasedAtMs).toISOString()
-    : new Date().toISOString();
+  let expiresAt: string | null;
+  let purchasedAt: string;
+  try {
+    expiresAt = toIsoFromEpochMs(expirationAtMs, 'expiration_at_ms');
+    purchasedAt = toIsoFromEpochMs(purchasedAtMs, 'purchased_at_ms') ?? new Date().toISOString();
+  } catch {
+    return NextResponse.json({ error: 'Invalid webhook timestamp payload' }, { status: 400 });
+  }
 
   // Matrix source of truth: preserve known matrix product IDs as plan_id values.
   const planId = resolveRevenueCatPlanIdFromProductId(productId);
@@ -442,6 +486,17 @@ export async function POST(request: NextRequest) {
     claimResult = await claimRevenueCatWebhookEvent(eventId, eventType);
     if (claimResult === 'duplicate') {
       return NextResponse.json({ received: true, duplicate: true }, { status: 200 });
+    }
+
+    if (NON_MUTATING_REVENUECAT_EVENTS.has(eventType)) {
+      if (claimResult !== 'untracked') {
+        await markRevenueCatWebhookEventStatus(eventId, 'processed');
+      }
+
+      return NextResponse.json(
+        { received: true, duplicate: false, skipped: true, reason: 'non_mutating_event' },
+        { status: 200 },
+      );
     }
 
     await upsertRevenueCatSubscription(subscriptionPayload);

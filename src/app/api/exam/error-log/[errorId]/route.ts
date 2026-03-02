@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
+
+const ParamsSchema = z.object({
+  errorId: z.string().uuid(),
+});
 
 const updateErrorLogSchema = z
   .object({
@@ -25,11 +30,25 @@ export async function PATCH(
   { params }: { params: Promise<{ errorId: string }> },
 ) {
   try {
+    const rateLimit = await enforceIpRateLimit(request, "api:exam:error-log:item:patch", {
+      max: 45,
+      windowMs: 60_000,
+    });
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many error-log updates. Please retry shortly." },
+        { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+      );
+    }
+
     const resolvedParams = await params;
-    const errorId = resolvedParams.errorId?.trim();
-    if (!errorId) {
+    const parsedParams = ParamsSchema.safeParse({
+      errorId: resolvedParams.errorId?.trim(),
+    });
+    if (!parsedParams.success) {
       return NextResponse.json({ error: "Invalid error id." }, { status: 400 });
     }
+    const errorId = parsedParams.data.errorId;
 
     const supabase = await createSupabaseServerClient();
     const {

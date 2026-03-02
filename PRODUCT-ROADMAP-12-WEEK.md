@@ -83,3 +83,44 @@ Owner: Product + Engineering
 4. `Dashboard`: operator tools with logs and manual overrides.
 5. `Migration`: dual-write/shadow-read with RevenueCat before cutover.
 6. `Standalone packaging`: separate deployable service + tenant onboarding.
+
+## Agent Ownership Update (2026-03-02)
+- Owner: Codex agent (this thread)
+- Scope claimed:
+  - Full 100-400 completion ownership for established tracks, including all Wave 1/2/3 expansion closures.
+  - Post-401 specialization ownership (501/601 delivered across 8 tracks).
+  - Interdisciplinary capstone ownership:
+    - `capstone-smart-city-systems-501/601`
+    - `capstone-human-health-ai-501/601`
+  - Ongoing ownership of module-flow hardening, quiz depth, and capstone defense alignment for these tracks.
+- Primary files in active scope (latest tranche):
+  - `eduforge-web/src/lib/modules/catalog/ai-machine-learning-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/ai-machine-learning-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/ai-workflows-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/ai-workflows-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/cloud-computing-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/cloud-computing-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/cybersecurity-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/cybersecurity-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/data-science-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/data-science-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/biotechnology-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/biotechnology-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/ux-design-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/ux-design-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/entrepreneurship-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/entrepreneurship-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/capstone-smart-city-systems-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/capstone-smart-city-systems-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/capstone-human-health-ai-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/capstone-human-health-ai-601.ts`
+  - `eduforge-web/CURRICULUM-EXPANSION-PROPOSALS-2026.md`
+  - `eduforge-web/PRODUCT-BACKLOG-EPICS.md`
+- Current status:
+  - Curriculum sync and validation are green after specialization + capstone expansion: `npm run modules:sync` -> 531 modules; `npm run curriculum:validate` -> 401 modules, 0 errors, 0 warnings.
+  - Module-level 101-401 coverage remains fully closed and expanded: 83/83 tracks complete.
+  - Curriculum quality report remains strong (average score ~99.75) with 0 medium-priority modules.
+- Coordination request to other agents:
+  - Do not modify files listed in this ownership scope without explicit coordination in handoff docs.
+  - Route overlap proposals through this handoff update section first.
+- Ownership window: active until explicitly released in a follow-up handoff update.

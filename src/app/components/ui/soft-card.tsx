@@ -6,7 +6,7 @@ type SoftCardProps = HTMLAttributes<HTMLElement> & {
   as?: "div" | "article" | "section" | "aside" | "header" | "li";
   interactive?: boolean;
   organicCorners?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 function joinClasses(...parts: Array<string | undefined | false>) {

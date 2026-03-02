@@ -1,0 +1,382 @@
+[
+  {
+    "slug": "tale-of-peter-rabbit-illustrated",
+    "title": "The Tale of Peter Rabbit (Illustrated)",
+    "author": "Beatrix Potter",
+    "gutenbergId": 14838,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 1500,
+    "originalLanguage": "en",
+    "genres": [
+      "picture-book",
+      "animals"
+    ],
+    "yearPublished": 1902,
+    "hasIllustrations": true,
+    "pageCount": 27,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "pre-reader"
+  },
+  {
+    "slug": "tale-of-benjamin-bunny-illustrated",
+    "title": "The Tale of Benjamin Bunny (Illustrated)",
+    "author": "Beatrix Potter",
+    "gutenbergId": 14407,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 1800,
+    "originalLanguage": "en",
+    "genres": [
+      "picture-book",
+      "animals"
+    ],
+    "yearPublished": 1904,
+    "hasIllustrations": true,
+    "pageCount": 26,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "pre-reader"
+  },
+  {
+    "slug": "tale-of-squirrel-nutkin-illustrated",
+    "title": "The Tale of Squirrel Nutkin (Illustrated)",
+    "author": "Beatrix Potter",
+    "gutenbergId": 14872,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 1600,
+    "originalLanguage": "en",
+    "genres": [
+      "picture-book",
+      "animals"
+    ],
+    "yearPublished": 1903,
+    "hasIllustrations": true,
+    "pageCount": 27,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "pre-reader"
+  },
+  {
+    "slug": "tale-of-tom-kitten-illustrated",
+    "title": "The Tale of Tom Kitten (Illustrated)",
+    "author": "Beatrix Potter",
+    "gutenbergId": 14436,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 1100,
+    "originalLanguage": "en",
+    "genres": [
+      "picture-book",
+      "animals"
+    ],
+    "yearPublished": 1907,
+    "hasIllustrations": true,
+    "pageCount": 27,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "pre-reader"
+  },
+  {
+    "slug": "tale-of-jemima-puddle-duck-illustrated",
+    "title": "The Tale of Jemima Puddle-Duck (Illustrated)",
+    "author": "Beatrix Potter",
+    "gutenbergId": 15525,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 1400,
+    "originalLanguage": "en",
+    "genres": [
+      "picture-book",
+      "animals"
+    ],
+    "yearPublished": 1908,
+    "hasIllustrations": true,
+    "pageCount": 27,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "pre-reader"
+  },
+  {
+    "slug": "tale-of-mrs-tiggy-winkle-illustrated",
+    "title": "The Tale of Mrs. Tiggy-Winkle (Illustrated)",
+    "author": "Beatrix Potter",
+    "gutenbergId": 14877,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 1200,
+    "originalLanguage": "en",
+    "genres": [
+      "picture-book",
+      "animals"
+    ],
+    "yearPublished": 1905,
+    "hasIllustrations": true,
+    "pageCount": 27,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "pre-reader"
+  },
+  {
+    "slug": "tale-of-flopsy-bunnies-illustrated",
+    "title": "The Tale of The Flopsy Bunnies (Illustrated)",
+    "author": "Beatrix Potter",
+    "gutenbergId": 14220,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 1300,
+    "originalLanguage": "en",
+    "genres": [
+      "picture-book",
+      "animals"
+    ],
+    "yearPublished": 1909,
+    "hasIllustrations": true,
+    "pageCount": 27,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "pre-reader"
+  },
+  {
+    "slug": "tailor-of-gloucester-illustrated",
+    "title": "The Tailor of Gloucester (Illustrated)",
+    "author": "Beatrix Potter",
+    "gutenbergId": 14866,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 3200,
+    "originalLanguage": "en",
+    "genres": [
+      "picture-book",
+      "animals"
+    ],
+    "yearPublished": 1903,
+    "hasIllustrations": true,
+    "pageCount": 27,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "early-reader"
+  },
+  {
+    "slug": "velveteen-rabbit-illustrated",
+    "title": "The Velveteen Rabbit (Illustrated)",
+    "author": "Margery Williams",
+    "gutenbergId": 11757,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 4400,
+    "originalLanguage": "en",
+    "genres": [
+      "fantasy",
+      "picture-book"
+    ],
+    "yearPublished": 1922,
+    "hasIllustrations": true,
+    "pageCount": 32,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "early-reader"
+  },
+  {
+    "slug": "raggedy-ann-illustrated",
+    "title": "Raggedy Ann Stories (Illustrated)",
+    "author": "Johnny Gruelle",
+    "gutenbergId": 18190,
+    "ageGroup": "children",
+    "chapterCount": 13,
+    "wordCount": 10000,
+    "originalLanguage": "en",
+    "genres": [
+      "fantasy",
+      "picture-book"
+    ],
+    "yearPublished": 1918,
+    "hasIllustrations": true,
+    "pageCount": 95,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "early-reader"
+  },
+  {
+    "slug": "mother-goose-illustrated",
+    "title": "Mother Goose: The Old Nursery Rhymes (Illustrated)",
+    "author": "Various",
+    "gutenbergId": 7137,
+    "ageGroup": "children",
+    "chapterCount": 1,
+    "wordCount": 3000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "nursery-rhymes"
+    ],
+    "yearPublished": 1913,
+    "hasIllustrations": true,
+    "pageCount": 64,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "pre-reader"
+  },
+  {
+    "slug": "alice-in-wonderland-illustrated",
+    "title": "Alice's Adventures in Wonderland (Illustrated)",
+    "author": "Lewis Carroll",
+    "gutenbergId": 11,
+    "ageGroup": "children",
+    "chapterCount": 12,
+    "wordCount": 26432,
+    "originalLanguage": "en",
+    "genres": [
+      "fantasy",
+      "adventure"
+    ],
+    "yearPublished": 1865,
+    "hasIllustrations": true,
+    "pageCount": 42,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "independent"
+  },
+  {
+    "slug": "through-looking-glass-illustrated",
+    "title": "Through the Looking-Glass (Illustrated)",
+    "author": "Lewis Carroll",
+    "gutenbergId": 12,
+    "ageGroup": "children",
+    "chapterCount": 12,
+    "wordCount": 30300,
+    "originalLanguage": "en",
+    "genres": [
+      "fantasy",
+      "adventure"
+    ],
+    "yearPublished": 1871,
+    "hasIllustrations": true,
+    "pageCount": 50,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "independent"
+  },
+  {
+    "slug": "wizard-of-oz-illustrated",
+    "title": "The Wonderful Wizard of Oz (Illustrated)",
+    "author": "L. Frank Baum",
+    "gutenbergId": 55,
+    "ageGroup": "children",
+    "chapterCount": 24,
+    "wordCount": 39587,
+    "originalLanguage": "en",
+    "genres": [
+      "fantasy",
+      "adventure"
+    ],
+    "yearPublished": 1900,
+    "hasIllustrations": true,
+    "pageCount": 24,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "independent"
+  },
+  {
+    "slug": "pinocchio-illustrated",
+    "title": "The Adventures of Pinocchio (Illustrated)",
+    "author": "Carlo Collodi",
+    "gutenbergId": 500,
+    "ageGroup": "children",
+    "chapterCount": 36,
+    "wordCount": 45000,
+    "originalLanguage": "en",
+    "genres": [
+      "fantasy",
+      "adventure"
+    ],
+    "yearPublished": 1883,
+    "hasIllustrations": true,
+    "pageCount": 36,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "independent"
+  },
+  {
+    "slug": "just-so-stories-illustrated",
+    "title": "Just So Stories (Illustrated)",
+    "author": "Rudyard Kipling",
+    "gutenbergId": 2781,
+    "ageGroup": "children",
+    "chapterCount": 13,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "fantasy",
+      "folklore"
+    ],
+    "yearPublished": 1902,
+    "hasIllustrations": true,
+    "pageCount": 26,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "early-reader"
+  },
+  {
+    "slug": "aesop-fables-illustrated",
+    "title": "Aesop's Fables (Illustrated)",
+    "author": "Aesop",
+    "gutenbergId": 19994,
+    "ageGroup": "children",
+    "chapterCount": 82,
+    "wordCount": 25000,
+    "originalLanguage": "en",
+    "genres": [
+      "fables",
+      "moral-stories"
+    ],
+    "yearPublished": -600,
+    "hasIllustrations": true,
+    "pageCount": 82,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "early-reader"
+  },
+  {
+    "slug": "east-of-sun-illustrated",
+    "title": "East of the Sun and West of the Moon (Illustrated)",
+    "author": "Peter Christen Asbjørnsen",
+    "gutenbergId": 30973,
+    "ageGroup": "children",
+    "chapterCount": 15,
+    "wordCount": 48000,
+    "originalLanguage": "en",
+    "genres": [
+      "fairy-tales",
+      "norse"
+    ],
+    "yearPublished": 1914,
+    "hasIllustrations": true,
+    "pageCount": 25,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "independent"
+  },
+  {
+    "slug": "robin-hood-illustrated",
+    "title": "The Merry Adventures of Robin Hood (Illustrated)",
+    "author": "Howard Pyle",
+    "gutenbergId": 10148,
+    "ageGroup": "children",
+    "chapterCount": 22,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "folklore"
+    ],
+    "yearPublished": 1883,
+    "hasIllustrations": true,
+    "pageCount": 22,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "independent"
+  },
+  {
+    "slug": "king-arthur-illustrated",
+    "title": "The Story of King Arthur (Illustrated)",
+    "author": "Howard Pyle",
+    "gutenbergId": 12567,
+    "ageGroup": "children",
+    "chapterCount": 18,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "legends"
+    ],
+    "yearPublished": 1903,
+    "hasIllustrations": true,
+    "pageCount": 18,
+    "illustrationSource": "gutenberg",
+    "readingLevel": "independent"
+  }
+]

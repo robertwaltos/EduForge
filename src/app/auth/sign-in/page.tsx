@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FormEvent, Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { publicEnv } from "@/lib/config/env";
 import { useI18n } from "@/lib/i18n/provider";
 import { normalizeNextPath } from "@/lib/routing/next-path";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+import { ASSETS } from "@/lib/config/assets";
 import OAuthButtons from "./oauth-buttons";
 import SoftCard from "@/app/components/ui/soft-card";
 
@@ -177,38 +179,42 @@ function SignInPageContent() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background pb-14">
+    <main className="relative min-h-screen overflow-hidden pb-14">
+      {/* Page background */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <Image
+          src={ASSETS.bgDay}
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-white/55 dark:bg-slate-950/72" />
+      </div>
+
       <section className="relative isolate overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 20% 25%, rgba(52, 211, 153, 0.24), transparent 46%), radial-gradient(circle at 80% 18%, rgba(99, 102, 241, 0.20), transparent 44%), radial-gradient(circle at 62% 78%, rgba(251, 191, 36, 0.24), transparent 42%), var(--gradient-hero)",
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="auth-orb-drift absolute left-[-4.5rem] top-8 h-44 w-44 rounded-full bg-emerald-300/35 blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          className="auth-orb-drift-delayed absolute right-[-5rem] top-14 h-56 w-56 rounded-full bg-sky-300/30 blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          className="auth-orb-drift-slow absolute bottom-[-5rem] left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-amber-200/30 blur-3xl"
-          aria-hidden="true"
-        />
 
         <div className="relative mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.35fr_0.9fr] lg:gap-10">
           <div className="space-y-5">
-            <p className="ui-type-eyebrow text-emerald-700 dark:text-emerald-400">{t("auth_sign_in_hero_eyebrow")}</p>
-            <h1 className="ui-type-hero text-zinc-900 dark:text-foreground">
-              {t("auth_sign_in_hero_title")}
-            </h1>
-            <p className="ui-type-body-lg ui-reading-measure text-zinc-700 dark:text-foreground/85">
-              {t("auth_sign_in_hero_description")}
-            </p>
+            {/* Hero image with overlaid title */}
+            <div className="relative overflow-hidden rounded-3xl shadow-xl">
+              <Image
+                src={ASSETS.heroSignIn}
+                alt="Students exploring the world of learning on Koydo"
+                width={800}
+                height={480}
+                className="w-full object-cover"
+                priority
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent px-5 pb-5 pt-14">
+                <p className="text-xs font-bold uppercase tracking-widest text-emerald-300">
+                  {t("auth_sign_in_hero_eyebrow")}
+                </p>
+                <h1 className="mt-1 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+                  {t("auth_sign_in_hero_title")}
+                </h1>
+              </div>
+            </div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               {[
                 { emoji: "🌱", label: t("auth_sign_in_pill_curiosity") },
@@ -246,9 +252,6 @@ function SignInPageContent() {
       <section className="relative z-10 mx-auto -mt-12 w-full max-w-6xl space-y-6 px-4 sm:px-6">
         <SoftCard as="section" className="border-white/80 bg-white/90 p-6 backdrop-blur-sm dark:border-border dark:bg-surface/90">
           <h2 className="ui-type-heading-xl text-zinc-900 dark:text-foreground">{t("auth_sign_in_title")}</h2>
-          <p className="mt-2 ui-type-body-sm text-zinc-600 dark:text-foreground/70">
-            {t("auth_sign_in_subtitle")}
-          </p>
           <OAuthButtons layout="grid-2" className="mt-5" nextPath={nextPath} />
           {!hasSupabaseConfig ? (
             <p role="status" className="mt-4 text-xs text-amber-700">

@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { resolveVerifiedParentAccess } from "@/lib/compliance/parent-access";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
 function toLetterGrade(score: number) {
   if (score >= 90) return "A";
@@ -11,7 +13,21 @@ function toLetterGrade(score: number) {
   return "F";
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const rateLimit = await enforceIpRateLimit(request, "api:parent:reports:get", {
+    max: 40,
+    windowMs: 60_000,
+  });
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: "Too many parent report requests. Please retry shortly." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rateLimit.retryAfterSeconds) },
+      },
+    );
+  }
+
   const supabase = await createSupabaseServerClient();
   const {
     data: { user },
@@ -22,37 +38,25 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized." }, { status: 401 });
   }
 
-  const { data: parentProfile } = await supabase
-    .from("user_profiles")
-    .select("is_parent")
-    .eq("user_id", user.id)
-    .maybeSingle();
-  if (!parentProfile?.is_parent) {
-    return NextResponse.json({ error: "Parent access required." }, { status: 403 });
+  const parentAccess = await resolveVerifiedParentAccess({
+    supabase,
+    userId: user.id,
+    userEmail: user.email,
+    purpose: "parent_reports",
+  });
+  if (!parentAccess.ok) {
+    if (parentAccess.status === 403) {
+      return NextResponse.json({ error: parentAccess.error }, { status: 403 });
+    }
+    return NextResponse.json({ error: "Internal server error." }, { status: parentAccess.status });
   }
 
-  const parentEmail = user.email?.trim().toLowerCase();
-  if (!parentEmail) {
-    return NextResponse.json({ reports: [] });
-  }
-
-  const admin = createSupabaseAdminClient();
-  const { data: consents, error: consentError } = await admin
-    .from("parent_consents")
-    .select("child_user_id")
-    .eq("parent_email", parentEmail)
-    .eq("status", "verified");
-
-  if (consentError) {
-    console.error("Unexpected API error.", toSafeErrorRecord(consentError));
-    return NextResponse.json({ error: "Internal server error." }, { status: 500 });
-  }
-
-  const childIds = Array.from(new Set((consents ?? []).map((row) => row.child_user_id)));
+  const childIds = parentAccess.childUserIds;
   if (childIds.length === 0) {
     return NextResponse.json({ reports: [] });
   }
 
+  const admin = createSupabaseAdminClient();
   const [profilesResult, masteryResult, progressResult] = await Promise.all([
     admin.from("user_profiles").select("user_id, display_name").in("user_id", childIds),
     admin

@@ -399,6 +399,8 @@ export const translations: Record<Locale, TranslationDictionary> = {
     auth_sign_up_status_created: "Account created. Starting onboarding...",
     auth_sign_up_status_unable:
       "Unable to sign up. Check environment configuration and try again.",
+    auth_sign_up_hero_eyebrow: "Start Your Journey",
+    auth_sign_up_hero_title: "Every step forward is built on knowledge.",
     auth_sign_up_title: "Create Account",
     auth_sign_up_subtitle: "Register a learner account for Koydo.",
     auth_sign_up_label_email: "Email",
@@ -921,6 +923,8 @@ export const translations: Record<Locale, TranslationDictionary> = {
     auth_sign_up_status_created: "Cuenta creada. Iniciando onboarding...",
     auth_sign_up_status_unable:
       "No se pudo crear la cuenta. Revisa la configuración e inténtalo de nuevo.",
+    auth_sign_up_hero_eyebrow: "Empieza tu viaje",
+    auth_sign_up_hero_title: "Cada paso adelante se construye sobre el conocimiento.",
     auth_sign_up_title: "Crear cuenta",
     auth_sign_up_subtitle: "Registra una cuenta de estudiante para Koydo.",
     auth_sign_up_label_email: "Correo",
@@ -1093,6 +1097,15 @@ export const translations: Record<Locale, TranslationDictionary> = {
     language_label: "Langue",
     offline_banner: "Hors ligne. Le contenu en cache reste disponible.",
     online_banner: "Connexion rétablie. La synchronisation a repris.",
+    legal_privacy_section_transfers_title: "Transferts internationaux de données",
+    legal_privacy_section_transfers_body:
+      "Vos données peuvent être traitées en dehors de l'Espace économique européen (EEE) par nos prestataires de services, notamment Supabase (US), Stripe (US), Mixpanel (US), RevenueCat (US), OpenAI (US) et ElevenLabs (US). Chaque prestataire maintient des garanties appropriées, y compris les Clauses contractuelles types (CCT) approuvées par la Commission européenne et la participation au cadre de protection des données UE-US lorsque applicable. Nous veillons à ce que tous les transferts internationaux soient conformes aux exigences de l'article 46 du RGPD.",
+    legal_privacy_section_dpo_title: "Délégué à la protection des données",
+    legal_privacy_section_dpo_body:
+      "Pour toute question relative à la protection des données ou pour exercer vos droits en vertu du RGPD, vous pouvez contacter notre Délégué à la protection des données à dpo@koydo.app. Vous avez également le droit de déposer une plainte auprès de votre autorité de contrôle locale.",
+    legal_privacy_section_cookies_title: "Cookies et technologies de suivi",
+    legal_privacy_section_cookies_body:
+      "Nous utilisons des cookies strictement nécessaires pour maintenir l'état de la session et les préférences utilisateur. Les cookies d'analyse (Mixpanel) ne sont activés qu'avec votre consentement explicite via notre bannière de cookies. Vous pouvez modifier vos préférences de cookies à tout moment depuis la bannière de consentement ou en effaçant le stockage de votre navigateur. Sur les applications mobiles natives, les identifiants d'appareil ne sont consultés qu'après votre autorisation via l'invite App Tracking Transparency.",
   },
   de: {
     nav_home: "Start",

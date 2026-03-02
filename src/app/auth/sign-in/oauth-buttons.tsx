@@ -87,11 +87,10 @@ export default function OAuthButtons({
   const [status, setStatus] = useState("");
   const [activeProvider, setActiveProvider] = useState<Provider | null>(null);
 
-  const providerConfigs: Array<{
+  const providers: Array<{
     id: Provider;
     label: string;
     icon: ReactNode;
-    enabled: boolean;
     scopes?: string;
     queryParams?: Record<string, string>;
   }> = [
@@ -99,7 +98,6 @@ export default function OAuthButtons({
       id: "google",
       label: t("auth_oauth_provider_google"),
       icon: <GoogleIcon />,
-      enabled: publicEnv.NEXT_PUBLIC_OAUTH_GOOGLE_ENABLED,
       scopes: "openid email profile",
       queryParams: { access_type: "offline", prompt: "consent" },
     },
@@ -107,14 +105,12 @@ export default function OAuthButtons({
       id: "facebook",
       label: t("auth_oauth_provider_facebook"),
       icon: <FacebookIcon />,
-      enabled: publicEnv.NEXT_PUBLIC_OAUTH_FACEBOOK_ENABLED,
       scopes: "email,public_profile",
     },
     {
       id: "apple",
       label: t("auth_oauth_provider_apple"),
       icon: <AppleIcon />,
-      enabled: publicEnv.NEXT_PUBLIC_OAUTH_APPLE_ENABLED,
       scopes: "name email",
     },
     // Supabase uses the "twitter" provider ID for X.
@@ -122,13 +118,8 @@ export default function OAuthButtons({
       id: "twitter",
       label: t("auth_oauth_provider_x"),
       icon: <XIcon />,
-      enabled: publicEnv.NEXT_PUBLIC_OAUTH_X_ENABLED,
     },
   ];
-
-  const providers = providerConfigs.filter((provider) => provider.enabled);
-
-  const hasConfiguredProvider = providers.length > 0;
 
   const handleOAuthSignIn = async (provider: Provider) => {
     if (activeProvider) {
@@ -200,11 +191,7 @@ export default function OAuthButtons({
           {t("auth_oauth_unavailable_supabase")}
         </p>
       ) : null}
-      {hasSupabaseConfig && !hasConfiguredProvider ? (
-        <p className={joinClasses("text-xs text-zinc-500", layout === "grid-2" && "sm:col-span-2")}>
-          {t("auth_oauth_no_providers_configured")}
-        </p>
-      ) : null}
+
       {status ? (
         <p className={joinClasses("text-xs text-red-600", layout === "grid-2" && "sm:col-span-2")}>
           {status}

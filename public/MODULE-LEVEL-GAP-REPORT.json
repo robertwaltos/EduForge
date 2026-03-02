@@ -1,0 +1,2005 @@
+{
+  "generatedAt": "2026-03-02T05:43:03.749Z",
+  "totals": {
+    "tracksAnalyzed": 83,
+    "completeTracks": 83,
+    "partialTracks": 0,
+    "startedTracks": 0,
+    "singleLevelTracks": 0
+  },
+  "tracks": [
+    {
+      "trackId": "accounting-finance",
+      "trackTitle": "Accounting Finance",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "accounting-finance-101",
+        "accounting-finance-201",
+        "accounting-finance-301",
+        "accounting-finance-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/accounting-finance-101.ts",
+        "src/lib/modules/catalog/accounting-finance-201.ts",
+        "src/lib/modules/catalog/accounting-finance-301.ts",
+        "src/lib/modules/catalog/accounting-finance-401.ts"
+      ]
+    },
+    {
+      "trackId": "advanced-math",
+      "trackTitle": "Advanced Math",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "advanced-math-101",
+        "advanced-math-201",
+        "advanced-math-301",
+        "advanced-math-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/advanced-math-101.ts",
+        "src/lib/modules/catalog/advanced-math-201.ts",
+        "src/lib/modules/catalog/advanced-math-301.ts",
+        "src/lib/modules/catalog/advanced-math-401.ts"
+      ]
+    },
+    {
+      "trackId": "ai-machine-learning",
+      "trackTitle": "Ai Machine Learning",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "ai-machine-learning-101",
+        "ai-machine-learning-201",
+        "ai-machine-learning-301",
+        "ai-machine-learning-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/ai-machine-learning-101.ts",
+        "src/lib/modules/catalog/ai-machine-learning-201.ts",
+        "src/lib/modules/catalog/ai-machine-learning-301.ts",
+        "src/lib/modules/catalog/ai-machine-learning-401.ts"
+      ]
+    },
+    {
+      "trackId": "ai-safety-alignment",
+      "trackTitle": "Ai Safety Alignment",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "ai-safety-alignment-101",
+        "ai-safety-alignment-201",
+        "ai-safety-alignment-301",
+        "ai-safety-alignment-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/ai-safety-alignment-101.ts",
+        "src/lib/modules/catalog/ai-safety-alignment-201.ts",
+        "src/lib/modules/catalog/ai-safety-alignment-301.ts",
+        "src/lib/modules/catalog/ai-safety-alignment-401.ts"
+      ]
+    },
+    {
+      "trackId": "ai-workflows",
+      "trackTitle": "Ai Workflows",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "ai-workflows-101",
+        "ai-workflows-201",
+        "ai-workflows-301",
+        "ai-workflows-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/ai-workflows-101.ts",
+        "src/lib/modules/catalog/ai-workflows-201.ts",
+        "src/lib/modules/catalog/ai-workflows-301.ts",
+        "src/lib/modules/catalog/ai-workflows-401.ts"
+      ]
+    },
+    {
+      "trackId": "arts",
+      "trackTitle": "Arts",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "arts-101",
+        "arts-201",
+        "arts-301",
+        "arts-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/arts-101.ts",
+        "src/lib/modules/catalog/arts-201.ts",
+        "src/lib/modules/catalog/arts-301.ts",
+        "src/lib/modules/catalog/arts-401.ts"
+      ]
+    },
+    {
+      "trackId": "astronomy",
+      "trackTitle": "Astronomy",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "astronomy-101",
+        "astronomy-201",
+        "astronomy-301",
+        "astronomy-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/astronomy-101.ts",
+        "src/lib/modules/catalog/astronomy-201.ts",
+        "src/lib/modules/catalog/astronomy-301.ts",
+        "src/lib/modules/catalog/astronomy-401.ts"
+      ]
+    },
+    {
+      "trackId": "basic-math",
+      "trackTitle": "Basic Math",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "basic-math-101",
+        "basic-math-201",
+        "basic-math-301",
+        "basic-math-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/basic-math-101.ts",
+        "src/lib/modules/catalog/basic-math-201.ts",
+        "src/lib/modules/catalog/basic-math-301.ts",
+        "src/lib/modules/catalog/basic-math-401.ts"
+      ]
+    },
+    {
+      "trackId": "biology",
+      "trackTitle": "Biology",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "biology-101",
+        "biology-201",
+        "biology-301",
+        "biology-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/biology-101.ts",
+        "src/lib/modules/catalog/biology-201.ts",
+        "src/lib/modules/catalog/biology-301.ts",
+        "src/lib/modules/catalog/biology-401.ts"
+      ]
+    },
+    {
+      "trackId": "biotechnology",
+      "trackTitle": "Biotechnology",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "biotechnology-101",
+        "biotechnology-201",
+        "biotechnology-301",
+        "biotechnology-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/biotechnology-101.ts",
+        "src/lib/modules/catalog/biotechnology-201.ts",
+        "src/lib/modules/catalog/biotechnology-301.ts",
+        "src/lib/modules/catalog/biotechnology-401.ts"
+      ]
+    },
+    {
+      "trackId": "business-analytics",
+      "trackTitle": "Business Analytics",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "business-analytics-101",
+        "business-analytics-201",
+        "business-analytics-301",
+        "business-analytics-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/business-analytics-101.ts",
+        "src/lib/modules/catalog/business-analytics-201.ts",
+        "src/lib/modules/catalog/business-analytics-301.ts",
+        "src/lib/modules/catalog/business-analytics-401.ts"
+      ]
+    },
+    {
+      "trackId": "business-ethics",
+      "trackTitle": "Business Ethics",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "business-ethics-101",
+        "business-ethics-201",
+        "business-ethics-301",
+        "business-ethics-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/business-ethics-101.ts",
+        "src/lib/modules/catalog/business-ethics-201.ts",
+        "src/lib/modules/catalog/business-ethics-301.ts",
+        "src/lib/modules/catalog/business-ethics-401.ts"
+      ]
+    },
+    {
+      "trackId": "chemistry",
+      "trackTitle": "Chemistry",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "chemistry-101",
+        "chemistry-201",
+        "chemistry-301",
+        "chemistry-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/chemistry-101.ts",
+        "src/lib/modules/catalog/chemistry-201.ts",
+        "src/lib/modules/catalog/chemistry-301.ts",
+        "src/lib/modules/catalog/chemistry-401.ts"
+      ]
+    },
+    {
+      "trackId": "civil-engineering",
+      "trackTitle": "Civil Engineering",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "civil-engineering-101",
+        "civil-engineering-201",
+        "civil-engineering-301",
+        "civil-engineering-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/civil-engineering-101.ts",
+        "src/lib/modules/catalog/civil-engineering-201.ts",
+        "src/lib/modules/catalog/civil-engineering-301.ts",
+        "src/lib/modules/catalog/civil-engineering-401.ts"
+      ]
+    },
+    {
+      "trackId": "climate-science",
+      "trackTitle": "Climate Science",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "climate-science-101",
+        "climate-science-201",
+        "climate-science-301",
+        "climate-science-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/climate-science-101.ts",
+        "src/lib/modules/catalog/climate-science-201.ts",
+        "src/lib/modules/catalog/climate-science-301.ts",
+        "src/lib/modules/catalog/climate-science-401.ts"
+      ]
+    },
+    {
+      "trackId": "cloud-computing",
+      "trackTitle": "Cloud Computing",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "cloud-computing-101",
+        "cloud-computing-201",
+        "cloud-computing-301",
+        "cloud-computing-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/cloud-computing-101.ts",
+        "src/lib/modules/catalog/cloud-computing-201.ts",
+        "src/lib/modules/catalog/cloud-computing-301.ts",
+        "src/lib/modules/catalog/cloud-computing-401.ts"
+      ]
+    },
+    {
+      "trackId": "coding",
+      "trackTitle": "Coding",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "coding-101",
+        "coding-201",
+        "coding-301",
+        "coding-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/coding-101.ts",
+        "src/lib/modules/catalog/coding-201.ts",
+        "src/lib/modules/catalog/coding-301.ts",
+        "src/lib/modules/catalog/coding-401.ts"
+      ]
+    },
+    {
+      "trackId": "cpu-gpu-memory-design",
+      "trackTitle": "Cpu Gpu Memory Design",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "cpu-gpu-memory-design-101",
+        "cpu-gpu-memory-design-201",
+        "cpu-gpu-memory-design-301",
+        "cpu-gpu-memory-design-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/cpu-gpu-memory-design-101.ts",
+        "src/lib/modules/catalog/cpu-gpu-memory-design-201.ts",
+        "src/lib/modules/catalog/cpu-gpu-memory-design-301.ts",
+        "src/lib/modules/catalog/cpu-gpu-memory-design-401.ts"
+      ]
+    },
+    {
+      "trackId": "cybersecurity",
+      "trackTitle": "Cybersecurity",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "cybersecurity-101",
+        "cybersecurity-201",
+        "cybersecurity-301",
+        "cybersecurity-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/cybersecurity-101.ts",
+        "src/lib/modules/catalog/cybersecurity-201.ts",
+        "src/lib/modules/catalog/cybersecurity-301.ts",
+        "src/lib/modules/catalog/cybersecurity-401.ts"
+      ]
+    },
+    {
+      "trackId": "data-engineering",
+      "trackTitle": "Data Engineering",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "data-engineering-101",
+        "data-engineering-201",
+        "data-engineering-301",
+        "data-engineering-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/data-engineering-101.ts",
+        "src/lib/modules/catalog/data-engineering-201.ts",
+        "src/lib/modules/catalog/data-engineering-301.ts",
+        "src/lib/modules/catalog/data-engineering-401.ts"
+      ]
+    },
+    {
+      "trackId": "data-science",
+      "trackTitle": "Data Science",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "data-science-101",
+        "data-science-201",
+        "data-science-301",
+        "data-science-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/data-science-101.ts",
+        "src/lib/modules/catalog/data-science-201.ts",
+        "src/lib/modules/catalog/data-science-301.ts",
+        "src/lib/modules/catalog/data-science-401.ts"
+      ]
+    },
+    {
+      "trackId": "digital-marketing",
+      "trackTitle": "Digital Marketing",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "digital-marketing-101",
+        "digital-marketing-201",
+        "digital-marketing-301",
+        "digital-marketing-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/digital-marketing-101.ts",
+        "src/lib/modules/catalog/digital-marketing-201.ts",
+        "src/lib/modules/catalog/digital-marketing-301.ts",
+        "src/lib/modules/catalog/digital-marketing-401.ts"
+      ]
+    },
+    {
+      "trackId": "distributed-systems",
+      "trackTitle": "Distributed Systems",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "distributed-systems-101",
+        "distributed-systems-201",
+        "distributed-systems-301",
+        "distributed-systems-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/distributed-systems-101.ts",
+        "src/lib/modules/catalog/distributed-systems-201.ts",
+        "src/lib/modules/catalog/distributed-systems-301.ts",
+        "src/lib/modules/catalog/distributed-systems-401.ts"
+      ]
+    },
+    {
+      "trackId": "economics",
+      "trackTitle": "Economics",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "economics-101",
+        "economics-201",
+        "economics-301",
+        "economics-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/economics-101.ts",
+        "src/lib/modules/catalog/economics-201.ts",
+        "src/lib/modules/catalog/economics-301.ts",
+        "src/lib/modules/catalog/economics-401.ts"
+      ]
+    },
+    {
+      "trackId": "electrical-engineering",
+      "trackTitle": "Electrical Engineering",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "electrical-engineering-101",
+        "electrical-engineering-201",
+        "electrical-engineering-301",
+        "electrical-engineering-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/electrical-engineering-101.ts",
+        "src/lib/modules/catalog/electrical-engineering-201.ts",
+        "src/lib/modules/catalog/electrical-engineering-301.ts",
+        "src/lib/modules/catalog/electrical-engineering-401.ts"
+      ]
+    },
+    {
+      "trackId": "electrician-electricity",
+      "trackTitle": "Electrician Electricity",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "electrician-electricity-101",
+        "electrician-electricity-201",
+        "electrician-electricity-301",
+        "electrician-electricity-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/electrician-electricity-101.ts",
+        "src/lib/modules/catalog/electrician-electricity-201.ts",
+        "src/lib/modules/catalog/electrician-electricity-301.ts",
+        "src/lib/modules/catalog/electrician-electricity-401.ts"
+      ]
+    },
+    {
+      "trackId": "entrepreneurship",
+      "trackTitle": "Entrepreneurship",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "entrepreneurship-101",
+        "entrepreneurship-201",
+        "entrepreneurship-301",
+        "entrepreneurship-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/entrepreneurship-101.ts",
+        "src/lib/modules/catalog/entrepreneurship-201.ts",
+        "src/lib/modules/catalog/entrepreneurship-301.ts",
+        "src/lib/modules/catalog/entrepreneurship-401.ts"
+      ]
+    },
+    {
+      "trackId": "ethics-of-technology",
+      "trackTitle": "Ethics Of Technology",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "ethics-of-technology-101",
+        "ethics-of-technology-201",
+        "ethics-of-technology-301",
+        "ethics-of-technology-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/ethics-of-technology-101.ts",
+        "src/lib/modules/catalog/ethics-of-technology-201.ts",
+        "src/lib/modules/catalog/ethics-of-technology-301.ts",
+        "src/lib/modules/catalog/ethics-of-technology-401.ts"
+      ]
+    },
+    {
+      "trackId": "farming",
+      "trackTitle": "Farming",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "farming-101",
+        "farming-201",
+        "farming-301",
+        "farming-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/farming-101.ts",
+        "src/lib/modules/catalog/farming-201.ts",
+        "src/lib/modules/catalog/farming-301.ts",
+        "src/lib/modules/catalog/farming-401.ts"
+      ]
+    },
+    {
+      "trackId": "financial-literacy",
+      "trackTitle": "Financial Literacy",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "financial-literacy-101",
+        "financial-literacy-201",
+        "financial-literacy-301",
+        "financial-literacy-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/financial-literacy-101.ts",
+        "src/lib/modules/catalog/financial-literacy-201.ts",
+        "src/lib/modules/catalog/financial-literacy-301.ts",
+        "src/lib/modules/catalog/financial-literacy-401.ts"
+      ]
+    },
+    {
+      "trackId": "gardening",
+      "trackTitle": "Gardening",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "gardening-101",
+        "gardening-201",
+        "gardening-301",
+        "gardening-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/gardening-101.ts",
+        "src/lib/modules/catalog/gardening-201.ts",
+        "src/lib/modules/catalog/gardening-301.ts",
+        "src/lib/modules/catalog/gardening-401.ts"
+      ]
+    },
+    {
+      "trackId": "general-relativity",
+      "trackTitle": "General Relativity",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "general-relativity-101",
+        "general-relativity-201",
+        "general-relativity-301",
+        "general-relativity-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/general-relativity-101.ts",
+        "src/lib/modules/catalog/general-relativity-201.ts",
+        "src/lib/modules/catalog/general-relativity-301.ts",
+        "src/lib/modules/catalog/general-relativity-401.ts"
+      ]
+    },
+    {
+      "trackId": "general-science",
+      "trackTitle": "General Science",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "general-science-101",
+        "general-science-201",
+        "general-science-301",
+        "general-science-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/general-science-101.ts",
+        "src/lib/modules/catalog/general-science-201.ts",
+        "src/lib/modules/catalog/general-science-301.ts",
+        "src/lib/modules/catalog/general-science-401.ts"
+      ]
+    },
+    {
+      "trackId": "geography",
+      "trackTitle": "Geography",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "geography-101",
+        "geography-201",
+        "geography-301",
+        "geography-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/geography-101.ts",
+        "src/lib/modules/catalog/geography-201.ts",
+        "src/lib/modules/catalog/geography-301.ts",
+        "src/lib/modules/catalog/geography-401.ts"
+      ]
+    },
+    {
+      "trackId": "household-management",
+      "trackTitle": "Household Management",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "household-management-101",
+        "household-management-201",
+        "household-management-301",
+        "household-management-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/household-management-101.ts",
+        "src/lib/modules/catalog/household-management-201.ts",
+        "src/lib/modules/catalog/household-management-301.ts",
+        "src/lib/modules/catalog/household-management-401.ts"
+      ]
+    },
+    {
+      "trackId": "human-resource-management",
+      "trackTitle": "Human Resource Management",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "human-resource-management-101",
+        "human-resource-management-201",
+        "human-resource-management-301",
+        "human-resource-management-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/human-resource-management-101.ts",
+        "src/lib/modules/catalog/human-resource-management-201.ts",
+        "src/lib/modules/catalog/human-resource-management-301.ts",
+        "src/lib/modules/catalog/human-resource-management-401.ts"
+      ]
+    },
+    {
+      "trackId": "hvac",
+      "trackTitle": "Hvac",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "hvac-101",
+        "hvac-201",
+        "hvac-301",
+        "hvac-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/hvac-101.ts",
+        "src/lib/modules/catalog/hvac-201.ts",
+        "src/lib/modules/catalog/hvac-301.ts",
+        "src/lib/modules/catalog/hvac-401.ts"
+      ]
+    },
+    {
+      "trackId": "international-business",
+      "trackTitle": "International Business",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "international-business-101",
+        "international-business-201",
+        "international-business-301",
+        "international-business-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/international-business-101.ts",
+        "src/lib/modules/catalog/international-business-201.ts",
+        "src/lib/modules/catalog/international-business-301.ts",
+        "src/lib/modules/catalog/international-business-401.ts"
+      ]
+    },
+    {
+      "trackId": "international-relations",
+      "trackTitle": "International Relations",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "international-relations-101",
+        "international-relations-201",
+        "international-relations-301",
+        "international-relations-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/international-relations-101.ts",
+        "src/lib/modules/catalog/international-relations-201.ts",
+        "src/lib/modules/catalog/international-relations-301.ts",
+        "src/lib/modules/catalog/international-relations-401.ts"
+      ]
+    },
+    {
+      "trackId": "language-arts",
+      "trackTitle": "Language Arts",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "language-arts-101",
+        "language-arts-201",
+        "language-arts-301",
+        "language-arts-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/language-arts-101.ts",
+        "src/lib/modules/catalog/language-arts-201.ts",
+        "src/lib/modules/catalog/language-arts-301.ts",
+        "src/lib/modules/catalog/language-arts-401.ts"
+      ]
+    },
+    {
+      "trackId": "law-studies",
+      "trackTitle": "Law Studies",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "law-studies-101",
+        "law-studies-201",
+        "law-studies-301",
+        "law-studies-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/law-studies-101.ts",
+        "src/lib/modules/catalog/law-studies-201.ts",
+        "src/lib/modules/catalog/law-studies-301.ts",
+        "src/lib/modules/catalog/law-studies-401.ts"
+      ]
+    },
+    {
+      "trackId": "leadership",
+      "trackTitle": "Leadership",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "leadership-101",
+        "leadership-201",
+        "leadership-301",
+        "leadership-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/leadership-101.ts",
+        "src/lib/modules/catalog/leadership-201.ts",
+        "src/lib/modules/catalog/leadership-301.ts",
+        "src/lib/modules/catalog/leadership-401.ts"
+      ]
+    },
+    {
+      "trackId": "linux",
+      "trackTitle": "Linux",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "linux-101",
+        "linux-201",
+        "linux-301",
+        "linux-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/linux-101.ts",
+        "src/lib/modules/catalog/linux-201.ts",
+        "src/lib/modules/catalog/linux-301.ts",
+        "src/lib/modules/catalog/linux-401.ts"
+      ]
+    },
+    {
+      "trackId": "macos",
+      "trackTitle": "Macos",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "macos-101",
+        "macos-201",
+        "macos-301",
+        "macos-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/macos-101.ts",
+        "src/lib/modules/catalog/macos-201.ts",
+        "src/lib/modules/catalog/macos-301.ts",
+        "src/lib/modules/catalog/macos-401.ts"
+      ]
+    },
+    {
+      "trackId": "marketing-management",
+      "trackTitle": "Marketing Management",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "marketing-management-101",
+        "marketing-management-201",
+        "marketing-management-301",
+        "marketing-management-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/marketing-management-101.ts",
+        "src/lib/modules/catalog/marketing-management-201.ts",
+        "src/lib/modules/catalog/marketing-management-301.ts",
+        "src/lib/modules/catalog/marketing-management-401.ts"
+      ]
+    },
+    {
+      "trackId": "math",
+      "trackTitle": "Math",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "math-101",
+        "math-201",
+        "math-301",
+        "math-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/math-101.ts",
+        "src/lib/modules/catalog/math-201.ts",
+        "src/lib/modules/catalog/math-301.ts",
+        "src/lib/modules/catalog/math-401.ts"
+      ]
+    },
+    {
+      "trackId": "media-literacy",
+      "trackTitle": "Media Literacy",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "media-literacy-101",
+        "media-literacy-201",
+        "media-literacy-301",
+        "media-literacy-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/media-literacy-101.ts",
+        "src/lib/modules/catalog/media-literacy-201.ts",
+        "src/lib/modules/catalog/media-literacy-301.ts",
+        "src/lib/modules/catalog/media-literacy-401.ts"
+      ]
+    },
+    {
+      "trackId": "medicine",
+      "trackTitle": "Medicine",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "medicine-101",
+        "medicine-201",
+        "medicine-301",
+        "medicine-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/medicine-101.ts",
+        "src/lib/modules/catalog/medicine-201.ts",
+        "src/lib/modules/catalog/medicine-301.ts",
+        "src/lib/modules/catalog/medicine-401.ts"
+      ]
+    },
+    {
+      "trackId": "meteorology",
+      "trackTitle": "Meteorology",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "meteorology-101",
+        "meteorology-201",
+        "meteorology-301",
+        "meteorology-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/meteorology-101.ts",
+        "src/lib/modules/catalog/meteorology-201.ts",
+        "src/lib/modules/catalog/meteorology-301.ts",
+        "src/lib/modules/catalog/meteorology-401.ts"
+      ]
+    },
+    {
+      "trackId": "micro-circuits",
+      "trackTitle": "Micro Circuits",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "micro-circuits-101",
+        "micro-circuits-201",
+        "micro-circuits-301",
+        "micro-circuits-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/micro-circuits-101.ts",
+        "src/lib/modules/catalog/micro-circuits-201.ts",
+        "src/lib/modules/catalog/micro-circuits-301.ts",
+        "src/lib/modules/catalog/micro-circuits-401.ts"
+      ]
+    },
+    {
+      "trackId": "microelectronics",
+      "trackTitle": "Microelectronics",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "microelectronics-101",
+        "microelectronics-201",
+        "microelectronics-301",
+        "microelectronics-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/microelectronics-101.ts",
+        "src/lib/modules/catalog/microelectronics-201.ts",
+        "src/lib/modules/catalog/microelectronics-301.ts",
+        "src/lib/modules/catalog/microelectronics-401.ts"
+      ]
+    },
+    {
+      "trackId": "music-history",
+      "trackTitle": "Music History",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "music-history-101",
+        "music-history-201",
+        "music-history-301",
+        "music-history-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/music-history-101.ts",
+        "src/lib/modules/catalog/music-history-201.ts",
+        "src/lib/modules/catalog/music-history-301.ts",
+        "src/lib/modules/catalog/music-history-401.ts"
+      ]
+    },
+    {
+      "trackId": "music-production",
+      "trackTitle": "Music Production",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "music-production-101",
+        "music-production-201",
+        "music-production-301",
+        "music-production-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/music-production-101.ts",
+        "src/lib/modules/catalog/music-production-201.ts",
+        "src/lib/modules/catalog/music-production-301.ts",
+        "src/lib/modules/catalog/music-production-401.ts"
+      ]
+    },
+    {
+      "trackId": "music-theory",
+      "trackTitle": "Music Theory",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "music-theory-101",
+        "music-theory-201",
+        "music-theory-301",
+        "music-theory-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/music-theory-101.ts",
+        "src/lib/modules/catalog/music-theory-201.ts",
+        "src/lib/modules/catalog/music-theory-301.ts",
+        "src/lib/modules/catalog/music-theory-401.ts"
+      ]
+    },
+    {
+      "trackId": "negotiation-conflict-resolution",
+      "trackTitle": "Negotiation Conflict Resolution",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "negotiation-conflict-resolution-101",
+        "negotiation-conflict-resolution-201",
+        "negotiation-conflict-resolution-301",
+        "negotiation-conflict-resolution-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/negotiation-conflict-resolution-101.ts",
+        "src/lib/modules/catalog/negotiation-conflict-resolution-201.ts",
+        "src/lib/modules/catalog/negotiation-conflict-resolution-301.ts",
+        "src/lib/modules/catalog/negotiation-conflict-resolution-401.ts"
+      ]
+    },
+    {
+      "trackId": "network-engineering",
+      "trackTitle": "Network Engineering",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "network-engineering-101",
+        "network-engineering-201",
+        "network-engineering-301",
+        "network-engineering-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/network-engineering-101.ts",
+        "src/lib/modules/catalog/network-engineering-201.ts",
+        "src/lib/modules/catalog/network-engineering-301.ts",
+        "src/lib/modules/catalog/network-engineering-401.ts"
+      ]
+    },
+    {
+      "trackId": "neuroscience",
+      "trackTitle": "Neuroscience",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "neuroscience-101",
+        "neuroscience-201",
+        "neuroscience-301",
+        "neuroscience-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/neuroscience-101.ts",
+        "src/lib/modules/catalog/neuroscience-201.ts",
+        "src/lib/modules/catalog/neuroscience-301.ts",
+        "src/lib/modules/catalog/neuroscience-401.ts"
+      ]
+    },
+    {
+      "trackId": "nursing",
+      "trackTitle": "Nursing",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "nursing-101",
+        "nursing-201",
+        "nursing-301",
+        "nursing-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/nursing-101.ts",
+        "src/lib/modules/catalog/nursing-201.ts",
+        "src/lib/modules/catalog/nursing-301.ts",
+        "src/lib/modules/catalog/nursing-401.ts"
+      ]
+    },
+    {
+      "trackId": "oceanography",
+      "trackTitle": "Oceanography",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "oceanography-101",
+        "oceanography-201",
+        "oceanography-301",
+        "oceanography-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/oceanography-101.ts",
+        "src/lib/modules/catalog/oceanography-201.ts",
+        "src/lib/modules/catalog/oceanography-301.ts",
+        "src/lib/modules/catalog/oceanography-401.ts"
+      ]
+    },
+    {
+      "trackId": "operations-management",
+      "trackTitle": "Operations Management",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "operations-management-101",
+        "operations-management-201",
+        "operations-management-301",
+        "operations-management-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/operations-management-101.ts",
+        "src/lib/modules/catalog/operations-management-201.ts",
+        "src/lib/modules/catalog/operations-management-301.ts",
+        "src/lib/modules/catalog/operations-management-401.ts"
+      ]
+    },
+    {
+      "trackId": "organizational-behavior",
+      "trackTitle": "Organizational Behavior",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "organizational-behavior-101",
+        "organizational-behavior-201",
+        "organizational-behavior-301",
+        "organizational-behavior-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/organizational-behavior-101.ts",
+        "src/lib/modules/catalog/organizational-behavior-201.ts",
+        "src/lib/modules/catalog/organizational-behavior-301.ts",
+        "src/lib/modules/catalog/organizational-behavior-401.ts"
+      ]
+    },
+    {
+      "trackId": "philosophy",
+      "trackTitle": "Philosophy",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "philosophy-101",
+        "philosophy-201",
+        "philosophy-301",
+        "philosophy-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/philosophy-101.ts",
+        "src/lib/modules/catalog/philosophy-201.ts",
+        "src/lib/modules/catalog/philosophy-301.ts",
+        "src/lib/modules/catalog/philosophy-401.ts"
+      ]
+    },
+    {
+      "trackId": "physics",
+      "trackTitle": "Physics",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "physics-101",
+        "physics-201",
+        "physics-301",
+        "physics-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/physics-101.ts",
+        "src/lib/modules/catalog/physics-201.ts",
+        "src/lib/modules/catalog/physics-301.ts",
+        "src/lib/modules/catalog/physics-401.ts"
+      ]
+    },
+    {
+      "trackId": "plumbing",
+      "trackTitle": "Plumbing",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "plumbing-101",
+        "plumbing-201",
+        "plumbing-301",
+        "plumbing-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/plumbing-101.ts",
+        "src/lib/modules/catalog/plumbing-201.ts",
+        "src/lib/modules/catalog/plumbing-301.ts",
+        "src/lib/modules/catalog/plumbing-401.ts"
+      ]
+    },
+    {
+      "trackId": "project-management",
+      "trackTitle": "Project Management",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "project-management-101",
+        "project-management-201",
+        "project-management-301",
+        "project-management-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/project-management-101.ts",
+        "src/lib/modules/catalog/project-management-201.ts",
+        "src/lib/modules/catalog/project-management-301.ts",
+        "src/lib/modules/catalog/project-management-401.ts"
+      ]
+    },
+    {
+      "trackId": "psychology",
+      "trackTitle": "Psychology",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "psychology-101",
+        "psychology-201",
+        "psychology-301",
+        "psychology-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/psychology-101.ts",
+        "src/lib/modules/catalog/psychology-201.ts",
+        "src/lib/modules/catalog/psychology-301.ts",
+        "src/lib/modules/catalog/psychology-401.ts"
+      ]
+    },
+    {
+      "trackId": "public-health",
+      "trackTitle": "Public Health",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "public-health-101",
+        "public-health-201",
+        "public-health-301",
+        "public-health-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/public-health-101.ts",
+        "src/lib/modules/catalog/public-health-201.ts",
+        "src/lib/modules/catalog/public-health-301.ts",
+        "src/lib/modules/catalog/public-health-401.ts"
+      ]
+    },
+    {
+      "trackId": "quantum-computing",
+      "trackTitle": "Quantum Computing",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "quantum-computing-101",
+        "quantum-computing-201",
+        "quantum-computing-301",
+        "quantum-computing-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/quantum-computing-101.ts",
+        "src/lib/modules/catalog/quantum-computing-201.ts",
+        "src/lib/modules/catalog/quantum-computing-301.ts",
+        "src/lib/modules/catalog/quantum-computing-401.ts"
+      ]
+    },
+    {
+      "trackId": "reading",
+      "trackTitle": "Reading",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "reading-101",
+        "reading-201",
+        "reading-301",
+        "reading-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/reading-101.ts",
+        "src/lib/modules/catalog/reading-201.ts",
+        "src/lib/modules/catalog/reading-301.ts",
+        "src/lib/modules/catalog/reading-401.ts"
+      ]
+    },
+    {
+      "trackId": "renewable-energy-systems",
+      "trackTitle": "Renewable Energy Systems",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "renewable-energy-systems-101",
+        "renewable-energy-systems-201",
+        "renewable-energy-systems-301",
+        "renewable-energy-systems-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/renewable-energy-systems-101.ts",
+        "src/lib/modules/catalog/renewable-energy-systems-201.ts",
+        "src/lib/modules/catalog/renewable-energy-systems-301.ts",
+        "src/lib/modules/catalog/renewable-energy-systems-401.ts"
+      ]
+    },
+    {
+      "trackId": "robotics",
+      "trackTitle": "Robotics",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "robotics-101",
+        "robotics-201",
+        "robotics-301",
+        "robotics-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/robotics-101.ts",
+        "src/lib/modules/catalog/robotics-201.ts",
+        "src/lib/modules/catalog/robotics-301.ts",
+        "src/lib/modules/catalog/robotics-401.ts"
+      ]
+    },
+    {
+      "trackId": "science",
+      "trackTitle": "Science",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "science-101",
+        "science-201",
+        "science-301",
+        "science-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/science-101.ts",
+        "src/lib/modules/catalog/science-201.ts",
+        "src/lib/modules/catalog/science-301.ts",
+        "src/lib/modules/catalog/science-401.ts"
+      ]
+    },
+    {
+      "trackId": "social-studies-us",
+      "trackTitle": "Social Studies Us",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "social-studies-us-101",
+        "social-studies-us-201",
+        "social-studies-us-301",
+        "social-studies-us-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/social-studies-us-101.ts",
+        "src/lib/modules/catalog/social-studies-us-201.ts",
+        "src/lib/modules/catalog/social-studies-us-301.ts",
+        "src/lib/modules/catalog/social-studies-us-401.ts"
+      ]
+    },
+    {
+      "trackId": "social-studies-world",
+      "trackTitle": "Social Studies World",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "social-studies-world-101",
+        "social-studies-world-201",
+        "social-studies-world-301",
+        "social-studies-world-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/social-studies-world-101.ts",
+        "src/lib/modules/catalog/social-studies-world-201.ts",
+        "src/lib/modules/catalog/social-studies-world-301.ts",
+        "src/lib/modules/catalog/social-studies-world-401.ts"
+      ]
+    },
+    {
+      "trackId": "space-missions-engineering",
+      "trackTitle": "Space Missions Engineering",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "space-missions-engineering-101",
+        "space-missions-engineering-201",
+        "space-missions-engineering-301",
+        "space-missions-engineering-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/space-missions-engineering-101.ts",
+        "src/lib/modules/catalog/space-missions-engineering-201.ts",
+        "src/lib/modules/catalog/space-missions-engineering-301.ts",
+        "src/lib/modules/catalog/space-missions-engineering-401.ts"
+      ]
+    },
+    {
+      "trackId": "sports-science",
+      "trackTitle": "Sports Science",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "sports-science-101",
+        "sports-science-201",
+        "sports-science-301",
+        "sports-science-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/sports-science-101.ts",
+        "src/lib/modules/catalog/sports-science-201.ts",
+        "src/lib/modules/catalog/sports-science-301.ts",
+        "src/lib/modules/catalog/sports-science-401.ts"
+      ]
+    },
+    {
+      "trackId": "strategic-management",
+      "trackTitle": "Strategic Management",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "strategic-management-101",
+        "strategic-management-201",
+        "strategic-management-301",
+        "strategic-management-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/strategic-management-101.ts",
+        "src/lib/modules/catalog/strategic-management-201.ts",
+        "src/lib/modules/catalog/strategic-management-301.ts",
+        "src/lib/modules/catalog/strategic-management-401.ts"
+      ]
+    },
+    {
+      "trackId": "supply-chain-management",
+      "trackTitle": "Supply Chain Management",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "supply-chain-management-101",
+        "supply-chain-management-201",
+        "supply-chain-management-301",
+        "supply-chain-management-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/supply-chain-management-101.ts",
+        "src/lib/modules/catalog/supply-chain-management-201.ts",
+        "src/lib/modules/catalog/supply-chain-management-301.ts",
+        "src/lib/modules/catalog/supply-chain-management-401.ts"
+      ]
+    },
+    {
+      "trackId": "sustainability-policy",
+      "trackTitle": "Sustainability Policy",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "sustainability-policy-101",
+        "sustainability-policy-201",
+        "sustainability-policy-301",
+        "sustainability-policy-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/sustainability-policy-101.ts",
+        "src/lib/modules/catalog/sustainability-policy-201.ts",
+        "src/lib/modules/catalog/sustainability-policy-301.ts",
+        "src/lib/modules/catalog/sustainability-policy-401.ts"
+      ]
+    },
+    {
+      "trackId": "us-civics",
+      "trackTitle": "Us Civics",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "us-civics-101",
+        "us-civics-201",
+        "us-civics-301",
+        "us-civics-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/us-civics-101.ts",
+        "src/lib/modules/catalog/us-civics-201.ts",
+        "src/lib/modules/catalog/us-civics-301.ts",
+        "src/lib/modules/catalog/us-civics-401.ts"
+      ]
+    },
+    {
+      "trackId": "ux-design",
+      "trackTitle": "Ux Design",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "ux-design-101",
+        "ux-design-201",
+        "ux-design-301",
+        "ux-design-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/ux-design-101.ts",
+        "src/lib/modules/catalog/ux-design-201.ts",
+        "src/lib/modules/catalog/ux-design-301.ts",
+        "src/lib/modules/catalog/ux-design-401.ts"
+      ]
+    },
+    {
+      "trackId": "windows",
+      "trackTitle": "Windows",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "windows-101",
+        "windows-201",
+        "windows-301",
+        "windows-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/windows-101.ts",
+        "src/lib/modules/catalog/windows-201.ts",
+        "src/lib/modules/catalog/windows-301.ts",
+        "src/lib/modules/catalog/windows-401.ts"
+      ]
+    },
+    {
+      "trackId": "world-history",
+      "trackTitle": "World History",
+      "levelsPresent": [
+        "101",
+        "201",
+        "301",
+        "401"
+      ],
+      "missingLevels": [],
+      "completionPercent": 100,
+      "moduleIds": [
+        "world-history-101",
+        "world-history-201",
+        "world-history-301",
+        "world-history-401"
+      ],
+      "files": [
+        "src/lib/modules/catalog/world-history-101.ts",
+        "src/lib/modules/catalog/world-history-201.ts",
+        "src/lib/modules/catalog/world-history-301.ts",
+        "src/lib/modules/catalog/world-history-401.ts"
+      ]
+    }
+  ],
+  "proposals": []
+}

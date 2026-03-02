@@ -10,6 +10,7 @@ import { ActiveProfileProvider } from "@/lib/profiles/active-profile-context";
 import SessionExpiryFetchGuard from "./components/session-expiry-fetch-guard";
 import PlatformLifecycleProvider from "./platform-lifecycle-provider";
 import PlatformClassProvider from "./components/platform-class-provider";
+import { ExperienceProvider } from "@/lib/gamification/experience-context";
 
 export default function AppProviders({ children }: { children: ReactNode }) {
   return (
@@ -21,7 +22,12 @@ export default function AppProviders({ children }: { children: ReactNode }) {
           <ThemeProvider>
             <I18nProvider>
               <SessionExpiryFetchGuard />
-              <MixpanelProvider>{children}</MixpanelProvider>
+              {/* ExperienceProvider renders global celebration overlays
+                  (JuicyConfetti, AchievementToast) and exposes useExperience()
+                  to the entire tree. Owns: src/lib/gamification/ */}
+              <ExperienceProvider>
+                <MixpanelProvider>{children}</MixpanelProvider>
+              </ExperienceProvider>
             </I18nProvider>
           </ThemeProvider>
           </VoicePreferenceProvider>

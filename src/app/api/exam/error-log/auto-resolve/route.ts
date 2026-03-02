@@ -3,10 +3,15 @@ import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { buildAutoResolveCandidates } from "@/lib/exam/error-auto-resolve";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
 const autoResolveSchema = z.object({
   dryRun: z.boolean().optional(),
-  limit: z.number().int().min(1).max(500).optional(),
+  limit: z.coerce.number().int().min(1).max(500).optional(),
+});
+
+const QuerySchema = z.object({
+  limit: z.coerce.number().int().min(1).max(500).default(100),
 });
 
 async function buildEligibleAutoResolveItems(
@@ -60,8 +65,31 @@ async function buildEligibleAutoResolveItems(
   return { success: true, eligibleItems };
 }
 
+function parseQuery(request: Request) {
+  const url = new URL(request.url);
+  return QuerySchema.safeParse({
+    limit: url.searchParams.get("limit") ?? undefined,
+  });
+}
+
 export async function GET(request: Request) {
   try {
+    const rateLimit = await enforceIpRateLimit(request, "api:exam:error-log:auto-resolve:get", {
+      max: 30,
+      windowMs: 60_000,
+    });
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many auto-resolve preview requests. Please retry shortly." },
+        { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+      );
+    }
+
+    const parsedQuery = parseQuery(request);
+    if (!parsedQuery.success) {
+      return NextResponse.json({ error: "Invalid auto-resolve query parameters." }, { status: 400 });
+    }
+
     const supabase = await createSupabaseServerClient();
     const {
       data: { user },
@@ -72,9 +100,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const url = new URL(request.url);
-    const parsedLimit = Number(url.searchParams.get("limit") ?? 100);
-    const limit = Number.isFinite(parsedLimit) ? Math.max(1, Math.min(500, Math.trunc(parsedLimit))) : 100;
+    const limit = parsedQuery.data.limit;
     const eligibility = await buildEligibleAutoResolveItems(user.id, limit);
     if (!eligibility.success) {
       return NextResponse.json({ error: eligibility.error ?? "Database error" }, { status: 500 });
@@ -93,6 +119,17 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
+    const rateLimit = await enforceIpRateLimit(request, "api:exam:error-log:auto-resolve:post", {
+      max: 20,
+      windowMs: 60_000,
+    });
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many auto-resolve executions. Please retry shortly." },
+        { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+      );
+    }
+
     const supabase = await createSupabaseServerClient();
     const {
       data: { user },

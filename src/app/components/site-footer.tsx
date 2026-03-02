@@ -24,11 +24,12 @@ const LEARN_FOR_LINKS = [
 ];
 
 const COMPANY_LINKS = [
-  { href: "/support",         label: "Help & Support" },
-  { href: "/legal/privacy",   label: "Privacy Policy" },
-  { href: "/legal/terms",     label: "Terms of Use" },
-  { href: "/legal/refunds",   label: "Refund Policy" },
-  { href: "/auth/sign-up",    label: "Create Free Account" },
+  { href: "/support",                label: "Help & Support" },
+  { href: "/legal/privacy",          label: "Privacy Policy" },
+  { href: "/legal/terms",            label: "Terms of Use" },
+  { href: "/legal/refunds",          label: "Refund Policy" },
+  { href: "/legal/accessibility",    label: "Accessibility" },
+  { href: "/auth/sign-up",           label: "Create Free Account" },
 ];
 
 const SOCIAL_LINKS = [

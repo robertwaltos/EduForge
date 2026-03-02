@@ -200,5 +200,69 @@ export const Macos101Module: LearningModule = {
         },
       ],
     },
+    {
+      id: "macos-101-l06",
+      title: "Checkpoint 2: Practical macOS Workflow",
+      type: "quiz",
+      duration: 10,
+      questions: [
+        {
+          id: "macos-101-l06-q1",
+          text: "Which workflow best reduces accidental file loss on macOS?",
+          skillId: "macos-101-skill-backup",
+          options: [
+            { id: "a", text: "Use Time Machine backups and verify restore points regularly." },
+            { id: "b", text: "Rely only on desktop copies with no backups." },
+            { id: "c", text: "Disable backup prompts permanently." },
+            { id: "d", text: "Store all files only in Downloads forever." },
+          ],
+          correctOptionId: "a",
+        },
+        {
+          id: "macos-101-l06-q2",
+          text: "When practicing Terminal basics, what is the safest approach?",
+          skillId: "macos-101-skill-cli",
+          options: [
+            { id: "a", text: "Start with read-only commands and review docs before changes." },
+            { id: "b", text: "Run destructive commands to learn faster." },
+            { id: "c", text: "Always use elevated privileges by default." },
+            { id: "d", text: "Disable system protections for convenience." },
+          ],
+          correctOptionId: "a",
+        },
+        {
+          id: "macos-101-l06-q3",
+          text: "What improves device security posture the most for everyday users?",
+          skillId: "macos-101-skill-security",
+          options: [
+            { id: "a", text: "Keep updates current, require login protection, and review permissions." },
+            { id: "b", text: "Install software from unknown sources without checks." },
+            { id: "c", text: "Turn off update reminders and firewall settings." },
+            { id: "d", text: "Share admin credentials with all users." },
+          ],
+          correctOptionId: "a",
+        },
+        {
+          id: "macos-101-l06-q4",
+          text: "A strong Finder organization system should include:",
+          skillId: "macos-101-skill-navigation",
+          options: [
+            { id: "a", text: "Consistent naming, folder structure, and periodic cleanup reviews." },
+            { id: "b", text: "Random names and mixed file locations." },
+            { id: "c", text: "No tags, no folders, and no archive approach." },
+            { id: "d", text: "Only one folder for every project forever." },
+          ],
+          correctOptionId: "a",
+        },
+      ],
+      learningAids: [
+        {
+          id: "macos-101-l06-a1",
+          type: "practice",
+          title: "Daily Ops Checklist",
+          content: "Check navigation, security, backup, and command-safety habits each week.",
+        },
+      ],
+    },
   ],
 };

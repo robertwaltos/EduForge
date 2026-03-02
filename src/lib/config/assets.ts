@@ -17,6 +17,15 @@ export const ASSETS = {
 
   /** Brand logo — used in top-nav and any other branded surfaces */
   logo: "/logo-koydo.jpg",
+
+  /** Day/school-scene background used on the sign-in page */
+  bgDay: "/bg-day-v1.jpg",
+
+  /** "Bridge of Books" hero image used on the sign-in page */
+  heroSignIn: "/hero-light-07.jpg",
+
+  /** "Bridge of Books v3" hero image used on the sign-up page */
+  heroSignUp: "/generated-images/hero-light-07-v3.jpg",
 } as const;
 
 export type AssetKey = keyof typeof ASSETS;

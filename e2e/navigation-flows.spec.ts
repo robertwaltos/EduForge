@@ -14,6 +14,16 @@ test.describe("Navigation flows", () => {
     hasTouch: true,
   });
 
+  // Dismiss cookie consent banner to prevent it blocking footer links
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem(
+        "koydo.trackingConsent",
+        JSON.stringify({ decided: true, analytics: false }),
+      );
+    });
+  });
+
   test("landing → explore page", async ({ page, context }) => {
     await context.clearCookies();
     await page.goto("/", { waitUntil: "domcontentloaded" });
@@ -146,6 +156,16 @@ test.describe("Navigation flows (Desktop)", () => {
   test.describe.configure({ retries: 1 });
   test.use({
     viewport: { width: 1280, height: 720 },
+  });
+
+  // Dismiss cookie consent banner to prevent it blocking footer links
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem(
+        "koydo.trackingConsent",
+        JSON.stringify({ decided: true, analytics: false }),
+      );
+    });
   });
 
   test("desktop nav links are clickable", async ({ page, context }) => {

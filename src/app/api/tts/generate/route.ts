@@ -12,6 +12,7 @@ import { z } from "zod";
 import { generateTTS, OPENAI_VOICES, type OpenAIVoice } from "@/lib/media/tts-service";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
 import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
+import { requirePaidTier } from "@/lib/forge/tier-gate";
 
 const requestSchema = z.object({
   text: z
@@ -36,6 +37,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         { fallback: "browser", error: "Too many TTS requests. Please retry shortly." },
         { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+      );
+    }
+
+    /* ── FORGE tier gate: free users use browser SpeechSynthesis ── */
+    const gate = await requirePaidTier(req);
+    if (gate) {
+      return NextResponse.json(
+        { fallback: "browser", error: "Premium subscription required for cloud TTS." },
+        { status: 403 },
       );
     }
 

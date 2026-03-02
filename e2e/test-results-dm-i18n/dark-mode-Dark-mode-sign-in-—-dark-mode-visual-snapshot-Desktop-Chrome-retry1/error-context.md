@@ -1,0 +1,184 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#app-main-content"
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Koydo" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e9]
+          - generic [ref=e10]: Koydo
+        - generic [ref=e11]:
+          - button "Search ⌘K" [ref=e12]:
+            - generic [ref=e13]: 🔎
+            - generic [ref=e14]: Search
+            - generic [ref=e15]: ⌘K
+          - link "Sign In" [ref=e16] [cursor=pointer]:
+            - /url: /auth/sign-in
+          - link "Sign Up" [ref=e17] [cursor=pointer]:
+            - /url: /auth/sign-up
+    - main [ref=e18]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - img "Students exploring the world of learning on Koydo" [ref=e25]
+            - generic [ref=e26]:
+              - paragraph [ref=e27]: Koydo Learning Journey
+              - heading "Organic learning flow for families and young explorers." [level=1] [ref=e28]
+          - generic [ref=e29]:
+            - generic [ref=e30]: 🌱Curiosity-first lessons
+            - generic [ref=e31]: 🎧Read-aloud + guided prompts
+            - generic [ref=e32]: 🧭Parent-safe progress path
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: Continue Your Adventure
+          - paragraph [ref=e35]: Start with social sign-in for the fastest path, then choose email/password, magic link, or phone verification below.
+          - list [ref=e36]:
+            - listitem [ref=e37]: 1. Pick sign-in method
+            - listitem [ref=e38]: 2. Choose learner profile
+            - listitem [ref=e39]: 3. Resume your world map
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - heading "Sign In" [level=2] [ref=e42]
+          - generic [ref=e43]:
+            - button "Sign in with Google" [ref=e44]:
+              - img [ref=e45]
+              - text: Sign in with Google
+            - button "Sign in with Facebook" [ref=e50]:
+              - img [ref=e51]
+              - text: Sign in with Facebook
+            - button "Sign in with Apple" [ref=e53]:
+              - img [ref=e54]
+              - text: Sign in with Apple
+            - button "Sign in with X" [ref=e56]:
+              - img [ref=e57]
+              - text: Sign in with X
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - heading "Email + Password" [level=3] [ref=e61]
+            - generic [ref=e62]:
+              - generic [ref=e63]:
+                - generic [ref=e64]: Email
+                - textbox "Email" [ref=e65]
+              - generic [ref=e66]:
+                - generic [ref=e67]: Password
+                - textbox "Password" [ref=e68]
+              - button "Continue with Email" [ref=e69]
+          - generic [ref=e70]:
+            - heading "Magic Link" [level=3] [ref=e71]
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - generic [ref=e74]: Email
+                - textbox "Email" [ref=e75]
+              - button "Send Magic Link" [ref=e76]
+          - generic [ref=e77]:
+            - heading "Phone Login (SMS)" [level=3] [ref=e78]
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: Phone Number
+                - textbox "Phone Number" [ref=e82]:
+                  - /placeholder: "+15551234567"
+              - button "Send SMS Code" [ref=e83]
+        - paragraph [ref=e84]:
+          - text: No account yet?
+          - link "Create one" [ref=e85] [cursor=pointer]:
+            - /url: /auth/sign-up?next=%2Fwho-is-learning
+    - contentinfo [ref=e86]:
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - link "Koydo Koydo" [ref=e89] [cursor=pointer]:
+            - /url: /
+            - img "Koydo" [ref=e91]
+            - generic [ref=e92]: Koydo
+          - paragraph [ref=e93]: Free interactive learning for every age, every language, every dream.
+          - generic [ref=e94]:
+            - link "X / Twitter" [ref=e95] [cursor=pointer]:
+              - /url: https://twitter.com/koydolearn
+              - img [ref=e96]
+            - link "Instagram" [ref=e98] [cursor=pointer]:
+              - /url: https://instagram.com/koydolearn
+              - img [ref=e99]
+            - link "YouTube" [ref=e101] [cursor=pointer]:
+              - /url: https://youtube.com/@koydolearn
+              - img [ref=e102]
+        - generic [ref=e104]:
+          - paragraph [ref=e105]: Platform
+          - list [ref=e106]:
+            - listitem [ref=e107]:
+              - link "Explore Learning" [ref=e108] [cursor=pointer]:
+                - /url: /explore
+            - listitem [ref=e109]:
+              - link "All Modules" [ref=e110] [cursor=pointer]:
+                - /url: /modules
+            - listitem [ref=e111]:
+              - link "Speaking Lab" [ref=e112] [cursor=pointer]:
+                - /url: /language/speaking-lab
+            - listitem [ref=e113]:
+              - link "Exam Prep" [ref=e114] [cursor=pointer]:
+                - /url: /exam-prep
+            - listitem [ref=e115]:
+              - link "Science Lab" [ref=e116] [cursor=pointer]:
+                - /url: /science-lab
+            - listitem [ref=e117]:
+              - link "Learning Games" [ref=e118] [cursor=pointer]:
+                - /url: /games
+        - generic [ref=e119]:
+          - paragraph [ref=e120]: Learn For
+          - list [ref=e121]:
+            - listitem [ref=e122]:
+              - link "Ages 3–5 (Pre-K)" [ref=e123] [cursor=pointer]:
+                - /url: /explore?stage=pre-k
+            - listitem [ref=e124]:
+              - link "Ages 6–11 (Elementary)" [ref=e125] [cursor=pointer]:
+                - /url: /explore?stage=elementary
+            - listitem [ref=e126]:
+              - link "Ages 12–14 (Middle School)" [ref=e127] [cursor=pointer]:
+                - /url: /explore?stage=middle
+            - listitem [ref=e128]:
+              - link "Ages 15–18 (High School)" [ref=e129] [cursor=pointer]:
+                - /url: /explore?stage=high
+            - listitem [ref=e130]:
+              - link "College & SAT/ACT" [ref=e131] [cursor=pointer]:
+                - /url: /explore?stage=college
+            - listitem [ref=e132]:
+              - link "Adults & Career Skills" [ref=e133] [cursor=pointer]:
+                - /url: /explore?stage=adult
+        - generic [ref=e134]:
+          - paragraph [ref=e135]: Company
+          - list [ref=e136]:
+            - listitem [ref=e137]:
+              - link "Help & Support" [ref=e138] [cursor=pointer]:
+                - /url: /support
+            - listitem [ref=e139]:
+              - link "Privacy Policy" [ref=e140] [cursor=pointer]:
+                - /url: /legal/privacy
+            - listitem [ref=e141]:
+              - link "Terms of Use" [ref=e142] [cursor=pointer]:
+                - /url: /legal/terms
+            - listitem [ref=e143]:
+              - link "Refund Policy" [ref=e144] [cursor=pointer]:
+                - /url: /legal/refunds
+            - listitem [ref=e145]:
+              - link "Create Free Account" [ref=e146] [cursor=pointer]:
+                - /url: /auth/sign-up
+      - generic [ref=e148]:
+        - paragraph [ref=e149]: © 2026 Koydo. Free education for every mind.
+        - generic [ref=e150]:
+          - link "Privacy" [ref=e151] [cursor=pointer]:
+            - /url: /legal/privacy
+          - link "Terms" [ref=e152] [cursor=pointer]:
+            - /url: /legal/terms
+          - link "Refunds" [ref=e153] [cursor=pointer]:
+            - /url: /legal/refunds
+          - link "Support" [ref=e154] [cursor=pointer]:
+            - /url: /support
+  - button "Open Next.js Dev Tools" [ref=e160] [cursor=pointer]:
+    - generic [ref=e163]:
+      - text: Compiling
+      - generic [ref=e164]:
+        - generic [ref=e165]: .
+        - generic [ref=e166]: .
+        - generic [ref=e167]: .
+```

@@ -5,6 +5,12 @@ import type { GameDifficulty, GameResult, LetterItem } from "@/lib/games/types";
 import { calculateStars } from "@/lib/games/scoring";
 import { hapticSuccess, hapticError, hapticCelebration } from "@/lib/platform/haptics";
 import { LETTER_BANK, getRandomItems } from "@/lib/games/content-banks";
+import MascotFriend from "@/components/experience/KoydoMascotFriends";
+import JuicyConfetti from "@/components/experience/JuicyConfetti";
+import JuicyStreak from "@/components/experience/JuicyStreak";
+import PhysicalButton from "@/components/experience/PhysicalButton";
+import MascotHost from "@/components/experience/MascotHost";
+import { motion, AnimatePresence } from "framer-motion";
 
 /* ─── constants ─── */
 const ROUNDS_PER_GAME = 10;
@@ -46,10 +52,12 @@ type State = {
   phase: "ready" | "playing" | "feedback" | "complete";
   round: number;
   score: number;
+  streak: number;
   target: LetterItem | null;
   falling: FallingLetter[];
   feedbackCorrect: boolean | null;
   startTime: number;
+  mascotMood: "idle" | "happy" | "thinking" | "sad" | "cheering" | "surprised";
 };
 
 type Action =
@@ -58,24 +66,27 @@ type Action =
   | { type: "TAP"; letterId: string }
   | { type: "TIMEOUT" }
   | { type: "NEXT_ROUND" }
-  | { type: "COMPLETE" };
+  | { type: "COMPLETE" }
+  | { type: "SET_MOOD"; mood: State["mascotMood"] };
 
 function initState(): State {
   return {
     phase: "ready",
     round: 0,
     score: 0,
+    streak: 0,
     target: null,
     falling: [],
     feedbackCorrect: null,
     startTime: Date.now(),
+    mascotMood: "idle",
   };
 }
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "START":
-      return { ...state, phase: "playing", startTime: Date.now() };
+      return { ...state, phase: "playing", startTime: Date.now(), mascotMood: "happy" };
     case "SET_ROUND":
       return {
         ...state,
@@ -84,6 +95,7 @@ function reducer(state: State, action: Action): State {
         target: action.target,
         falling: action.falling,
         feedbackCorrect: null,
+        mascotMood: "thinking",
       };
     case "TAP": {
       const isCorrect =
@@ -97,7 +109,9 @@ function reducer(state: State, action: Action): State {
         ...state,
         phase: "feedback",
         score: isCorrect ? state.score + 1 : state.score,
+        streak: isCorrect ? state.streak + 1 : 0,
         feedbackCorrect: isCorrect,
+        mascotMood: isCorrect ? "cheering" : "sad",
         falling: state.falling.map((f) =>
           f.id === action.letterId
             ? { ...f, status: isCorrect ? "correct" : "wrong" }
@@ -106,11 +120,13 @@ function reducer(state: State, action: Action): State {
       };
     }
     case "TIMEOUT":
-      return { ...state, phase: "feedback", feedbackCorrect: false };
+      return { ...state, phase: "feedback", feedbackCorrect: false, mascotMood: "sad", streak: 0 };
     case "NEXT_ROUND":
-      return { ...state, phase: "playing" };
+      return { ...state, phase: "playing", mascotMood: "thinking" };
     case "COMPLETE":
-      return { ...state, phase: "complete" };
+      return { ...state, phase: "complete", mascotMood: "cheering" };
+    case "SET_MOOD":
+      return { ...state, mascotMood: action.mood };
     default:
       return state;
   }
@@ -186,7 +202,10 @@ export function LetterCatcher({ difficulty, onComplete }: LetterCatcherProps) {
         timeMs: Date.now() - state.startTime,
         difficulty,
       };
-      onComplete(result);
+
+      // Delay fire so user sees the complete screen
+      const timer = setTimeout(() => onComplete(result), 4000);
+      return () => clearTimeout(timer);
     }
   }, [state.phase, state.score, state.startTime, difficulty, onComplete]);
 
@@ -209,24 +228,19 @@ export function LetterCatcher({ difficulty, onComplete }: LetterCatcherProps) {
   /* Ready screen */
   if (state.phase === "ready") {
     return (
-      <div className="flex min-h-[420px] flex-col items-center justify-center gap-6 rounded-2xl bg-gradient-to-b from-sky-100 to-sky-200 p-8 shadow-sm dark:from-sky-900 dark:to-sky-950">
-        <h2 className="text-3xl font-bold text-sky-800 dark:text-sky-200">
-          🔤 Letter Catcher
-        </h2>
-        <p className="max-w-xs text-center text-lg text-stone-600 dark:text-stone-300">
-          Letters will fall from above. Tap the letter that matches!
-        </p>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
-          Difficulty: <span className="font-semibold capitalize">{difficulty}</span>
-        </p>
-        <button
-          type="button"
-          onClick={startGame}
-          className="rounded-xl bg-gradient-to-r from-sky-500 to-blue-500 px-8 py-4 text-xl font-bold text-white shadow-md transition-transform hover:scale-105 active:scale-95"
-          aria-label="Start Letter Catcher game"
-        >
-          Let&apos;s Go! 🚀
-        </button>
+      <div className="flex min-h-[420px] flex-col items-center justify-center gap-8 rounded-[3rem] bg-gradient-to-br from-indigo-100 to-sky-200 p-12 shadow-2xl dark:from-indigo-900 dark:to-sky-950 border-4 border-white/50">
+        <MascotFriend id="echo" mood="happy" size={160} />
+        <div className="text-center space-y-2">
+          <h2 className="text-4xl font-black text-sky-900 dark:text-sky-100 italic">
+            Letter Catcher
+          </h2>
+          <p className="max-w-xs text-lg font-medium text-stone-600 dark:text-stone-300">
+            Listen to Echo and catch the right letters!
+          </p>
+        </div>
+        <PhysicalButton onClick={startGame} variant="primary" className="px-12 py-6 text-2xl">
+          Start Game 🚀
+        </PhysicalButton>
       </div>
     );
   }
@@ -235,17 +249,29 @@ export function LetterCatcher({ difficulty, onComplete }: LetterCatcherProps) {
   if (state.phase === "complete") {
     const stars = calculateStars(state.score, ROUNDS_PER_GAME);
     return (
-      <div className="flex min-h-[420px] flex-col items-center justify-center gap-4 rounded-2xl bg-gradient-to-b from-amber-50 to-amber-100 p-8 shadow-sm dark:from-amber-900 dark:to-amber-950">
-        <div className="text-5xl">
-          {stars >= 3 ? "🌟🌟🌟" : stars >= 2 ? "⭐⭐" : stars >= 1 ? "⭐" : "💪"}
+      <div className="flex min-h-[420px] flex-col items-center justify-center gap-6 rounded-[3rem] bg-gradient-to-br from-amber-100 to-orange-200 p-12 shadow-2xl dark:from-amber-900 dark:to-orange-950 border-4 border-white/50">
+        <JuicyConfetti active={stars === 3} durationMs={4000} />
+        <MascotFriend id="echo" mood="cheering" size={180} message={stars === 3 ? "UNSTOPPABLE!" : "Keep soaring!"} />
+
+        <div className="flex gap-2">
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ scale: 0, rotate: -20 }}
+              animate={{ scale: i < stars ? 1 : 0.5, rotate: 0, opacity: i < stars ? 1 : 0.3 }}
+              transition={{ delay: i * 0.2, type: "spring" }}
+              className="text-6xl"
+            >
+              ⭐
+            </motion.div>
+          ))}
         </div>
-        <h2 className="text-2xl font-bold text-amber-800 dark:text-amber-200">
-          Great Job!
+
+        <h2 className="text-3xl font-black text-amber-900 dark:text-amber-100">
+          Lesson Complete!
         </h2>
-        <p className="text-lg text-stone-700 dark:text-stone-300">
-          You caught{" "}
-          <span className="font-bold text-sky-600">{state.score}</span> of{" "}
-          <span className="font-bold">{ROUNDS_PER_GAME}</span> letters!
+        <p className="text-xl font-bold text-stone-700 dark:text-stone-300">
+          Total Caught: <span className="text-3xl text-sky-600">{state.score}</span>
         </p>
       </div>
     );
@@ -255,107 +281,105 @@ export function LetterCatcher({ difficulty, onComplete }: LetterCatcherProps) {
   const fallDuration = FALL_DURATION_MS[difficulty];
 
   return (
-    <div className="relative flex min-h-[480px] flex-col gap-4 overflow-hidden rounded-2xl bg-gradient-to-b from-sky-100 to-indigo-100 p-6 shadow-sm dark:from-sky-900 dark:to-indigo-950">
-      {/* Score bar */}
-      <div className="flex items-center justify-between">
-        <span className="rounded-lg bg-white/80 px-3 py-1 text-sm font-semibold text-stone-700 dark:bg-stone-800 dark:text-stone-200">
-          Round {state.round}/{ROUNDS_PER_GAME}
-        </span>
-        <span className="rounded-lg bg-white/80 px-3 py-1 text-sm font-semibold text-emerald-700 dark:bg-stone-800 dark:text-emerald-300">
-          ✓ {state.score}
-        </span>
-      </div>
+    <MascotHost friendId="echo" initialMood="happy">
+      <div className="relative h-[600px] w-full max-w-2xl overflow-hidden rounded-3xl border-4 border-zinc-200 bg-white shadow-xl touch-none">
+        <JuicyConfetti active={state.phase === "feedback" && state.feedbackCorrect === true} particleCount={20} durationMs={1000} />
 
-      {/* Target prompt */}
-      {state.target && (
-        <div className="text-center" aria-live="polite">
-          <p className="text-lg font-semibold text-stone-700 dark:text-stone-200">
-            Find the letter that starts{" "}
-            <span className="text-2xl font-bold text-sky-600 dark:text-sky-300">
-              &quot;{state.target.word}&quot;
-            </span>{" "}
-            {state.target.emoji}
-          </p>
-          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
-            Sound: {state.target.sound}
-          </p>
-        </div>
-      )}
+        {/* Interface Bar */}
+        <div className="flex items-center justify-between relative z-20">
+          <div className="flex items-center gap-4">
+            <MascotFriend id="echo" mood={state.mascotMood} size={64} />
+            <div className="flex flex-col">
+              <span className="text-xs font-black uppercase tracking-widest text-sky-600 opacity-60">Progress</span>
+              <span className="text-xl font-black text-stone-800 dark:text-stone-100">
+                {state.round}/{ROUNDS_PER_GAME}
+              </span>
+            </div>
+          </div>
 
-      {/* Falling letters area */}
-      <div
-        className="relative flex-1 min-h-[260px]"
-        role="group"
-        aria-label="Falling letters area"
-      >
-        {state.falling.map((fl) => {
-          const leftPercent = (fl.lane / FALLING_LETTERS_COUNT) * 100 + 5;
-          const isCorrectHit = fl.status === "correct";
-          const isWrongHit = fl.status === "wrong";
-
-          return (
-            <button
-              key={fl.id}
-              type="button"
-              disabled={state.phase !== "playing"}
-              onClick={() => handleTap(fl.id)}
-              aria-label={`Letter ${fl.letter}`}
-              className={[
-                "absolute flex h-14 w-14 items-center justify-center rounded-xl text-2xl font-bold shadow-md transition-all",
-                "focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2",
-                isCorrectHit
-                  ? "scale-125 bg-emerald-400 text-white animate-bounce"
-                  : isWrongHit
-                    ? "bg-red-300 text-white animate-[shake_0.4s_ease-in-out]"
-                    : "bg-white text-stone-800 hover:bg-sky-50 active:scale-95 dark:bg-stone-700 dark:text-white",
-              ].join(" ")}
-              style={{
-                left: `${leftPercent}%`,
-                animation:
-                  fl.status === "falling"
-                    ? `fall ${fallDuration}ms ${fl.delayMs}ms linear forwards`
-                    : undefined,
-                top: fl.status === "falling" ? "-60px" : undefined,
-              }}
-            >
-              {fl.letter}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Feedback overlay */}
-      {state.phase === "feedback" && (
-        <div
-          className="absolute inset-0 flex items-center justify-center bg-black/10 rounded-2xl"
-          aria-live="assertive"
-        >
-          <div
-            className={[
-              "rounded-2xl px-8 py-4 text-center shadow-lg",
-              state.feedbackCorrect
-                ? "bg-emerald-100 dark:bg-emerald-900"
-                : "bg-red-50 dark:bg-red-900",
-            ].join(" ")}
-          >
-            <p className="text-2xl font-bold">
-              {state.feedbackCorrect ? "✅ Correct!" : "❌ Not quite!"}
-            </p>
-            {!state.feedbackCorrect && state.target && (
-              <p className="mt-1 text-lg text-stone-600 dark:text-stone-300">
-                The answer was{" "}
-                <span className="font-bold text-sky-600">{state.target.letter}</span>
-              </p>
-            )}
+          <div className="flex flex-col items-end">
+            <JuicyStreak count={state.streak} />
           </div>
         </div>
-      )}
 
-      {/* Keyframe for falling animation */}
-      <style>{`
+        {/* Target Prompt */}
+        <AnimatePresence mode="wait">
+          {state.target && (
+            <motion.div
+              key={state.target.id}
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+              className="text-center bg-white/40 dark:bg-black/20 backdrop-blur-md py-4 rounded-3xl border border-white/20 relative z-20"
+            >
+              <p className="text-stone-500 font-bold uppercase tracking-tighter text-sm mb-1">Catch the Letter for</p>
+              <h3 className="text-4xl font-black text-sky-600 dark:text-sky-300 italic flex items-center justify-center gap-3">
+                "{state.target.word}" {state.target.emoji}
+              </h3>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Falling letters area */}
+        <div
+          className="relative flex-1 min-h-[300px] z-10"
+          role="group"
+          aria-label="Falling letters area"
+        >
+          {state.falling.map((fl) => {
+            const leftPercent = (fl.lane / FALLING_LETTERS_COUNT) * 100 + 5;
+            const isCorrectHit = fl.status === "correct";
+            const isWrongHit = fl.status === "wrong";
+
+            return (
+              <motion.button
+                key={fl.id}
+                initial={false}
+                animate={isCorrectHit ? { scale: 1.5, rotate: 10 } : isWrongHit ? { x: [0, -10, 10, 0] } : {}}
+                disabled={state.phase !== "playing"}
+                onClick={() => handleTap(fl.id)}
+                aria-label={`Letter ${fl.letter}`}
+                className={[
+                  "absolute flex h-20 w-20 items-center justify-center rounded-3xl text-4xl font-black shadow-xl transition-colors border-b-4",
+                  isCorrectHit
+                    ? "bg-emerald-400 border-emerald-600 text-white z-50"
+                    : isWrongHit
+                      ? "bg-red-400 border-red-600 text-white z-50"
+                      : "bg-white border-stone-200 text-stone-800 hover:bg-sky-50 dark:bg-stone-800 dark:border-stone-900 dark:text-white",
+                ].join(" ")}
+                style={{
+                  left: `${leftPercent}%`,
+                  animation: fl.status === "falling" ? `fall ${fallDuration}ms ${fl.delayMs}ms linear forwards` : undefined,
+                  top: fl.status === "falling" ? "-80px" : undefined,
+                  visibility: fl.status === "idle" ? "hidden" : "visible"
+                }}
+              >
+                {fl.letter}
+              </motion.button>
+            );
+          })}
+        </div>
+
+        {/* Feedback overlay */}
+        {state.phase === "feedback" && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/10 rounded-2xl">
+            <div className={[
+              "rounded-2xl px-8 py-4 text-center shadow-lg transition-all border-2",
+              state.feedbackCorrect
+                ? "bg-emerald-50 border-emerald-200 animate-in zoom-in"
+                : "bg-red-50 border-red-200 animate-in shake"
+            ].join(" ")}>
+              <p className="text-2xl font-bold text-zinc-900">
+                {state.feedbackCorrect ? "Perfect! ✨" : "Oops! Try again"}
+              </p>
+            </div>
+          </div>
+        )}
+
+        <style>{`
         @keyframes fall {
-          from { top: -60px; }
-          to   { top: calc(100% + 20px); }
+          from { top: -80px; transform: rotate(0deg); }
+          to   { top: calc(100% + 20px); transform: rotate(15deg); }
         }
         @keyframes shake {
           0%, 100% { transform: translateX(0); }
@@ -365,6 +389,7 @@ export function LetterCatcher({ difficulty, onComplete }: LetterCatcherProps) {
           80% { transform: translateX(4px); }
         }
       `}</style>
-    </div>
+      </div>
+    </MascotHost>
   );
 }

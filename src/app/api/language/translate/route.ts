@@ -4,6 +4,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getLanguageProviderStatuses, translateText } from "@/lib/language-learning";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
 import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
+import { canUseCloudAI } from "@/lib/forge/tier-gate";
 
 const requestSchema = z.object({
   text: z.string().min(1).max(5_000),
@@ -47,6 +48,20 @@ export async function POST(request: NextRequest) {
         details: parsed.error.flatten(),
       },
       { status: 400 },
+    );
+  }
+
+  /* ── FORGE tier gate: free users cannot use live translation ── */
+  const allowed = await canUseCloudAI(user.id);
+  if (!allowed) {
+    return NextResponse.json(
+      {
+        error: "Premium subscription required",
+        code: "TIER_GATE_FREE",
+        message: "Live translation requires a paid subscription. Pre-translated content is available for free users.",
+        upgradeUrl: "/pricing",
+      },
+      { status: 403 },
     );
   }
 

@@ -4,6 +4,8 @@ import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isMissingTestingTableError } from "@/lib/testing/api-utils";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { resolveVerifiedTeacherClassAccess } from "@/lib/compliance/teacher-access";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
 const createAssignmentSchema = z
   .object({
@@ -16,33 +18,21 @@ const createAssignmentSchema = z
     "Either examId or moduleId is required.",
   );
 
-async function verifyTeacherOwnership(classId: string, teacherUserId: string) {
-  const admin = createSupabaseAdminClient();
-  const { data, error } = await admin
-    .from("classroom_entities")
-    .select("id, teacher_user_id")
-    .eq("id", classId)
-    .maybeSingle();
-
-  if (error) {
-    console.error("Unexpected API error.", toSafeErrorRecord(error));
-    return {
-      ok: false as const,
-      status: 500,
-      error: "Failed to verify classroom ownership.",
-    };
-  }
-  if (!data) return { ok: false as const, status: 404, error: "Classroom not found." };
-  if (data.teacher_user_id !== teacherUserId) {
-    return { ok: false as const, status: 403, error: "Forbidden" };
-  }
-  return { ok: true as const };
-}
-
 export async function GET(
-  _request: Request,
+  request: Request,
   context: { params: Promise<{ classId: string }> },
 ) {
+  const rateLimit = await enforceIpRateLimit(request, "api:testing:classes:assignments:get", {
+    max: 60,
+    windowMs: 60_000,
+  });
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: "Too many class assignment requests. Please retry shortly." },
+      { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+    );
+  }
+
   const { classId } = await context.params;
   const supabase = await createSupabaseServerClient();
   const {
@@ -54,9 +44,16 @@ export async function GET(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const ownership = await verifyTeacherOwnership(classId, user.id);
-  if (!ownership.ok) {
-    return NextResponse.json({ error: ownership.error }, { status: ownership.status });
+  const teacherAccess = await resolveVerifiedTeacherClassAccess({
+    userId: user.id,
+    classId,
+    purpose: "testing_class_assignments",
+  });
+  if (!teacherAccess.ok) {
+    if (teacherAccess.status === 403 || teacherAccess.status === 404 || teacherAccess.status === 503) {
+      return NextResponse.json({ error: teacherAccess.error }, { status: teacherAccess.status });
+    }
+    return NextResponse.json({ error: "Internal server error." }, { status: teacherAccess.status });
   }
 
   const admin = createSupabaseAdminClient();
@@ -96,6 +93,17 @@ export async function POST(
   request: Request,
   context: { params: Promise<{ classId: string }> },
 ) {
+  const rateLimit = await enforceIpRateLimit(request, "api:testing:classes:assignments:post", {
+    max: 35,
+    windowMs: 60_000,
+  });
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: "Too many class assignment updates. Please retry shortly." },
+      { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+    );
+  }
+
   const { classId } = await context.params;
   const supabase = await createSupabaseServerClient();
   const {
@@ -107,9 +115,16 @@ export async function POST(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const ownership = await verifyTeacherOwnership(classId, user.id);
-  if (!ownership.ok) {
-    return NextResponse.json({ error: ownership.error }, { status: ownership.status });
+  const teacherAccess = await resolveVerifiedTeacherClassAccess({
+    userId: user.id,
+    classId,
+    purpose: "testing_class_assignments",
+  });
+  if (!teacherAccess.ok) {
+    if (teacherAccess.status === 403 || teacherAccess.status === 404 || teacherAccess.status === 503) {
+      return NextResponse.json({ error: teacherAccess.error }, { status: teacherAccess.status });
+    }
+    return NextResponse.json({ error: "Internal server error." }, { status: teacherAccess.status });
   }
 
   const body = await request.json().catch(() => ({}));
@@ -159,4 +174,3 @@ export async function POST(
     },
   });
 }
-

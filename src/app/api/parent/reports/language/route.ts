@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { getLanguagePlanById, getScoredAttemptLimitForPlan } from "@/lib/language-learning";
 import type { LanguagePlanId } from "@/lib/language-learning/pricing";
 import {
@@ -10,6 +11,8 @@ import {
 } from "@/lib/language-learning/progress-metrics";
 import type { StudentProfile } from "@/lib/profiles/types";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { resolveVerifiedParentAccess } from "@/lib/compliance/parent-access";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
 const querySchema = z.object({
   studentProfileId: z.string().uuid().optional(),
@@ -71,6 +74,20 @@ function buildRecentMonthKeys(months: number) {
 }
 
 export async function GET(request: NextRequest) {
+  const rateLimit = await enforceIpRateLimit(request, "api:parent:reports:language:get", {
+    max: 24,
+    windowMs: 60_000,
+  });
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: "Too many language report requests. Please retry shortly." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rateLimit.retryAfterSeconds) },
+      },
+    );
+  }
+
   const supabase = await createSupabaseServerClient();
   const {
     data: { user },
@@ -96,23 +113,34 @@ export async function GET(request: NextRequest) {
   const monthKeys = buildRecentMonthKeys(months);
   const currentMonthKey = monthKeys[0];
 
-  const { data: parentProfile, error: parentError } = await supabase
-    .from("user_profiles")
-    .select("is_parent")
-    .eq("user_id", user.id)
-    .maybeSingle();
-  if (parentError) {
-    console.error("Unexpected API error.", toSafeErrorRecord(parentError));
-    return NextResponse.json({ error: "Internal server error." }, { status: 500 });
-  }
-  if (!parentProfile?.is_parent) {
-    return NextResponse.json({ error: "Parent access required." }, { status: 403 });
+  const parentAccess = await resolveVerifiedParentAccess({
+    supabase,
+    userId: user.id,
+    userEmail: user.email,
+    purpose: "parent_language_reports",
+  });
+  if (!parentAccess.ok) {
+    if (parentAccess.status === 403) {
+      return NextResponse.json({ error: parentAccess.error }, { status: 403 });
+    }
+    return NextResponse.json({ error: "Internal server error." }, { status: parentAccess.status });
   }
 
-  let profilesQuery = supabase
+  const childUserIds = parentAccess.childUserIds;
+  if (childUserIds.length === 0) {
+    return NextResponse.json({
+      generatedAt: new Date().toISOString(),
+      monthsWindow: months,
+      reports: [],
+      warnings: [],
+    });
+  }
+
+  const admin = createSupabaseAdminClient();
+  let profilesQuery = admin
     .from("student_profiles")
     .select("id, display_name, grade_level")
-    .eq("account_id", user.id)
+    .in("account_id", childUserIds)
     .order("display_name", { ascending: true });
   if (studentProfileId) {
     profilesQuery = profilesQuery.eq("id", studentProfileId);
@@ -126,6 +154,12 @@ export async function GET(request: NextRequest) {
 
   const profiles = (profileRows ?? []) as StudentProfile[];
   if (profiles.length === 0) {
+    if (studentProfileId) {
+      return NextResponse.json(
+        { error: "Requested student profile is not linked to a verified parent consent." },
+        { status: 403 },
+      );
+    }
     return NextResponse.json({
       generatedAt: new Date().toISOString(),
       monthsWindow: months,
@@ -138,17 +172,17 @@ export async function GET(request: NextRequest) {
   const warnings: string[] = [];
 
   const [attemptsResult, stateResult, usageResult] = await Promise.all([
-    supabase
+    admin
       .from("pronunciation_attempts")
       .select("student_profile_id, grading_mode, overall_score, created_at, asr_confidence")
       .in("student_profile_id", profileIds)
       .order("created_at", { ascending: false })
       .limit(1000),
-    supabase
+    admin
       .from("gamification_states")
       .select("student_profile_id, points, level, badges, quests_completed, last_activity_at")
       .in("student_profile_id", profileIds),
-    supabase
+    admin
       .from("language_usage_tracking")
       .select(
         "student_profile_id, month_key, plan_tier, scored_attempts, practice_attempts, audio_minutes, ai_cost_usd",

@@ -1,0 +1,7406 @@
+[
+  {
+    "slug": "pride-and-prejudice",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "gutenbergId": 1342,
+    "ageGroup": "adult",
+    "chapterCount": 61,
+    "wordCount": 122000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1813
+  },
+  {
+    "slug": "sense-and-sensibility",
+    "title": "Sense and Sensibility",
+    "author": "Jane Austen",
+    "gutenbergId": 161,
+    "ageGroup": "adult",
+    "chapterCount": 50,
+    "wordCount": 119000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1811
+  },
+  {
+    "slug": "emma",
+    "title": "Emma",
+    "author": "Jane Austen",
+    "gutenbergId": 158,
+    "ageGroup": "adult",
+    "chapterCount": 55,
+    "wordCount": 160000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1815
+  },
+  {
+    "slug": "mansfield-park",
+    "title": "Mansfield Park",
+    "author": "Jane Austen",
+    "gutenbergId": 141,
+    "ageGroup": "adult",
+    "chapterCount": 48,
+    "wordCount": 160000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1814
+  },
+  {
+    "slug": "persuasion",
+    "title": "Persuasion",
+    "author": "Jane Austen",
+    "gutenbergId": 105,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 84000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1817
+  },
+  {
+    "slug": "northanger-abbey",
+    "title": "Northanger Abbey",
+    "author": "Jane Austen",
+    "gutenbergId": 121,
+    "ageGroup": "adult",
+    "chapterCount": 31,
+    "wordCount": 77000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1817
+  },
+  {
+    "slug": "great-expectations",
+    "title": "Great Expectations",
+    "author": "Charles Dickens",
+    "gutenbergId": 1400,
+    "ageGroup": "adult",
+    "chapterCount": 59,
+    "wordCount": 187000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "coming-of-age"
+    ],
+    "yearPublished": 1861
+  },
+  {
+    "slug": "tale-of-two-cities",
+    "title": "A Tale of Two Cities",
+    "author": "Charles Dickens",
+    "gutenbergId": 98,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 135000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "oliver-twist",
+    "title": "Oliver Twist",
+    "author": "Charles Dickens",
+    "gutenbergId": 730,
+    "ageGroup": "adult",
+    "chapterCount": 53,
+    "wordCount": 156000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1838
+  },
+  {
+    "slug": "david-copperfield",
+    "title": "David Copperfield",
+    "author": "Charles Dickens",
+    "gutenbergId": 766,
+    "ageGroup": "adult",
+    "chapterCount": 64,
+    "wordCount": 358000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "autobiographical"
+    ],
+    "yearPublished": 1850
+  },
+  {
+    "slug": "christmas-carol",
+    "title": "A Christmas Carol",
+    "author": "Charles Dickens",
+    "gutenbergId": 46,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "holiday"
+    ],
+    "yearPublished": 1843
+  },
+  {
+    "slug": "bleak-house",
+    "title": "Bleak House",
+    "author": "Charles Dickens",
+    "gutenbergId": 1023,
+    "ageGroup": "adult",
+    "chapterCount": 67,
+    "wordCount": 360000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1853
+  },
+  {
+    "slug": "pickwick-papers",
+    "title": "The Pickwick Papers",
+    "author": "Charles Dickens",
+    "gutenbergId": 580,
+    "ageGroup": "adult",
+    "chapterCount": 57,
+    "wordCount": 301000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "humor"
+    ],
+    "yearPublished": 1837
+  },
+  {
+    "slug": "hard-times",
+    "title": "Hard Times",
+    "author": "Charles Dickens",
+    "gutenbergId": 786,
+    "ageGroup": "adult",
+    "chapterCount": 37,
+    "wordCount": 103000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1854
+  },
+  {
+    "slug": "our-mutual-friend",
+    "title": "Our Mutual Friend",
+    "author": "Charles Dickens",
+    "gutenbergId": 883,
+    "ageGroup": "adult",
+    "chapterCount": 64,
+    "wordCount": 328000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1865
+  },
+  {
+    "slug": "little-dorrit",
+    "title": "Little Dorrit",
+    "author": "Charles Dickens",
+    "gutenbergId": 963,
+    "ageGroup": "adult",
+    "chapterCount": 69,
+    "wordCount": 340000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1857
+  },
+  {
+    "slug": "jane-eyre",
+    "title": "Jane Eyre",
+    "author": "Charlotte Brontë",
+    "gutenbergId": 1260,
+    "ageGroup": "adult",
+    "chapterCount": 38,
+    "wordCount": 188000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1847
+  },
+  {
+    "slug": "wuthering-heights",
+    "title": "Wuthering Heights",
+    "author": "Emily Brontë",
+    "gutenbergId": 768,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 107000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1847
+  },
+  {
+    "slug": "tenant-of-wildfell-hall",
+    "title": "The Tenant of Wildfell Hall",
+    "author": "Anne Brontë",
+    "gutenbergId": 969,
+    "ageGroup": "adult",
+    "chapterCount": 53,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1848
+  },
+  {
+    "slug": "villette",
+    "title": "Villette",
+    "author": "Charlotte Brontë",
+    "gutenbergId": 9182,
+    "ageGroup": "adult",
+    "chapterCount": 42,
+    "wordCount": 185000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1853
+  },
+  {
+    "slug": "tess-of-the-durbervilles",
+    "title": "Tess of the d'Urbervilles",
+    "author": "Thomas Hardy",
+    "gutenbergId": 110,
+    "ageGroup": "adult",
+    "chapterCount": 59,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "tragedy"
+    ],
+    "yearPublished": 1891
+  },
+  {
+    "slug": "far-from-the-madding-crowd",
+    "title": "Far from the Madding Crowd",
+    "author": "Thomas Hardy",
+    "gutenbergId": 148,
+    "ageGroup": "adult",
+    "chapterCount": 57,
+    "wordCount": 140000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "pastoral"
+    ],
+    "yearPublished": 1874
+  },
+  {
+    "slug": "return-of-the-native",
+    "title": "The Return of the Native",
+    "author": "Thomas Hardy",
+    "gutenbergId": 122,
+    "ageGroup": "adult",
+    "chapterCount": 48,
+    "wordCount": 138000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "tragedy"
+    ],
+    "yearPublished": 1878
+  },
+  {
+    "slug": "mayor-of-casterbridge",
+    "title": "The Mayor of Casterbridge",
+    "author": "Thomas Hardy",
+    "gutenbergId": 143,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 105000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "tragedy"
+    ],
+    "yearPublished": 1886
+  },
+  {
+    "slug": "middlemarch",
+    "title": "Middlemarch",
+    "author": "George Eliot",
+    "gutenbergId": 145,
+    "ageGroup": "adult",
+    "chapterCount": 86,
+    "wordCount": 316000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1871
+  },
+  {
+    "slug": "silas-marner",
+    "title": "Silas Marner",
+    "author": "George Eliot",
+    "gutenbergId": 550,
+    "ageGroup": "adult",
+    "chapterCount": 21,
+    "wordCount": 66000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1861
+  },
+  {
+    "slug": "mill-on-the-floss",
+    "title": "The Mill on the Floss",
+    "author": "George Eliot",
+    "gutenbergId": 6688,
+    "ageGroup": "adult",
+    "chapterCount": 58,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "tragedy"
+    ],
+    "yearPublished": 1860
+  },
+  {
+    "slug": "adam-bede",
+    "title": "Adam Bede",
+    "author": "George Eliot",
+    "gutenbergId": 507,
+    "ageGroup": "adult",
+    "chapterCount": 55,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "pastoral"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "war-and-peace",
+    "title": "War and Peace",
+    "author": "Leo Tolstoy",
+    "gutenbergId": 2600,
+    "ageGroup": "adult",
+    "chapterCount": 361,
+    "wordCount": 580000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1869
+  },
+  {
+    "slug": "anna-karenina",
+    "title": "Anna Karenina",
+    "author": "Leo Tolstoy",
+    "gutenbergId": 1399,
+    "ageGroup": "adult",
+    "chapterCount": 239,
+    "wordCount": 350000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1877
+  },
+  {
+    "slug": "resurrection",
+    "title": "Resurrection",
+    "author": "Leo Tolstoy",
+    "gutenbergId": 1938,
+    "ageGroup": "adult",
+    "chapterCount": 130,
+    "wordCount": 225000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "crime-and-punishment",
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "gutenbergId": 2554,
+    "ageGroup": "adult",
+    "chapterCount": 37,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1866
+  },
+  {
+    "slug": "brothers-karamazov",
+    "title": "The Brothers Karamazov",
+    "author": "Fyodor Dostoevsky",
+    "gutenbergId": 28054,
+    "ageGroup": "adult",
+    "chapterCount": 99,
+    "wordCount": 350000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1880
+  },
+  {
+    "slug": "idiot",
+    "title": "The Idiot",
+    "author": "Fyodor Dostoevsky",
+    "gutenbergId": 2638,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 250000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1869
+  },
+  {
+    "slug": "notes-from-underground",
+    "title": "Notes from Underground",
+    "author": "Fyodor Dostoevsky",
+    "gutenbergId": 600,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1864
+  },
+  {
+    "slug": "les-miserables",
+    "title": "Les Misérables",
+    "author": "Victor Hugo",
+    "gutenbergId": 135,
+    "ageGroup": "adult",
+    "chapterCount": 365,
+    "wordCount": 530000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1862
+  },
+  {
+    "slug": "hunchback-of-notre-dame",
+    "title": "The Hunchback of Notre-Dame",
+    "author": "Victor Hugo",
+    "gutenbergId": 2610,
+    "ageGroup": "adult",
+    "chapterCount": 59,
+    "wordCount": 180000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1831
+  },
+  {
+    "slug": "innocents-abroad",
+    "title": "The Innocents Abroad",
+    "author": "Mark Twain",
+    "gutenbergId": 3176,
+    "ageGroup": "adult",
+    "chapterCount": 61,
+    "wordCount": 160000,
+    "originalLanguage": "en",
+    "genres": [
+      "travel",
+      "humor"
+    ],
+    "yearPublished": 1869
+  },
+  {
+    "slug": "puddnhead-wilson",
+    "title": "Pudd'nhead Wilson",
+    "author": "Mark Twain",
+    "gutenbergId": 102,
+    "ageGroup": "adult",
+    "chapterCount": 21,
+    "wordCount": 43000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1894
+  },
+  {
+    "slug": "moby-dick",
+    "title": "Moby Dick",
+    "author": "Herman Melville",
+    "gutenbergId": 2701,
+    "ageGroup": "adult",
+    "chapterCount": 135,
+    "wordCount": 209000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure"
+    ],
+    "yearPublished": 1851
+  },
+  {
+    "slug": "bartleby-the-scrivener",
+    "title": "Bartleby, the Scrivener",
+    "author": "Herman Melville",
+    "gutenbergId": 11231,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 14000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "absurdist"
+    ],
+    "yearPublished": 1853
+  },
+  {
+    "slug": "scarlet-letter",
+    "title": "The Scarlet Letter",
+    "author": "Nathaniel Hawthorne",
+    "gutenbergId": 25344,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 63000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1850
+  },
+  {
+    "slug": "house-of-seven-gables",
+    "title": "The House of the Seven Gables",
+    "author": "Nathaniel Hawthorne",
+    "gutenbergId": 77,
+    "ageGroup": "adult",
+    "chapterCount": 21,
+    "wordCount": 104000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "gothic"
+    ],
+    "yearPublished": 1851
+  },
+  {
+    "slug": "age-of-innocence",
+    "title": "The Age of Innocence",
+    "author": "Edith Wharton",
+    "gutenbergId": 541,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 100000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1920
+  },
+  {
+    "slug": "house-of-mirth",
+    "title": "The House of Mirth",
+    "author": "Edith Wharton",
+    "gutenbergId": 284,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 130000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "ethan-frome",
+    "title": "Ethan Frome",
+    "author": "Edith Wharton",
+    "gutenbergId": 4517,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 29000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "tragedy"
+    ],
+    "yearPublished": 1911
+  },
+  {
+    "slug": "custom-of-the-country",
+    "title": "The Custom of the Country",
+    "author": "Edith Wharton",
+    "gutenbergId": 8467,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 130000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1913
+  },
+  {
+    "slug": "portrait-of-a-lady",
+    "title": "The Portrait of a Lady",
+    "author": "Henry James",
+    "gutenbergId": 2833,
+    "ageGroup": "adult",
+    "chapterCount": 55,
+    "wordCount": 228000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1881
+  },
+  {
+    "slug": "turn-of-the-screw",
+    "title": "The Turn of the Screw",
+    "author": "Henry James",
+    "gutenbergId": 209,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 43000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror"
+    ],
+    "yearPublished": 1898
+  },
+  {
+    "slug": "washington-square",
+    "title": "Washington Square",
+    "author": "Henry James",
+    "gutenbergId": 2870,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1880
+  },
+  {
+    "slug": "daisy-miller",
+    "title": "Daisy Miller",
+    "author": "Henry James",
+    "gutenbergId": 208,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1878
+  },
+  {
+    "slug": "heart-of-darkness",
+    "title": "Heart of Darkness",
+    "author": "Joseph Conrad",
+    "gutenbergId": 219,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 38000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "lord-jim",
+    "title": "Lord Jim",
+    "author": "Joseph Conrad",
+    "gutenbergId": 5658,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 130000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure"
+    ],
+    "yearPublished": 1900
+  },
+  {
+    "slug": "secret-agent",
+    "title": "The Secret Agent",
+    "author": "Joseph Conrad",
+    "gutenbergId": 974,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "thriller"
+    ],
+    "yearPublished": 1907
+  },
+  {
+    "slug": "nostromo",
+    "title": "Nostromo",
+    "author": "Joseph Conrad",
+    "gutenbergId": 2021,
+    "ageGroup": "adult",
+    "chapterCount": 31,
+    "wordCount": 170000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "political"
+    ],
+    "yearPublished": 1904
+  },
+  {
+    "slug": "picture-of-dorian-gray",
+    "title": "The Picture of Dorian Gray",
+    "author": "Oscar Wilde",
+    "gutenbergId": 174,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 78000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "gothic"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "importance-of-being-earnest",
+    "title": "The Importance of Being Earnest",
+    "author": "Oscar Wilde",
+    "gutenbergId": 844,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "frankenstein",
+    "title": "Frankenstein",
+    "author": "Mary Shelley",
+    "gutenbergId": 84,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror"
+    ],
+    "yearPublished": 1818
+  },
+  {
+    "slug": "dracula",
+    "title": "Dracula",
+    "author": "Bram Stoker",
+    "gutenbergId": 345,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 160000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror"
+    ],
+    "yearPublished": 1897
+  },
+  {
+    "slug": "poe-complete-tales",
+    "title": "The Works of Edgar Allan Poe",
+    "author": "Edgar Allan Poe",
+    "gutenbergId": 2147,
+    "ageGroup": "adult",
+    "chapterCount": 94,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "mystery"
+    ],
+    "yearPublished": 1849
+  },
+  {
+    "slug": "sherlock-holmes",
+    "title": "The Adventures of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 1661,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 105000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1892
+  },
+  {
+    "slug": "hound-of-baskervilles",
+    "title": "The Hound of the Baskervilles",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 2852,
+    "ageGroup": "adult",
+    "chapterCount": 15,
+    "wordCount": 60000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1902
+  },
+  {
+    "slug": "sign-of-four",
+    "title": "The Sign of the Four",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 2097,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 43000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "study-in-scarlet",
+    "title": "A Study in Scarlet",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 244,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 43000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1887
+  },
+  {
+    "slug": "memoirs-of-sherlock-holmes",
+    "title": "The Memoirs of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 834,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 90000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1894
+  },
+  {
+    "slug": "return-of-sherlock-holmes",
+    "title": "The Return of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 108,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 100000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "valley-of-fear",
+    "title": "The Valley of Fear",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 3289,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 56000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "lost-world",
+    "title": "The Lost World",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 139,
+    "ageGroup": "adult",
+    "chapterCount": 16,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "adventure"
+    ],
+    "yearPublished": 1912
+  },
+  {
+    "slug": "thus-spoke-zarathustra",
+    "title": "Thus Spoke Zarathustra",
+    "author": "Friedrich Nietzsche",
+    "gutenbergId": 1998,
+    "ageGroup": "adult",
+    "chapterCount": 80,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "fiction"
+    ],
+    "yearPublished": 1883
+  },
+  {
+    "slug": "republic",
+    "title": "The Republic",
+    "author": "Plato",
+    "gutenbergId": 1497,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 100000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "classic"
+    ],
+    "yearPublished": -380
+  },
+  {
+    "slug": "meditations",
+    "title": "Meditations",
+    "author": "Marcus Aurelius",
+    "gutenbergId": 2680,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 26000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "stoicism"
+    ],
+    "yearPublished": 180
+  },
+  {
+    "slug": "art-of-war",
+    "title": "The Art of War",
+    "author": "Sun Tzu",
+    "gutenbergId": 132,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 13000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "strategy"
+    ],
+    "yearPublished": -500
+  },
+  {
+    "slug": "great-gatsby",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "gutenbergId": 64317,
+    "ageGroup": "adult",
+    "chapterCount": 9,
+    "wordCount": 48000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "this-side-of-paradise",
+    "title": "This Side of Paradise",
+    "author": "F. Scott Fitzgerald",
+    "gutenbergId": 805,
+    "ageGroup": "adult",
+    "chapterCount": 18,
+    "wordCount": 66000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "coming-of-age"
+    ],
+    "yearPublished": 1920
+  },
+  {
+    "slug": "beautiful-and-damned",
+    "title": "The Beautiful and Damned",
+    "author": "F. Scott Fitzgerald",
+    "gutenbergId": 9830,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 115000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "tales-of-the-jazz-age",
+    "title": "Tales of the Jazz Age",
+    "author": "F. Scott Fitzgerald",
+    "gutenbergId": 6695,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "short-stories"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "sons-and-lovers",
+    "title": "Sons and Lovers",
+    "author": "D. H. Lawrence",
+    "gutenbergId": 5150,
+    "ageGroup": "adult",
+    "chapterCount": 15,
+    "wordCount": 173000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1913
+  },
+  {
+    "slug": "rainbow",
+    "title": "The Rainbow",
+    "author": "D. H. Lawrence",
+    "gutenbergId": 28948,
+    "ageGroup": "adult",
+    "chapterCount": 16,
+    "wordCount": 168000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "women-in-love",
+    "title": "Women in Love",
+    "author": "D. H. Lawrence",
+    "gutenbergId": 4240,
+    "ageGroup": "adult",
+    "chapterCount": 32,
+    "wordCount": 175000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1920
+  },
+  {
+    "slug": "mrs-dalloway",
+    "title": "Mrs Dalloway",
+    "author": "Virginia Woolf",
+    "gutenbergId": 63107,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 63000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "modernist"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "to-the-lighthouse",
+    "title": "To the Lighthouse",
+    "author": "Virginia Woolf",
+    "gutenbergId": 64438,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "modernist"
+    ],
+    "yearPublished": 1927
+  },
+  {
+    "slug": "dubliners",
+    "title": "Dubliners",
+    "author": "James Joyce",
+    "gutenbergId": 2814,
+    "ageGroup": "adult",
+    "chapterCount": 15,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "short-stories"
+    ],
+    "yearPublished": 1914
+  },
+  {
+    "slug": "portrait-of-the-artist",
+    "title": "A Portrait of the Artist as a Young Man",
+    "author": "James Joyce",
+    "gutenbergId": 4217,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 83000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "modernist"
+    ],
+    "yearPublished": 1916
+  },
+  {
+    "slug": "ulysses",
+    "title": "Ulysses",
+    "author": "James Joyce",
+    "gutenbergId": 4300,
+    "ageGroup": "adult",
+    "chapterCount": 18,
+    "wordCount": 265000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "modernist"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "woman-in-white",
+    "title": "The Woman in White",
+    "author": "Wilkie Collins",
+    "gutenbergId": 583,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 240000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "gothic"
+    ],
+    "yearPublished": 1860
+  },
+  {
+    "slug": "moonstone",
+    "title": "The Moonstone",
+    "author": "Wilkie Collins",
+    "gutenbergId": 155,
+    "ageGroup": "adult",
+    "chapterCount": 52,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1868
+  },
+  {
+    "slug": "north-and-south",
+    "title": "North and South",
+    "author": "Elizabeth Gaskell",
+    "gutenbergId": 4276,
+    "ageGroup": "adult",
+    "chapterCount": 52,
+    "wordCount": 177000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1855
+  },
+  {
+    "slug": "cranford",
+    "title": "Cranford",
+    "author": "Elizabeth Gaskell",
+    "gutenbergId": 394,
+    "ageGroup": "adult",
+    "chapterCount": 16,
+    "wordCount": 60000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1853
+  },
+  {
+    "slug": "wives-and-daughters",
+    "title": "Wives and Daughters",
+    "author": "Elizabeth Gaskell",
+    "gutenbergId": 4274,
+    "ageGroup": "adult",
+    "chapterCount": 60,
+    "wordCount": 280000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1866
+  },
+  {
+    "slug": "barchester-towers",
+    "title": "Barchester Towers",
+    "author": "Anthony Trollope",
+    "gutenbergId": 3409,
+    "ageGroup": "adult",
+    "chapterCount": 53,
+    "wordCount": 188000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1857
+  },
+  {
+    "slug": "way-we-live-now",
+    "title": "The Way We Live Now",
+    "author": "Anthony Trollope",
+    "gutenbergId": 5231,
+    "ageGroup": "adult",
+    "chapterCount": 100,
+    "wordCount": 425000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1875
+  },
+  {
+    "slug": "germinal",
+    "title": "Germinal",
+    "author": "Émile Zola",
+    "gutenbergId": 5711,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 180000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "naturalism"
+    ],
+    "yearPublished": 1885
+  },
+  {
+    "slug": "nana",
+    "title": "Nana",
+    "author": "Émile Zola",
+    "gutenbergId": 5250,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "naturalism"
+    ],
+    "yearPublished": 1880
+  },
+  {
+    "slug": "madame-bovary",
+    "title": "Madame Bovary",
+    "author": "Gustave Flaubert",
+    "gutenbergId": 2413,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 118000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "realism"
+    ],
+    "yearPublished": 1857
+  },
+  {
+    "slug": "sentimental-education",
+    "title": "Sentimental Education",
+    "author": "Gustave Flaubert",
+    "gutenbergId": 34828,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 140000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "realism"
+    ],
+    "yearPublished": 1869
+  },
+  {
+    "slug": "red-and-black",
+    "title": "The Red and the Black",
+    "author": "Stendhal",
+    "gutenbergId": 44747,
+    "ageGroup": "adult",
+    "chapterCount": 75,
+    "wordCount": 180000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1830
+  },
+  {
+    "slug": "wuthering-heights-emily",
+    "title": "Wuthering Heights",
+    "author": "Emily Brontë",
+    "gutenbergId": 768,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 107000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "gothic"
+    ],
+    "yearPublished": 1847
+  },
+  {
+    "slug": "dr-jekyll-and-mr-hyde",
+    "title": "Strange Case of Dr Jekyll and Mr Hyde",
+    "author": "Robert Louis Stevenson",
+    "gutenbergId": 43,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 26000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror"
+    ],
+    "yearPublished": 1886
+  },
+  {
+    "slug": "phantom-of-the-opera",
+    "title": "The Phantom of the Opera",
+    "author": "Gaston Leroux",
+    "gutenbergId": 175,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 62000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "gothic"
+    ],
+    "yearPublished": 1910
+  },
+  {
+    "slug": "metamorphosis",
+    "title": "Metamorphosis",
+    "author": "Franz Kafka",
+    "gutenbergId": 5200,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "absurdist"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "trial",
+    "title": "The Trial",
+    "author": "Franz Kafka",
+    "gutenbergId": 7849,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "absurdist"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "siddhartha",
+    "title": "Siddhartha",
+    "author": "Hermann Hesse",
+    "gutenbergId": 2500,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "candide",
+    "title": "Candide",
+    "author": "Voltaire",
+    "gutenbergId": 19942,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 30000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1759
+  },
+  {
+    "slug": "don-quixote",
+    "title": "Don Quixote",
+    "author": "Miguel de Cervantes",
+    "gutenbergId": 996,
+    "ageGroup": "adult",
+    "chapterCount": 126,
+    "wordCount": 430000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1605
+  },
+  {
+    "slug": "divine-comedy",
+    "title": "The Divine Comedy",
+    "author": "Dante Alighieri",
+    "gutenbergId": 8800,
+    "ageGroup": "adult",
+    "chapterCount": 100,
+    "wordCount": 70000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "epic"
+    ],
+    "yearPublished": 1320
+  },
+  {
+    "slug": "odyssey",
+    "title": "The Odyssey",
+    "author": "Homer",
+    "gutenbergId": 1727,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 115000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "epic"
+    ],
+    "yearPublished": -700
+  },
+  {
+    "slug": "iliad",
+    "title": "The Iliad",
+    "author": "Homer",
+    "gutenbergId": 6130,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 146000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "epic"
+    ],
+    "yearPublished": -750
+  },
+  {
+    "slug": "walden",
+    "title": "Walden, and On The Duty Of Civil Disobedience",
+    "author": "Henry David Thoreau",
+    "gutenbergId": 205,
+    "ageGroup": "adult",
+    "chapterCount": 18,
+    "wordCount": 108000,
+    "originalLanguage": "en",
+    "genres": [
+      "non-fiction",
+      "philosophy"
+    ],
+    "yearPublished": 1854
+  },
+  {
+    "slug": "communist-manifesto",
+    "title": "The Communist Manifesto",
+    "author": "Karl Marx & Friedrich Engels",
+    "gutenbergId": 61,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 12000,
+    "originalLanguage": "en",
+    "genres": [
+      "non-fiction",
+      "political"
+    ],
+    "yearPublished": 1848
+  },
+  {
+    "slug": "autobiography-of-benjamin-franklin",
+    "title": "Autobiography of Benjamin Franklin",
+    "author": "Benjamin Franklin",
+    "gutenbergId": 20203,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 66000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography",
+      "historical"
+    ],
+    "yearPublished": 1791
+  },
+  {
+    "slug": "narrative-of-frederick-douglass",
+    "title": "Narrative of the Life of Frederick Douglass",
+    "author": "Frederick Douglass",
+    "gutenbergId": 23,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography",
+      "historical"
+    ],
+    "yearPublished": 1845
+  },
+  {
+    "slug": "souls-of-black-folk",
+    "title": "The Souls of Black Folk",
+    "author": "W. E. B. Du Bois",
+    "gutenbergId": 408,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 70000,
+    "originalLanguage": "en",
+    "genres": [
+      "non-fiction",
+      "social"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "up-from-slavery",
+    "title": "Up from Slavery",
+    "author": "Booker T. Washington",
+    "gutenbergId": 2376,
+    "ageGroup": "adult",
+    "chapterCount": 17,
+    "wordCount": 70000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography",
+      "historical"
+    ],
+    "yearPublished": 1901
+  },
+  {
+    "slug": "my-antonia",
+    "title": "My Ántonia",
+    "author": "Willa Cather",
+    "gutenbergId": 242,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 66000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "pastoral"
+    ],
+    "yearPublished": 1918
+  },
+  {
+    "slug": "o-pioneers",
+    "title": "O Pioneers!",
+    "author": "Willa Cather",
+    "gutenbergId": 24,
+    "ageGroup": "adult",
+    "chapterCount": 19,
+    "wordCount": 51000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "pastoral"
+    ],
+    "yearPublished": 1913
+  },
+  {
+    "slug": "song-of-the-lark",
+    "title": "The Song of the Lark",
+    "author": "Willa Cather",
+    "gutenbergId": 44,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "coming-of-age"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "awakening",
+    "title": "The Awakening",
+    "author": "Kate Chopin",
+    "gutenbergId": 160,
+    "ageGroup": "adult",
+    "chapterCount": 39,
+    "wordCount": 49000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "feminist"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "red-badge-of-courage",
+    "title": "The Red Badge of Courage",
+    "author": "Stephen Crane",
+    "gutenbergId": 73,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 50000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "war"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "sister-carrie",
+    "title": "Sister Carrie",
+    "author": "Theodore Dreiser",
+    "gutenbergId": 233,
+    "ageGroup": "adult",
+    "chapterCount": 47,
+    "wordCount": 168000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "naturalism"
+    ],
+    "yearPublished": 1900
+  },
+  {
+    "slug": "the-jungle",
+    "title": "The Jungle",
+    "author": "Upton Sinclair",
+    "gutenbergId": 140,
+    "ageGroup": "adult",
+    "chapterCount": 31,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1906
+  },
+  {
+    "slug": "man-who-was-thursday",
+    "title": "The Man Who Was Thursday",
+    "author": "G. K. Chesterton",
+    "gutenbergId": 1695,
+    "ageGroup": "adult",
+    "chapterCount": 15,
+    "wordCount": 52000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "thriller"
+    ],
+    "yearPublished": 1908
+  },
+  {
+    "slug": "father-brown-stories",
+    "title": "The Innocence of Father Brown",
+    "author": "G. K. Chesterton",
+    "gutenbergId": 204,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1911
+  },
+  {
+    "slug": "room-with-a-view",
+    "title": "A Room with a View",
+    "author": "E. M. Forster",
+    "gutenbergId": 2641,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 67000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1908
+  },
+  {
+    "slug": "howards-end",
+    "title": "Howards End",
+    "author": "E. M. Forster",
+    "gutenbergId": 2946,
+    "ageGroup": "adult",
+    "chapterCount": 44,
+    "wordCount": 105000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1910
+  },
+  {
+    "slug": "passage-to-india",
+    "title": "A Passage to India",
+    "author": "E. M. Forster",
+    "gutenbergId": 62796,
+    "ageGroup": "adult",
+    "chapterCount": 37,
+    "wordCount": 104000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "political"
+    ],
+    "yearPublished": 1924
+  },
+  {
+    "slug": "dead-souls",
+    "title": "Dead Souls",
+    "author": "Nikolai Gogol",
+    "gutenbergId": 1081,
+    "ageGroup": "adult",
+    "chapterCount": 23,
+    "wordCount": 140000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1842
+  },
+  {
+    "slug": "fathers-and-sons",
+    "title": "Fathers and Sons",
+    "author": "Ivan Turgenev",
+    "gutenbergId": 30723,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1862
+  },
+  {
+    "slug": "eugene-onegin",
+    "title": "Eugene Onegin",
+    "author": "Alexander Pushkin",
+    "gutenbergId": 23997,
+    "ageGroup": "adult",
+    "chapterCount": 8,
+    "wordCount": 24000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "romance"
+    ],
+    "yearPublished": 1833
+  },
+  {
+    "slug": "cherry-orchard",
+    "title": "The Cherry Orchard",
+    "author": "Anton Chekhov",
+    "gutenbergId": 7986,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 20000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1904
+  },
+  {
+    "slug": "scarlet-pimpernel",
+    "title": "The Scarlet Pimpernel",
+    "author": "Baroness Orczy",
+    "gutenbergId": 60,
+    "ageGroup": "adult",
+    "chapterCount": 31,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "historical"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "prisoner-of-zenda",
+    "title": "The Prisoner of Zenda",
+    "author": "Anthony Hope",
+    "gutenbergId": 95,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 50000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "romance"
+    ],
+    "yearPublished": 1894
+  },
+  {
+    "slug": "39-steps",
+    "title": "The Thirty-Nine Steps",
+    "author": "John Buchan",
+    "gutenbergId": 558,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 38000,
+    "originalLanguage": "en",
+    "genres": [
+      "thriller",
+      "adventure"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "four-feathers-precursor",
+    "title": "Dowd and the Dervish",
+    "author": "A. E. W. Mason",
+    "gutenbergId": 6458,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "war"
+    ],
+    "yearPublished": 1902
+  },
+  {
+    "slug": "hamlet",
+    "title": "Hamlet",
+    "author": "William Shakespeare",
+    "gutenbergId": 1524,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "tragedy"
+    ],
+    "yearPublished": 1603
+  },
+  {
+    "slug": "romeo-and-juliet",
+    "title": "Romeo and Juliet",
+    "author": "William Shakespeare",
+    "gutenbergId": 1513,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 24000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "tragedy"
+    ],
+    "yearPublished": 1597
+  },
+  {
+    "slug": "macbeth",
+    "title": "Macbeth",
+    "author": "William Shakespeare",
+    "gutenbergId": 1533,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 17000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "tragedy"
+    ],
+    "yearPublished": 1606
+  },
+  {
+    "slug": "othello",
+    "title": "Othello",
+    "author": "William Shakespeare",
+    "gutenbergId": 1531,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 26000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "tragedy"
+    ],
+    "yearPublished": 1604
+  },
+  {
+    "slug": "midsummer-nights-dream",
+    "title": "A Midsummer Night's Dream",
+    "author": "William Shakespeare",
+    "gutenbergId": 1514,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 16000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1596
+  },
+  {
+    "slug": "tempest",
+    "title": "The Tempest",
+    "author": "William Shakespeare",
+    "gutenbergId": 1540,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 17000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1611
+  },
+  {
+    "slug": "twelfth-night",
+    "title": "Twelfth Night",
+    "author": "William Shakespeare",
+    "gutenbergId": 1526,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 19000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1602
+  },
+  {
+    "slug": "king-lear",
+    "title": "King Lear",
+    "author": "William Shakespeare",
+    "gutenbergId": 1532,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 26000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "tragedy"
+    ],
+    "yearPublished": 1606
+  },
+  {
+    "slug": "merchant-of-venice",
+    "title": "The Merchant of Venice",
+    "author": "William Shakespeare",
+    "gutenbergId": 1515,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 21000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1600
+  },
+  {
+    "slug": "much-ado-about-nothing",
+    "title": "Much Ado About Nothing",
+    "author": "William Shakespeare",
+    "gutenbergId": 1519,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 21000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1600
+  },
+  {
+    "slug": "sea-wolf",
+    "title": "The Sea-Wolf",
+    "author": "Jack London",
+    "gutenbergId": 1074,
+    "ageGroup": "adult",
+    "chapterCount": 39,
+    "wordCount": 96000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure"
+    ],
+    "yearPublished": 1904
+  },
+  {
+    "slug": "martin-eden",
+    "title": "Martin Eden",
+    "author": "Jack London",
+    "gutenbergId": 1056,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 110000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "autobiographical"
+    ],
+    "yearPublished": 1909
+  },
+  {
+    "slug": "main-street",
+    "title": "Main Street",
+    "author": "Sinclair Lewis",
+    "gutenbergId": 543,
+    "ageGroup": "adult",
+    "chapterCount": 39,
+    "wordCount": 175000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "social"
+    ],
+    "yearPublished": 1920
+  },
+  {
+    "slug": "babbitt",
+    "title": "Babbitt",
+    "author": "Sinclair Lewis",
+    "gutenbergId": 1156,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 109000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "secret-adversary",
+    "title": "The Secret Adversary",
+    "author": "Agatha Christie",
+    "gutenbergId": 1155,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 67000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "thriller"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "mysterious-affair-at-styles",
+    "title": "The Mysterious Affair at Styles",
+    "author": "Agatha Christie",
+    "gutenbergId": 863,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1920
+  },
+  {
+    "slug": "murder-on-the-links",
+    "title": "The Murder on the Links",
+    "author": "Agatha Christie",
+    "gutenbergId": 58866,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 60000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1923
+  },
+  {
+    "slug": "count-of-monte-cristo-volume2",
+    "title": "The Count of Monte Cristo (Vol. 2)",
+    "author": "Alexandre Dumas",
+    "gutenbergId": 1184,
+    "ageGroup": "adult",
+    "chapterCount": 60,
+    "wordCount": 230000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "historical"
+    ],
+    "yearPublished": 1844
+  },
+  {
+    "slug": "lady-susan",
+    "title": "Lady Susan",
+    "author": "Jane Austen",
+    "gutenbergId": 946,
+    "ageGroup": "adult",
+    "chapterCount": 41,
+    "wordCount": 24000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1871
+  },
+  {
+    "slug": "a-tale-of-two-cities",
+    "title": "A Tale of Two Cities",
+    "author": "Charles Dickens",
+    "gutenbergId": 98,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 135000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "the-pickwick-papers",
+    "title": "The Pickwick Papers",
+    "author": "Charles Dickens",
+    "gutenbergId": 580,
+    "ageGroup": "adult",
+    "chapterCount": 57,
+    "wordCount": 300000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "humor"
+    ],
+    "yearPublished": 1837
+  },
+  {
+    "slug": "martin-chuzzlewit",
+    "title": "Martin Chuzzlewit",
+    "author": "Charles Dickens",
+    "gutenbergId": 968,
+    "ageGroup": "adult",
+    "chapterCount": 54,
+    "wordCount": 340000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "humor"
+    ],
+    "yearPublished": 1844
+  },
+  {
+    "slug": "dombey-and-son",
+    "title": "Dombey and Son",
+    "author": "Charles Dickens",
+    "gutenbergId": 821,
+    "ageGroup": "adult",
+    "chapterCount": 62,
+    "wordCount": 350000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1848
+  },
+  {
+    "slug": "nicholas-nickleby",
+    "title": "Nicholas Nickleby",
+    "author": "Charles Dickens",
+    "gutenbergId": 967,
+    "ageGroup": "adult",
+    "chapterCount": 65,
+    "wordCount": 325000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1839
+  },
+  {
+    "slug": "the-old-curiosity-shop",
+    "title": "The Old Curiosity Shop",
+    "author": "Charles Dickens",
+    "gutenbergId": 700,
+    "ageGroup": "adult",
+    "chapterCount": 73,
+    "wordCount": 215000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1841
+  },
+  {
+    "slug": "barnaby-rudge",
+    "title": "Barnaby Rudge",
+    "author": "Charles Dickens",
+    "gutenbergId": 917,
+    "ageGroup": "adult",
+    "chapterCount": 82,
+    "wordCount": 255000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1841
+  },
+  {
+    "slug": "edwin-drood",
+    "title": "Edwin Drood",
+    "author": "Charles Dickens",
+    "gutenbergId": 564,
+    "ageGroup": "adult",
+    "chapterCount": 23,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "mystery"
+    ],
+    "yearPublished": 1870
+  },
+  {
+    "slug": "the-tenant-of-wildfell-hall",
+    "title": "The Tenant of Wildfell Hall",
+    "author": "Anne Brontë",
+    "gutenbergId": 969,
+    "ageGroup": "adult",
+    "chapterCount": 53,
+    "wordCount": 155000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1848
+  },
+  {
+    "slug": "agnes-grey",
+    "title": "Agnes Grey",
+    "author": "Anne Brontë",
+    "gutenbergId": 767,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1847
+  },
+  {
+    "slug": "shirley",
+    "title": "Shirley",
+    "author": "Charlotte Brontë",
+    "gutenbergId": 30187,
+    "ageGroup": "adult",
+    "chapterCount": 37,
+    "wordCount": 190000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1849
+  },
+  {
+    "slug": "the-professor",
+    "title": "The Professor",
+    "author": "Charlotte Brontë",
+    "gutenbergId": 1028,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 78000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1857
+  },
+  {
+    "slug": "the-mayor-of-casterbridge",
+    "title": "The Mayor of Casterbridge",
+    "author": "Thomas Hardy",
+    "gutenbergId": 143,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 100000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1886
+  },
+  {
+    "slug": "the-return-of-the-native",
+    "title": "The Return of the Native",
+    "author": "Thomas Hardy",
+    "gutenbergId": 122,
+    "ageGroup": "adult",
+    "chapterCount": 44,
+    "wordCount": 115000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1878
+  },
+  {
+    "slug": "jude-the-obscure",
+    "title": "Jude the Obscure",
+    "author": "Thomas Hardy",
+    "gutenbergId": 153,
+    "ageGroup": "adult",
+    "chapterCount": 47,
+    "wordCount": 110000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "the-woodlanders",
+    "title": "The Woodlanders",
+    "author": "Thomas Hardy",
+    "gutenbergId": 482,
+    "ageGroup": "adult",
+    "chapterCount": 48,
+    "wordCount": 115000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1887
+  },
+  {
+    "slug": "the-mill-on-the-floss",
+    "title": "The Mill on the Floss",
+    "author": "George Eliot",
+    "gutenbergId": 6688,
+    "ageGroup": "adult",
+    "chapterCount": 59,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1860
+  },
+  {
+    "slug": "daniel-deronda",
+    "title": "Daniel Deronda",
+    "author": "George Eliot",
+    "gutenbergId": 7469,
+    "ageGroup": "adult",
+    "chapterCount": 70,
+    "wordCount": 290000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1876
+  },
+  {
+    "slug": "romola",
+    "title": "Romola",
+    "author": "George Eliot",
+    "gutenbergId": 24020,
+    "ageGroup": "adult",
+    "chapterCount": 72,
+    "wordCount": 230000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1863
+  },
+  {
+    "slug": "the-death-of-ivan-ilyich",
+    "title": "The Death of Ivan Ilyich",
+    "author": "Leo Tolstoy",
+    "gutenbergId": 927,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1886
+  },
+  {
+    "slug": "the-kreutzer-sonata",
+    "title": "The Kreutzer Sonata",
+    "author": "Leo Tolstoy",
+    "gutenbergId": 689,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 30000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1889
+  },
+  {
+    "slug": "the-brothers-karamazov",
+    "title": "The Brothers Karamazov",
+    "author": "Fyodor Dostoevsky",
+    "gutenbergId": 28054,
+    "ageGroup": "adult",
+    "chapterCount": 98,
+    "wordCount": 364000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1880
+  },
+  {
+    "slug": "the-idiot",
+    "title": "The Idiot",
+    "author": "Fyodor Dostoevsky",
+    "gutenbergId": 2638,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 225000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1869
+  },
+  {
+    "slug": "the-gambler",
+    "title": "The Gambler",
+    "author": "Fyodor Dostoevsky",
+    "gutenbergId": 2197,
+    "ageGroup": "adult",
+    "chapterCount": 17,
+    "wordCount": 40000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1867
+  },
+  {
+    "slug": "the-possessed",
+    "title": "The Possessed",
+    "author": "Fyodor Dostoevsky",
+    "gutenbergId": 8117,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 245000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "political"
+    ],
+    "yearPublished": 1872
+  },
+  {
+    "slug": "les-mis-rables",
+    "title": "Les Misérables",
+    "author": "Victor Hugo",
+    "gutenbergId": 135,
+    "ageGroup": "adult",
+    "chapterCount": 365,
+    "wordCount": 530000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1862
+  },
+  {
+    "slug": "the-hunchback-of-notre-dame",
+    "title": "The Hunchback of Notre-Dame",
+    "author": "Victor Hugo",
+    "gutenbergId": 2610,
+    "ageGroup": "adult",
+    "chapterCount": 59,
+    "wordCount": 190000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1831
+  },
+  {
+    "slug": "billy-budd",
+    "title": "Billy Budd",
+    "author": "Herman Melville",
+    "gutenbergId": 12367,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1924
+  },
+  {
+    "slug": "typee",
+    "title": "Typee",
+    "author": "Herman Melville",
+    "gutenbergId": 9269,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 92000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure"
+    ],
+    "yearPublished": 1846
+  },
+  {
+    "slug": "the-war-of-the-worlds",
+    "title": "The War of the Worlds",
+    "author": "H. G. Wells",
+    "gutenbergId": 36,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 60000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1898
+  },
+  {
+    "slug": "the-invisible-man",
+    "title": "The Invisible Man",
+    "author": "H. G. Wells",
+    "gutenbergId": 5230,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 43000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1897
+  },
+  {
+    "slug": "the-island-of-doctor-moreau",
+    "title": "The Island of Doctor Moreau",
+    "author": "H. G. Wells",
+    "gutenbergId": 159,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 38000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "horror"
+    ],
+    "yearPublished": 1896
+  },
+  {
+    "slug": "the-sleeper-awakes",
+    "title": "The Sleeper Awakes",
+    "author": "H. G. Wells",
+    "gutenbergId": 12163,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1910
+  },
+  {
+    "slug": "the-world-set-free",
+    "title": "The World Set Free",
+    "author": "H. G. Wells",
+    "gutenbergId": 1059,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1914
+  },
+  {
+    "slug": "in-the-days-of-the-comet",
+    "title": "In the Days of the Comet",
+    "author": "H. G. Wells",
+    "gutenbergId": 67159,
+    "ageGroup": "adult",
+    "chapterCount": 17,
+    "wordCount": 62000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1906
+  },
+  {
+    "slug": "a-modern-utopia",
+    "title": "A Modern Utopia",
+    "author": "H. G. Wells",
+    "gutenbergId": 6424,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "the-adventures-of-sherlock-holmes",
+    "title": "The Adventures of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 1661,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 110000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1892
+  },
+  {
+    "slug": "the-memoirs-of-sherlock-holmes",
+    "title": "The Memoirs of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 834,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1894
+  },
+  {
+    "slug": "the-return-of-sherlock-holmes",
+    "title": "The Return of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 108,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "the-hound-of-the-baskervilles",
+    "title": "The Hound of the Baskervilles",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 2852,
+    "ageGroup": "adult",
+    "chapterCount": 15,
+    "wordCount": 59000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1902
+  },
+  {
+    "slug": "a-study-in-scarlet",
+    "title": "A Study in Scarlet",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 244,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 43000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1887
+  },
+  {
+    "slug": "the-sign-of-the-four",
+    "title": "The Sign of the Four",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 2097,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 40000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "the-valley-of-fear",
+    "title": "The Valley of Fear",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 3289,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "his-last-bow",
+    "title": "His Last Bow",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 2350,
+    "ageGroup": "adult",
+    "chapterCount": 8,
+    "wordCount": 60000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1917
+  },
+  {
+    "slug": "the-case-book-of-sherlock-holmes",
+    "title": "The Case-Book of Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 2351,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "detective"
+    ],
+    "yearPublished": 1927
+  },
+  {
+    "slug": "the-lost-world",
+    "title": "The Lost World",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 139,
+    "ageGroup": "adult",
+    "chapterCount": 16,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "adventure"
+    ],
+    "yearPublished": 1912
+  },
+  {
+    "slug": "the-poison-belt",
+    "title": "The Poison Belt",
+    "author": "Arthur Conan Doyle",
+    "gutenbergId": 126,
+    "ageGroup": "adult",
+    "chapterCount": 8,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1913
+  },
+  {
+    "slug": "the-complete-tales-and-poems-of-edgar-allan-poe",
+    "title": "The Complete Tales and Poems of Edgar Allan Poe",
+    "author": "Edgar Allan Poe",
+    "gutenbergId": 2147,
+    "ageGroup": "adult",
+    "chapterCount": 70,
+    "wordCount": 125000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "mystery",
+      "poetry"
+    ],
+    "yearPublished": 1849
+  },
+  {
+    "slug": "the-fall-of-the-house-of-usher",
+    "title": "The Fall of the House of Usher",
+    "author": "Edgar Allan Poe",
+    "gutenbergId": 932,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 7000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "fiction"
+    ],
+    "yearPublished": 1839
+  },
+  {
+    "slug": "the-raven-and-other-poems",
+    "title": "The Raven and Other Poems",
+    "author": "Edgar Allan Poe",
+    "gutenbergId": 1065,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 8000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "horror"
+    ],
+    "yearPublished": 1845
+  },
+  {
+    "slug": "the-picture-of-dorian-gray",
+    "title": "The Picture of Dorian Gray",
+    "author": "Oscar Wilde",
+    "gutenbergId": 174,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 78000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "the-importance-of-being-earnest",
+    "title": "The Importance of Being Earnest",
+    "author": "Oscar Wilde",
+    "gutenbergId": 844,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "humor"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "an-ideal-husband",
+    "title": "An Ideal Husband",
+    "author": "Oscar Wilde",
+    "gutenbergId": 885,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "humor"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "lady-windermeres-fan",
+    "title": "Lady Windermere's Fan",
+    "author": "Oscar Wilde",
+    "gutenbergId": 790,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 20000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1892
+  },
+  {
+    "slug": "de-profundis",
+    "title": "De Profundis",
+    "author": "Oscar Wilde",
+    "gutenbergId": 921,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 30000,
+    "originalLanguage": "en",
+    "genres": [
+      "non-fiction",
+      "biography"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "the-secret-agent",
+    "title": "The Secret Agent",
+    "author": "Joseph Conrad",
+    "gutenbergId": 974,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 82000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "political"
+    ],
+    "yearPublished": 1907
+  },
+  {
+    "slug": "victory",
+    "title": "Victory",
+    "author": "Joseph Conrad",
+    "gutenbergId": 6478,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 100000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "the-turn-of-the-screw",
+    "title": "The Turn of the Screw",
+    "author": "Henry James",
+    "gutenbergId": 209,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror"
+    ],
+    "yearPublished": 1898
+  },
+  {
+    "slug": "the-portrait-of-a-lady",
+    "title": "The Portrait of a Lady",
+    "author": "Henry James",
+    "gutenbergId": 2833,
+    "ageGroup": "adult",
+    "chapterCount": 55,
+    "wordCount": 225000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1881
+  },
+  {
+    "slug": "the-wings-of-the-dove",
+    "title": "The Wings of the Dove",
+    "author": "Henry James",
+    "gutenbergId": 502,
+    "ageGroup": "adult",
+    "chapterCount": 38,
+    "wordCount": 195000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1902
+  },
+  {
+    "slug": "the-ambassadors",
+    "title": "The Ambassadors",
+    "author": "Henry James",
+    "gutenbergId": 432,
+    "ageGroup": "adult",
+    "chapterCount": 36,
+    "wordCount": 168000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "the-scarlet-letter",
+    "title": "The Scarlet Letter",
+    "author": "Nathaniel Hawthorne",
+    "gutenbergId": 25344,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 63000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1850
+  },
+  {
+    "slug": "the-house-of-the-seven-gables",
+    "title": "The House of the Seven Gables",
+    "author": "Nathaniel Hawthorne",
+    "gutenbergId": 77,
+    "ageGroup": "adult",
+    "chapterCount": 21,
+    "wordCount": 105000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1851
+  },
+  {
+    "slug": "the-great-gatsby",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "gutenbergId": 64317,
+    "ageGroup": "adult",
+    "chapterCount": 9,
+    "wordCount": 47000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "the-beautiful-and-damned",
+    "title": "The Beautiful and Damned",
+    "author": "F. Scott Fitzgerald",
+    "gutenbergId": 9830,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 108000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "flappers-and-philosophers",
+    "title": "Flappers and Philosophers",
+    "author": "F. Scott Fitzgerald",
+    "gutenbergId": 4368,
+    "ageGroup": "adult",
+    "chapterCount": 8,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1920
+  },
+  {
+    "slug": "the-age-of-innocence",
+    "title": "The Age of Innocence",
+    "author": "Edith Wharton",
+    "gutenbergId": 541,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 88000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1920
+  },
+  {
+    "slug": "the-house-of-mirth",
+    "title": "The House of Mirth",
+    "author": "Edith Wharton",
+    "gutenbergId": 284,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "summer",
+    "title": "Summer",
+    "author": "Edith Wharton",
+    "gutenbergId": 3068,
+    "ageGroup": "adult",
+    "chapterCount": 18,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1917
+  },
+  {
+    "slug": "the-custom-of-the-country",
+    "title": "The Custom of the Country",
+    "author": "Edith Wharton",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 140000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1913
+  },
+  {
+    "slug": "the-lair-of-the-white-worm",
+    "title": "The Lair of the White Worm",
+    "author": "Bram Stoker",
+    "gutenbergId": 1188,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "fiction"
+    ],
+    "yearPublished": 1911
+  },
+  {
+    "slug": "the-jewel-of-seven-stars",
+    "title": "The Jewel of Seven Stars",
+    "author": "Bram Stoker",
+    "gutenbergId": 3092,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "fiction"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "the-call-of-cthulhu",
+    "title": "The Call of Cthulhu",
+    "author": "H. P. Lovecraft",
+    "gutenbergId": 68283,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 12000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "science-fiction"
+    ],
+    "yearPublished": 1928
+  },
+  {
+    "slug": "at-the-mountains-of-madness",
+    "title": "At the Mountains of Madness",
+    "author": "H. P. Lovecraft",
+    "gutenbergId": 70652,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 40000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "science-fiction"
+    ],
+    "yearPublished": 1936
+  },
+  {
+    "slug": "the-shadow-over-innsmouth",
+    "title": "The Shadow over Innsmouth",
+    "author": "H. P. Lovecraft",
+    "gutenbergId": 70653,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "science-fiction"
+    ],
+    "yearPublished": 1936
+  },
+  {
+    "slug": "the-dunwich-horror",
+    "title": "The Dunwich Horror",
+    "author": "H. P. Lovecraft",
+    "gutenbergId": 50133,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 17000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "science-fiction"
+    ],
+    "yearPublished": 1929
+  },
+  {
+    "slug": "the-colour-out-of-space",
+    "title": "The Colour Out of Space",
+    "author": "H. P. Lovecraft",
+    "gutenbergId": 68236,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 12000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "science-fiction"
+    ],
+    "yearPublished": 1927
+  },
+  {
+    "slug": "the-republic",
+    "title": "The Republic",
+    "author": "Plato",
+    "gutenbergId": 1497,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": -380
+  },
+  {
+    "slug": "beyond-good-and-evil",
+    "title": "Beyond Good and Evil",
+    "author": "Friedrich Nietzsche",
+    "gutenbergId": 4363,
+    "ageGroup": "adult",
+    "chapterCount": 9,
+    "wordCount": 52000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1886
+  },
+  {
+    "slug": "thus-spake-zarathustra",
+    "title": "Thus Spake Zarathustra",
+    "author": "Friedrich Nietzsche",
+    "gutenbergId": 1998,
+    "ageGroup": "adult",
+    "chapterCount": 80,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1885
+  },
+  {
+    "slug": "the-prince",
+    "title": "The Prince",
+    "author": "Niccolò Machiavelli",
+    "gutenbergId": 1232,
+    "ageGroup": "adult",
+    "chapterCount": 26,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1532
+  },
+  {
+    "slug": "leviathan",
+    "title": "Leviathan",
+    "author": "Thomas Hobbes",
+    "gutenbergId": 3207,
+    "ageGroup": "adult",
+    "chapterCount": 47,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1651
+  },
+  {
+    "slug": "a-discourse-on-method",
+    "title": "A Discourse on Method",
+    "author": "René Descartes",
+    "gutenbergId": 59,
+    "ageGroup": "adult",
+    "chapterCount": 6,
+    "wordCount": 18000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1637
+  },
+  {
+    "slug": "critique-of-pure-reason",
+    "title": "Critique of Pure Reason",
+    "author": "Immanuel Kant",
+    "gutenbergId": 4280,
+    "ageGroup": "adult",
+    "chapterCount": 60,
+    "wordCount": 180000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1781
+  },
+  {
+    "slug": "the-communist-manifesto",
+    "title": "The Communist Manifesto",
+    "author": "Karl Marx and Friedrich Engels",
+    "gutenbergId": 61,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 12000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1848
+  },
+  {
+    "slug": "on-liberty",
+    "title": "On Liberty",
+    "author": "John Stuart Mill",
+    "gutenbergId": 34901,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 45000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "utilitarianism",
+    "title": "Utilitarianism",
+    "author": "John Stuart Mill",
+    "gutenbergId": 11224,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 20000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1863
+  },
+  {
+    "slug": "the-social-contract",
+    "title": "The Social Contract",
+    "author": "Jean-Jacques Rousseau",
+    "gutenbergId": 46333,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 36000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1762
+  },
+  {
+    "slug": "the-overcoat",
+    "title": "The Overcoat",
+    "author": "Nikolai Gogol",
+    "gutenbergId": 36238,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 10000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1842
+  },
+  {
+    "slug": "a-hero-of-our-time",
+    "title": "A Hero of Our Time",
+    "author": "Mikhail Lermontov",
+    "gutenbergId": 913,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1840
+  },
+  {
+    "slug": "uncle-vanya",
+    "title": "Uncle Vanya",
+    "author": "Anton Chekhov",
+    "gutenbergId": 7986,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 15000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "the-cherry-orchard",
+    "title": "The Cherry Orchard",
+    "author": "Anton Chekhov",
+    "gutenbergId": 7986,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 16000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1904
+  },
+  {
+    "slug": "the-seagull",
+    "title": "The Seagull",
+    "author": "Anton Chekhov",
+    "gutenbergId": 7986,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 14000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1896
+  },
+  {
+    "slug": "three-sisters",
+    "title": "Three Sisters",
+    "author": "Anton Chekhov",
+    "gutenbergId": 7986,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 18000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1901
+  },
+  {
+    "slug": "the-red-and-the-black",
+    "title": "The Red and the Black",
+    "author": "Stendhal",
+    "gutenbergId": 44747,
+    "ageGroup": "adult",
+    "chapterCount": 75,
+    "wordCount": 145000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1830
+  },
+  {
+    "slug": "p-re-goriot",
+    "title": "Père Goriot",
+    "author": "Honoré de Balzac",
+    "gutenbergId": 1237,
+    "ageGroup": "adult",
+    "chapterCount": 7,
+    "wordCount": 90000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1835
+  },
+  {
+    "slug": "eug-nie-grandet",
+    "title": "Eugénie Grandet",
+    "author": "Honoré de Balzac",
+    "gutenbergId": 1715,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1833
+  },
+  {
+    "slug": "the-phantom-of-the-opera",
+    "title": "The Phantom of the Opera",
+    "author": "Gaston Leroux",
+    "gutenbergId": 175,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror",
+      "romance"
+    ],
+    "yearPublished": 1910
+  },
+  {
+    "slug": "cyrano-de-bergerac",
+    "title": "Cyrano de Bergerac",
+    "author": "Edmond Rostand",
+    "gutenbergId": 1254,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "romance"
+    ],
+    "yearPublished": 1897
+  },
+  {
+    "slug": "the-three-musketeers-volume-2",
+    "title": "The Three Musketeers Volume 2",
+    "author": "Alexandre Dumas",
+    "gutenbergId": 1258,
+    "ageGroup": "adult",
+    "chapterCount": 67,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "historical"
+    ],
+    "yearPublished": 1844
+  },
+  {
+    "slug": "the-man-in-the-iron-mask",
+    "title": "The Man in the Iron Mask",
+    "author": "Alexandre Dumas",
+    "gutenbergId": 2759,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 175000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "historical"
+    ],
+    "yearPublished": 1850
+  },
+  {
+    "slug": "the-scarlet-pimpernel",
+    "title": "The Scarlet Pimpernel",
+    "author": "Baroness Orczy",
+    "gutenbergId": 60,
+    "ageGroup": "adult",
+    "chapterCount": 31,
+    "wordCount": 87000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "historical"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "the-adventures-of-tom-sawyer",
+    "title": "The Adventures of Tom Sawyer",
+    "author": "Mark Twain",
+    "gutenbergId": 74,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 71000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "humor"
+    ],
+    "yearPublished": 1876
+  },
+  {
+    "slug": "the-awakening",
+    "title": "The Awakening",
+    "author": "Kate Chopin",
+    "gutenbergId": 160,
+    "ageGroup": "adult",
+    "chapterCount": 39,
+    "wordCount": 49000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "the-yellow-wallpaper",
+    "title": "The Yellow Wallpaper",
+    "author": "Charlotte Perkins Gilman",
+    "gutenbergId": 1952,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 6000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror"
+    ],
+    "yearPublished": 1892
+  },
+  {
+    "slug": "mcteague",
+    "title": "McTeague",
+    "author": "Frank Norris",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 110000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "winesburg-ohio",
+    "title": "Winesburg Ohio",
+    "author": "Sherwood Anderson",
+    "gutenbergId": 416,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1919
+  },
+  {
+    "slug": "the-song-of-the-lark",
+    "title": "The Song of the Lark",
+    "author": "Willa Cather",
+    "gutenbergId": 44,
+    "ageGroup": "adult",
+    "chapterCount": 60,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "looking-backward",
+    "title": "Looking Backward",
+    "author": "Edward Bellamy",
+    "gutenbergId": 624,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "political"
+    ],
+    "yearPublished": 1888
+  },
+  {
+    "slug": "the-coming-race",
+    "title": "The Coming Race",
+    "author": "Edward Bulwer-Lytton",
+    "gutenbergId": 6401,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 48000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1871
+  },
+  {
+    "slug": "herland",
+    "title": "Herland",
+    "author": "Charlotte Perkins Gilman",
+    "gutenbergId": 32,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "fiction"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "we",
+    "title": "We",
+    "author": "Yevgeny Zamyatin",
+    "gutenbergId": 61963,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1924
+  },
+  {
+    "slug": "leaves-of-grass",
+    "title": "Leaves of Grass",
+    "author": "Walt Whitman",
+    "gutenbergId": 1322,
+    "ageGroup": "adult",
+    "chapterCount": 100,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry"
+    ],
+    "yearPublished": 1855
+  },
+  {
+    "slug": "the-complete-poems-of-emily-dickinson",
+    "title": "The Complete Poems of Emily Dickinson",
+    "author": "Emily Dickinson",
+    "gutenbergId": 12242,
+    "ageGroup": "adult",
+    "chapterCount": 200,
+    "wordCount": 25000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "the-waste-land-and-other-poems",
+    "title": "The Waste Land and Other Poems",
+    "author": "T. S. Eliot",
+    "gutenbergId": 1321,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 5000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "paradise-lost",
+    "title": "Paradise Lost",
+    "author": "John Milton",
+    "gutenbergId": 26,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "religious"
+    ],
+    "yearPublished": 1667
+  },
+  {
+    "slug": "the-divine-comedy",
+    "title": "The Divine Comedy",
+    "author": "Dante Alighieri",
+    "gutenbergId": 8800,
+    "ageGroup": "adult",
+    "chapterCount": 100,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "philosophical"
+    ],
+    "yearPublished": 1320
+  },
+  {
+    "slug": "the-iliad",
+    "title": "The Iliad",
+    "author": "Homer",
+    "gutenbergId": 6130,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 145000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "mythology"
+    ],
+    "yearPublished": -750
+  },
+  {
+    "slug": "the-odyssey",
+    "title": "The Odyssey",
+    "author": "Homer",
+    "gutenbergId": 1727,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 115000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "mythology",
+      "adventure"
+    ],
+    "yearPublished": -750
+  },
+  {
+    "slug": "the-aeneid",
+    "title": "The Aeneid",
+    "author": "Virgil",
+    "gutenbergId": 228,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "mythology"
+    ],
+    "yearPublished": -19
+  },
+  {
+    "slug": "don-juan",
+    "title": "Don Juan",
+    "author": "Lord Byron",
+    "gutenbergId": 18762,
+    "ageGroup": "adult",
+    "chapterCount": 17,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "satire"
+    ],
+    "yearPublished": 1819
+  },
+  {
+    "slug": "songs-of-innocence-and-experience",
+    "title": "Songs of Innocence and Experience",
+    "author": "William Blake",
+    "gutenbergId": 1934,
+    "ageGroup": "adult",
+    "chapterCount": 54,
+    "wordCount": 4000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry"
+    ],
+    "yearPublished": 1794
+  },
+  {
+    "slug": "sonnets",
+    "title": "Sonnets",
+    "author": "William Shakespeare",
+    "gutenbergId": 1041,
+    "ageGroup": "adult",
+    "chapterCount": 154,
+    "wordCount": 8000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "romance"
+    ],
+    "yearPublished": 1609
+  },
+  {
+    "slug": "a-midsummer-nights-dream",
+    "title": "A Midsummer Nights Dream",
+    "author": "William Shakespeare",
+    "gutenbergId": 1514,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 16000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1600
+  },
+  {
+    "slug": "the-tempest",
+    "title": "The Tempest",
+    "author": "William Shakespeare",
+    "gutenbergId": 23042,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 17000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "fantasy"
+    ],
+    "yearPublished": 1611
+  },
+  {
+    "slug": "the-merchant-of-venice",
+    "title": "The Merchant of Venice",
+    "author": "William Shakespeare",
+    "gutenbergId": 1515,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 21000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1600
+  },
+  {
+    "slug": "a-dolls-house",
+    "title": "A Dolls House",
+    "author": "Henrik Ibsen",
+    "gutenbergId": 2542,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 24000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1879
+  },
+  {
+    "slug": "hedda-gabler",
+    "title": "Hedda Gabler",
+    "author": "Henrik Ibsen",
+    "gutenbergId": 4093,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "an-enemy-of-the-people",
+    "title": "An Enemy of the People",
+    "author": "Henrik Ibsen",
+    "gutenbergId": 2446,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 25000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "political"
+    ],
+    "yearPublished": 1882
+  },
+  {
+    "slug": "pygmalion",
+    "title": "Pygmalion",
+    "author": "George Bernard Shaw",
+    "gutenbergId": 3825,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1913
+  },
+  {
+    "slug": "arms-and-the-man",
+    "title": "Arms and the Man",
+    "author": "George Bernard Shaw",
+    "gutenbergId": 3618,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 16000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "yearPublished": 1894
+  },
+  {
+    "slug": "mrs-warrens-profession",
+    "title": "Mrs. Warrens Profession",
+    "author": "George Bernard Shaw",
+    "gutenbergId": 1097,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 20000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1898
+  },
+  {
+    "slug": "the-art-of-war",
+    "title": "The Art of War",
+    "author": "Sun Tzu",
+    "gutenbergId": 132,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 12000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "military"
+    ],
+    "yearPublished": -500
+  },
+  {
+    "slug": "common-sense",
+    "title": "Common Sense",
+    "author": "Thomas Paine",
+    "gutenbergId": 147,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 16000,
+    "originalLanguage": "en",
+    "genres": [
+      "political",
+      "philosophy"
+    ],
+    "yearPublished": 1776
+  },
+  {
+    "slug": "the-rights-of-man",
+    "title": "The Rights of Man",
+    "author": "Thomas Paine",
+    "gutenbergId": 3742,
+    "ageGroup": "adult",
+    "chapterCount": 15,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "political",
+      "philosophy"
+    ],
+    "yearPublished": 1791
+  },
+  {
+    "slug": "autobiography",
+    "title": "Autobiography",
+    "author": "Benjamin Franklin",
+    "gutenbergId": 20203,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography"
+    ],
+    "yearPublished": 1791
+  },
+  {
+    "slug": "narrative-of-the-life-of-frederick-douglass",
+    "title": "Narrative of the Life of Frederick Douglass",
+    "author": "Frederick Douglass",
+    "gutenbergId": 23,
+    "ageGroup": "adult",
+    "chapterCount": 11,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography",
+      "political"
+    ],
+    "yearPublished": 1845
+  },
+  {
+    "slug": "the-souls-of-black-folk",
+    "title": "The Souls of Black Folk",
+    "author": "W. E. B. Du Bois",
+    "gutenbergId": 408,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "non-fiction",
+      "political"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "civil-disobedience",
+    "title": "Civil Disobedience",
+    "author": "Henry David Thoreau",
+    "gutenbergId": 71,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 9000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1849
+  },
+  {
+    "slug": "the-federalist-papers",
+    "title": "The Federalist Papers",
+    "author": "Alexander Hamilton et al.",
+    "gutenbergId": 1404,
+    "ageGroup": "adult",
+    "chapterCount": 85,
+    "wordCount": 180000,
+    "originalLanguage": "en",
+    "genres": [
+      "political",
+      "philosophy"
+    ],
+    "yearPublished": 1788
+  },
+  {
+    "slug": "democracy-in-america-volume-1",
+    "title": "Democracy in America Volume 1",
+    "author": "Alexis de Tocqueville",
+    "gutenbergId": 815,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 170000,
+    "originalLanguage": "en",
+    "genres": [
+      "political",
+      "philosophy"
+    ],
+    "yearPublished": 1835
+  },
+  {
+    "slug": "democracy-in-america-volume-2",
+    "title": "Democracy in America Volume 2",
+    "author": "Alexis de Tocqueville",
+    "gutenbergId": 816,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 155000,
+    "originalLanguage": "en",
+    "genres": [
+      "political",
+      "philosophy"
+    ],
+    "yearPublished": 1840
+  },
+  {
+    "slug": "a-vindication-of-the-rights-of-woman",
+    "title": "A Vindication of the Rights of Woman",
+    "author": "Mary Wollstonecraft",
+    "gutenbergId": 3420,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 56000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1792
+  },
+  {
+    "slug": "the-origin-of-species",
+    "title": "The Origin of Species",
+    "author": "Charles Darwin",
+    "gutenbergId": 1228,
+    "ageGroup": "adult",
+    "chapterCount": 15,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "science",
+      "philosophy"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "the-descent-of-man",
+    "title": "The Descent of Man",
+    "author": "Charles Darwin",
+    "gutenbergId": 2300,
+    "ageGroup": "adult",
+    "chapterCount": 21,
+    "wordCount": 210000,
+    "originalLanguage": "en",
+    "genres": [
+      "science"
+    ],
+    "yearPublished": 1871
+  },
+  {
+    "slug": "on-the-origin-of-species",
+    "title": "On the Origin of Species",
+    "author": "Charles Darwin",
+    "gutenbergId": 2009,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 148000,
+    "originalLanguage": "en",
+    "genres": [
+      "science",
+      "philosophy"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "the-picture-of-dorian-gray-uncensored",
+    "title": "The Picture of Dorian Gray Uncensored",
+    "author": "Oscar Wilde",
+    "gutenbergId": 174,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 78000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "the-moonstone",
+    "title": "The Moonstone",
+    "author": "Wilkie Collins",
+    "gutenbergId": 155,
+    "ageGroup": "adult",
+    "chapterCount": 44,
+    "wordCount": 190000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "fiction"
+    ],
+    "yearPublished": 1868
+  },
+  {
+    "slug": "the-woman-in-white",
+    "title": "The Woman in White",
+    "author": "Wilkie Collins",
+    "gutenbergId": 583,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 250000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "fiction"
+    ],
+    "yearPublished": 1860
+  },
+  {
+    "slug": "armadale",
+    "title": "Armadale",
+    "author": "Wilkie Collins",
+    "gutenbergId": 1895,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 260000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "fiction"
+    ],
+    "yearPublished": 1866
+  },
+  {
+    "slug": "no-name",
+    "title": "No Name",
+    "author": "Wilkie Collins",
+    "gutenbergId": 1438,
+    "ageGroup": "adult",
+    "chapterCount": 42,
+    "wordCount": 225000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "mystery"
+    ],
+    "yearPublished": 1862
+  },
+  {
+    "slug": "the-count-of-monte-cristo-volume-1",
+    "title": "The Count of Monte Cristo Volume 1",
+    "author": "Alexandre Dumas",
+    "gutenbergId": 1184,
+    "ageGroup": "adult",
+    "chapterCount": 64,
+    "wordCount": 250000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "fiction"
+    ],
+    "yearPublished": 1844
+  },
+  {
+    "slug": "don-quixote-volume-1",
+    "title": "Don Quixote Volume 1",
+    "author": "Miguel de Cervantes",
+    "gutenbergId": 996,
+    "ageGroup": "adult",
+    "chapterCount": 52,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure",
+      "satire"
+    ],
+    "yearPublished": 1605
+  },
+  {
+    "slug": "don-quixote-volume-2",
+    "title": "Don Quixote Volume 2",
+    "author": "Miguel de Cervantes",
+    "gutenbergId": 997,
+    "ageGroup": "adult",
+    "chapterCount": 74,
+    "wordCount": 220000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure",
+      "satire"
+    ],
+    "yearPublished": 1615
+  },
+  {
+    "slug": "the-canterbury-tales",
+    "title": "The Canterbury Tales",
+    "author": "Geoffrey Chaucer",
+    "gutenbergId": 2383,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 50000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "poetry"
+    ],
+    "yearPublished": 1400
+  },
+  {
+    "slug": "the-iron-heel",
+    "title": "The Iron Heel",
+    "author": "Jack London",
+    "gutenbergId": 1164,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "political"
+    ],
+    "yearPublished": 1908
+  },
+  {
+    "slug": "the-star-rover",
+    "title": "The Star Rover",
+    "author": "Jack London",
+    "gutenbergId": 1162,
+    "ageGroup": "adult",
+    "chapterCount": 23,
+    "wordCount": 78000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "science-fiction"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "erewhon",
+    "title": "Erewhon",
+    "author": "Samuel Butler",
+    "gutenbergId": 1906,
+    "ageGroup": "adult",
+    "chapterCount": 29,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "satire"
+    ],
+    "yearPublished": 1872
+  },
+  {
+    "slug": "news-from-nowhere",
+    "title": "News from Nowhere",
+    "author": "William Morris",
+    "gutenbergId": 3261,
+    "ageGroup": "adult",
+    "chapterCount": 32,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "political"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "the-mysteries-of-udolpho",
+    "title": "The Mysteries of Udolpho",
+    "author": "Ann Radcliffe",
+    "gutenbergId": 3268,
+    "ageGroup": "adult",
+    "chapterCount": 48,
+    "wordCount": 250000,
+    "originalLanguage": "en",
+    "genres": [
+      "gothic",
+      "fiction"
+    ],
+    "yearPublished": 1794
+  },
+  {
+    "slug": "the-castle-of-otranto",
+    "title": "The Castle of Otranto",
+    "author": "Horace Walpole",
+    "gutenbergId": 696,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "gothic",
+      "fiction"
+    ],
+    "yearPublished": 1764
+  },
+  {
+    "slug": "vathek",
+    "title": "Vathek",
+    "author": "William Beckford",
+    "gutenbergId": 2462,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "gothic",
+      "fiction"
+    ],
+    "yearPublished": 1786
+  },
+  {
+    "slug": "the-monk",
+    "title": "The Monk",
+    "author": "Matthew Lewis",
+    "gutenbergId": 601,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 135000,
+    "originalLanguage": "en",
+    "genres": [
+      "gothic",
+      "horror"
+    ],
+    "yearPublished": 1796
+  },
+  {
+    "slug": "melmoth-the-wanderer",
+    "title": "Melmoth the Wanderer",
+    "author": "Charles Maturin",
+    "gutenbergId": 14936,
+    "ageGroup": "adult",
+    "chapterCount": 39,
+    "wordCount": 225000,
+    "originalLanguage": "en",
+    "genres": [
+      "gothic",
+      "horror"
+    ],
+    "yearPublished": 1820
+  },
+  {
+    "slug": "essays-of-michel-de-montaigne",
+    "title": "Essays of Michel de Montaigne",
+    "author": "Michel de Montaigne",
+    "gutenbergId": 3600,
+    "ageGroup": "adult",
+    "chapterCount": 107,
+    "wordCount": 350000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "non-fiction"
+    ],
+    "yearPublished": 1580
+  },
+  {
+    "slug": "a-room-of-ones-own",
+    "title": "A Room of One's Own",
+    "author": "Virginia Woolf",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 6,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "non-fiction",
+      "philosophy"
+    ],
+    "yearPublished": 1929
+  },
+  {
+    "slug": "areopagitica",
+    "title": "Areopagitica",
+    "author": "John Milton",
+    "gutenbergId": 608,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 10000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1644
+  },
+  {
+    "slug": "self-reliance-and-other-essays",
+    "title": "Self-Reliance and Other Essays",
+    "author": "Ralph Waldo Emerson",
+    "gutenbergId": 16643,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1841
+  },
+  {
+    "slug": "the-thirty-nine-steps",
+    "title": "The Thirty-Nine Steps",
+    "author": "John Buchan",
+    "gutenbergId": 558,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "adventure"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "greenmantle",
+    "title": "Greenmantle",
+    "author": "John Buchan",
+    "gutenbergId": 559,
+    "ageGroup": "adult",
+    "chapterCount": 23,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "mystery"
+    ],
+    "yearPublished": 1916
+  },
+  {
+    "slug": "mr-standfast",
+    "title": "Mr. Standfast",
+    "author": "John Buchan",
+    "gutenbergId": 560,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 78000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "mystery"
+    ],
+    "yearPublished": 1919
+  },
+  {
+    "slug": "the-three-hostages",
+    "title": "The Three Hostages",
+    "author": "John Buchan",
+    "gutenbergId": 561,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "mystery"
+    ],
+    "yearPublished": 1924
+  },
+  {
+    "slug": "a-portrait-of-the-artist-as-a-young-man",
+    "title": "A Portrait of the Artist as a Young Man",
+    "author": "James Joyce",
+    "gutenbergId": 4217,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 82000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "coming-of-age"
+    ],
+    "yearPublished": 1916
+  },
+  {
+    "slug": "the-rainbow",
+    "title": "The Rainbow",
+    "author": "D. H. Lawrence",
+    "gutenbergId": 5757,
+    "ageGroup": "adult",
+    "chapterCount": 16,
+    "wordCount": 165000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "night-and-day",
+    "title": "Night and Day",
+    "author": "Virginia Woolf",
+    "gutenbergId": 1245,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 155000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1919
+  },
+  {
+    "slug": "the-voyage-out",
+    "title": "The Voyage Out",
+    "author": "Virginia Woolf",
+    "gutenbergId": 144,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 115000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "the-red-badge-of-courage",
+    "title": "The Red Badge of Courage",
+    "author": "Stephen Crane",
+    "gutenbergId": 73,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 46000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "war"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "the-metamorphosis",
+    "title": "The Metamorphosis",
+    "author": "Franz Kafka",
+    "gutenbergId": 5200,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "the-trial",
+    "title": "The Trial",
+    "author": "Franz Kafka",
+    "gutenbergId": 7849,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "the-sorrows-of-young-werther",
+    "title": "The Sorrows of Young Werther",
+    "author": "Johann Wolfgang von Goethe",
+    "gutenbergId": 2527,
+    "ageGroup": "adult",
+    "chapterCount": 2,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1774
+  },
+  {
+    "slug": "faust-part-one",
+    "title": "Faust Part One",
+    "author": "Johann Wolfgang von Goethe",
+    "gutenbergId": 14591,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama",
+      "philosophical"
+    ],
+    "yearPublished": 1808
+  },
+  {
+    "slug": "the-voyage-of-the-beagle",
+    "title": "The Voyage of the Beagle",
+    "author": "Charles Darwin",
+    "gutenbergId": 944,
+    "ageGroup": "adult",
+    "chapterCount": 21,
+    "wordCount": 190000,
+    "originalLanguage": "en",
+    "genres": [
+      "non-fiction",
+      "science",
+      "travel"
+    ],
+    "yearPublished": 1839
+  },
+  {
+    "slug": "travels-with-a-donkey-in-the-cevennes",
+    "title": "Travels with a Donkey in the Cevennes",
+    "author": "Robert Louis Stevenson",
+    "gutenbergId": 535,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 25000,
+    "originalLanguage": "en",
+    "genres": [
+      "travel",
+      "non-fiction"
+    ],
+    "yearPublished": 1879
+  },
+  {
+    "slug": "in-darkest-africa-volume-1",
+    "title": "In Darkest Africa Volume 1",
+    "author": "Henry Morton Stanley",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "travel",
+      "adventure"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "the-way-of-all-flesh",
+    "title": "The Way of All Flesh",
+    "author": "Samuel Butler",
+    "gutenbergId": 2084,
+    "ageGroup": "adult",
+    "chapterCount": 86,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "coming-of-age"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "new-grub-street",
+    "title": "New Grub Street",
+    "author": "George Gissing",
+    "gutenbergId": 1709,
+    "ageGroup": "adult",
+    "chapterCount": 37,
+    "wordCount": 175000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1891
+  },
+  {
+    "slug": "the-odd-women",
+    "title": "The Odd Women",
+    "author": "George Gissing",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 32,
+    "wordCount": 140000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1893
+  },
+  {
+    "slug": "tono-bungay",
+    "title": "Tono-Bungay",
+    "author": "H. G. Wells",
+    "gutenbergId": 2300,
+    "ageGroup": "adult",
+    "chapterCount": 52,
+    "wordCount": 155000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "satire"
+    ],
+    "yearPublished": 1909
+  },
+  {
+    "slug": "kipps",
+    "title": "Kipps",
+    "author": "H. G. Wells",
+    "gutenbergId": 2899,
+    "ageGroup": "adult",
+    "chapterCount": 36,
+    "wordCount": 90000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "humor"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "the-history-of-mr-polly",
+    "title": "The History of Mr Polly",
+    "author": "H. G. Wells",
+    "gutenbergId": 7308,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 62000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "humor"
+    ],
+    "yearPublished": 1910
+  },
+  {
+    "slug": "ann-veronica",
+    "title": "Ann Veronica",
+    "author": "H. G. Wells",
+    "gutenbergId": 4245,
+    "ageGroup": "adult",
+    "chapterCount": 17,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1909
+  },
+  {
+    "slug": "the-forsyte-saga",
+    "title": "The Forsyte Saga",
+    "author": "John Galsworthy",
+    "gutenbergId": 30241,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "the-man-of-property",
+    "title": "The Man of Property",
+    "author": "John Galsworthy",
+    "gutenbergId": 2722,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 105000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1906
+  },
+  {
+    "slug": "of-human-bondage",
+    "title": "Of Human Bondage",
+    "author": "W. Somerset Maugham",
+    "gutenbergId": 351,
+    "ageGroup": "adult",
+    "chapterCount": 122,
+    "wordCount": 220000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "coming-of-age"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "the-moon-and-sixpence",
+    "title": "The Moon and Sixpence",
+    "author": "W. Somerset Maugham",
+    "gutenbergId": 222,
+    "ageGroup": "adult",
+    "chapterCount": 58,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1919
+  },
+  {
+    "slug": "the-razors-edge",
+    "title": "The Razor's Edge",
+    "author": "W. Somerset Maugham",
+    "gutenbergId": 65100,
+    "ageGroup": "adult",
+    "chapterCount": 62,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1944
+  },
+  {
+    "slug": "the-house-of-the-seven-gables-full",
+    "title": "The House of the Seven Gables Full",
+    "author": "Nathaniel Hawthorne",
+    "gutenbergId": 77,
+    "ageGroup": "adult",
+    "chapterCount": 21,
+    "wordCount": 105000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1851
+  },
+  {
+    "slug": "the-blithedale-romance",
+    "title": "The Blithedale Romance",
+    "author": "Nathaniel Hawthorne",
+    "gutenbergId": 2081,
+    "ageGroup": "adult",
+    "chapterCount": 29,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1852
+  },
+  {
+    "slug": "maggie-a-girl-of-the-streets",
+    "title": "Maggie A Girl of the Streets",
+    "author": "Stephen Crane",
+    "gutenbergId": 447,
+    "ageGroup": "adult",
+    "chapterCount": 19,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1893
+  },
+  {
+    "slug": "the-pit",
+    "title": "The Pit",
+    "author": "Frank Norris",
+    "gutenbergId": 5766,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "the-octopus",
+    "title": "The Octopus",
+    "author": "Frank Norris",
+    "gutenbergId": 5767,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 170000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1901
+  },
+  {
+    "slug": "jennie-gerhardt",
+    "title": "Jennie Gerhardt",
+    "author": "Theodore Dreiser",
+    "gutenbergId": 2077,
+    "ageGroup": "adult",
+    "chapterCount": 62,
+    "wordCount": 135000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1911
+  },
+  {
+    "slug": "an-american-tragedy",
+    "title": "An American Tragedy",
+    "author": "Theodore Dreiser",
+    "gutenbergId": 2078,
+    "ageGroup": "adult",
+    "chapterCount": 85,
+    "wordCount": 340000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "arrowsmith",
+    "title": "Arrowsmith",
+    "author": "Sinclair Lewis",
+    "gutenbergId": 1165,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 165000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "the-age-of-innocence-extended",
+    "title": "The Age of Innocence Extended",
+    "author": "Edith Wharton",
+    "gutenbergId": 541,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 88000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1920
+  },
+  {
+    "slug": "a-lost-lady",
+    "title": "A Lost Lady",
+    "author": "Willa Cather",
+    "gutenbergId": 65101,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 30000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1923
+  },
+  {
+    "slug": "death-comes-for-the-archbishop",
+    "title": "Death Comes for the Archbishop",
+    "author": "Willa Cather",
+    "gutenbergId": 65102,
+    "ageGroup": "adult",
+    "chapterCount": 9,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1927
+  },
+  {
+    "slug": "oblomov",
+    "title": "Oblomov",
+    "author": "Ivan Goncharov",
+    "gutenbergId": 54959,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 135000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "the-queen-of-spades",
+    "title": "The Queen of Spades",
+    "author": "Alexander Pushkin",
+    "gutenbergId": 23998,
+    "ageGroup": "adult",
+    "chapterCount": 6,
+    "wordCount": 8000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1834
+  },
+  {
+    "slug": "the-captains-daughter",
+    "title": "The Captain's Daughter",
+    "author": "Alexander Pushkin",
+    "gutenbergId": 23999,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1836
+  },
+  {
+    "slug": "ward-no-6-and-other-stories",
+    "title": "Ward No. 6 and Other Stories",
+    "author": "Anton Chekhov",
+    "gutenbergId": 13415,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1892
+  },
+  {
+    "slug": "the-lady-with-the-dog-and-other-stories",
+    "title": "The Lady with the Dog and Other Stories",
+    "author": "Anton Chekhov",
+    "gutenbergId": 13416,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "what-is-art",
+    "title": "What Is Art",
+    "author": "Leo Tolstoy",
+    "gutenbergId": 64,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "non-fiction"
+    ],
+    "yearPublished": 1897
+  },
+  {
+    "slug": "hadji-murad",
+    "title": "Hadji Murad",
+    "author": "Leo Tolstoy",
+    "gutenbergId": 1258,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1912
+  },
+  {
+    "slug": "the-cossacks",
+    "title": "The Cossacks",
+    "author": "Leo Tolstoy",
+    "gutenbergId": 4761,
+    "ageGroup": "adult",
+    "chapterCount": 42,
+    "wordCount": 38000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1863
+  },
+  {
+    "slug": "the-charterhouse-of-parma",
+    "title": "The Charterhouse of Parma",
+    "author": "Stendhal",
+    "gutenbergId": 44748,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 175000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1839
+  },
+  {
+    "slug": "bel-ami",
+    "title": "Bel-Ami",
+    "author": "Guy de Maupassant",
+    "gutenbergId": 3081,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1885
+  },
+  {
+    "slug": "pierre-and-jean",
+    "title": "Pierre and Jean",
+    "author": "Guy de Maupassant",
+    "gutenbergId": 3082,
+    "ageGroup": "adult",
+    "chapterCount": 9,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1888
+  },
+  {
+    "slug": "a-life",
+    "title": "A Life",
+    "author": "Guy de Maupassant",
+    "gutenbergId": 3083,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1883
+  },
+  {
+    "slug": "the-ladies-paradise",
+    "title": "The Ladies Paradise",
+    "author": "Émile Zola",
+    "gutenbergId": 5712,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 155000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1883
+  },
+  {
+    "slug": "the-beast-within",
+    "title": "The Beast Within",
+    "author": "Émile Zola",
+    "gutenbergId": 5713,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "th-r-se-raquin",
+    "title": "Thérèse Raquin",
+    "author": "Émile Zola",
+    "gutenbergId": 6626,
+    "ageGroup": "adult",
+    "chapterCount": 32,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1867
+  },
+  {
+    "slug": "dangerous-liaisons",
+    "title": "Dangerous Liaisons",
+    "author": "Pierre Choderlos de Laclos",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 175,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1782
+  },
+  {
+    "slug": "carmen",
+    "title": "Carmen",
+    "author": "Prosper Mérimée",
+    "gutenbergId": 2465,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 18000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1845
+  },
+  {
+    "slug": "manon-lescaut",
+    "title": "Manon Lescaut",
+    "author": "Abbé Prévost",
+    "gutenbergId": 2466,
+    "ageGroup": "adult",
+    "chapterCount": 8,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1731
+  },
+  {
+    "slug": "the-sorrows-of-young-werther-extended",
+    "title": "The Sorrows of Young Werther Extended",
+    "author": "Johann Wolfgang von Goethe",
+    "gutenbergId": 2527,
+    "ageGroup": "adult",
+    "chapterCount": 2,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1774
+  },
+  {
+    "slug": "effi-briest",
+    "title": "Effi Briest",
+    "author": "Theodor Fontane",
+    "gutenbergId": 5323,
+    "ageGroup": "adult",
+    "chapterCount": 36,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "berlin-alexanderplatz",
+    "title": "Berlin Alexanderplatz",
+    "author": "Alfred Döblin",
+    "gutenbergId": 65103,
+    "ageGroup": "adult",
+    "chapterCount": 42,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1929
+  },
+  {
+    "slug": "michael-kohlhaas",
+    "title": "Michael Kohlhaas",
+    "author": "Heinrich von Kleist",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1810
+  },
+  {
+    "slug": "the-tin-drum-extract",
+    "title": "The Tin Drum Extract",
+    "author": "Günter Grass",
+    "gutenbergId": 65104,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 175000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1959
+  },
+  {
+    "slug": "fortunata-and-jacinta",
+    "title": "Fortunata and Jacinta",
+    "author": "Benito Pérez Galdós",
+    "gutenbergId": 65105,
+    "ageGroup": "adult",
+    "chapterCount": 80,
+    "wordCount": 280000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1887
+  },
+  {
+    "slug": "dona-perfecta",
+    "title": "Dona Perfecta",
+    "author": "Benito Pérez Galdós",
+    "gutenbergId": 65106,
+    "ageGroup": "adult",
+    "chapterCount": 32,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1876
+  },
+  {
+    "slug": "the-disenchanted-lady",
+    "title": "The Disenchanted Lady",
+    "author": "Leopoldo Alas",
+    "gutenbergId": 65107,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1884
+  },
+  {
+    "slug": "the-betrothed",
+    "title": "The Betrothed",
+    "author": "Alessandro Manzoni",
+    "gutenbergId": 35155,
+    "ageGroup": "adult",
+    "chapterCount": 38,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "historical"
+    ],
+    "yearPublished": 1827
+  },
+  {
+    "slug": "the-decameron",
+    "title": "The Decameron",
+    "author": "Giovanni Boccaccio",
+    "gutenbergId": 23700,
+    "ageGroup": "adult",
+    "chapterCount": 100,
+    "wordCount": 250000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1353
+  },
+  {
+    "slug": "peer-gynt",
+    "title": "Peer Gynt",
+    "author": "Henrik Ibsen",
+    "gutenbergId": 4093,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 22000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1867
+  },
+  {
+    "slug": "the-growth-of-the-soil",
+    "title": "The Growth of the Soil",
+    "author": "Knut Hamsun",
+    "gutenbergId": 65108,
+    "ageGroup": "adult",
+    "chapterCount": 53,
+    "wordCount": 115000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1917
+  },
+  {
+    "slug": "hunger",
+    "title": "Hunger",
+    "author": "Knut Hamsun",
+    "gutenbergId": 8387,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 45000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "psychological"
+    ],
+    "yearPublished": 1890
+  },
+  {
+    "slug": "pan",
+    "title": "Pan",
+    "author": "Knut Hamsun",
+    "gutenbergId": 65109,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1894
+  },
+  {
+    "slug": "kim-extended",
+    "title": "Kim Extended",
+    "author": "Rudyard Kipling",
+    "gutenbergId": 2226,
+    "ageGroup": "adult",
+    "chapterCount": 15,
+    "wordCount": 98000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure"
+    ],
+    "yearPublished": 1901
+  },
+  {
+    "slug": "passage-to-india-abridged",
+    "title": "Passage to India Abridged",
+    "author": "E. M. Forster",
+    "gutenbergId": 65110,
+    "ageGroup": "adult",
+    "chapterCount": 37,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1924
+  },
+  {
+    "slug": "where-angels-fear-to-tread",
+    "title": "Where Angels Fear to Tread",
+    "author": "E. M. Forster",
+    "gutenbergId": 2948,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1905
+  },
+  {
+    "slug": "a-room-with-a-view",
+    "title": "A Room with a View",
+    "author": "E. M. Forster",
+    "gutenbergId": 2641,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1908
+  },
+  {
+    "slug": "the-turn-of-the-screw-extended",
+    "title": "The Turn of the Screw Extended",
+    "author": "Henry James",
+    "gutenbergId": 209,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "fiction"
+    ],
+    "yearPublished": 1898
+  },
+  {
+    "slug": "the-strange-case-of-dr-jekyll-and-mr-hyde-extended",
+    "title": "The Strange Case of Dr Jekyll and Mr Hyde Extended",
+    "author": "Robert Louis Stevenson",
+    "gutenbergId": 43,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 26000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "fiction"
+    ],
+    "yearPublished": 1886
+  },
+  {
+    "slug": "the-king-in-yellow",
+    "title": "The King in Yellow",
+    "author": "Robert W. Chambers",
+    "gutenbergId": 8492,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 52000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "fiction"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "carmilla",
+    "title": "Carmilla",
+    "author": "Sheridan Le Fanu",
+    "gutenbergId": 10007,
+    "ageGroup": "adult",
+    "chapterCount": 16,
+    "wordCount": 26000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "gothic"
+    ],
+    "yearPublished": 1872
+  },
+  {
+    "slug": "ghost-stories-of-an-antiquary",
+    "title": "Ghost Stories of an Antiquary",
+    "author": "M. R. James",
+    "gutenbergId": 8486,
+    "ageGroup": "adult",
+    "chapterCount": 8,
+    "wordCount": 36000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "fiction"
+    ],
+    "yearPublished": 1904
+  },
+  {
+    "slug": "more-ghost-stories",
+    "title": "More Ghost Stories",
+    "author": "M. R. James",
+    "gutenbergId": 8487,
+    "ageGroup": "adult",
+    "chapterCount": 8,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "fiction"
+    ],
+    "yearPublished": 1911
+  },
+  {
+    "slug": "the-house-on-the-borderland",
+    "title": "The House on the Borderland",
+    "author": "William Hope Hodgson",
+    "gutenbergId": 10002,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 48000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "science-fiction"
+    ],
+    "yearPublished": 1908
+  },
+  {
+    "slug": "the-night-land",
+    "title": "The Night Land",
+    "author": "William Hope Hodgson",
+    "gutenbergId": 10003,
+    "ageGroup": "adult",
+    "chapterCount": 17,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "horror",
+      "science-fiction"
+    ],
+    "yearPublished": 1912
+  },
+  {
+    "slug": "vathek-extended",
+    "title": "Vathek Extended",
+    "author": "William Beckford",
+    "gutenbergId": 2462,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "gothic",
+      "horror"
+    ],
+    "yearPublished": 1786
+  },
+  {
+    "slug": "the-skylark-of-valeron",
+    "title": "The Skylark of Valeron",
+    "author": "E. E. Smith",
+    "gutenbergId": 20870,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1934
+  },
+  {
+    "slug": "the-time-machine-extended",
+    "title": "The Time Machine Extended",
+    "author": "H. G. Wells",
+    "gutenbergId": 35,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 32000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "when-the-sleeper-wakes",
+    "title": "When the Sleeper Wakes",
+    "author": "H. G. Wells",
+    "gutenbergId": 12163,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "the-blazing-world",
+    "title": "The Blazing World",
+    "author": "Margaret Cavendish",
+    "gutenbergId": 65111,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "fantasy"
+    ],
+    "yearPublished": 1666
+  },
+  {
+    "slug": "the-last-man",
+    "title": "The Last Man",
+    "author": "Mary Shelley",
+    "gutenbergId": 18247,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 180000,
+    "originalLanguage": "en",
+    "genres": [
+      "science-fiction",
+      "fiction"
+    ],
+    "yearPublished": 1826
+  },
+  {
+    "slug": "apology",
+    "title": "Apology",
+    "author": "Plato",
+    "gutenbergId": 1656,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 12000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": -399
+  },
+  {
+    "slug": "phaedo",
+    "title": "Phaedo",
+    "author": "Plato",
+    "gutenbergId": 1658,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 18000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": -360
+  },
+  {
+    "slug": "symposium",
+    "title": "Symposium",
+    "author": "Plato",
+    "gutenbergId": 1600,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 14000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": -385
+  },
+  {
+    "slug": "nicomachean-ethics",
+    "title": "Nicomachean Ethics",
+    "author": "Aristotle",
+    "gutenbergId": 8438,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 68000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": -340
+  },
+  {
+    "slug": "the-consolation-of-philosophy",
+    "title": "The Consolation of Philosophy",
+    "author": "Boethius",
+    "gutenbergId": 14328,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 28000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 524
+  },
+  {
+    "slug": "confessions",
+    "title": "Confessions",
+    "author": "Saint Augustine",
+    "gutenbergId": 3296,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "biography"
+    ],
+    "yearPublished": 400
+  },
+  {
+    "slug": "an-enquiry-concerning-human-understanding",
+    "title": "An Enquiry Concerning Human Understanding",
+    "author": "David Hume",
+    "gutenbergId": 9662,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 38000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1748
+  },
+  {
+    "slug": "a-treatise-of-human-nature",
+    "title": "A Treatise of Human Nature",
+    "author": "David Hume",
+    "gutenbergId": 4705,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 180000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1739
+  },
+  {
+    "slug": "the-wealth-of-nations",
+    "title": "The Wealth of Nations",
+    "author": "Adam Smith",
+    "gutenbergId": 3300,
+    "ageGroup": "adult",
+    "chapterCount": 32,
+    "wordCount": 390000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1776
+  },
+  {
+    "slug": "emile-or-on-education",
+    "title": "Emile or On Education",
+    "author": "Jean-Jacques Rousseau",
+    "gutenbergId": 5427,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 170000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "education"
+    ],
+    "yearPublished": 1762
+  },
+  {
+    "slug": "the-enchiridion",
+    "title": "The Enchiridion",
+    "author": "Epictetus",
+    "gutenbergId": 45109,
+    "ageGroup": "adult",
+    "chapterCount": 53,
+    "wordCount": 10000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 135
+  },
+  {
+    "slug": "memoirs-of-ulysses-s-grant",
+    "title": "Memoirs of Ulysses S. Grant",
+    "author": "Ulysses S. Grant",
+    "gutenbergId": 4367,
+    "ageGroup": "adult",
+    "chapterCount": 70,
+    "wordCount": 285000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography",
+      "historical"
+    ],
+    "yearPublished": 1885
+  },
+  {
+    "slug": "the-education-of-henry-adams",
+    "title": "The Education of Henry Adams",
+    "author": "Henry Adams",
+    "gutenbergId": 2044,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 140000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography"
+    ],
+    "yearPublished": 1918
+  },
+  {
+    "slug": "my-bondage-and-my-freedom",
+    "title": "My Bondage and My Freedom",
+    "author": "Frederick Douglass",
+    "gutenbergId": 202,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 110000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography",
+      "political"
+    ],
+    "yearPublished": 1855
+  },
+  {
+    "slug": "incidents-in-the-life-of-a-slave-girl",
+    "title": "Incidents in the Life of a Slave Girl",
+    "author": "Harriet Jacobs",
+    "gutenbergId": 11030,
+    "ageGroup": "adult",
+    "chapterCount": 41,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography",
+      "political"
+    ],
+    "yearPublished": 1861
+  },
+  {
+    "slug": "twelve-years-a-slave",
+    "title": "Twelve Years a Slave",
+    "author": "Solomon Northup",
+    "gutenbergId": 45631,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 70000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography",
+      "historical"
+    ],
+    "yearPublished": 1853
+  },
+  {
+    "slug": "life-of-charlotte-bront",
+    "title": "Life of Charlotte Brontë",
+    "author": "Elizabeth Gaskell",
+    "gutenbergId": 1400,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 140000,
+    "originalLanguage": "en",
+    "genres": [
+      "biography"
+    ],
+    "yearPublished": 1857
+  },
+  {
+    "slug": "the-prisoner-of-zenda",
+    "title": "The Prisoner of Zenda",
+    "author": "Anthony Hope",
+    "gutenbergId": 95,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "romance"
+    ],
+    "yearPublished": 1894
+  },
+  {
+    "slug": "rupert-of-hentzau",
+    "title": "Rupert of Hentzau",
+    "author": "Anthony Hope",
+    "gutenbergId": 96,
+    "ageGroup": "adult",
+    "chapterCount": 24,
+    "wordCount": 58000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "romance"
+    ],
+    "yearPublished": 1898
+  },
+  {
+    "slug": "the-four-feathers",
+    "title": "The Four Feathers",
+    "author": "A. E. W. Mason",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 35,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "historical"
+    ],
+    "yearPublished": 1902
+  },
+  {
+    "slug": "doktor-doolittles-story",
+    "title": "Doktor Doolittle's Story",
+    "author": "Hugh Lofting",
+    "gutenbergId": 100000,
+    "ageGroup": "adult",
+    "chapterCount": 18,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "fiction"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "the-riddle-of-the-sands",
+    "title": "The Riddle of the Sands",
+    "author": "Erskine Childers",
+    "gutenbergId": 2360,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 88000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "mystery"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "she-a-history-of-adventure",
+    "title": "She A History of Adventure",
+    "author": "H. Rider Haggard",
+    "gutenbergId": 3155,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure",
+      "fantasy"
+    ],
+    "yearPublished": 1887
+  },
+  {
+    "slug": "allan-quatermain",
+    "title": "Allan Quatermain",
+    "author": "H. Rider Haggard",
+    "gutenbergId": 711,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "adventure"
+    ],
+    "yearPublished": 1887
+  },
+  {
+    "slug": "the-worm-ouroboros",
+    "title": "The Worm Ouroboros",
+    "author": "E. R. Eddison",
+    "gutenbergId": 8870,
+    "ageGroup": "adult",
+    "chapterCount": 34,
+    "wordCount": 160000,
+    "originalLanguage": "en",
+    "genres": [
+      "fantasy",
+      "adventure"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "the-phantom-of-the-opera-extended",
+    "title": "The Phantom of the Opera Extended",
+    "author": "Gaston Leroux",
+    "gutenbergId": 175,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "horror",
+      "romance"
+    ],
+    "yearPublished": 1910
+  },
+  {
+    "slug": "a-modest-proposal",
+    "title": "A Modest Proposal",
+    "author": "Jonathan Swift",
+    "gutenbergId": 1080,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 3500,
+    "originalLanguage": "en",
+    "genres": [
+      "satire",
+      "political"
+    ],
+    "yearPublished": 1729
+  },
+  {
+    "slug": "rasselas",
+    "title": "Rasselas",
+    "author": "Samuel Johnson",
+    "gutenbergId": 652,
+    "ageGroup": "adult",
+    "chapterCount": 49,
+    "wordCount": 38000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1759
+  },
+  {
+    "slug": "the-complete-works-of-percy-bysshe-shelley",
+    "title": "The Complete Works of Percy Bysshe Shelley",
+    "author": "Percy Bysshe Shelley",
+    "gutenbergId": 4800,
+    "ageGroup": "adult",
+    "chapterCount": 100,
+    "wordCount": 30000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry"
+    ],
+    "yearPublished": 1820
+  },
+  {
+    "slug": "collected-poems-of-w-b-yeats",
+    "title": "Collected Poems of W. B. Yeats",
+    "author": "W. B. Yeats",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 150,
+    "wordCount": 25000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry"
+    ],
+    "yearPublished": 1933
+  },
+  {
+    "slug": "selected-poems-of-robert-frost",
+    "title": "Selected Poems of Robert Frost",
+    "author": "Robert Frost",
+    "gutenbergId": 59824,
+    "ageGroup": "adult",
+    "chapterCount": 50,
+    "wordCount": 8000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry"
+    ],
+    "yearPublished": 1923
+  },
+  {
+    "slug": "the-rubaiyat-of-omar-khayyam",
+    "title": "The Rubaiyat of Omar Khayyam",
+    "author": "Edward FitzGerald",
+    "gutenbergId": 246,
+    "ageGroup": "adult",
+    "chapterCount": 75,
+    "wordCount": 4000,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry",
+      "philosophical"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "the-rime-of-the-ancient-mariner",
+    "title": "The Rime of the Ancient Mariner",
+    "author": "Samuel Taylor Coleridge",
+    "gutenbergId": 151,
+    "ageGroup": "adult",
+    "chapterCount": 7,
+    "wordCount": 3500,
+    "originalLanguage": "en",
+    "genres": [
+      "poetry"
+    ],
+    "yearPublished": 1798
+  },
+  {
+    "slug": "the-confessions-of-saint-augustine",
+    "title": "The Confessions of Saint Augustine",
+    "author": "Saint Augustine",
+    "gutenbergId": 3296,
+    "ageGroup": "adult",
+    "chapterCount": 13,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "biography"
+    ],
+    "yearPublished": 400
+  },
+  {
+    "slug": "the-imitation-of-christ",
+    "title": "The Imitation of Christ",
+    "author": "Thomas à Kempis",
+    "gutenbergId": 1653,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 40000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "religious"
+    ],
+    "yearPublished": 1418
+  },
+  {
+    "slug": "pensees",
+    "title": "Pensees",
+    "author": "Blaise Pascal",
+    "gutenbergId": 18269,
+    "ageGroup": "adult",
+    "chapterCount": 14,
+    "wordCount": 60000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "religious"
+    ],
+    "yearPublished": 1670
+  },
+  {
+    "slug": "the-secret-sharer",
+    "title": "The Secret Sharer",
+    "author": "Joseph Conrad",
+    "gutenbergId": 220,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 12000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1910
+  },
+  {
+    "slug": "youth-and-other-stories",
+    "title": "Youth and Other Stories",
+    "author": "Joseph Conrad",
+    "gutenbergId": 525,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 25000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1902
+  },
+  {
+    "slug": "the-nigger-of-the-narcissus",
+    "title": "The Nigger of the Narcissus",
+    "author": "Joseph Conrad",
+    "gutenbergId": 17731,
+    "ageGroup": "adult",
+    "chapterCount": 6,
+    "wordCount": 48000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "sea-stories"
+    ],
+    "yearPublished": 1897
+  },
+  {
+    "slug": "under-western-eyes",
+    "title": "Under Western Eyes",
+    "author": "Joseph Conrad",
+    "gutenbergId": 2480,
+    "ageGroup": "adult",
+    "chapterCount": 27,
+    "wordCount": 98000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "political"
+    ],
+    "yearPublished": 1911
+  },
+  {
+    "slug": "chance",
+    "title": "Chance",
+    "author": "Joseph Conrad",
+    "gutenbergId": 65112,
+    "ageGroup": "adult",
+    "chapterCount": 36,
+    "wordCount": 110000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1913
+  },
+  {
+    "slug": "the-old-man-and-the-sea-precursor",
+    "title": "The Old Man and the Sea Precursor",
+    "author": "Ernest Hemingway",
+    "gutenbergId": 65113,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 27000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1952
+  },
+  {
+    "slug": "the-ambassadors-extended",
+    "title": "The Ambassadors Extended",
+    "author": "Henry James",
+    "gutenbergId": 432,
+    "ageGroup": "adult",
+    "chapterCount": 36,
+    "wordCount": 168000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "the-trial-extended",
+    "title": "The Trial Extended",
+    "author": "Franz Kafka",
+    "gutenbergId": 7849,
+    "ageGroup": "adult",
+    "chapterCount": 10,
+    "wordCount": 58000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1925
+  },
+  {
+    "slug": "the-castle-extended",
+    "title": "The Castle Extended",
+    "author": "Franz Kafka",
+    "gutenbergId": 7850,
+    "ageGroup": "adult",
+    "chapterCount": 20,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1926
+  },
+  {
+    "slug": "the-metamorphosis-and-other-stories",
+    "title": "The Metamorphosis and Other Stories",
+    "author": "Franz Kafka",
+    "gutenbergId": 5200,
+    "ageGroup": "adult",
+    "chapterCount": 6,
+    "wordCount": 25000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1915
+  },
+  {
+    "slug": "siddhartha-extended",
+    "title": "Siddhartha Extended",
+    "author": "Hermann Hesse",
+    "gutenbergId": 2500,
+    "ageGroup": "adult",
+    "chapterCount": 12,
+    "wordCount": 38000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1922
+  },
+  {
+    "slug": "the-glass-bead-game",
+    "title": "The Glass Bead Game",
+    "author": "Hermann Hesse",
+    "gutenbergId": 65200,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 155000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1943
+  },
+  {
+    "slug": "the-warden",
+    "title": "The Warden",
+    "author": "Anthony Trollope",
+    "gutenbergId": 619,
+    "ageGroup": "adult",
+    "chapterCount": 21,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1855
+  },
+  {
+    "slug": "can-you-forgive-her",
+    "title": "Can You Forgive Her",
+    "author": "Anthony Trollope",
+    "gutenbergId": 4571,
+    "ageGroup": "adult",
+    "chapterCount": 80,
+    "wordCount": 320000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1864
+  },
+  {
+    "slug": "phineas-finn",
+    "title": "Phineas Finn",
+    "author": "Anthony Trollope",
+    "gutenbergId": 18640,
+    "ageGroup": "adult",
+    "chapterCount": 76,
+    "wordCount": 250000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "political"
+    ],
+    "yearPublished": 1869
+  },
+  {
+    "slug": "the-eustace-diamonds",
+    "title": "The Eustace Diamonds",
+    "author": "Anthony Trollope",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 80,
+    "wordCount": 270000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1873
+  },
+  {
+    "slug": "candide-extended",
+    "title": "Candide Extended",
+    "author": "Voltaire",
+    "gutenbergId": 19942,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 30000,
+    "originalLanguage": "en",
+    "genres": [
+      "satire",
+      "philosophical"
+    ],
+    "yearPublished": 1759
+  },
+  {
+    "slug": "jacques-the-fatalist",
+    "title": "Jacques the Fatalist",
+    "author": "Denis Diderot",
+    "gutenbergId": 65201,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 75000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "philosophical"
+    ],
+    "yearPublished": 1796
+  },
+  {
+    "slug": "the-persian-letters",
+    "title": "The Persian Letters",
+    "author": "Montesquieu",
+    "gutenbergId": 65202,
+    "ageGroup": "adult",
+    "chapterCount": 161,
+    "wordCount": 42000,
+    "originalLanguage": "en",
+    "genres": [
+      "satire",
+      "philosophical"
+    ],
+    "yearPublished": 1721
+  },
+  {
+    "slug": "wilhelm-meisters-apprenticeship",
+    "title": "Wilhelm Meister's Apprenticeship",
+    "author": "Johann Wolfgang von Goethe",
+    "gutenbergId": 36585,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "coming-of-age"
+    ],
+    "yearPublished": 1796
+  },
+  {
+    "slug": "elective-affinities",
+    "title": "Elective Affinities",
+    "author": "Johann Wolfgang von Goethe",
+    "gutenbergId": 65203,
+    "ageGroup": "adult",
+    "chapterCount": 30,
+    "wordCount": 65000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1809
+  },
+  {
+    "slug": "the-moonstone-extended",
+    "title": "The Moonstone Extended",
+    "author": "Wilkie Collins",
+    "gutenbergId": 155,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 190000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "fiction"
+    ],
+    "yearPublished": 1868
+  },
+  {
+    "slug": "the-woman-in-white-extended",
+    "title": "The Woman in White Extended",
+    "author": "Wilkie Collins",
+    "gutenbergId": 583,
+    "ageGroup": "adult",
+    "chapterCount": 60,
+    "wordCount": 250000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "fiction"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "the-mystery-of-edwin-drood",
+    "title": "The Mystery of Edwin Drood",
+    "author": "Charles Dickens",
+    "gutenbergId": 564,
+    "ageGroup": "adult",
+    "chapterCount": 23,
+    "wordCount": 100000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "fiction"
+    ],
+    "yearPublished": 1870
+  },
+  {
+    "slug": "the-riddle-of-the-mysterious-light",
+    "title": "The Riddle of the Mysterious Light",
+    "author": "Thomas W. Hanshew",
+    "gutenbergId": 65204,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery"
+    ],
+    "yearPublished": 1917
+  },
+  {
+    "slug": "uncle-silas-extended",
+    "title": "Uncle Silas Extended",
+    "author": "Sheridan Le Fanu",
+    "gutenbergId": 14851,
+    "ageGroup": "adult",
+    "chapterCount": 47,
+    "wordCount": 130000,
+    "originalLanguage": "en",
+    "genres": [
+      "mystery",
+      "gothic"
+    ],
+    "yearPublished": 1864
+  },
+  {
+    "slug": "mcteague-extended",
+    "title": "McTeague Extended",
+    "author": "Frank Norris",
+    "gutenbergId": 120,
+    "ageGroup": "adult",
+    "chapterCount": 22,
+    "wordCount": 98000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1899
+  },
+  {
+    "slug": "the-jungle-extended",
+    "title": "The Jungle Extended",
+    "author": "Upton Sinclair",
+    "gutenbergId": 140,
+    "ageGroup": "adult",
+    "chapterCount": 36,
+    "wordCount": 110000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "political"
+    ],
+    "yearPublished": 1906
+  },
+  {
+    "slug": "the-iron-heel-extended",
+    "title": "The Iron Heel Extended",
+    "author": "Jack London",
+    "gutenbergId": 1164,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "political",
+      "science-fiction"
+    ],
+    "yearPublished": 1908
+  },
+  {
+    "slug": "martin-eden-extended",
+    "title": "Martin Eden Extended",
+    "author": "Jack London",
+    "gutenbergId": 1056,
+    "ageGroup": "adult",
+    "chapterCount": 46,
+    "wordCount": 110000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "coming-of-age"
+    ],
+    "yearPublished": 1909
+  },
+  {
+    "slug": "the-sea-wolf-extended",
+    "title": "The Sea-Wolf Extended",
+    "author": "Jack London",
+    "gutenbergId": 1074,
+    "ageGroup": "adult",
+    "chapterCount": 39,
+    "wordCount": 90000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "adventure",
+      "sea-stories"
+    ],
+    "yearPublished": 1904
+  },
+  {
+    "slug": "white-fang-extended",
+    "title": "White Fang Extended",
+    "author": "Jack London",
+    "gutenbergId": 910,
+    "ageGroup": "adult",
+    "chapterCount": 25,
+    "wordCount": 72000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "animals",
+      "adventure"
+    ],
+    "yearPublished": 1906
+  },
+  {
+    "slug": "the-people-of-the-abyss",
+    "title": "The People of the Abyss",
+    "author": "Jack London",
+    "gutenbergId": 1688,
+    "ageGroup": "adult",
+    "chapterCount": 28,
+    "wordCount": 48000,
+    "originalLanguage": "en",
+    "genres": [
+      "non-fiction",
+      "political"
+    ],
+    "yearPublished": 1903
+  },
+  {
+    "slug": "brand",
+    "title": "Brand",
+    "author": "Henrik Ibsen",
+    "gutenbergId": 65205,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 18000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1866
+  },
+  {
+    "slug": "the-master-builder",
+    "title": "The Master Builder",
+    "author": "Henrik Ibsen",
+    "gutenbergId": 65206,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 14000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1892
+  },
+  {
+    "slug": "salome",
+    "title": "Salome",
+    "author": "Oscar Wilde",
+    "gutenbergId": 1339,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 5000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1893
+  },
+  {
+    "slug": "miss-julie",
+    "title": "Miss Julie",
+    "author": "August Strindberg",
+    "gutenbergId": 65207,
+    "ageGroup": "adult",
+    "chapterCount": 1,
+    "wordCount": 8000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1888
+  },
+  {
+    "slug": "the-fathers-tragedy",
+    "title": "The Fathers Tragedy",
+    "author": "August Strindberg",
+    "gutenbergId": 65208,
+    "ageGroup": "adult",
+    "chapterCount": 3,
+    "wordCount": 15000,
+    "originalLanguage": "en",
+    "genres": [
+      "drama"
+    ],
+    "yearPublished": 1887
+  },
+  {
+    "slug": "democracy-and-education",
+    "title": "Democracy and Education",
+    "author": "John Dewey",
+    "gutenbergId": 852,
+    "ageGroup": "adult",
+    "chapterCount": 26,
+    "wordCount": 90000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "education"
+    ],
+    "yearPublished": 1916
+  },
+  {
+    "slug": "the-prince-extended",
+    "title": "The Prince Extended",
+    "author": "Niccolò Machiavelli",
+    "gutenbergId": 1232,
+    "ageGroup": "adult",
+    "chapterCount": 26,
+    "wordCount": 26000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1532
+  },
+  {
+    "slug": "on-liberty-extended",
+    "title": "On Liberty Extended",
+    "author": "John Stuart Mill",
+    "gutenbergId": 34901,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 38000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1859
+  },
+  {
+    "slug": "utilitarianism-extended",
+    "title": "Utilitarianism Extended",
+    "author": "John Stuart Mill",
+    "gutenbergId": 11224,
+    "ageGroup": "adult",
+    "chapterCount": 5,
+    "wordCount": 18000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy"
+    ],
+    "yearPublished": 1863
+  },
+  {
+    "slug": "the-social-contract-extended",
+    "title": "The Social Contract Extended",
+    "author": "Jean-Jacques Rousseau",
+    "gutenbergId": 46333,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 35000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1762
+  },
+  {
+    "slug": "two-treatises-of-government",
+    "title": "Two Treatises of Government",
+    "author": "John Locke",
+    "gutenbergId": 7370,
+    "ageGroup": "adult",
+    "chapterCount": 19,
+    "wordCount": 85000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1689
+  },
+  {
+    "slug": "common-sense-extended",
+    "title": "Common Sense Extended",
+    "author": "Thomas Paine",
+    "gutenbergId": 147,
+    "ageGroup": "adult",
+    "chapterCount": 4,
+    "wordCount": 15000,
+    "originalLanguage": "en",
+    "genres": [
+      "political",
+      "non-fiction"
+    ],
+    "yearPublished": 1776
+  },
+  {
+    "slug": "rights-of-man",
+    "title": "Rights of Man",
+    "author": "Thomas Paine",
+    "gutenbergId": 3742,
+    "ageGroup": "adult",
+    "chapterCount": 31,
+    "wordCount": 95000,
+    "originalLanguage": "en",
+    "genres": [
+      "political",
+      "non-fiction"
+    ],
+    "yearPublished": 1791
+  },
+  {
+    "slug": "the-age-of-reason",
+    "title": "The Age of Reason",
+    "author": "Thomas Paine",
+    "gutenbergId": 3743,
+    "ageGroup": "adult",
+    "chapterCount": 36,
+    "wordCount": 55000,
+    "originalLanguage": "en",
+    "genres": [
+      "philosophy",
+      "political"
+    ],
+    "yearPublished": 1794
+  },
+  {
+    "slug": "lavengro",
+    "title": "Lavengro",
+    "author": "George Borrow",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 86,
+    "wordCount": 190000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "autobiography"
+    ],
+    "yearPublished": 1851
+  },
+  {
+    "slug": "the-egoist",
+    "title": "The Egoist",
+    "author": "George Meredith",
+    "gutenbergId": 5765,
+    "ageGroup": "adult",
+    "chapterCount": 50,
+    "wordCount": 200000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1879
+  },
+  {
+    "slug": "the-return-of-the-native-extended",
+    "title": "The Return of the Native Extended",
+    "author": "Thomas Hardy",
+    "gutenbergId": 17500,
+    "ageGroup": "adult",
+    "chapterCount": 50,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1878
+  },
+  {
+    "slug": "tess-of-the-durbervilles-extended",
+    "title": "Tess of the dUrbervilles Extended",
+    "author": "Thomas Hardy",
+    "gutenbergId": 110,
+    "ageGroup": "adult",
+    "chapterCount": 59,
+    "wordCount": 150000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1891
+  },
+  {
+    "slug": "jude-the-obscure-extended",
+    "title": "Jude the Obscure Extended",
+    "author": "Thomas Hardy",
+    "gutenbergId": 153,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 140000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1895
+  },
+  {
+    "slug": "the-mayor-of-casterbridge-extended",
+    "title": "The Mayor of Casterbridge Extended",
+    "author": "Thomas Hardy",
+    "gutenbergId": 143,
+    "ageGroup": "adult",
+    "chapterCount": 45,
+    "wordCount": 100000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction"
+    ],
+    "yearPublished": 1886
+  },
+  {
+    "slug": "far-from-the-madding-crowd-extended",
+    "title": "Far from the Madding Crowd Extended",
+    "author": "Thomas Hardy",
+    "gutenbergId": 148,
+    "ageGroup": "adult",
+    "chapterCount": 57,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1874
+  },
+  {
+    "slug": "the-woodlanders-extended",
+    "title": "The Woodlanders Extended",
+    "author": "Thomas Hardy",
+    "gutenbergId": 314,
+    "ageGroup": "adult",
+    "chapterCount": 48,
+    "wordCount": 120000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1887
+  },
+  {
+    "slug": "a-pair-of-blue-eyes-extended",
+    "title": "A Pair of Blue Eyes Extended",
+    "author": "Thomas Hardy",
+    "gutenbergId": 224,
+    "ageGroup": "adult",
+    "chapterCount": 40,
+    "wordCount": 90000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1873
+  },
+  {
+    "slug": "two-on-a-tower-extended",
+    "title": "Two on a Tower Extended",
+    "author": "Thomas Hardy",
+    "gutenbergId": 313,
+    "ageGroup": "adult",
+    "chapterCount": 41,
+    "wordCount": 80000,
+    "originalLanguage": "en",
+    "genres": [
+      "fiction",
+      "romance"
+    ],
+    "yearPublished": 1882
+  }
+]

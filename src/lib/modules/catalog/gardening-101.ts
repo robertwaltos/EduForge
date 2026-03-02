@@ -263,6 +263,118 @@ export const Gardening101Module: LearningModule = {
           "content": "Soil, Light, Water, Nutrients: check these in order for plant issues."
         }
       ]
+    },
+    {
+      "id": "gardening-101-l06",
+      "title": "Checkpoint 2: Troubleshooting and Seasonal Decisions",
+      "type": "quiz",
+      "duration": 10,
+      "questions": [
+        {
+          "id": "gardening-101-l06-q1",
+          "text": "A plant has yellow leaves and soggy soil for several days. What is the best first action?",
+          "skillId": "gardening-101-skill-troubleshoot",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reduce watering, improve drainage, and monitor root-zone moisture."
+            },
+            {
+              "id": "b",
+              "text": "Add more water immediately."
+            },
+            {
+              "id": "c",
+              "text": "Ignore symptoms for one month."
+            },
+            {
+              "id": "d",
+              "text": "Remove all mulch and fertilizer at once."
+            }
+          ],
+          "correctOptionId": "a"
+        },
+        {
+          "id": "gardening-101-l06-q2",
+          "text": "Why is crop rotation useful in small gardens?",
+          "skillId": "gardening-101-skill-season",
+          "options": [
+            {
+              "id": "a",
+              "text": "It helps reduce pest/disease buildup and balances soil nutrient demand."
+            },
+            {
+              "id": "b",
+              "text": "It guarantees no weeds will appear."
+            },
+            {
+              "id": "c",
+              "text": "It removes the need for sunlight."
+            },
+            {
+              "id": "d",
+              "text": "It replaces all irrigation planning."
+            }
+          ],
+          "correctOptionId": "a"
+        },
+        {
+          "id": "gardening-101-l06-q3",
+          "text": "Which metric is most useful when tuning a watering schedule?",
+          "skillId": "gardening-101-skill-water",
+          "options": [
+            {
+              "id": "a",
+              "text": "Soil moisture trend and plant recovery pattern."
+            },
+            {
+              "id": "b",
+              "text": "Tool color preference."
+            },
+            {
+              "id": "c",
+              "text": "Pot label design."
+            },
+            {
+              "id": "d",
+              "text": "Seed packet artwork."
+            }
+          ],
+          "correctOptionId": "a"
+        },
+        {
+          "id": "gardening-101-l06-q4",
+          "text": "A resilient home-garden plan should always include:",
+          "skillId": "gardening-101-skill-plan",
+          "options": [
+            {
+              "id": "a",
+              "text": "A prevention step, a monitoring checkpoint, and a recovery action."
+            },
+            {
+              "id": "b",
+              "text": "Only one crop type for every season."
+            },
+            {
+              "id": "c",
+              "text": "No backup plan for pests or weather shifts."
+            },
+            {
+              "id": "d",
+              "text": "Random planting dates without climate checks."
+            }
+          ],
+          "correctOptionId": "a"
+        }
+      ],
+      "learningAids": [
+        {
+          "id": "gardening-101-l06-a1",
+          "type": "practice",
+          "title": "Troubleshooting Card",
+          "content": "Use symptom, cause, action, and follow-up metric before final decisions."
+        }
+      ]
     }
   ]
 };

@@ -15,8 +15,11 @@ import AiFollowupPanel from "./ai-followup-panel";
 import AiRemediationWorksheetPanel from "./ai-remediation-worksheet-panel";
 import AiLessonTutor from "./ai-lesson-tutor";
 import { trackLearningEvent } from "@/lib/analytics/xapi-lite";
-import SoftTabBar from "@/app/components/ui/soft-tab-bar";
+import JuicyTabBar from "@/components/experience/JuicyTabBar";
 import SoftCard from "@/app/components/ui/soft-card";
+import MascotHost from "@/components/experience/MascotHost";
+import PhysicalButton from "@/components/experience/PhysicalButton";
+import { Sparkles } from "lucide-react";
 
 type LessonTabId = "learn" | "flashcards" | "interactive" | "quiz" | "media";
 
@@ -52,11 +55,11 @@ function normalizeChunks(lesson: Lesson): LessonChunk[] {
   const objectiveChunks =
     Array.isArray(lesson.objectives) && lesson.objectives.length > 0
       ? lesson.objectives.map((objective, index) => ({
-          id: `${lesson.id}-objective-chunk-${index + 1}`,
-          title: `Objective ${index + 1}`,
-          content: objective,
-          kind: "concept" as const,
-        }))
+        id: `${lesson.id}-objective-chunk-${index + 1}`,
+        title: `Objective ${index + 1}`,
+        content: objective,
+        kind: "concept" as const,
+      }))
       : [];
 
   if (objectiveChunks.length > 0) {
@@ -201,6 +204,15 @@ export default function LessonExperience({
     [activeChunkId, chunks],
   );
 
+  const friendId = useMemo(() => {
+    const s = subject.toLowerCase();
+    if (s.includes("math") || s.includes("number")) return "spark";
+    if (s.includes("read") || s.includes("phonics") || s.includes("letter")) return "echo";
+    if (s.includes("art") || s.includes("creative") || s.includes("music") || s.includes("story")) return "luna";
+    if (s.includes("science") || s.includes("nature") || s.includes("explore") || s.includes("world")) return "terra";
+    return "pixel";
+  }, [subject]);
+
   const interactivePrompts = useMemo(() => {
     const metadataPrompts =
       Array.isArray(lesson.metadata?.prompts) && lesson.metadata.prompts.length > 0
@@ -285,165 +297,166 @@ export default function LessonExperience({
   }, [activeChunk, activeTab, lesson.id, moduleId]);
 
   return (
-    <section className="space-y-4">
-      <SoftTabBar
-        ariaLabel="Lesson sections"
-        value={activeTab}
-        tabs={lessonTabs}
-        onChange={setActiveTab}
-      />
+    <MascotHost initialMood="happy" friendId={friendId}>
+      <section className="space-y-6">
+        <JuicyTabBar
+          ariaLabel="Lesson sections"
+          value={activeTab}
+          tabs={lessonTabs}
+          onChange={setActiveTab}
+        />
 
-      {activeTab === "learn" ? (
-        <div className="lesson-tab-panel space-y-4">
-          <SoftCard as="section" className="p-4 sm:p-6">
-            <LessonImage prompt={lessonImagePrompt} moduleId={moduleId} lessonId={lesson.id} />
-          </SoftCard>
+        {activeTab === "learn" ? (
+          <div className="lesson-tab-panel space-y-4">
+            <SoftCard as="section" className="p-4 sm:p-6">
+              <LessonImage prompt={lessonImagePrompt} moduleId={moduleId} lessonId={lesson.id} />
+            </SoftCard>
 
-          <section className="grid gap-4 lg:grid-cols-[260px_1fr]">
-            <SoftCard as="aside" className="border-sky-200 bg-sky-50 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">Lesson Chunks</p>
-              <div className="mt-3 space-y-2">
-                {chunks.map((chunk, index) => {
-                  const isSelected = activeChunk?.id === chunk.id;
-                  return (
-                    <button
-                      key={chunk.id}
-                      type="button"
-                      onClick={() => setActiveChunkId(chunk.id)}
-                      className={`ui-focus-ring ui-soft-button w-full min-h-11 rounded-xl border px-3 py-2 text-left text-sm ${
-                        isSelected
+            <section className="grid gap-4 lg:grid-cols-[260px_1fr]">
+              <SoftCard as="aside" className="border-sky-200 bg-sky-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">Lesson Chunks</p>
+                <div className="mt-3 space-y-2">
+                  {chunks.map((chunk, index) => {
+                    const isSelected = activeChunk?.id === chunk.id;
+                    return (
+                      <button
+                        key={chunk.id}
+                        type="button"
+                        onClick={() => setActiveChunkId(chunk.id)}
+                        className={`ui-focus-ring ui-soft-button w-full min-h-11 rounded-xl border px-3 py-2 text-left text-sm ${isSelected
                           ? "border-sky-300 bg-white text-sky-900"
                           : "border-sky-200 bg-sky-50 text-zinc-700 hover:bg-white"
-                      }`}
-                    >
-                      <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">Chunk {index + 1}</p>
-                      <p className="mt-1 font-semibold">{chunk.title}</p>
-                    </button>
-                  );
-                })}
-              </div>
-            </SoftCard>
+                          }`}
+                      >
+                        <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">Chunk {index + 1}</p>
+                        <p className="mt-1 font-semibold">{chunk.title}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              </SoftCard>
 
-            <SoftCard as="article" className="border-sky-200 p-5">
-              <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">
-                {activeChunk?.kind ?? "lesson chunk"}
-              </p>
-              <h2 className="mt-1 text-2xl font-extrabold text-zinc-900">{activeChunk?.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-700">{activeChunk?.content}</p>
-              {lesson.type === "video" ? (
-                <div className="mt-5">
-                  <VideoLessonPlayer
+              <SoftCard as="article" className="border-sky-200 p-5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">
+                  {activeChunk?.kind ?? "lesson chunk"}
+                </p>
+                <h2 className="mt-1 text-2xl font-extrabold text-zinc-900">{activeChunk?.title}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-700">{activeChunk?.content}</p>
+                {lesson.type === "video" ? (
+                  <div className="mt-5">
+                    <VideoLessonPlayer
+                      moduleId={moduleId}
+                      lessonId={lesson.id}
+                      lessonTitle={lesson.title}
+                      subject={subject}
+                      durationMinutes={lesson.duration}
+                      learningAids={lesson.learningAids ?? []}
+                    />
+                  </div>
+                ) : null}
+              </SoftCard>
+            </section>
+          </div>
+        ) : null}
+
+        {activeTab === "flashcards" ? (
+          <LessonFlashcards
+            moduleId={moduleId}
+            lessonId={lesson.id}
+            lessonTitle={lesson.title}
+            flashcards={lesson.flashcards}
+            objectives={lesson.objectives}
+            chunks={chunks}
+          />
+        ) : null}
+
+        {activeTab === "interactive" ? (
+          <div className="lesson-tab-panel space-y-4">
+            {typeof lesson.metadata?.route === "string" && lesson.metadata.route.length > 0 ? (
+              <SoftCard as="section" className="border-amber-200 bg-amber-50 p-6">
+                <p className="text-sm text-amber-900">
+                  This lesson includes a specialized interactive route.
+                </p>
+                <Link href={lesson.metadata.route} className="mt-4 block">
+                  <PhysicalButton variant="success" className="w-full">
+                    <Sparkles className="h-6 w-6" />
+                    Step Into the Activity
+                  </PhysicalButton>
+                </Link>
+              </SoftCard>
+            ) : null}
+            {hasTypedInteractiveActivities ? (
+              <TypedInteractiveActivity
+                moduleId={moduleId}
+                lessonId={lesson.id}
+                lessonTitle={lesson.title}
+                activities={typedActivities}
+                fallbackPrompts={interactivePrompts}
+              />
+            ) : (
+              <InteractiveActivity
+                moduleId={moduleId}
+                lessonId={lesson.id}
+                title={lesson.title}
+                prompts={interactivePrompts}
+              />
+            )}
+          </div>
+        ) : null}
+
+        {activeTab === "quiz" ? (
+          hasQuiz ? (
+            <Quiz moduleId={moduleId} lesson={{ ...lesson, questions: quizQuestions } as Lesson & { questions: Question[] }} />
+          ) : (
+            <SoftCard as="section" className="border-emerald-200 bg-emerald-50 p-6 text-sm text-emerald-900">
+              Quiz content is not available yet for this lesson.
+            </SoftCard>
+          )
+        ) : null}
+
+        {activeTab === "media" ? (
+          <SoftCard as="section" className="lesson-tab-panel space-y-4 border-indigo-200 bg-indigo-50 p-4 sm:p-6">
+            <h2 className="text-xl font-bold text-indigo-900">Lesson Media</h2>
+            <LessonAnimationPreview moduleId={moduleId} lessonId={lesson.id} />
+
+            {Array.isArray(lesson.learningAids) && lesson.learningAids.length > 0 ? (
+              <div className="grid gap-3 sm:grid-cols-2">
+                {lesson.learningAids.map((aid) => (
+                  <SoftCard key={aid.id} as="article" className="border-indigo-200 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">{aid.type}</p>
+                    <h3 className="mt-1 text-sm font-semibold text-zinc-900">{aid.title}</h3>
+                    <p className="mt-2 text-sm text-zinc-700">{aid.content}</p>
+                  </SoftCard>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-zinc-700">No lesson aids are attached yet.</p>
+            )}
+
+            {isAdmin ? (
+              <SoftCard as="section" className="border-amber-200 bg-amber-50 p-4">
+                <h3 className="text-lg font-bold text-amber-900">Seedance 2.0 Production Prompts</h3>
+                <p className="mt-1 text-sm text-amber-800">
+                  Use these placeholders to generate final video and animation assets for this lesson.
+                </p>
+                <div className="mt-3">
+                  <LessonMediaOps
                     moduleId={moduleId}
                     lessonId={lesson.id}
-                    lessonTitle={lesson.title}
-                    subject={subject}
-                    durationMinutes={lesson.duration}
-                    learningAids={lesson.learningAids ?? []}
+                    videoPrompt={seedanceVideoPrompt}
+                    animationPrompt={seedanceAnimationPrompt}
+                    imagePrompt={lessonImagePrompt}
                   />
                 </div>
-              ) : null}
-            </SoftCard>
-          </section>
-        </div>
-      ) : null}
-
-      {activeTab === "flashcards" ? (
-        <LessonFlashcards
-          moduleId={moduleId}
-          lessonId={lesson.id}
-          lessonTitle={lesson.title}
-          flashcards={lesson.flashcards}
-          objectives={lesson.objectives}
-          chunks={chunks}
-        />
-      ) : null}
-
-      {activeTab === "interactive" ? (
-        <div className="lesson-tab-panel space-y-4">
-          {typeof lesson.metadata?.route === "string" && lesson.metadata.route.length > 0 ? (
-            <SoftCard as="section" className="border-amber-200 bg-amber-50 p-6">
-              <p className="text-sm text-amber-900">
-                This lesson includes a specialized interactive route.
-              </p>
-              <Link
-                href={lesson.metadata.route}
-                className="ui-soft-button ui-focus-ring mt-3 inline-flex min-h-11 items-center rounded-full bg-amber-500 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-600"
-              >
-                Open Interactive Module
-              </Link>
-            </SoftCard>
-          ) : null}
-          {hasTypedInteractiveActivities ? (
-            <TypedInteractiveActivity
-              moduleId={moduleId}
-              lessonId={lesson.id}
-              lessonTitle={lesson.title}
-              activities={typedActivities}
-              fallbackPrompts={interactivePrompts}
-            />
-          ) : (
-            <InteractiveActivity
-              moduleId={moduleId}
-              lessonId={lesson.id}
-              title={lesson.title}
-              prompts={interactivePrompts}
-            />
-          )}
-        </div>
-      ) : null}
-
-      {activeTab === "quiz" ? (
-        hasQuiz ? (
-          <Quiz moduleId={moduleId} lesson={{ ...lesson, questions: quizQuestions } as Lesson & { questions: Question[] }} />
-        ) : (
-          <SoftCard as="section" className="border-emerald-200 bg-emerald-50 p-6 text-sm text-emerald-900">
-            Quiz content is not available yet for this lesson.
+              </SoftCard>
+            ) : null}
           </SoftCard>
-        )
-      ) : null}
+        ) : null}
 
-      {activeTab === "media" ? (
-        <SoftCard as="section" className="lesson-tab-panel space-y-4 border-indigo-200 bg-indigo-50 p-4 sm:p-6">
-          <h2 className="text-xl font-bold text-indigo-900">Lesson Media</h2>
-          <LessonAnimationPreview moduleId={moduleId} lessonId={lesson.id} />
-
-          {Array.isArray(lesson.learningAids) && lesson.learningAids.length > 0 ? (
-            <div className="grid gap-3 sm:grid-cols-2">
-              {lesson.learningAids.map((aid) => (
-                <SoftCard key={aid.id} as="article" className="border-indigo-200 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">{aid.type}</p>
-                  <h3 className="mt-1 text-sm font-semibold text-zinc-900">{aid.title}</h3>
-                  <p className="mt-2 text-sm text-zinc-700">{aid.content}</p>
-                </SoftCard>
-              ))}
-            </div>
-          ) : (
-            <p className="text-sm text-zinc-700">No lesson aids are attached yet.</p>
-          )}
-
-          {isAdmin ? (
-            <SoftCard as="section" className="border-amber-200 bg-amber-50 p-4">
-              <h3 className="text-lg font-bold text-amber-900">Seedance 2.0 Production Prompts</h3>
-              <p className="mt-1 text-sm text-amber-800">
-                Use these placeholders to generate final video and animation assets for this lesson.
-              </p>
-              <div className="mt-3">
-                <LessonMediaOps
-                  moduleId={moduleId}
-                  lessonId={lesson.id}
-                  videoPrompt={seedanceVideoPrompt}
-                  animationPrompt={seedanceAnimationPrompt}
-                  imagePrompt={lessonImagePrompt}
-                />
-              </div>
-            </SoftCard>
-          ) : null}
-        </SoftCard>
-      ) : null}
-
-      <AiFollowupPanel lessonId={lesson.id} moduleId={moduleId} />
-      <AiRemediationWorksheetPanel lessonId={lesson.id} moduleId={moduleId} />
-      <AiLessonTutor lessonId={lesson.id} lessonTitle={lesson.title} />
-    </section>
+        <AiFollowupPanel lessonId={lesson.id} moduleId={moduleId} />
+        <AiRemediationWorksheetPanel lessonId={lesson.id} moduleId={moduleId} />
+        <AiLessonTutor lessonId={lesson.id} lessonTitle={lesson.title} />
+      </section>
+    </MascotHost>
   );
 }

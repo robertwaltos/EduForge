@@ -5,21 +5,20 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import SoftCard from "@/app/components/ui/soft-card";
 import { useI18n } from "@/lib/i18n/provider";
-import { createSupabaseBrowserClient } from "@/lib/supabase/client";
-import { generateDiagnosticAssessment } from "@/app/actions/student-assessment";
 import { sanitizeDisplayName } from "@/lib/security/sanitize-user-text";
 
 type AssessmentQuestion = {
-  q: string;
-  options: string[];
-  answer: string;
-};
-
-type AssessmentResponse = {
-  question: string;
-  selected: string;
-  correct: string;
-  is_correct: boolean;
+  moduleId: string;
+  moduleTitle: string;
+  lessonId: string;
+  lessonTitle: string;
+  subject: string;
+  questionId: string;
+  questionText: string;
+  options: Array<{
+    id: string;
+    text: string;
+  }>;
 };
 
 type OnboardingStep = "info" | "assessment" | "saving" | "complete";
@@ -90,11 +89,11 @@ function extractOptionVisual(option: string) {
 }
 
 function inferInterestPaths(
-  responses: AssessmentResponse[],
+  selectedOptionTexts: string[],
   grade: string,
   age: number | null,
 ) {
-  const combinedAnswers = responses.map((entry) => entry.selected.toLowerCase()).join(" ");
+  const combinedAnswers = selectedOptionTexts.map((entry) => entry.toLowerCase()).join(" ");
   const recommendations = new Set<string>();
 
   if (combinedAnswers.includes("🌧") || combinedAnswers.includes("weather") || combinedAnswers.includes("ocean")) {
@@ -126,10 +125,81 @@ function createDraftProfileId() {
   return crypto.randomUUID();
 }
 
+function parseGradeLevel(gradeLevel: string) {
+  const normalized = gradeLevel.trim().toLowerCase();
+  if (normalized === "pk" || normalized === "pre-k" || normalized === "pre-kinder") return -1;
+  if (normalized === "k" || normalized === "kindergarten") return 0;
+
+  const numericMatch = normalized.match(/\d{1,2}/);
+  if (!numericMatch) return null;
+
+  const grade = Number(numericMatch[0]);
+  return Number.isFinite(grade) ? grade : null;
+}
+
+function inferPlacementStageId(input: { gradeLevel: string; ageYears: number | null }) {
+  const grade = parseGradeLevel(input.gradeLevel);
+  if (grade !== null) {
+    if (grade < 0) return "pre-k";
+    if (grade <= 2) return "early-elem";
+    if (grade <= 5) return "upper-elem";
+    if (grade <= 8) return "middle";
+    if (grade <= 12) return "high";
+    return "college";
+  }
+
+  if (typeof input.ageYears === "number" && Number.isFinite(input.ageYears)) {
+    if (input.ageYears < 5) return "pre-k";
+    if (input.ageYears < 8) return "early-elem";
+    if (input.ageYears < 11) return "upper-elem";
+    if (input.ageYears < 14) return "middle";
+    if (input.ageYears < 18) return "high";
+    return "college";
+  }
+
+  return "middle";
+}
+
+function isAssessmentQuestion(value: unknown): value is AssessmentQuestion {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return false;
+  }
+
+  const row = value as Record<string, unknown>;
+  if (
+    typeof row.moduleId !== "string" ||
+    typeof row.moduleTitle !== "string" ||
+    typeof row.lessonId !== "string" ||
+    typeof row.lessonTitle !== "string" ||
+    typeof row.subject !== "string" ||
+    typeof row.questionId !== "string" ||
+    typeof row.questionText !== "string" ||
+    !Array.isArray(row.options)
+  ) {
+    return false;
+  }
+
+  if (row.options.length < 2) {
+    return false;
+  }
+
+  return row.options.every((option) => {
+    if (!option || typeof option !== "object" || Array.isArray(option)) {
+      return false;
+    }
+    const normalized = option as Record<string, unknown>;
+    return (
+      typeof normalized.id === "string" &&
+      normalized.id.length > 0 &&
+      typeof normalized.text === "string" &&
+      normalized.text.length > 0
+    );
+  });
+}
+
 export default function StudentOnboardingPage() {
   const { t } = useI18n();
   const router = useRouter();
-  const supabase = useMemo(() => createSupabaseBrowserClient(), []);
 
   const [step, setStep] = useState<OnboardingStep>("info");
   const [formData, setFormData] = useState<FormData>({ name: "", grade: "3", age: "" });
@@ -168,10 +238,34 @@ export default function StudentOnboardingPage() {
 
     setIsLoadingQuestions(true);
     try {
-      const { questions: generatedQuestions } = await generateDiagnosticAssessment(
-        formData.grade,
-        parsedAge ?? undefined,
-      );
+      const stageId = inferPlacementStageId({
+        gradeLevel: formData.grade,
+        ageYears: parsedAge,
+      });
+      const query = new URLSearchParams({
+        questionCount: "10",
+        stageId,
+      });
+      const response = await fetch(`/api/ai/placement-diagnostic?${query.toString()}`, {
+        method: "GET",
+        cache: "no-store",
+      });
+      const payload = await response.json().catch(() => ({})) as {
+        questions?: unknown;
+        error?: string;
+      };
+
+      if (response.status === 401) {
+        router.push("/auth/sign-in");
+        return;
+      }
+      if (!response.ok) {
+        throw new Error(typeof payload.error === "string" ? payload.error : t("onboarding_error_generate"));
+      }
+
+      const generatedQuestions = Array.isArray(payload.questions)
+        ? payload.questions.filter(isAssessmentQuestion)
+        : [];
 
       if (!generatedQuestions.length) {
         throw new Error(t("onboarding_error_no_questions"));
@@ -193,64 +287,68 @@ export default function StudentOnboardingPage() {
     setErrorMessage("");
 
     try {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      if (!user) {
-        router.push("/auth/sign-in");
-        return;
-      }
-
       const parsedAge = formData.age ? Number(formData.age) : null;
       const normalizedName = sanitizeDisplayName(formData.name);
       if (normalizedName.length < 2) {
         throw new Error(t("onboarding_error_name"));
       }
-      const responses: AssessmentResponse[] = questions.map((question, index) => {
-        const selected = updatedAnswers[index] ?? "";
-        return {
-          question: question.q,
-          selected,
-          correct: question.answer,
-          is_correct: selected === question.answer,
-        };
+
+      const selectedOptionTexts: string[] = [];
+      const responses = questions.flatMap((question, index) => {
+        const selectedOptionId = updatedAnswers[index] ?? "";
+        if (selectedOptionId.length === 0) {
+          return [];
+        }
+        const selectedOption = question.options.find((option) => option.id === selectedOptionId);
+        if (!selectedOption) {
+          return [];
+        }
+        selectedOptionTexts.push(selectedOption.text);
+        return [{
+          moduleId: question.moduleId,
+          lessonId: question.lessonId,
+          questionId: question.questionId,
+          selectedOptionId,
+        }];
       });
-      const correctCount = responses.filter((entry) => entry.is_correct).length;
-      const totalQuestions = responses.length;
-      const baselineScore = totalQuestions > 0 ? correctCount / totalQuestions : 0;
-      const readinessBand =
-        baselineScore >= 0.8 ? "ahead"
-          : baselineScore >= 0.5 ? "on_track"
-            : "support";
-      const recommendedPathIds = inferInterestPaths(responses, formData.grade, parsedAge);
 
-      const { error } = await supabase.from("student_profiles").upsert({
-        id: learnerProfileIdRef.current,
-        account_id: user.id,
-        display_name: normalizedName,
-        grade_level: formData.grade,
-        age_years: parsedAge,
-        initial_assessment_data: {
-          version: "diagnostic_v2",
-          completed_at: new Date().toISOString(),
-          total_questions: totalQuestions,
+      if (responses.length < 5) {
+        throw new Error(t("onboarding_error_create"));
+      }
+
+      const recommendedPathIds = inferInterestPaths(selectedOptionTexts, formData.grade, parsedAge);
+      const stageId = inferPlacementStageId({
+        gradeLevel: formData.grade,
+        ageYears: parsedAge,
+      });
+
+      const response = await fetch("/api/ai/placement-diagnostic", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          mode: "submit",
+          profileId: learnerProfileIdRef.current,
+          stageId,
+          profile: {
+            displayName: normalizedName,
+            gradeLevel: formData.grade,
+            ageYears: parsedAge,
+          },
+          interestPathIds: recommendedPathIds,
           responses,
-        },
-        initial_assessment_status: "completed",
-        ai_skill_level_map: {
-          generated_from: "diagnostic_assessment_v2",
-          status: "baseline_complete",
-          total_questions: totalQuestions,
-          correct_answers: correctCount,
-          baseline_score: Number(baselineScore.toFixed(3)),
-          readiness_band: readinessBand,
-          recommended_path_ids: recommendedPathIds,
-        },
-      }, { onConflict: "id" });
+        }),
+      });
+      const payload = await response.json().catch(() => ({})) as {
+        success?: boolean;
+        error?: string;
+      };
 
-      if (error) {
-        throw error;
+      if (response.status === 401) {
+        router.push("/auth/sign-in");
+        return;
+      }
+      if (!response.ok || payload.success !== true) {
+        throw new Error(typeof payload.error === "string" ? payload.error : t("onboarding_error_create"));
       }
 
       setCreatedProfileName(normalizedName);
@@ -261,8 +359,8 @@ export default function StudentOnboardingPage() {
     }
   };
 
-  const handleAnswerSelect = (option: string) => {
-    const nextAnswers = { ...answers, [currentQuestionIndex]: option };
+  const handleAnswerSelect = (optionId: string) => {
+    const nextAnswers = { ...answers, [currentQuestionIndex]: optionId };
     setAnswers(nextAnswers);
 
     if (currentQuestionIndex < questions.length - 1) {
@@ -425,19 +523,19 @@ export default function StudentOnboardingPage() {
               </div>
             </div>
 
-            <h2 className="ui-type-heading-lg mb-6 text-zinc-900">{currentQuestion.q}</h2>
+            <h2 className="ui-type-heading-lg mb-6 text-zinc-900">{currentQuestion.questionText}</h2>
 
             <fieldset>
               <legend className="sr-only">{t("onboarding_select_answer_legend")}</legend>
               <div className="space-y-2.5">
                 {currentQuestion.options.map((option) => {
-                  const isSelected = answers[currentQuestionIndex] === option;
-                  const visual = extractOptionVisual(option);
+                  const isSelected = answers[currentQuestionIndex] === option.id;
+                  const visual = extractOptionVisual(option.text);
                   return (
                     <button
-                      key={option}
+                      key={option.id}
                       type="button"
-                      onClick={() => handleAnswerSelect(option)}
+                      onClick={() => handleAnswerSelect(option.id)}
                       aria-pressed={isSelected}
                       className={`ui-focus-ring w-full rounded-xl border px-4 py-3 text-left text-sm font-semibold transition-colors ${
                         isSelected
@@ -455,7 +553,7 @@ export default function StudentOnboardingPage() {
                           <span>{visual.label}</span>
                         </span>
                       ) : (
-                        option
+                        option.text
                       )}
                     </button>
                   );

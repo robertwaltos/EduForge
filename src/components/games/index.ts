@@ -21,3 +21,15 @@ export type { ColorMixerProps } from "./color-mixer";
 
 export { ShapeSafari } from "./shape-safari";
 export type { ShapeSafariProps } from "./shape-safari";
+
+export { default as NeuralNavigator } from "./neural-navigator";
+export { default as FractionForge } from "./fraction-forge";
+export { default as VocabularyVoyager } from "./vocabulary-voyager";
+export { default as ArtisticAlgorithms } from "./artistic-algorithms";
+export { default as EthicalEngine } from "./ethical-engine";
+export { default as SynthesisSphere } from "./synthesis-sphere";
+export { default as VelocityVector } from "./velocity-vector";
+export { default as LogicalLink } from "./logical-link";
+export { default as CosmicCanvas } from "./cosmic-canvas";
+export { default as ChronicleCase } from "./chronicle-case";
+export { default as SyntaxSerpent } from "./syntax-serpent";

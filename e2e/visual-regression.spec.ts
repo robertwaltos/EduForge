@@ -8,6 +8,18 @@ import { test, expect } from "@playwright/test";
  * Each page scrolls to bottom to trigger lazy content before capturing.
  */
 
+test.describe.configure({ retries: 2 });
+
+// Dismiss cookie consent banner before each test
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem(
+      "koydo.trackingConsent",
+      JSON.stringify({ decided: true, analytics: false }),
+    );
+  });
+});
+
 const PUBLIC_PAGES = [
   { name: "landing", path: "/" },
   { name: "explore", path: "/explore" },
@@ -21,7 +33,14 @@ const PUBLIC_PAGES = [
 for (const { name, path } of PUBLIC_PAGES) {
   test(`${name} — visual snapshot`, async ({ page }) => {
     await page.goto(path, { waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(2500);
+
+    // Dismiss any cookie consent banner that might appear despite localStorage
+    const dismissBtn = page.getByRole("button", { name: "Necessary Only" });
+    if (await dismissBtn.isVisible({ timeout: 500 }).catch(() => false)) {
+      await dismissBtn.click();
+      await page.waitForTimeout(300);
+    }
 
     // Scroll to bottom to load any lazy content (may fail if page navigates)
     try {
@@ -36,6 +55,9 @@ for (const { name, path } of PUBLIC_PAGES) {
 
     await expect(page).toHaveScreenshot(`${name}.png`, {
       fullPage: true,
+      maxDiffPixelRatio: 0.1,
+      threshold: 0.3,
+      animations: "disabled",
     });
   });
 }

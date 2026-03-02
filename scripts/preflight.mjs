@@ -309,6 +309,16 @@ function main() {
         : `Exit code ${apiRateLimitCoverageCode}.`,
   });
 
+  const billingWebhookHardeningCode = runStep("npm", ["run", "security:billing-webhook-hardening:check"]);
+  results.push({
+    name: "billing webhook guard",
+    pass: billingWebhookHardeningCode === 0,
+    detail:
+      billingWebhookHardeningCode === 0
+        ? "Stripe and RevenueCat webhook hardening markers are present."
+        : `Exit code ${billingWebhookHardeningCode}.`,
+  });
+
   const consoleLogHits = findConsoleLogOccurrences();
   results.push({
     name: "console.log sweep",

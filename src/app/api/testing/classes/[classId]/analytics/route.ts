@@ -3,6 +3,8 @@ import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { isMissingTestingTableError } from "@/lib/testing/api-utils";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { resolveVerifiedTeacherClassAccess } from "@/lib/compliance/teacher-access";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
 type AttemptRow = {
   user_id: string;
@@ -49,6 +51,20 @@ export async function GET(
   request: Request,
   context: { params: Promise<{ classId: string }> },
 ) {
+  const rateLimit = await enforceIpRateLimit(request, "api:testing:classes:analytics:get", {
+    max: 45,
+    windowMs: 60_000,
+  });
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: "Too many class analytics requests. Please retry shortly." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rateLimit.retryAfterSeconds) },
+      },
+    );
+  }
+
   const { classId } = await context.params;
   const examId = new URL(request.url).searchParams.get("examId");
 
@@ -62,32 +78,19 @@ export async function GET(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const admin = createSupabaseAdminClient();
-  const { data: classroom, error: classroomError } = await admin
-    .from("classroom_entities")
-    .select("id, name, teacher_user_id, max_size")
-    .eq("id", classId)
-    .maybeSingle();
-
-  if (classroomError) {
-    if (isMissingTestingTableError(classroomError)) {
-      return NextResponse.json(
-        { error: "Testing/classroom tables are not ready. Run Supabase migrations first." },
-        { status: 503 },
-      );
+  const teacherAccess = await resolveVerifiedTeacherClassAccess({
+    userId: user.id,
+    classId,
+    purpose: "testing_class_analytics",
+  });
+  if (!teacherAccess.ok) {
+    if (teacherAccess.status === 403 || teacherAccess.status === 404 || teacherAccess.status === 503) {
+      return NextResponse.json({ error: teacherAccess.error }, { status: teacherAccess.status });
     }
-    console.error("Unexpected API error.", toSafeErrorRecord(classroomError));
-    return NextResponse.json({ error: "Internal server error." }, { status: 500 });
+    return NextResponse.json({ error: "Internal server error." }, { status: teacherAccess.status });
   }
 
-  if (!classroom) {
-    return NextResponse.json({ error: "Classroom not found." }, { status: 404 });
-  }
-
-  if (classroom.teacher_user_id !== user.id) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
-  }
-
+  const admin = createSupabaseAdminClient();
   const { data: enrollments, error: enrollmentError } = await admin
     .from("class_enrollments")
     .select("learner_user_id, parent_consent")
@@ -111,8 +114,8 @@ export async function GET(
 
   if (learnerUserIds.length === 0) {
     return NextResponse.json({
-      classId: classroom.id,
-      className: classroom.name,
+      classId: teacherAccess.classId,
+      className: teacherAccess.className,
       examId: examId ?? null,
       learnerCount: 0,
       attemptCount: 0,
@@ -226,8 +229,8 @@ export async function GET(
   }
 
   return NextResponse.json({
-    classId: classroom.id,
-    className: classroom.name,
+    classId: teacherAccess.classId,
+    className: teacherAccess.className,
     examId: examId ?? null,
     learnerCount: learnerUserIds.length,
     attemptCount: attempts.length,
@@ -236,4 +239,3 @@ export async function GET(
     domainHeatmap,
   });
 }
-

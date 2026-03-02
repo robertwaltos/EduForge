@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
 const metadataValueSchema = z.union([
   z.string(),
@@ -26,15 +27,52 @@ const createErrorLogSchema = z.object({
   metadata: z.record(z.string(), metadataValueSchema).optional(),
 });
 
-function toInt(value: string | null, fallback: number) {
-  if (!value) return fallback;
-  const parsed = Number(value);
-  if (!Number.isFinite(parsed)) return fallback;
-  return Math.trunc(parsed);
+const QuerySchema = z.object({
+  moduleId: z.string().min(1).optional(),
+  lessonId: z.string().min(1).optional(),
+  unresolved: z.boolean().default(false),
+  limit: z.coerce.number().int().min(1).max(200).default(100),
+});
+
+function parseBooleanParam(value: string | null) {
+  if (!value) return undefined;
+  const normalized = value.trim().toLowerCase();
+  if (normalized === "1" || normalized === "true" || normalized === "yes") return true;
+  if (normalized === "0" || normalized === "false" || normalized === "no") return false;
+  return undefined;
+}
+
+function parseQuery(request: Request) {
+  const url = new URL(request.url);
+  return QuerySchema.safeParse({
+    moduleId: url.searchParams.get("moduleId")?.trim() || undefined,
+    lessonId: url.searchParams.get("lessonId")?.trim() || undefined,
+    unresolved: parseBooleanParam(url.searchParams.get("unresolved")),
+    limit: url.searchParams.get("limit") ?? undefined,
+  });
 }
 
 export async function GET(request: Request) {
   try {
+    const rateLimit = await enforceIpRateLimit(request, "api:exam:error-log:get", {
+      max: 60,
+      windowMs: 60_000,
+    });
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many error-log requests. Please retry shortly." },
+        { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+      );
+    }
+
+    const parsedQuery = parseQuery(request);
+    if (!parsedQuery.success) {
+      return NextResponse.json(
+        { error: "Invalid error-log query parameters.", details: parsedQuery.error.flatten() },
+        { status: 400 },
+      );
+    }
+
     const supabase = await createSupabaseServerClient();
     const {
       data: { user },
@@ -45,13 +83,10 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const url = new URL(request.url);
-    const moduleId = url.searchParams.get("moduleId")?.trim() || null;
-    const lessonId = url.searchParams.get("lessonId")?.trim() || null;
-    const unresolvedOnly =
-      url.searchParams.get("unresolved") === "1" ||
-      url.searchParams.get("unresolved") === "true";
-    const limit = Math.max(1, Math.min(200, toInt(url.searchParams.get("limit"), 100)));
+    const moduleId = parsedQuery.data.moduleId ?? null;
+    const lessonId = parsedQuery.data.lessonId ?? null;
+    const unresolvedOnly = parsedQuery.data.unresolved;
+    const limit = parsedQuery.data.limit;
 
     let query = supabase
       .from("user_exam_error_logs")
@@ -105,6 +140,17 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
+    const rateLimit = await enforceIpRateLimit(request, "api:exam:error-log:post", {
+      max: 60,
+      windowMs: 60_000,
+    });
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many error-log writes. Please retry shortly." },
+        { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } },
+      );
+    }
+
     const supabase = await createSupabaseServerClient();
     const {
       data: { user },

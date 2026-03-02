@@ -1,0 +1,1 @@
+{"frames":[{"file":"http://localhost:3000/","line1":1,"column1":225081,"methodName":"$RS","arguments":[]},{"file":"http://localhost:3000/","line1":1,"column1":225150,"methodName":"<unknown>","arguments":[]}],"isServer":false,"isEdgeServer":false,"isAppDirectory":true}

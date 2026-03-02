@@ -51,3 +51,15 @@ export const hapticCelebration = async (): Promise<void> => {
     console.error('Haptic celebration feedback failed:', error);
   }
 };
+
+/**
+ * Triggers a light haptic impact for selection or hover effects.
+ */
+export const hapticSelection = async (): Promise<void> => {
+  if (!isHapticsAvailable()) return;
+  try {
+    await Haptics.impact({ style: ImpactStyle.Light });
+  } catch (error) {
+    console.error('Haptic selection feedback failed:', error);
+  }
+};

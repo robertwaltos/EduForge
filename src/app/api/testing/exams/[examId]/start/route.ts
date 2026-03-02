@@ -14,6 +14,7 @@ const MAX_GENERATION_ROUNDS = 3;
 const MAX_GENERATION_BUDGET = 120;
 const RECENT_QUESTION_LOOKBACK_DAYS = 14;
 const RECENT_QUESTION_MAX_ATTEMPTS = 8;
+const LEGACY_TESTING_QBANK_OVERRIDE_ENV = "LEGAL_ALLOW_LEGACY_TESTING_QUESTION_BANK";
 
 const startAttemptSchema = z.object({
   language: z.enum(["en", "pl"]).optional(),
@@ -30,6 +31,13 @@ type QuestionBankRow = {
 };
 
 type QuestionBankMode = "governed" | "legacy";
+
+function shouldAllowLegacyTestingQuestionBankMode() {
+  if (process.env[LEGACY_TESTING_QBANK_OVERRIDE_ENV] === "1") {
+    return true;
+  }
+  return process.env.NODE_ENV !== "production";
+}
 
 function shuffle<T>(items: T[]) {
   const copy = [...items];
@@ -431,6 +439,15 @@ export async function POST(
 
   try {
     questionBankMode = await resolveQuestionBankMode(admin, exam.id);
+    if (questionBankMode === "legacy" && !shouldAllowLegacyTestingQuestionBankMode()) {
+      return NextResponse.json(
+        {
+          error:
+            "Testing question governance columns are missing. Legacy question-bank mode is blocked until migrations are applied.",
+        },
+        { status: 503 },
+      );
+    }
     eligibleCount = await countEligibleQuestions(admin, exam.id, questionBankMode);
   } catch (error) {
     if (isMissingTestingTableError(error)) {

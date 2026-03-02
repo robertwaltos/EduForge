@@ -5,6 +5,7 @@ import { SupabaseClient } from "@supabase/supabase-js";
 import { skills } from "@/lib/data/curriculum";
 import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { resolveVerifiedParentAccess } from "@/lib/compliance/parent-access";
 
 const digestSchema = z.object({
   parentId: z.string().uuid().optional(),
@@ -21,23 +22,11 @@ function logDigestPreview(message: string) {
 
 // This is the same logic as the parent dashboard page.
 // In a real app, this would be refactored into a shared helper.
-async function getChildDataForDigest(supabase: SupabaseClient, parentId: string) {
-  const { data: parentProfile, error: parentError } = await supabase
-    .from("user_profiles")
-    .select("parent_email")
-    .eq("user_id", parentId)
-    .single();
-
-  if (parentError || !parentProfile || !parentProfile.parent_email) {
-    return { error: "Could not find parent." };
-  }
-
+async function getChildDataForDigest(supabase: SupabaseClient, childUserId: string) {
   const { data: childProfile, error: childError } = await supabase
     .from("user_profiles")
     .select("user_id, display_name")
-    .eq("parent_email", parentProfile.parent_email)
-    .neq("user_id", parentId)
-    .limit(1)
+    .eq("user_id", childUserId)
     .single();
 
   if (childError || !childProfile) {
@@ -54,7 +43,7 @@ async function getChildDataForDigest(supabase: SupabaseClient, parentId: string)
     return { error: "Could not fetch child's progress." };
   }
 
-  return { parentProfile, childProfile, childSkills };
+  return { childProfile, childSkills };
 }
 
 export async function POST(request: Request) {
@@ -96,10 +85,26 @@ export async function POST(request: Request) {
       );
     }
 
-    const parentId = user.id;
+    const parentAccess = await resolveVerifiedParentAccess({
+      supabase,
+      userId: user.id,
+      userEmail: user.email,
+      purpose: "parent_digest",
+    });
+    if (!parentAccess.ok) {
+      if (parentAccess.status === 403) {
+        return NextResponse.json({ error: parentAccess.error }, { status: 403 });
+      }
+      return NextResponse.json({ error: "Internal server error." }, { status: parentAccess.status });
+    }
 
-    const { parentProfile, childProfile, childSkills, error } =
-      await getChildDataForDigest(supabase, parentId);
+    const targetChildUserId = parentAccess.childUserIds[0];
+    if (!targetChildUserId) {
+      return NextResponse.json({ error: "No verified child found." }, { status: 404 });
+    }
+
+    const { childProfile, childSkills, error } =
+      await getChildDataForDigest(supabase, targetChildUserId);
 
     if (error || !childSkills) {
       return NextResponse.json({ error: error || "Child skills not found." }, { status: 404 });
@@ -114,7 +119,7 @@ export async function POST(request: Request) {
     
     // --- MOCK EMAIL SENDING ---
     logDigestPreview("--- Mock Parent Digest Email ---");
-    logDigestPreview(`To: ${parentProfile.parent_email}`);
+    logDigestPreview(`To: ${parentAccess.parentEmail}`);
     logDigestPreview(`Subject: Your child ${childProfile.display_name}'s weekly progress report!`);
     logDigestPreview("\n--- Wins ---");
     strengths.forEach((s) => logDigestPreview(`- ${skillMap.get(s.skill_id)}`));

@@ -2,10 +2,8 @@
 
 import { useEffect, useState, useCallback } from "react";
 import {
-  getConsentState,
   setConsentState,
   shouldShowConsentBanner,
-  type ConsentState,
 } from "@/lib/consent/tracking-consent";
 
 /**
@@ -18,7 +16,6 @@ import {
  */
 export default function CookieConsentBanner() {
   const [visible, setVisible] = useState(false);
-  const [consent, setConsent] = useState<ConsentState | null>(null);
 
   useEffect(() => {
     // On native Capacitor builds, skip the web consent banner
@@ -37,7 +34,6 @@ export default function CookieConsentBanner() {
 
   const accept = useCallback((analytics: boolean) => {
     const state = setConsentState(analytics);
-    setConsent(state);
     setVisible(false);
 
     // Dispatch a custom event so MixpanelProvider can react

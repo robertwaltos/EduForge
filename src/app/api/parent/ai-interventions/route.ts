@@ -3,6 +3,8 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { skills } from "@/lib/data/curriculum";
 import { toSafeErrorRecord } from "@/lib/logging/safe-error";
+import { resolveVerifiedParentAccess } from "@/lib/compliance/parent-access";
+import { enforceIpRateLimit } from "@/lib/security/ip-rate-limit";
 
 type InterventionSuggestion = {
   id: string;
@@ -130,8 +132,22 @@ function buildSuggestions(params: {
   return suggestions.slice(0, 4);
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    const rateLimit = await enforceIpRateLimit(request, "api:parent:ai-interventions:get", {
+      max: 30,
+      windowMs: 60_000,
+    });
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Too many intervention requests. Please retry shortly." },
+        {
+          status: 429,
+          headers: { "Retry-After": String(rateLimit.retryAfterSeconds) },
+        },
+      );
+    }
+
     const supabase = await createSupabaseServerClient();
     const {
       data: { user },
@@ -142,32 +158,33 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { data: parentProfile, error: parentProfileError } = await supabase
-      .from("user_profiles")
-      .select("is_parent, parent_email")
-      .eq("user_id", user.id)
-      .maybeSingle();
-
-    if (parentProfileError) {
-      console.error("Unexpected API error.", toSafeErrorRecord(parentProfileError));
-      return NextResponse.json({ error: "Internal server error." }, { status: 500 });
-    }
-
-    if (!parentProfile?.is_parent || !parentProfile.parent_email) {
-      return NextResponse.json(
-        { error: "Parent role is required to load interventions." },
-        { status: 403 },
-      );
+    const parentAccess = await resolveVerifiedParentAccess({
+      supabase,
+      userId: user.id,
+      userEmail: user.email,
+      purpose: "parent_ai_interventions",
+    });
+    if (!parentAccess.ok) {
+      if (parentAccess.status === 403) {
+        return NextResponse.json({ error: parentAccess.error }, { status: 403 });
+      }
+      return NextResponse.json({ error: "Internal server error." }, { status: parentAccess.status });
     }
 
     const admin = createSupabaseAdminClient();
+    const targetChildUserId = parentAccess.childUserIds[0];
+    if (!targetChildUserId) {
+      return NextResponse.json({
+        childDisplayName: null,
+        suggestions: [] as InterventionSuggestion[],
+        message: "No verified child found for this parent profile.",
+      });
+    }
 
     const { data: childProfile, error: childError } = await admin
       .from("user_profiles")
       .select("user_id, display_name")
-      .eq("parent_email", parentProfile.parent_email)
-      .neq("user_id", user.id)
-      .limit(1)
+      .eq("user_id", targetChildUserId)
       .maybeSingle();
 
     if (childError) {

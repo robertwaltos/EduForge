@@ -1,6 +1,6 @@
 # Koydo V1 Launch Roadmap
 
-Last Updated: 2026-02-27 (refreshed end-of-day)
+Last Updated: 2026-03-02 (teacher access contract harness + legal gate coverage checks)
 Owner: Koydo Core Team (Claude Code + Codex + Gemini)
 
 > **Coordination doc**: See `V1-LAUNCH-COORDINATION.md` (project root) for agent
@@ -127,6 +127,52 @@ Ship the highest-value content experience first: stable media pipeline, reviewed
 | P1-63 | Opus: Index signature removal (D-2/M-2) | DONE | Opus 4.6 | Removed 3 `[key: string]: unknown` from InteractiveActivity, QuizBlueprint, Lesson. Added 5 explicit typed optional fields. Union types for items/pairs. music-history-101 quiz format fixed. 0 TS errors. |
 | P1-64 | Opus: Exam prep modules promoted (E-3) | DONE | Opus 4.6 | IELTS, GCSE, IB prep modules bumped to v2.0.0 (were hidden as drafts despite ~1,940 lines of real content). Locale fixed to ["en"]. Now published. |
 | P1-65 | Opus: 10 module content upgrades batch 2 (E-1) | DONE | Opus 4.6 | medicine-101, nursing-101, law-studies-101, electrical-engineering-101, hvac-101, plumbing-101, meteorology-101, micro-circuits-101, microelectronics-101, cpu-gpu-memory-design-101. All upgraded from ~242-line templates to ~725-line gold-standard modules with real educational content, 10 lessons each (3 video + 3 interactive + 4 quiz), chunks, flashcards, interactive activities, quiz explanations. v2.0.0, published. |
+| P1-66 | Codex: Daily review queue foundation (E-03 start) | DONE | Codex | Added prerequisite-aware spaced review queue engine (`src/lib/mastery/review-queue.ts`) and `GET /api/ai/review-queue` with rate-limit + Zod query validation. Queue now computes overdue decay scoring and prerequisite blocking metadata for daily learner review ordering. |
+| P1-67 | Codex: Error-log remediation tasking + completion credit (E-04 start) | DONE | Codex | Added `GET/POST /api/exam/remediation-tasks` backed by `src/lib/exam/remediation-tasking.ts` to expose auto-generated remediation tasks from wrong-answer logs with source lesson/question/chunk references. Completing tasks now resolves linked logs and applies mastery credit updates to `user_skill_mastery`. Hardened exam error-log routes with rate limiting + stricter validation and registered them in API guard coverage checks. |
+| P1-68 | Codex: Placement diagnostic backend foundation (E-02 start) | DONE | Codex | Added `GET/POST /api/ai/placement-diagnostic` with stage-scoped question generation, scored submission flow, confidence scoring, profile persistence (`initial_assessment_data`, `ai_skill_level_map`), mastery updates to `user_skill_mastery`, and manual stage override mode for parent/teacher control. |
+| P1-69 | Codex: Placement summary API + scoring contract hardening | DONE | Codex | Added `GET /api/ai/placement-diagnostic/summary` for profile-level placement status/override retrieval, extracted scoring helpers to `src/lib/ai/placement-diagnostic-scoring.ts`, added contract harness `scripts/test-placement-diagnostic-scoring.mjs`, and enforced guard coverage for the placement summary route. |
+| P1-70 | Codex: Placement event history + audit trail persistence | DONE | Codex | Added placement event persistence in `POST /api/ai/placement-diagnostic` (submit + manual override) and `GET /api/ai/placement-diagnostic/history` for filtered event retrieval. Added migration `202603010003_placement_diagnostic_events.sql` with RLS/indexing and guard coverage enforcement for the new history endpoint. |
+| P1-71 | Codex: Placement onboarding API migration + scope/test/retention hardening | DONE | Codex | Student onboarding now uses `GET/POST /api/ai/placement-diagnostic` end-to-end (no direct profile upsert path), placement summary now prioritizes manual overrides, and history route now supports strict `self/parent/teacher` scoped access checks. Added shared placement contract helpers (`src/lib/ai/placement-diagnostic-contract.ts`), flow contract harness (`scripts/test-placement-diagnostic-flow-contract.mjs`), and bounded retention cleanup script (`scripts/cleanup-placement-diagnostic-events.mjs`). |
+| P1-72 | Codex: Audiobook ingestion/translation seeding resilience hardening | DONE | Codex | Hardened `scripts/seed-audiobook-texts.ts` with `SEED_OFFSET`, fetch retries, and JSON report output; hardened `scripts/seed-audiobook-translations.ts` with offset, per-chapter retries/delay, and machine-readable report output; added retry-aware chapter translation execution in `src/lib/audiobooks/audiobook-translation-service.ts` with per-error attempt tracking. |
+| P1-73 | Codex: Backend ownership split + legal hardening charter | IN_PROGRESS | Codex | Codex now owns difficult backend tracks: parent/teacher/developer portal APIs, billing backend + RevenueCat completion, and legal/compliance hardening guardrails. Added executive legal risk + contract controls + app-audit prompt in `EDTECH-LITIGATION-CONTRACT-HARDENING.md` for multi-agent use. |
+| P1-74 | Codex: Parent child-data purpose/consent guard consolidation | DONE | Codex | Added shared parent access guard `src/lib/compliance/parent-access.ts` to enforce explicit access purpose + parent role + verified `parent_consents` relationships before child-data reads. Wired into `GET /api/ai/placement-diagnostic/history` (parent scope) and parent surfaces `POST /api/parent/digest`, `GET /api/parent/reports`, and `GET /api/parent/ai-interventions` to remove inconsistent parent-email-only lookups. |
+| P1-75 | Codex: Billing webhook in-flight claim-lock hardening + contract test | DONE | Codex | Hardened idempotent webhook claim paths in both `POST /api/revenuecat/webhook` and `POST /api/stripe/webhook` by honoring active `processing` locks and using optimistic status-guarded claim updates to reduce concurrent double-processing. Added shared helper `src/lib/billing/webhook-processing-lock.ts` and contract harness `scripts/test-billing-webhook-processing-lock.mjs` (`npm run billing:webhook:processing-lock:test`). |
+| P1-76 | Codex: Build-gate regression patch + cross-agent coordination escalation | DONE | Codex | Fixed failing build caused by non-existent UI import path in `src/components/games/number-crunch.tsx` and `src/components/games/shape-safari.tsx` by routing both to shared `@/components/experience/PhysicalButton`. Added cross-agent coordination notice in `../V1-LAUNCH-COORDINATION.md` requesting owners of recent game/UI edits to confirm whether they introduced the invalid alias. |
+| P1-77 | Codex: Parent language-report access hardening (consent scope + API abuse guard) | DONE | Codex | Hardened `GET /api/parent/reports/language` to use shared verified parent-consent guard (`resolveVerifiedParentAccess` purpose `parent_language_reports`) and scope student-profile access strictly to consent-linked child accounts. Added explicit 403 for out-of-scope `studentProfileId` requests, added route-level rate limiting (`api:parent:reports:language:get`), and extended `scripts/check-api-rate-limit-coverage.mjs` to enforce this guard contract. |
+| P1-78 | Codex: Teacher class-scope guard extraction + consent-gated placement history access | DONE | Codex | Added shared teacher compliance guard `src/lib/compliance/teacher-access.ts` and wired `GET /api/ai/placement-diagnostic/history` teacher scope to it. Guard now enforces teacher classroom ownership, learner enrollment, and `parent_consent` before allowing teacher access to learner placement history; returns clear `403`/`503` outcomes for unauthorized or unmigrated classroom tables. |
+| P1-79 | Codex: Teacher class endpoint hardening (shared auth guard + abuse controls) | DONE | Codex | Replaced duplicated teacher ownership checks in `GET /api/testing/classes/[classId]/analytics`, `GET/POST /api/testing/classes/[classId]/enrollments`, and `GET/POST /api/testing/classes/[classId]/assignments` with shared `resolveVerifiedTeacherClassAccess` purpose-scoped enforcement. Added route-level rate limits for all five teacher class endpoints and expanded `scripts/check-api-rate-limit-coverage.mjs` guard contract checks to include them. |
+| P1-80 | Codex: Testing content licensing fail-closed guardrails (legal hardening) | DONE | Codex | Hardened `POST /api/testing/exams/[examId]/start` and `POST /api/testing/attempts/[attemptId]/submit` to enforce governed question-bank serving (`review_status=approved` + `commercial_use_allowed=true`) and fail closed in production when governance columns are missing. Added controlled dev override via `LEGAL_ALLOW_LEGACY_TESTING_QUESTION_BANK=1`; submit path now blocks attempts that reference restricted/unapproved question content in governed mode. Added guard coverage script `scripts/check-testing-content-legal-guard-coverage.mjs` (`npm run security:testing-content-legal-guard:check`). |
+| P1-81 | Codex: Teacher access contract-test harness | DONE | Codex | Added `scripts/test-teacher-access-contract.mjs` with mocked Supabase query chains to validate `resolveVerifiedTeacherClassAccess` behavior across invalid purpose, missing table, class ownership, enrollment, and parent-consent gating scenarios. Added npm script `teacher:access:contract:test` to keep teacher authorization policy changes regression-safe. |
+
+## Tranche 3: Audiobook & Voice Infrastructure
+
+| ID | Workstream | Status | Owner | Notes / Deliverables |
+|---|---|---|---|---|
+| T3-01 | Hybrid TTS system (OpenAI → ElevenLabs → browser) | DONE | Opus 4.6 | `src/lib/media/tts-service.ts` — 6 OpenAI voices (alloy/echo/fable/onyx/nova/shimmer), ElevenLabs fallback, browser SpeechSynthesis last resort. Supabase Storage caching in `tts-audio` bucket. Cache key: `{voice}/{sha256_16}.mp3`. |
+| T3-02 | Voice preference system | DONE | Opus 4.6 | `VoicePreferenceProvider` context, voice picker UI, localStorage persistence (`koydo.explore.voice_preference`). |
+| T3-03 | Audiobook type system | DONE | Opus 4.6 | `src/lib/audiobooks/types.ts` — `AudiobookEntry`, `ChapterText`, `AudiobookTTSRequest/Result`, cache key helpers. 9 launch languages (en/es/zh/ja/ko/pt/fr/de/pl). Illustrated book types: `IllustratedAudiobookEntry`, `IllustrationPage`, `IllustrationManifest`. |
+| T3-04 | Audiobook TTS service | DONE | Opus 4.6 | `src/lib/audiobooks/audiobook-tts-service.ts` — chapter-level TTS with Supabase caching, smart text splitting (4096-char segments at paragraph/sentence boundaries), MP3 concatenation. |
+| T3-05 | Audiobook API route | DONE | Opus 4.6 | `POST /api/audiobooks/tts` — Zod-validated, rate-limited (10/min), returns audio URL + metadata. |
+| T3-06 | Audiobook reader UI | DONE | Opus 4.6 | `audiobook-player.tsx`, `book-card.tsx`, `audiobook-library.tsx`, `audiobook-reader.tsx` — full reading/listening experience with chapter navigation. |
+| T3-07 | Initial 50-book curated catalog | DONE | Opus 4.6 | `src/lib/audiobooks/top-50-catalog.ts` — 25 children + 25 teen/adult with Gutenberg IDs. SSG via `generateStaticParams`. |
+| T3-08 | Chapter 1 seed script | DONE | Opus 4.6 | `scripts/seed-audiobook-chapter1.ts` — batch pre-generates Ch.1 for top 50 books. |
+| T3-09 | Catalog expansion to 1,509 books | DONE | Opus 4.6 | `children-catalog.json` (1,007 entries), `adult-catalog.json` (502 entries), `illustrated-catalog.json` (20 entries). All public domain Project Gutenberg works. Genres: fairy tales, adventure, nature, mythology, science, biography, folk tales from 30+ cultures, classic fiction, poetry, drama, philosophy. |
+| T3-10 | Voice matching research (Kokoro-82M) | DONE | Opus 4.6 | **Key finding**: Kokoro-82M has voices literally named after 5/6 OpenAI voices (af_alloy, af_nova, am_echo, am_onyx, bm_fable). Trained on synthetic data from "large providers". Apache 2.0 license, 82M params, runs locally for free. Supports 9 languages (en/es/fr/pt/ja/zh/hi/it + British English). |
+| T3-11 | Voice mapping configuration | DONE | Opus 4.6 | `src/lib/audiobooks/voice-mapping.ts` — Maps all 6 OpenAI voices to Kokoro equivalents (shimmer→af_heart). XTTS v2 fallback for German/Korean/Polish. Pre-generation priority order, cost estimates (Phase 1: ~3GB, ~375 hrs local compute, $0 API cost). Full Kokoro voice inventory (15 voices). |
+| T3-12 | Illustrated books strategy | DONE | Opus 4.6 | 20 illustrated picture books (Beatrix Potter, Alice, Oz, Pinocchio, Aesop, etc.) with `readingLevel` (pre-reader/early-reader/independent). Serving strategy: scrape Gutenberg HTML → extract illustration manifest → proxy images → render page-by-page with synced audio. Three UI modes by reading level. |
+
+### T3 Remaining Work
+
+| ID | Workstream | Status | Priority | Notes |
+|---|---|---|---|---|
+| T3-13 | Local TTS pipeline (Kokoro integration) | PENDING | HIGH | Python script to batch pre-generate audio with Kokoro-82M. Estimated ~375 hrs of local compute for Phase 1 (English, 3 voices, Ch.1 per 1,509 books). |
+| T3-14 | XTTS v2 integration (de/ko/pl) | PENDING | MEDIUM | Voice cloning from OpenAI reference clips for the 3 languages Kokoro doesn't support. Requires 3-sec reference audio per voice. |
+| T3-15 | Gutenberg illustration scraper | PENDING | MEDIUM | Script to extract illustration URLs, captions, and page positions from Gutenberg HTML. Output: `IllustrationManifest` JSON per book. |
+| T3-16 | Gutenberg image proxy API | PENDING | MEDIUM | `/api/media/gutenberg-image` route to proxy images with CDN caching headers, AVIF/WebP conversion. |
+| T3-17 | Illustrated reader component | PENDING | MEDIUM | Page-by-page reader with full-bleed illustrations, text overlay/adjacent panel, audio sync. Three modes: auto-advance (pre-reader), tap-to-read (early-reader), standard + inline illustrations (independent). |
+| T3-18 | Gutenberg text ingestion pipeline | IN_PROGRESS | HIGH | Added server path `GET /api/audiobooks/chapter-text` with cache-backed ingestion (`src/lib/audiobooks/chapter-text-service.ts`) writing to `audiobooks-text/{slug}/{lang}/ch{NNN}.json` in Storage. Bulk/offline scripts now support resume offsets, bounded retries, and JSON run reports. Remaining: execute full seeding runs + monitor throughput/errors in staging/prod. |
+| T3-19 | Local translation pipeline (OPUS models) | PENDING | LOW | Helsinki-NLP OPUS models for EN→ES/FR/DE/PT translation. $0 compute cost. Batch translate chapter text for audiobook catalog. |
+| T3-20 | Catalog loader refactor | DONE | MEDIUM | Added unified loader (`src/lib/audiobooks/catalog-loader.ts`) for children/adult/illustrated JSON catalogs with filtering by age group, genre, language, and search. `/explore/audiobooks` + `[slug]` now read from the merged loader instead of static top-50 data; server API pagination now exposed at `GET /api/audiobooks/catalog`. |
 
 ## Active Execution Plan (Current — Post-Review Sprint)
 
@@ -226,11 +272,14 @@ All 4 previously-open security issues (C-2, H-1, H-2, H-3) are now RESOLVED:
 - Certificate generation for module completion (printable PDF)
 
 ### P2-08: Additional Language Support (Phase 2 i18n)
-**Priority**: LOW | **Effort**: 2's per language
-- French (fr), German (de), Arabic (ar) — highest demand after EN/ES
-- Requires: translate 400+ keys per language, RTL layout support for Arabic
-- Content localization: adapt cultural references in modules
-- Auto-detection based on browser/device locale
+**Priority**: HIGH (upgraded) | **Effort**: 1-2 weeks per language
+- 9 launch languages now defined: EN, ES, zh-CN, ja, ko, pt, fr, de, pl
+- EN + ES: fully wired with 400+ keys. Remaining 7 need UI translation.
+- Audiobook TTS: Kokoro covers 6/9 (en/es/fr/pt/ja/zh), XTTS v2 covers de/ko/pl.
+- Translation scope: UI strings first, module content second, audiobook text third.
+- Geofence-based default language selection + user override in settings.
+- Marketing pages: "More languages coming soon" messaging for non-EN/ES.
+- Arabic (RTL support): explicitly deferred to Phase 3.
 
 ## Overnight GPU Runner Runbook
 
@@ -359,3 +408,44 @@ Before store submission:
 - [ ] IAP products configured in RevenueCat + store consoles
 - [ ] Privacy policy URL + support URL set in store listings
 - [ ] Billing test plan executed (12 test cases in `BILLING-TEST-PLAN.md`)
+
+## Agent Ownership Update (2026-03-02)
+- Owner: Codex agent (this thread)
+- Scope claimed:
+  - Full 100-400 completion ownership for established tracks, including all Wave 1/2/3 expansion closures.
+  - Post-401 specialization ownership (501/601 delivered across 8 tracks).
+  - Interdisciplinary capstone ownership:
+    - `capstone-smart-city-systems-501/601`
+    - `capstone-human-health-ai-501/601`
+  - Ongoing ownership of module-flow hardening, quiz depth, and capstone defense alignment for these tracks.
+- Primary files in active scope (latest tranche):
+  - `eduforge-web/src/lib/modules/catalog/ai-machine-learning-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/ai-machine-learning-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/ai-workflows-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/ai-workflows-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/cloud-computing-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/cloud-computing-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/cybersecurity-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/cybersecurity-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/data-science-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/data-science-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/biotechnology-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/biotechnology-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/ux-design-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/ux-design-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/entrepreneurship-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/entrepreneurship-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/capstone-smart-city-systems-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/capstone-smart-city-systems-601.ts`
+  - `eduforge-web/src/lib/modules/catalog/capstone-human-health-ai-501.ts`
+  - `eduforge-web/src/lib/modules/catalog/capstone-human-health-ai-601.ts`
+  - `eduforge-web/CURRICULUM-EXPANSION-PROPOSALS-2026.md`
+  - `eduforge-web/PRODUCT-BACKLOG-EPICS.md`
+- Current status:
+  - Curriculum sync and validation are green after specialization + capstone expansion: `npm run modules:sync` -> 531 modules; `npm run curriculum:validate` -> 401 modules, 0 errors, 0 warnings.
+  - Module-level 101-401 coverage remains fully closed and expanded: 83/83 tracks complete.
+  - Curriculum quality report remains strong (average score ~99.75) with 0 medium-priority modules.
+- Coordination request to other agents:
+  - Do not modify files listed in this ownership scope without explicit coordination in handoff docs.
+  - Route overlap proposals through this handoff update section first.
+- Ownership window: active until explicitly released in a follow-up handoff update.
