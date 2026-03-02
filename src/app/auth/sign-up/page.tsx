@@ -83,7 +83,7 @@ function SignUpPageInner() {
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-white/55 dark:bg-background/72" />
+        <div className="absolute inset-0 bg-white/55" />
       </div>
 
       <section className="relative isolate overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
@@ -115,12 +115,13 @@ function SignUpPageInner() {
           <SoftCard
             as="section"
             organicCorners
-            className="self-start border-white/75 bg-white/80 p-6 backdrop-blur-sm dark:border-border dark:bg-surface/80"
+            className="self-start border-zinc-200/60 p-6 backdrop-blur-sm"
+            style={{ background: 'rgba(255,255,255,0.92)' }}
           >
-            <h2 className="ui-type-heading-xl text-zinc-900 dark:text-foreground">
+            <h2 className="ui-type-heading-xl text-zinc-900">
               {t("auth_sign_up_title")}
             </h2>
-            <p className="mt-2 ui-type-body-sm text-zinc-600 dark:text-foreground/70">
+            <p className="mt-2 ui-type-body-sm text-zinc-600">
               {t("auth_sign_up_subtitle")}
             </p>
 
@@ -128,10 +129,10 @@ function SignUpPageInner() {
 
             <div className="relative mt-6">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-border" />
+                <div className="w-full border-t border-zinc-200" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="bg-white/80 px-2 text-zinc-500 dark:bg-surface/80 dark:text-foreground/60">
+                <span className="bg-white/80 px-2 text-zinc-500">
                   {t("auth_sign_up_divider_or")}
                 </span>
               </div>
@@ -147,7 +148,7 @@ function SignUpPageInner() {
                   type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="ui-focus-ring w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm"
+                  className="ui-focus-ring w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm"
                   required
                 />
               </div>
@@ -161,7 +162,7 @@ function SignUpPageInner() {
                   type="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  className="ui-focus-ring w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm"
+                  className="ui-focus-ring w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm"
                   minLength={8}
                   required
                 />
@@ -176,7 +177,7 @@ function SignUpPageInner() {
               </button>
 
               {status ? (
-                <p role="status" className="text-sm text-zinc-600 dark:text-foreground/70">{status}</p>
+                <p role="status" className="text-sm text-zinc-600">{status}</p>
               ) : null}
               {!hasSupabaseConfig ? (
                 <p role="status" className="text-xs text-amber-700">
@@ -185,7 +186,7 @@ function SignUpPageInner() {
               ) : null}
             </form>
 
-            <p className="mt-5 text-sm text-zinc-600 dark:text-foreground/70">
+            <p className="mt-5 text-sm text-zinc-600">
               {t("auth_sign_up_footer_have_account")}{" "}
               <Link
                 href={nextPath ? `/auth/sign-in?next=${encodeURIComponent(nextPath)}` : "/auth/sign-in"}

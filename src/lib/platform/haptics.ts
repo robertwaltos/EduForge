@@ -63,3 +63,15 @@ export const hapticSelection = async (): Promise<void> => {
     console.error('Haptic selection feedback failed:', error);
   }
 };
+
+/**
+ * Triggers a warning haptic — medium impact to alert the user.
+ */
+export const hapticWarning = async (): Promise<void> => {
+  if (!isHapticsAvailable()) return;
+  try {
+    await Haptics.impact({ style: ImpactStyle.Medium });
+  } catch (error) {
+    console.error('Haptic warning feedback failed:', error);
+  }
+};

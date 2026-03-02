@@ -215,20 +215,10 @@
   --duration-normal-token: var(--dur-normal);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --background: #121925;
-    --foreground: #e8eef8;
-    --surface: #1a2332;
-    --surface-muted: #223045;
-    --border: #34465f;
-    --accent: #2563eb;
-    --success: #34d399;
-    --warn: #fbbf24;
-    --danger: #fb7185;
-    --gradient-hero: linear-gradient(135deg, #1a2738 0%, #1d3441 46%, #2a2f4a 100%);
-  }
-}
+/* Dark mode ONLY activates via explicit data-theme="dark" attribute.
+   Removed the prefers-color-scheme fallback that was overriding
+   light CSS variables on systems with OS dark mode, causing
+   SoftCard / surface backgrounds to render dark unexpectedly. */
 
 body {
   background: var(--background);

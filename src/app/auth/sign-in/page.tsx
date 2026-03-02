@@ -189,7 +189,7 @@ function SignInPageContent() {
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-white/55 dark:bg-background/72" />
+        <div className="absolute inset-0 bg-white/55" />
       </div>
 
       <section className="relative isolate overflow-hidden px-4 pb-20 pt-12 sm:px-6 sm:pb-24 sm:pt-16">
@@ -218,8 +218,8 @@ function SignInPageContent() {
       </section>
 
       <section className="relative z-10 mx-auto -mt-12 w-full max-w-6xl space-y-6 px-4 sm:px-6">
-        <SoftCard as="section" className="border-white/80 bg-white/90 p-6 backdrop-blur-sm dark:border-border dark:bg-surface/90">
-          <h2 className="ui-type-heading-xl text-zinc-900 dark:text-foreground">{t("auth_sign_in_title")}</h2>
+        <SoftCard as="section" className="border-zinc-200/60 p-6 backdrop-blur-sm" style={{ background: 'rgba(255,255,255,0.92)' }}>
+          <h2 className="ui-type-heading-xl text-zinc-900">{t("auth_sign_in_title")}</h2>
           <OAuthButtons layout="grid-2" className="mt-5" nextPath={nextPath} />
           {!hasSupabaseConfig ? (
             <p role="status" className="mt-4 text-xs text-amber-700">
@@ -229,8 +229,8 @@ function SignInPageContent() {
         </SoftCard>
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-          <SoftCard as="section" className="p-5">
-            <h3 className="ui-type-heading-md text-zinc-900 dark:text-foreground">{t("auth_sign_in_email_password_title")}</h3>
+          <SoftCard as="section" className="border-zinc-200/60 p-5" style={{ background: 'rgba(255,255,255,0.92)' }}>
+            <h3 className="ui-type-heading-md text-zinc-900">{t("auth_sign_in_email_password_title")}</h3>
             <form onSubmit={onPasswordSubmit} className="mt-4 space-y-4">
               <div>
                 <label htmlFor="email" className="mb-1 block text-sm font-medium">
@@ -241,7 +241,7 @@ function SignInPageContent() {
                   type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="ui-focus-ring w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm"
+                  className="ui-focus-ring w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm"
                   required
                 />
               </div>
@@ -255,7 +255,7 @@ function SignInPageContent() {
                   type="password"
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  className="ui-focus-ring w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm"
+                  className="ui-focus-ring w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm"
                   required
                 />
               </div>
@@ -268,12 +268,12 @@ function SignInPageContent() {
                 {isSubmittingPassword ? t("auth_sign_in_button_signing_in") : t("auth_sign_in_button_continue_email")}
               </button>
 
-              {status ? <p role="status" className="text-sm text-red-600 dark:text-red-400">{status}</p> : null}
+              {status ? <p role="status" className="text-sm text-red-600">{status}</p> : null}
             </form>
           </SoftCard>
 
-          <SoftCard as="section" className="p-5">
-            <h3 className="ui-type-heading-md text-zinc-900 dark:text-foreground">{t("auth_sign_in_magic_link_title")}</h3>
+          <SoftCard as="section" className="border-zinc-200/60 p-5" style={{ background: 'rgba(255,255,255,0.92)' }}>
+            <h3 className="ui-type-heading-md text-zinc-900">{t("auth_sign_in_magic_link_title")}</h3>
             <form onSubmit={onEmailOtpSubmit} className="mt-4 space-y-4">
               <div>
                 <label htmlFor="email-otp" className="mb-1 block text-sm font-medium">
@@ -284,23 +284,23 @@ function SignInPageContent() {
                   type="email"
                   value={emailOtp}
                   onChange={(event) => setEmailOtp(event.target.value)}
-                  className="ui-focus-ring w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm"
+                  className="ui-focus-ring w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm"
                   required
                 />
               </div>
               <button
                 type="submit"
                 disabled={isSubmittingEmailOtp || !hasSupabaseConfig}
-                className="ui-soft-button ui-focus-ring min-h-11 w-full rounded-full border border-border bg-surface-muted px-4 py-2 text-sm font-semibold disabled:opacity-70"
+                className="ui-soft-button ui-focus-ring min-h-11 w-full rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-semibold disabled:opacity-70"
               >
                 {isSubmittingEmailOtp ? t("auth_sign_in_magic_link_sending") : t("auth_sign_in_magic_link_send")}
               </button>
-              {otpStatus ? <p role="status" className="text-sm text-zinc-700 dark:text-foreground/85">{otpStatus}</p> : null}
+              {otpStatus ? <p role="status" className="text-sm text-zinc-700">{otpStatus}</p> : null}
             </form>
           </SoftCard>
 
-          <SoftCard as="section" className="p-5">
-            <h3 className="ui-type-heading-md text-zinc-900 dark:text-foreground">{t("auth_sign_in_phone_title")}</h3>
+          <SoftCard as="section" className="border-zinc-200/60 p-5" style={{ background: 'rgba(255,255,255,0.92)' }}>
+            <h3 className="ui-type-heading-md text-zinc-900">{t("auth_sign_in_phone_title")}</h3>
             <form onSubmit={onSendPhoneOtp} className="mt-4 space-y-4">
               <div>
                 <label htmlFor="phone" className="mb-1 block text-sm font-medium">
@@ -311,7 +311,7 @@ function SignInPageContent() {
                   type="tel"
                   value={phone}
                   onChange={(event) => setPhone(event.target.value)}
-                className="ui-focus-ring w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm"
+                className="ui-focus-ring w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm"
                   placeholder="+15551234567"
                   required
                 />
@@ -319,14 +319,14 @@ function SignInPageContent() {
               <button
                 type="submit"
                 disabled={isSendingPhoneOtp || !hasSupabaseConfig}
-                className="ui-soft-button ui-focus-ring min-h-11 w-full rounded-full border border-border bg-surface-muted px-4 py-2 text-sm font-semibold disabled:opacity-70"
+                className="ui-soft-button ui-focus-ring min-h-11 w-full rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-semibold disabled:opacity-70"
               >
                 {isSendingPhoneOtp ? t("auth_sign_in_phone_sending_code") : t("auth_sign_in_phone_send_code")}
               </button>
             </form>
 
             {phoneOtpSent ? (
-              <form onSubmit={onVerifyPhoneOtp} className="mt-4 space-y-4 border-t border-border/80 pt-4">
+              <form onSubmit={onVerifyPhoneOtp} className="mt-4 space-y-4 border-t border-zinc-200 pt-4">
                 <div>
                   <label htmlFor="phone-token" className="mb-1 block text-sm font-medium">
                     {t("auth_sign_in_label_verification_code")}
@@ -336,7 +336,7 @@ function SignInPageContent() {
                     type="text"
                     value={phoneToken}
                     onChange={(event) => setPhoneToken(event.target.value)}
-                    className="ui-focus-ring w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm"
+                    className="ui-focus-ring w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm"
                     inputMode="numeric"
                     autoComplete="one-time-code"
                     required
@@ -352,7 +352,7 @@ function SignInPageContent() {
               </form>
             ) : null}
 
-            {phoneStatus ? <p role="status" className="mt-4 text-sm text-zinc-700 dark:text-foreground/85">{phoneStatus}</p> : null}
+            {phoneStatus ? <p role="status" className="mt-4 text-sm text-zinc-700">{phoneStatus}</p> : null}
           </SoftCard>
         </div>
 
@@ -367,7 +367,7 @@ function SignInPageContent() {
           </SoftCard>
         ) : null}
 
-        <p className="pb-2 text-center text-sm text-zinc-600 dark:text-foreground/70">
+        <p className="pb-2 text-center text-sm text-zinc-600">
           {t("auth_sign_in_footer_no_account")}{" "}
           <Link
             href={`/auth/sign-up?next=${encodeURIComponent(nextPath)}`}

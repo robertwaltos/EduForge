@@ -46,13 +46,13 @@ export default async function Home() {
           sizes="100vw"
         />
 
-        {/* Soft light overlay for text legibility */}
+        {/* Minimal overlay — just enough to keep text readable over the image */}
         <div
           className="absolute inset-0"
           style={{
             background: [
-              "linear-gradient(to right, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.65) 38%, rgba(255,255,255,0.18) 65%, transparent 100%)",
-              "linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, transparent 30%, rgba(255,255,255,0.35) 80%, rgba(255,255,255,0.80) 100%)",
+              "linear-gradient(to right, rgba(255,255,255,0.70) 0%, rgba(255,255,255,0.40) 35%, transparent 60%)",
+              "linear-gradient(to bottom, transparent 0%, transparent 65%, rgba(255,255,255,0.60) 90%, rgba(255,255,255,0.85) 100%)",
             ].join(", "),
           }}
         />

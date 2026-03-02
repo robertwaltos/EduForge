@@ -39,13 +39,34 @@ import {
     SparksSparkQuest,
     PixelsPath,
     LunasLegend,
-    CircuitCrusader
+    CircuitCrusader,
+    GravityGoliath,
+    ProteinPainter,
+    LinguistLookout,
+    FusionFounder,
+    StellarState,
+    NeuralNet,
+    ClimateCommander,
+    HistoryHacker,
+    NanoNexus,
+    MarsColony,
+    QuantumSupremacy,
+    SyntheticArchitect,
+    GlobalHarmony,
+    EvolutionPrime,
+    WordWoods,
+    StorySmith,
+    AlphabetAirship,
+    SentenceSafari,
+    RhymeRiver,
+    CountConstellations,
+    FractionFactory
 } from "@/components/games";
 import PhysicalButton from "@/components/experience/PhysicalButton";
-import { Sparkles, Brain, Flame, Rocket, ArrowLeft, Palette, ShieldCheck, Beaker, Zap, Cpu, Box, Search, Leaf, Atom, TrendingUp, Globe, TreePine, Music, Mountain, Bot, Wind, History as HistoryIcon, Microscope, Navigation, Grid3X3, Scale, Compass, Construction, Lock, BookOpen, CircuitBoard } from "lucide-react";
+import { Sparkles, Brain, Flame, Rocket, ArrowLeft, Palette, ShieldCheck, Beaker, Zap, Cpu, Box, Search, Leaf, Atom, TrendingUp, Globe, TreePine, Music, Mountain, Bot, Wind, History as HistoryIcon, Microscope, Navigation, Grid3X3, Scale, Compass, Construction, Lock, BookOpen, CircuitBoard, Orbit, Dna, Languages, Clock, Binary, Heart, FlaskConical, Camera, Waves } from "lucide-react";
 import Link from "next/link";
 
-type GameId = "neural" | "fraction" | "vocabulary" | "artistic" | "ethical" | "synthesis" | "velocity" | "logic" | "canvas" | "chronicle" | "syntax" | "genetic" | "quantum" | "market" | "orbit" | "cipher" | "biome" | "rhythm" | "tectonic" | "flora" | "bot" | "eco" | "aero" | "histo" | "nano" | "quantum-quirk" | "star-steer" | "logic-labyrinth" | "bio-blast" | "ethos-engine" | "echo-expedition" | "terra-trek" | "spark-quest" | "pixel-path" | "luna-legend" | "circuit-crusader";
+type GameId = "neural" | "fraction" | "vocabulary" | "artistic" | "ethical" | "synthesis" | "velocity" | "logic" | "canvas" | "chronicle" | "syntax" | "genetic" | "quantum" | "market" | "orbit" | "cipher" | "biome" | "rhythm" | "tectonic" | "flora" | "bot" | "eco" | "aero" | "histo" | "nano" | "quantum-quirk" | "star-steer" | "logic-labyrinth" | "bio-blast" | "ethos-engine" | "echo-expedition" | "terra-trek" | "spark-quest" | "pixel-path" | "luna-legend" | "circuit-crusader" | "gravity-goliath" | "protein-painter" | "linguist-lookout" | "fusion-founder" | "stellar-state" | "neural-net" | "climate-commander" | "history-hacker" | "nano-nexus" | "mars-colony" | "quantum-supremacy" | "synthetic-architect" | "global-harmony" | "evolution-prime" | "word-woods" | "story-smith" | "alphabet-airship" | "sentence-safari" | "rhyme-river" | "count-constellations" | "fraction-factory";
 
 export default function NextGenGameGallery() {
     const [activeGame, setActiveGame] = useState<GameId | null>(null);
@@ -410,6 +431,216 @@ export default function NextGenGameGallery() {
             color: "text-indigo-400",
             bg: "bg-indigo-500/10",
             border: "border-indigo-500/20"
+        },
+        {
+            id: "gravity-goliath",
+            title: "Gravity Goliath",
+            mascot: "terra",
+            description: "A 4K orbital mechanics simulator. Master the pull of celestial giants!",
+            icon: Orbit,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "protein-painter",
+            title: "Protein Painter",
+            mascot: "terra",
+            description: "A 4K biochemistry simulator. Fold molecular chains into stable proteins!",
+            icon: Dna,
+            color: "text-rose-400",
+            bg: "bg-rose-500/10",
+            border: "border-rose-500/20"
+        },
+        {
+            id: "linguist-lookout",
+            title: "Linguist Lookout",
+            mascot: "echo",
+            description: "Trace the evolution of language and etymology in 4K.",
+            icon: Languages,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/20"
+        },
+        {
+            id: "fusion-founder",
+            title: "Fusion Founder",
+            mascot: "spark",
+            description: "Stabilize the nuclear fusion reactor core in this high-fidelity sim.",
+            icon: Atom,
+            color: "text-cyan-400",
+            bg: "bg-cyan-500/10",
+            border: "border-cyan-500/20"
+        },
+        {
+            id: "stellar-state",
+            title: "Stellar State",
+            mascot: "echo",
+            description: "Interstellar diplomacy and resource management simulator.",
+            icon: Globe,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/20"
+        },
+        {
+            id: "neural-net",
+            title: "Neural Net",
+            mascot: "pixel",
+            description: "Visually train AI models and optimize synaptic weights.",
+            icon: Binary,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "climate-commander",
+            title: "Climate Commander",
+            mascot: "terra",
+            description: "Global-scale ecology and climate systems simulation.",
+            icon: Wind,
+            color: "text-teal-400",
+            bg: "bg-teal-500/10",
+            border: "border-teal-500/20"
+        },
+        {
+            id: "history-hacker",
+            title: "History Hacker",
+            mascot: "echo",
+            description: "Resolve temporal paradoxes and manage chronological nexus points.",
+            icon: Clock,
+            color: "text-amber-400",
+            bg: "bg-amber-500/10",
+            border: "border-amber-500/20"
+        },
+        {
+            id: "nano-nexus",
+            title: "Nano Nexus",
+            mascot: "pixel",
+            description: "Assemble atomic lattices in this high-fidelity nanotechnology sim.",
+            icon: Microscope,
+            color: "text-cyan-400",
+            bg: "bg-cyan-500/10",
+            border: "border-cyan-500/20"
+        },
+        {
+            id: "mars-colony",
+            title: "Mars Colony",
+            mascot: "echo",
+            description: "A 4K survival engineering sim. Help Echo build a home on the Red Planet!",
+            icon: Rocket,
+            color: "text-orange-400",
+            bg: "bg-orange-500/10",
+            border: "border-orange-500/20"
+        },
+        {
+            id: "quantum-supremacy",
+            title: "Quantum Supremacy",
+            mascot: "pixel",
+            description: "Master subatomic logic gates in a cinematic neon circuit lab.",
+            icon: Cpu,
+            color: "text-cyan-400",
+            bg: "bg-cyan-500/10",
+            border: "border-cyan-500/20"
+        },
+        {
+            id: "synthetic-architect",
+            title: "Synthetic Architect",
+            mascot: "terra",
+            description: "Design your own 4K companion using biological building blocks.",
+            icon: FlaskConical,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "global-harmony",
+            title: "Global Harmony",
+            mascot: "echo",
+            description: "A 4K social-emotional quest. Help city citizens work in unity.",
+            icon: Heart,
+            color: "text-rose-400",
+            bg: "bg-rose-500/10",
+            border: "border-rose-500/20"
+        },
+        {
+            id: "evolution-prime",
+            title: "Evolution Prime",
+            mascot: "spark",
+            description: "The grand finale! A cinematic 4K journey through the timeline of existence.",
+            icon: Sparkles,
+            color: "text-amber-400",
+            bg: "bg-amber-500/10",
+            border: "border-amber-400/20"
+        },
+        {
+            id: "word-woods",
+            title: "Word Woods",
+            mascot: "terra",
+            description: "A 4K phonic adventure. Help Terra plant words in the magic forest!",
+            icon: TreePine,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "story-smith",
+            title: "Story Smith",
+            mascot: "luna",
+            description: "Forge your own 4K legends with branching paths and magical outcomes.",
+            icon: BookOpen,
+            color: "text-purple-400",
+            bg: "bg-purple-500/10",
+            border: "border-purple-500/20"
+        },
+        {
+            id: "alphabet-airship",
+            title: "Alphabet Airship",
+            mascot: "spark",
+            description: "Pilot a 4K steam-powered airship to collect letters across the sky.",
+            icon: Rocket,
+            color: "text-orange-400",
+            bg: "bg-orange-500/10",
+            border: "border-orange-500/20"
+        },
+        {
+            id: "sentence-safari",
+            title: "Sentence Safari",
+            mascot: "echo",
+            description: "Track wild sentences in a 4K jungle and capture them in 4K.",
+            icon: Camera,
+            color: "text-emerald-400",
+            bg: "bg-emerald-500/10",
+            border: "border-emerald-500/20"
+        },
+        {
+            id: "rhyme-river",
+            title: "Rhyme River",
+            mascot: "echo",
+            description: "Paddle down a 4K magic river and catch the rhyming bubbles.",
+            icon: Waves,
+            color: "text-blue-400",
+            bg: "bg-blue-500/10",
+            border: "border-blue-500/20"
+        },
+        {
+            id: "count-constellations",
+            title: "Count Constellations",
+            mascot: "spark",
+            description: "Connect the stars in sequence to stabilize the galaxy in 4K.",
+            icon: Sparkles,
+            color: "text-amber-400",
+            bg: "bg-amber-500/10",
+            border: "border-amber-500/20"
+        },
+        {
+            id: "fraction-factory",
+            title: "Fraction Factory",
+            mascot: "spark",
+            description: "Slice 3D Power Gems into equal parts to power the factory in 4K.",
+            icon: Box,
+            color: "text-sky-400",
+            bg: "bg-sky-500/10",
+            border: "border-sky-500/20"
         }
     ];
 
@@ -450,7 +681,28 @@ export default function NextGenGameGallery() {
                                                                                                                                             activeGame === "spark-quest" ? "spark" :
                                                                                                                                                 activeGame === "pixel-path" ? "pixel" :
                                                                                                                                                     activeGame === "luna-legend" ? "luna" :
-                                                                                                                                                        activeGame === "circuit-crusader" ? "pixel" : "pixel"
+                                                                                                                                                        activeGame === "circuit-crusader" ? "pixel" :
+                                                                                                                                                            activeGame === "gravity-goliath" ? "terra" :
+                                                                                                                                                                activeGame === "protein-painter" ? "terra" :
+                                                                                                                                                                    activeGame === "linguist-lookout" ? "echo" :
+                                                                                                                                                                        activeGame === "fusion-founder" ? "spark" :
+                                                                                                                                                                            activeGame === "stellar-state" ? "echo" :
+                                                                                                                                                                                activeGame === "neural-net" ? "pixel" :
+                                                                                                                                                                                    activeGame === "climate-commander" ? "terra" :
+                                                                                                                                                                                        activeGame === "history-hacker" ? "echo" :
+                                                                                                                                                                                            activeGame === "nano-nexus" ? "pixel" :
+                                                                                                                                                                                                activeGame === "mars-colony" ? "echo" :
+                                                                                                                                                                                                    activeGame === "quantum-supremacy" ? "pixel" :
+                                                                                                                                                                                                        activeGame === "synthetic-architect" ? "terra" :
+                                                                                                                                                                                                            activeGame === "global-harmony" ? "echo" :
+                                                                                                                                                                                                                activeGame === "evolution-prime" ? "spark" :
+                                                                                                                                                                                                                    activeGame === "word-woods" ? "terra" :
+                                                                                                                                                                                                                        activeGame === "story-smith" ? "luna" :
+                                                                                                                                                                                                                            activeGame === "alphabet-airship" ? "spark" :
+                                                                                                                                                                                                                                activeGame === "sentence-safari" ? "echo" :
+                                                                                                                                                                                                                                    activeGame === "rhyme-river" ? "echo" :
+                                                                                                                                                                                                                                        activeGame === "count-constellations" ? "spark" :
+                                                                                                                                                                                                                                            activeGame === "fraction-factory" ? "spark" : "pixel"
         }>
             <div className="max-w-6xl mx-auto px-4 py-12">
                 {/* Back Link */}
@@ -483,18 +735,18 @@ export default function NextGenGameGallery() {
                                     <Sparkles className="text-indigo-400 w-8 h-8" />
                                 </motion.div>
                                 <h1 className="text-6xl font-black text-white italic tracking-tighter">
-                                    2026 GAME <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">ENGINEERING</span>
+                                    50 GAME <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">MILESTONE</span>
                                 </h1>
                                 <p className="text-slate-400 max-w-2xl mx-auto font-medium text-lg">
-                                    Experiencing the future of education. These high-fidelity interactions are powered by our new
-                                    <strong> Interaction Engine</strong> and <strong>Mascot Shared Memory</strong>.
+                                    Celebrating the completion of Phase 12. These 50 high-fidelity interactions represent the pinnacle of
+                                    <strong> 2026 Game Engineering</strong> and <strong>Educational Cinematic Design</strong>.
                                 </p>
                             </header>
 
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {games.map((game, idx) => (
                                     <motion.div
-                                        key={game.id}
+                                        key={game.id + idx}
                                         initial={{ opacity: 0, y: 30 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: idx * 0.05 }}
@@ -575,6 +827,27 @@ export default function NextGenGameGallery() {
                                 {activeGame === "pixel-path" && <PixelsPath />}
                                 {activeGame === "luna-legend" && <LunasLegend />}
                                 {activeGame === "circuit-crusader" && <CircuitCrusader />}
+                                {activeGame === "gravity-goliath" && <GravityGoliath />}
+                                {activeGame === "protein-painter" && <ProteinPainter />}
+                                {activeGame === "linguist-lookout" && <LinguistLookout />}
+                                {activeGame === "fusion-founder" && <FusionFounder />}
+                                {activeGame === "stellar-state" && <StellarState />}
+                                {activeGame === "neural-net" && <NeuralNet />}
+                                {activeGame === "climate-commander" && <ClimateCommander />}
+                                {activeGame === "history-hacker" && <HistoryHacker />}
+                                {activeGame === "nano-nexus" && <NanoNexus />}
+                                {activeGame === "mars-colony" && <MarsColony />}
+                                {activeGame === "quantum-supremacy" && <QuantumSupremacy />}
+                                {activeGame === "synthetic-architect" && <SyntheticArchitect />}
+                                {activeGame === "global-harmony" && <GlobalHarmony />}
+                                {activeGame === "evolution-prime" && <EvolutionPrime />}
+                                {activeGame === "word-woods" && <WordWoods />}
+                                {activeGame === "story-smith" && <StorySmith />}
+                                {activeGame === "alphabet-airship" && <AlphabetAirship />}
+                                {activeGame === "sentence-safari" && <SentenceSafari />}
+                                {activeGame === "rhyme-river" && <RhymeRiver />}
+                                {activeGame === "count-constellations" && <CountConstellations />}
+                                {activeGame === "fraction-factory" && <FractionFactory />}
                             </div>
                         </motion.div>
                     )}
